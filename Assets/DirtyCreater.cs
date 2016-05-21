@@ -1,36 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
+#define CREATE_MAX 10   // 念の為に
+*/
 public class DirtyCreater : MonoBehaviour {
     
     [SerializeField]
-    Object[] dirty;   // 汚れオブジェクト
+    GameObject dirtyObject;   // 汚れオブジェクト
 
     [SerializeField]
     Vector2 createRange; // 生成範囲
 
     [SerializeField]
-    Vector2 createNumber; // 生成個数
+    uint createNumber; // 生成個数
 
-    float createTime;
+    float createTime;   // 生成時間
 
-    GameObject dirtyInstance;
+    GameObject[] dirtyObjectInstance;   // 管理用
 
-    bool is_myDityDestroy;
+    bool is_myDityDestroy;  // 消されたかどうか
 
     // Use this for initialization
-    void Start () {
-        int width = 960;
-        int height = 540;
-
-        bool fullscreen = true;
-
-        int preferredRefreshRate = 60;
-
-        Screen.SetResolution(width, height, fullscreen, preferredRefreshRate);
-
-
-        createTime = 20;
+    void Start ()
+    {
+        dirtyObjectInstance = new GameObject[createNumber];
+        createTime = 0;
         is_myDityDestroy = true;
 
 #if DEBUG
@@ -62,10 +56,25 @@ public class DirtyCreater : MonoBehaviour {
         // 汚れがなくて 生成時間時間が0
         if (is_myDityDestroy && createTime <= 0)
         {
-            for (int i = 0;i < dirty.GetLength(0);i++)
+            for (int i = 0;i < createNumber; i++)
             {
-                dirtyInstance = (GameObject)Instantiate(dirty[0], (transform.rotation * new Vector3(Mathf.Sin(0.0f), Mathf.Cos((float)(dirty.GetLength(1)) - 1.0f * 360.0f / i), 0)) + transform.position, transform.rotation);
-                DirtyObjectScript obj = dirtyInstance.GetComponent<DirtyObjectScript>();
+                Vector3 pos =  new Vector3(Mathf.Cos( Mathf.Deg2Rad * i * 360.0f / (float)createNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), 0);
+                pos.x *= createRange.x;
+                pos.y *= createRange.y;
+                pos = transform.rotation * pos;
+                dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
+
+                // デバッグ用 街範囲外や規定高度外(クリエイトポイント基準)な場合 警告
+#if DEBUG
+                if (pos.y < -0.5)
+                {
+                    Debug.Log(dirtyObjectInstance[i].name + "の生成場所が規定範囲を超えています!");
+                }
+#endif
+
+                // 親子関係的なものを構築
+                DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
+                dirtyObjectInstance[i].transform.parent = this.transform;
                 obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
                 is_myDityDestroy = false;
 
