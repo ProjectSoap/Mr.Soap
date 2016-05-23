@@ -12,3 +12,6 @@
 /*.booproj
 /.vs/CaseSoap/v14/*.suo
 /.vs/ProjectSoap/v14/*.suo
+/UnityProject/*.csproj
+/UnityProject/*.sln
+/UnityProject/*.userprefs
