@@ -7,19 +7,22 @@ public class DirtySystem : MonoBehaviour
     GameObject player;
 
     [SerializeField]
-    GameObject points;
-
+    GameObject[] points;
+    
 
     // Use this for initialization
     void Start ()
     {
-        
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        DirtyCreater creater =  points.GetComponent<DirtyCreater>();
-        creater.CheckDistance(player.transform.position);
+        for (int i = 0;i < points.Length;i++)
+        {
+            DirtyCreater creater = points[i].GetComponent<DirtyCreater>();
+            creater.CheckDistance(player.transform.position);
+        }
     }
 }

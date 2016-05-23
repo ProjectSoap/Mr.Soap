@@ -140,7 +140,7 @@ public class SoapDrive : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            m_velocity = 0.05f;
+            m_velocity -= 0.05f;
         }
      //   m_velocity += Input.GetAxis("Vertical");
 

@@ -147,6 +147,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 736fc8a70191ffa40896adea426ca6e6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &486893711 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 116422, guid: 0f0b0ece070718f4b8c241f0fe36ceee, type: 2}
+  m_PrefabInternal: {fileID: 2070519714}
 --- !u!1 &510573283
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,8 +868,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 942242211}
+  - 114: {fileID: 942242212}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DirtySystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -883,6 +888,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &942242212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 942242210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791685db50849824182f45570617ef70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 486893711}
+  points:
+  - {fileID: 1531358535}
 --- !u!1 &958160505
 GameObject:
   m_ObjectHideFlags: 0

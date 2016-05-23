@@ -22,9 +22,13 @@ public class DirtyCreater : MonoBehaviour {
 
     bool isRangeOut;   // マップ範囲外であるか
 
-    char rangeOutCount;
+    char rangeOutCountPar10Seconds; // ミニマップ範囲外に出て何毎10秒いたか
 
-    float deltaTime;
+    float deltaTime;    // 消されてからの経過時間
+    float oldDeltaTime;    // 前の経過時間
+
+    float countStartTime;
+    bool isCountPar10Seconds;
 
     // Use this for initialization
     void Start ()
@@ -59,8 +63,16 @@ public class DirtyCreater : MonoBehaviour {
     void Update ()
     {
         DrawDebugQuadMesh();
-        //
-        deltaTime = Time.deltaTime;
+        // どれか汚れが消されているなら生成カウント
+        if (isMyDityDestroy)
+        {
+            CountTime();
+        }
+        // 生成カウントが毎10秒経過
+        if (isCountPar10Seconds)
+        {
+            CreateDirty();
+        }
     }
 
 
@@ -96,29 +108,90 @@ public class DirtyCreater : MonoBehaviour {
 
     public void CreateDirty()
     {
-        for (int i = 0; i < createNumber; i++)
-        {
-            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), 0);
-            pos.x *= createRange.x;
-            pos.y *= createRange.y;
-            pos = transform.rotation * pos;
-            dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
-            
-            // 親子関係的なものを構築
-            DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
-            dirtyObjectInstance[i].transform.parent = this.transform;
-            obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
-            isMyDityDestroy = false;
 
+        if (isCountPar10Seconds)
+        {
+            bool isCreate = false;
+            // 毎10秒経過回数で確率アップ
+            switch (rangeOutCountPar10Seconds)
+            {
+                case (char)1:
+                    if (Random.Range(0, 100) <= 20)
+                    {
+                        isCreate = true;
+                    }
+                    break;
+                case (char)2:
+                    if (Random.Range(0, 100) <= 30)
+                    {
+                        isCreate = true;
+                    }
+                    break;
+                case (char)3:
+                    if (Random.Range(0, 100) <= 60)
+                    {
+                        isCreate = true;
+                    }
+                    break;
+                case (char)4:
+                    if (Random.Range(0, 100) <= 100)
+                    {
+                        isCreate = true;
+                    }
+                    break;
+                default:
+                    isCreate = false;
+                    break;
+            }
+
+            // フラグが立ってるなら汚れ作る
+            if (isCreate)
+            {
+                for (int i = 0; i < createNumber; i++)
+                {
+                    Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), 0);
+                    pos.x *= createRange.x;
+                    pos.y *= createRange.y;
+                    pos = transform.rotation * pos;
+                    dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
+
+                    // 親子関係的なものを構築
+                    DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
+                    dirtyObjectInstance[i].transform.parent = this.transform;
+                    obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
+                    isMyDityDestroy = false;
+
+                }
+            }
         }
-        
+        isCountPar10Seconds = false;
+
     } 
 
     void CountTime()
     {
+
+        // 範囲外ならカウント
         if (isRangeOut)
         {
-            rangeOutCount++;
+            oldDeltaTime = deltaTime;
+            deltaTime += Time.deltaTime - countStartTime;
+
+            // 毎10秒経過したか
+            if (((int)deltaTime - 10 * rangeOutCountPar10Seconds)  >= 10)
+            {
+                isCountPar10Seconds = true;
+                rangeOutCountPar10Seconds++;
+            }
+            else
+            {
+                isCountPar10Seconds = false;
+            }
         }
+        else
+        {
+            countStartTime = Time.deltaTime;
+        }
+
     }
 }
