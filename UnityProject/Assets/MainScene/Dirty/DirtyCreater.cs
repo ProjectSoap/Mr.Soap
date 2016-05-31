@@ -14,11 +14,16 @@ public class DirtyCreater : MonoBehaviour {
     [SerializeField]
     uint createNumber; // 生成個数
 
-    float createTime;   // 生成時間
-
+    
+    DirtySystem parntDirtySystem;   // 管理用
+    public DirtySystem ParntDirtySystem
+    {
+        get { return parntDirtySystem; }
+        set { parntDirtySystem = value; }
+    }
     GameObject[] dirtyObjectInstance;   // 管理用
 
-    bool isMyDityDestroy;  // 消されたかどうか
+    bool[] isMyDityDestroy;  // 消されたかどうか
 
     bool isRangeOut;   // マップ範囲外であるか
 
@@ -28,14 +33,59 @@ public class DirtyCreater : MonoBehaviour {
     float oldDeltaTime;    // 前の経過時間
 
     float countStartTime;
-    bool isCountPar10Seconds;
+    bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
+    uint affiliationArea;
 
+    bool isReality;
+    public bool IsReality
+    {
+        get { return isReality; }
+        set { isReality = value; }
+    }
+
+    public uint AffiliationArea
+    {
+        get { return affiliationArea; }
+        set { affiliationArea = value; }
+    }
     // Use this for initialization
     void Start ()
     {
+    }
+
+
+    void Awake()
+    {
         dirtyObjectInstance = new GameObject[createNumber];
-        createTime = 0;
-        isMyDityDestroy = true;
+        countStartTime = Time.deltaTime;
+        isMyDityDestroy = new bool[createNumber];
+        for (int i = 0;i< createNumber;i++)
+        {
+            isMyDityDestroy[i] = false;
+
+        }
+
+        for (int i = 0; i < createNumber; i++)
+        {
+            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), 0);
+            pos.x *= createRange.x;
+            pos.y *= createRange.y;
+            pos = transform.rotation * pos;
+
+            // 消されたオブジェクトは新たに作る
+            if (dirtyObjectInstance[i] == null)
+            {
+
+                dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
+
+                // 親子関係的なものを構築
+                DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
+                dirtyObjectInstance[i].transform.parent = this.transform;
+                obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
+                isMyDityDestroy[i] = false;
+            }
+
+        }
 
 #if DEBUG
         if (GetComponent<MeshRenderer>() != null)
@@ -54,17 +104,33 @@ public class DirtyCreater : MonoBehaviour {
 #endif
     }
 
-    void DirtyDestroy()
+    void DirtyDestroy(uint num)
     {
-        isMyDityDestroy = true;
+        isMyDityDestroy[num] = true;
+    }
+
+    public void NoticeDestroy()
+    {
+        ParntDirtySystem.NoticeDestroyToSystem(AffiliationArea,isReality);
     }
 
     // Update is called once per frame
     void Update ()
     {
         DrawDebugQuadMesh();
+        bool isCreateFlag = false;
         // どれか汚れが消されているなら生成カウント
-        if (isMyDityDestroy)
+        for (int i  = 0;i < createNumber;i++)
+        {
+            if (isMyDityDestroy[i])
+            {
+                // どれか消されてんなら生成フラグ立てる
+                isCreateFlag = true;
+            }
+        }
+
+        // 汚れが一個でも消されてんなら生成するためのカウントを行う
+        if (isCreateFlag)
         {
             CountTime();
         }
@@ -119,24 +185,28 @@ public class DirtyCreater : MonoBehaviour {
                     if (Random.Range(0, 100) <= 20)
                     {
                         isCreate = true;
+                        deltaTime = 0;
                     }
                     break;
                 case (char)2:
                     if (Random.Range(0, 100) <= 30)
                     {
                         isCreate = true;
+                        deltaTime = 0;
                     }
                     break;
                 case (char)3:
                     if (Random.Range(0, 100) <= 60)
                     {
                         isCreate = true;
+                        deltaTime = 0;
                     }
                     break;
                 case (char)4:
                     if (Random.Range(0, 100) <= 100)
                     {
                         isCreate = true;
+                        deltaTime = 0;
                     }
                     break;
                 default:
@@ -153,13 +223,19 @@ public class DirtyCreater : MonoBehaviour {
                     pos.x *= createRange.x;
                     pos.y *= createRange.y;
                     pos = transform.rotation * pos;
-                    dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
 
-                    // 親子関係的なものを構築
-                    DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
-                    dirtyObjectInstance[i].transform.parent = this.transform;
-                    obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
-                    isMyDityDestroy = false;
+                    // 消されたオブジェクトは新たに作る
+                    if (dirtyObjectInstance[i])
+                    {
+
+                        dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
+
+                        // 親子関係的なものを構築
+                        DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
+                        dirtyObjectInstance[i].transform.parent = this.transform;
+                        obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
+                        isMyDityDestroy[i] = false;
+                    }
 
                 }
             }
@@ -175,7 +251,7 @@ public class DirtyCreater : MonoBehaviour {
         if (isRangeOut)
         {
             oldDeltaTime = deltaTime;
-            deltaTime += Time.deltaTime - countStartTime;
+            deltaTime += Time.deltaTime;
 
             // 毎10秒経過したか
             if (((int)deltaTime - 10 * rangeOutCountPar10Seconds)  >= 10)
@@ -187,10 +263,6 @@ public class DirtyCreater : MonoBehaviour {
             {
                 isCountPar10Seconds = false;
             }
-        }
-        else
-        {
-            countStartTime = Time.deltaTime;
         }
 
     }

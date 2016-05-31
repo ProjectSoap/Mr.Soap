@@ -10,9 +10,13 @@ public class DirtyObjectScript : MonoBehaviour
         get { return myCreater; }
         set { myCreater = value; }
     }
+    public AudioClip audioClip;
+    AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = audioClip;
 
     }
 
@@ -25,6 +29,8 @@ public class DirtyObjectScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble")
         {
+            myCreater.NoticeDestroy();
+            audioSource.Play();
             Destroy(gameObject);
         }
     }

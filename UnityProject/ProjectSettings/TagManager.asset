@@ -8,6 +8,7 @@ TagManager:
   - Bubble
   - DirtyPoint
   - Building
+  - RecoverySoap
   layers:
   - Default
   - TransparentFX
