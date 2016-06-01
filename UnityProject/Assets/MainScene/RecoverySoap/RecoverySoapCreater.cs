@@ -12,6 +12,10 @@ public class RecoverySoapCreater : MonoBehaviour {
     [SerializeField]
     bool isHaveRevoverySoap; // 生成したものを所持しているかのフラグ
 
+    [SerializeField,TooltipAttribute("生成を許可するプレイヤーとの距離")]
+    float distanceForParmitTheCreate;   
+
+    [SerializeField]
     bool isRangeOut;
     public bool IsRangeOut
     {

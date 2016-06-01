@@ -292,6 +292,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 390026214}
   - 114: {fileID: 390026213}
+  - 114: {fileID: 390026215}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -324,7 +325,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
+--- !u!114 &390026215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390026212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b70fb7aee73c204099b843f935621df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &473816068
 Prefab:
   m_ObjectHideFlags: 0
@@ -1860,7 +1872,7 @@ Transform:
   - {fileID: 2011553428}
   - {fileID: 677879588}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
 --- !u!95 &1795491720
 Animator:
   serializedVersion: 3
