@@ -1007,7 +1007,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412752, guid: 736fc8a70191ffa40896adea426ca6e6, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11460170, guid: 736fc8a70191ffa40896adea426ca6e6, type: 2}
       propertyPath: NextPoint
@@ -2073,7 +2073,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412752, guid: 736fc8a70191ffa40896adea426ca6e6, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 145738, guid: 736fc8a70191ffa40896adea426ca6e6, type: 2}
       propertyPath: m_Name
