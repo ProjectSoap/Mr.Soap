@@ -22,7 +22,7 @@ public class TexNum : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SetNum(502);
+        SetNum(0);
 	}
 	
 	// Update is called once per frame
