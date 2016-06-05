@@ -13,7 +13,7 @@ public class BubbleBullet : MonoBehaviour {
 
         Vector3 MoveVec;
 
-        MoveVec = transform.forward*5.0f;
+        MoveVec = Vector3.forward*5.0f;
         MoveVec.y += 10.0f;
         rigid.velocity = MoveVec;
 

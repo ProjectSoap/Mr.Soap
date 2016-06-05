@@ -17,12 +17,20 @@ public class PlayerCharacterController : MonoBehaviour
         JumpAfter,
         Damage,
         DamageAfter,
-    }   
+    }
+
+    public enum WeatherState
+    {
+        Sunny,
+        Rain,
+        Wind,
+        Fog,
+    }
 
     enum WindState
     {
-        Head,
-        Tail,
+        Head,       // 向かい風
+        Tail,       // 追い風
         Right,
         Left,            
     }
@@ -99,11 +107,41 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("ジャンプ泡")]
     GameObject m_jumpBubble;
 
-    [SerializeField, Tooltip(""), Header("天候")]
-    GameObject a;
+    [SerializeField, Tooltip("雨天時最高速度加算値"), Header("天候")]
+    float m_rainAddMaxVelocity;
+
+    [SerializeField, Tooltip("雨天時加速度加算値")]
+    float m_rainAddAcceleration;
+
+    [SerializeField, Tooltip("横向きの風と判定する角度")]
+    float m_windSideAngle;
+
+    [SerializeField, Tooltip("向かい風と判定する角度")]
+    float m_windHeadAngle;
+
+    [SerializeField, Tooltip("追い風時の最大速度")]
+    float m_windHeadMaxVelocity;
+
+    [SerializeField, Tooltip("追い風時の加速度加算値")]
+    float m_windHeadAcceleration;
+
+    [SerializeField, Tooltip("向かい風時の最大速度")]
+    float m_windTailMaxVelocity;
+
+    [SerializeField, Tooltip("向かい風時の加速度加算値")]
+    float m_windTailAcceleration;
+
+    [SerializeField, Tooltip("横向きの風時の回転力加算値")]
+    float m_windSideAddRotationPower;
+
+    [SerializeField, Tooltip("横向きの風時の最大回転力加算値")]
+    float m_windSideAddMaxRotation;
+
+    [SerializeField, Tooltip("横向きの風時のドリフト時間加算値")]
+    float m_windSideAddDriftStartTime;    
 
     // Rigidbody
-    Rigidbody   m_rigidbody;
+    Rigidbody m_rigidbody;
 
     // Animation
     PlayerCharacterAnimationBehaviour   m_stateMachineBehaviour;
@@ -135,7 +173,6 @@ public class PlayerCharacterController : MonoBehaviour
     float       m_jumpAfterTime = 0.0f;
 
     // Damage
-    [SerializeField]
     float       m_damageAfterTime = 0.0f;
 
     // Scale
@@ -154,9 +191,14 @@ public class PlayerCharacterController : MonoBehaviour
     BubbleDriftShooter m_bubbleDriftShooter;
 
     // Weather
+    WeatherState m_weatherState;
+
+    Vector3 m_windDirection = new Vector3(.0f, .0f, .0f);
+
     float m_weatherAddMaxVelocity;
     float m_weatherAddAcceleration;
     float m_weatherAddRotationPower;
+    float m_weatherAddMaxRotation;
     float m_weatherAddDriftStartTime;    
     float m_weatherAddBreakePower;
 
@@ -179,13 +221,26 @@ public class PlayerCharacterController : MonoBehaviour
 
     public float size
     {
-        get{ return m_size; }
+        set { m_size = value; }
+        get { return m_size; }
     }
 
     public DriveState state
     {
         get { return m_driveState; }
         set { m_driveState = value; }
+    }
+
+    public WeatherState weatherState
+    {
+        get { return m_weatherState; }
+        set { m_weatherState = value; }
+    }
+
+    public Vector3 windDirection
+    {
+        get { return m_windDirection; }
+        set { m_windDirection = value; }
     }
 
     public Animator animator
@@ -309,6 +364,45 @@ public class PlayerCharacterController : MonoBehaviour
             m_driftParticleSystemRight.enableEmission = false;
             m_driftParticleSystemLeft.enableEmission = false;
         }
+
+        // 天候チェック
+        switch (m_weatherState)
+        {
+            case WeatherState.Sunny:
+                m_weatherAddMaxVelocity     = .0f;
+                m_weatherAddAcceleration    = .0f;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
+                break;
+            case WeatherState.Rain:
+                m_weatherAddMaxVelocity     = m_rainAddMaxVelocity;
+                m_weatherAddAcceleration    = m_rainAddAcceleration;
+                break;
+            case WeatherState.Wind:
+
+                float windAngle     = Vector3.Angle(transform.forward, windDirection);
+                float windAngleAbs  = Mathf.Abs(windAngle);
+
+                if(windAngleAbs < m_windSideAngle)
+                {
+                    // 追い風
+                }
+                else if(windAngleAbs >= m_windSideAngle)
+                {
+                    // 横向きの風
+                }
+                else if(windAngleAbs >= m_windHeadAngle)
+                {
+                    //　向かい風
+                }
+
+                break;
+            case WeatherState.Fog:
+                break;
+            default:
+                break;
+        }
     }
 
     void FixedUpdate()
@@ -375,11 +469,11 @@ public class PlayerCharacterController : MonoBehaviour
 
     void Accel()
     {
-        m_velocity += m_acceleration * Time.fixedDeltaTime;
+        m_velocity += (m_acceleration + m_weatherAddAcceleration) * Time.fixedDeltaTime;
 
-        if (m_velocity > m_maxVelocity)
+        if (m_velocity > m_maxVelocity + m_weatherAddMaxVelocity)
         {
-            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity);
+            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity + m_weatherAddMaxVelocity);
         }
 
         if (Mathf.Abs(m_velocity) > .0f)

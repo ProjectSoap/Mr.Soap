@@ -56,4 +56,9 @@ public class BubbleDriftShooter : MonoBehaviour
 
         StartCoroutine(ShotCorutine());
     }
+
+    public void StopShot()
+    {
+        StopAllCoroutines();
+    }
 }
