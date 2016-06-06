@@ -179,6 +179,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487701801}
+  - 114: {fileID: 487701802}
   m_Layer: 0
   m_Name: BGMManager
   m_TagString: Untagged
@@ -198,6 +199,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &487701802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487701800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270417794a2772042b6426f083728691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMList: []
+  SEList:
+  - {fileID: 0}
+  MaxSE: 10
+  mixer: {fileID: 24100000, guid: 703e9d67a2a073343adc2db60280043d, type: 2}
+  keisuu: 0
 --- !u!1 &595892284
 GameObject:
   m_ObjectHideFlags: 0

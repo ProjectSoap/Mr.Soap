@@ -14,7 +14,6 @@ public class PlayRecordSystem : MonoBehaviour {
     private RecordObjectList recordList;
     private int recordListNum;
     private int selectLecordNo;
-    private bool firstFlg;
 
     //外部からセットされるオブジェクト
     public SelectPointer pointerObject;
@@ -32,23 +31,23 @@ public class PlayRecordSystem : MonoBehaviour {
         //テキストを初期設定
         TConditionText.text = recordList.GetRecordCondtion(selectLecordNo);
         //獲得済み表示のオンオフ
-        TRecordName.text = recordList.GetRecordName(selectLecordNo);
-        ClearTextImage.enabled = true;
+        if (recordList.GetStatusLevel(selectLecordNo) == 0)
+        {
+            TRecordName.text = "";
+            ClearTextImage.enabled = false;
+        }
+        else
+        {
+            TRecordName.text = recordList.GetRecordName(selectLecordNo);
+            ClearTextImage.enabled = true;
+        }
 
         selectLecordNo = 0;
-        //ChangeRecord(SelectPointer.EMoveMode.NORMAL);
-        firstFlg = true;
+        ChangeRecord(SelectPointer.EMoveMode.NORMAL);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //初回のみ。(汚いけど許して)
-        if (firstFlg == true)
-        {
-            ChangeRecord(SelectPointer.EMoveMode.NORMAL);
-            firstFlg = false;
-        }
-
         int noX = selectLecordNo % 10;
         int noY = selectLecordNo / 10;
 
