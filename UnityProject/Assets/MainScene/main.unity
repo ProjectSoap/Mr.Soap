@@ -222,6 +222,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 179330, guid: 1f9b607ac546a2541ac57b0da5f2ea96, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f9b607ac546a2541ac57b0da5f2ea96, type: 2}
   m_IsPrefabParent: 0
@@ -279,6 +283,70 @@ Prefab:
     - target: {fileID: 458012, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446690, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_shotIntervelTime
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_rainAddMaxVelocity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_rainAddAcceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windSideAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windHeadAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windHeadMaxVelocity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windHeadAcceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windTailMaxVelocity
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windTailAcceleration
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windHeadAddMaxVelocity
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windHeadAddAcceleration
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windTailAddMaxVelocity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windTailAddAcceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windSideAddRotationPower
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windSideAddMaxRotation
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495782, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
+      propertyPath: m_windSideAddDriftStartTime
+      value: -.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df757aa9b152a9b428298dd4eba231a2, type: 2}
@@ -694,6 +762,10 @@ Prefab:
     - target: {fileID: 467534, guid: fbabbc19bb4ce224f8224b294b979c75, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 127696, guid: fbabbc19bb4ce224f8224b294b979c75, type: 2}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbabbc19bb4ce224f8224b294b979c75, type: 2}
@@ -1124,6 +1196,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 140672, guid: 863a0a86a6cd9164381c16af3526e3bb, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 863a0a86a6cd9164381c16af3526e3bb, type: 2}
   m_IsPrefabParent: 0
@@ -1225,6 +1301,10 @@ Prefab:
     - target: {fileID: 476850, guid: 7674a7ad1a992cf4081cb7846129811c, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 182372, guid: 7674a7ad1a992cf4081cb7846129811c, type: 2}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7674a7ad1a992cf4081cb7846129811c, type: 2}
@@ -1651,6 +1731,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 194968, guid: cb76f77b3c65d5640a09acda9be5e6a4, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb76f77b3c65d5640a09acda9be5e6a4, type: 2}
   m_IsPrefabParent: 0
@@ -1837,7 +1921,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1795491719}
   - 95: {fileID: 1795491720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: building
   m_TagString: Untagged
   m_Icon: {fileID: 0}

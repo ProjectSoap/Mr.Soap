@@ -18,9 +18,10 @@ public class RecordObjectList : MonoBehaviour {
     //複製したプレハブの親を指定
     public GameObject canvasRecord;
     //パーセント表示を行いたいテキストオブジェクトを外部からセットしてください。
-    public Text TPercent;
+    public TexNum TexNumObject;
     //実績をチェックするスクリプトを外部からセットしてください。
     public CheckRecordCondition recordChecker;
+
 
     //実績の名前を定義する
     private string[] RECORD_NAME_LIST = {
@@ -143,54 +144,8 @@ public class RecordObjectList : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 	    //RecordObjectを生成。
         recordObjectList = new GameObject[RECORD_NUM];
-
-        /*
-        int clearCount = 0; 
-        
-        //実績情報を読み込みと判断
-        for (int i = 0; i < RECORD_NUM; ++i)
-        {
-            //実績オブジェクトをUnity上に生成。
-            recordObjectList[i] = ((GameObject)Instantiate(recordObjectPrefab));
-            recordObjectList[i].transform.SetParent(canvasRecord.transform);
-
-            //実績レベルを設定。条件クリアしてなければhatena(0)にする
-            if (recordChecker.CheckRecordConditionClear(i) == true)
-            {
-                recordObjectList[i].GetComponentInChildren<RecordObject>().SetImageTextureAndLevel(RECORD_STATUS_LIST[i]); //1,2,3
-                clearCount++;
-            }
-            else
-            {
-                recordObjectList[i].GetComponentInChildren<RecordObject>().SetImageTextureAndLevel(0);
-            }
-
-            Vector2 temp;
-            temp.x = 0;
-            temp.y = 0;
-            recordObjectList[i].GetComponent<RectTransform>().anchoredPosition = temp;
-            recordObjectList[i].GetComponent<RectTransform>().sizeDelta = temp;
-
-            //実績オブジェクトの位置を調整する
-            Vector2 temp2;
-
-            temp.x = 0.09f * (i % 10) - 0.045f + 0.1f;
-            temp.y = -0.16f * (i / 10) - 0.075f + 0.75f;
-
-            temp2.x = 0.09f * (i % 10) + 0.045f + 0.1f;
-            temp2.y = -0.16f * (i / 10) + 0.075f + 0.75f;
-
-            recordObjectList[i].GetComponent<RectTransform>().anchorMin = temp;
-            recordObjectList[i].GetComponent<RectTransform>().anchorMax = temp2;
-        }
-
-        //実績開放率テキスト表示
-        int percent = clearCount * 100 / 30;
-        TPercent.text = "達成率" + percent.ToString() + "%！";
-        */
 
         ReLoadRecord();
 	}
@@ -305,7 +260,7 @@ public class RecordObjectList : MonoBehaviour {
 
         //実績開放率テキスト表示
         int percent = clearCount * 100 / 30;
-        TPercent.text = "達成率" + percent.ToString() + "%！";
+        TexNumObject.SetNum(percent);
     }
 
     
