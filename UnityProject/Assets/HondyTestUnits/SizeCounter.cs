@@ -22,6 +22,7 @@ public class SizeCounter : MonoBehaviour {
             count = value;
         }
     }
+    
     [SerializeField]
     int centerPosition;
     // Use this for initialization
@@ -46,15 +47,15 @@ public class SizeCounter : MonoBehaviour {
             }
             else if (count < 100)
             {
-                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.25f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.3f, rect.localPosition.y, rect.localPosition.z);
             }
             else if (count < 1000)
             {
-                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.5f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.6f, rect.localPosition.y, rect.localPosition.z);
             }
             else if (count < 10000)
             {
-                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.75f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.9f, rect.localPosition.y, rect.localPosition.z);
             }
             obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
         }
@@ -74,7 +75,7 @@ public class SizeCounter : MonoBehaviour {
             RectTransform rect = obj.GetComponent<RectTransform>();
             if (count < 100)
             {
-                rect.localPosition = new Vector3(centerPosition - rect.sizeDelta.x * 0.25f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition - rect.sizeDelta.x * 0.3f, rect.localPosition.y, rect.localPosition.z);
             }
             else if (count < 1000)
             {
@@ -82,7 +83,7 @@ public class SizeCounter : MonoBehaviour {
             }
             else if (count < 10000)
             {
-                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.25f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.3f, rect.localPosition.y, rect.localPosition.z);
             }
 
 
@@ -106,11 +107,11 @@ public class SizeCounter : MonoBehaviour {
             // 中央揃いにする
             if (count < 1000)
             {
-                rect.localPosition = new Vector3(centerPosition - rect.sizeDelta.x * 0.5f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition - rect.sizeDelta.x * 0.6f, rect.localPosition.y, rect.localPosition.z);
             }
             else if (count < 10000)
             {
-                rect.localPosition = new Vector3(centerPosition - rect.sizeDelta.x * 0.25f, rect.localPosition.y, rect.localPosition.z);
+                rect.localPosition = new Vector3(centerPosition - rect.sizeDelta.x * 0.3f, rect.localPosition.y, rect.localPosition.z);
             }
 
             temp /= 10;

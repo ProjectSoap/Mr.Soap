@@ -33,6 +33,8 @@ public class DirtySystem : MonoBehaviour
     GameObject RealityPoint4;     // 区画4のレア汚れ
 
     [SerializeField]
+    int totalDestroyDirtyCount;
+    [SerializeField]
     int destroyDirtyCount1;          // 区画1で汚れを落とした数
     public int DestroyDirtyCount1
     {
@@ -90,7 +92,7 @@ public class DirtySystem : MonoBehaviour
         get { return isDestroyRealityDirty4; }
         set { isDestroyRealityDirty4 = value; }
     }
-
+    GameObject dirtyCounterObject;  // カウンタースクリプトを持つオブジェクト
 
 
     // Use this for initialization
@@ -100,6 +102,7 @@ public class DirtySystem : MonoBehaviour
         {
             player = GameObject.Find("PlayerCharacter");
         }
+        dirtyCounterObject = GameObject.Find("DirtyCounter");
     }
 
     void Awake()
@@ -206,7 +209,8 @@ public class DirtySystem : MonoBehaviour
             DirtyCreater creater = dirtyPointsOfArea4[i].GetComponent<DirtyCreater>();
             creater.CheckDistance(player.transform.position);
         }
-
+        totalDestroyDirtyCount = destroyDirtyCount1 + destroyDirtyCount2 + destroyDirtyCount3 + destroyDirtyCount4;
+        dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
 
 
     }

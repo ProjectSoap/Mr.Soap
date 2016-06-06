@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962ebdc5e9cf9bc4bbf47b96df2ddbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirtyObject: {fileID: 0}
+  dirtyObject: {fileID: 126894, guid: 810a72389806d2d4bbd2ed4a1f346172, type: 2}
   createRange: {x: 0, y: 0}
   createNumber: 0
 --- !u!1001 &100100000
@@ -88,6 +88,10 @@ Prefab:
       propertyPath: createNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: dirtyObject
+      value: 
+      objectReference: {fileID: 126894, guid: 810a72389806d2d4bbd2ed4a1f346172, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 173562}

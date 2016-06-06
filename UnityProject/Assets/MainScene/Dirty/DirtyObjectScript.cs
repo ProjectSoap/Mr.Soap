@@ -1,23 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DirtyObjectScript : MonoBehaviour
 {
-
-    DirtyCreater myCreater;
-    public DirtyCreater MyCreater
+    [SerializeField]
+    Material[] dirtyMaterials = new Material[8];
+    DityApparancePosition myPoint;
+    public DityApparancePosition MyPoint
     {
-        get { return myCreater; }
-        set { myCreater = value; }
+        get { return myPoint; }
+        set { myPoint = value; }
     }
-    public AudioClip audioClip;
-    AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
 
+    }
+
+
+    void SwitchMaterial(int num)
+    {
+        if (0 <= num && num < dirtyMaterials.Length)
+        {
+            GetComponent<MeshRenderer>().materials[0] = dirtyMaterials[num];
+        }
     }
 
     // Update is called once per frame
@@ -29,8 +36,7 @@ public class DirtyObjectScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble")
         {
-            myCreater.NoticeDestroy();
-            audioSource.Play();
+            myPoint.NoticeDestroy();
             Destroy(gameObject);
         }
     }
