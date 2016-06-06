@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ac8f737b6bdbe57418125f623ba89b19
-timeCreated: 1464566835
+guid: a0c14348c25e0bf459cc1a108c93f167
+timeCreated: 1465190664
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -136,16 +136,17 @@ ModelImporter:
     4300008: polySurface46
     4300010: polySurface47
     4300012: polySurface48
-    7400000: wave_hands
-    7400002: joy
-    7400004: sad
-    7400006: shy
-    7400008: start
-    7400010: jump
-    7400012: stop
-    7400014: hit
-    7400016: left_curve
-    7400018: right_curve
+    7400000: stand
+    7400002: wave_hands
+    7400004: joy
+    7400006: sad
+    7400008: shy
+    7400010: start
+    7400012: jump
+    7400014: stop
+    7400016: hit
+    7400018: left_curve
+    7400020: right_curve
     9500000: //RootNode
     13700000: polySurface42
     13700002: polySurface43
@@ -162,7 +163,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
-    motionNodeName: root
+    motionNodeName: <Root Transform>
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -174,6 +175,156 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
+    - serializedVersion: 16
+      name: stand
+      takeName: stand
+      firstFrame: 1
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group5
+        weight: 1
+      - path: group5/pasted__group1
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder5
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder5/transform5
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder6
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder6/transform4
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder7
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder7/transform3
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder8
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder8/transform2
+        weight: 1
+      - path: group5/pasted__group1/pasted__polySurface5
+        weight: 1
+      - path: group5/pasted__group1/pasted__polySurface5/transform6
+        weight: 1
+      - path: group5/pasted__pCube5
+        weight: 1
+      - path: group5/pasted__pCube5/pasted__transform6
+        weight: 1
+      - path: group5/pasted__pCube6
+        weight: 1
+      - path: group5/pasted__pCube6/pasted__transform5
+        weight: 1
+      - path: group5/pasted__polySurface1
+        weight: 1
+      - path: group5/pasted__polySurface1/pasted__transform7
+        weight: 1
+      - path: group5/pasted__polySurface2
+        weight: 1
+      - path: group5/pasted__polySurface2/pasted__transform8
+        weight: 1
+      - path: group5/pasted__polySurface3
+        weight: 1
+      - path: group5/pasted__polySurface3/pasted__transform10
+        weight: 1
+      - path: group5/pasted__polySurface4
+        weight: 1
+      - path: group5/pasted__polySurface4/pasted__transform9
+        weight: 1
+      - path: motionTrail1Handle
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      - path: polySurface1/polySurface2
+        weight: 1
+      - path: polySurface1/polySurface2/transform8
+        weight: 1
+      - path: polySurface1/polySurface3
+        weight: 1
+      - path: polySurface1/polySurface3/transform12
+        weight: 1
+      - path: polySurface1/polySurface4
+        weight: 1
+      - path: polySurface1/polySurface4/transform10
+        weight: 1
+      - path: polySurface1/polySurface5
+        weight: 1
+      - path: polySurface1/polySurface6
+        weight: 1
+      - path: polySurface1/polySurface6/transform9
+        weight: 1
+      - path: polySurface1/transform7
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface44
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface46
+        weight: 1
+      - path: polySurface41/polySurface47
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: wave_hands
       takeName: wave_hands
@@ -928,14 +1079,14 @@ ModelImporter:
       name: jump
       takeName: jump
       firstFrame: 1
-      lastFrame: 22
+      lastFrame: 300
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -1377,12 +1528,12 @@ ModelImporter:
     - serializedVersion: 16
       name: left_curve
       takeName: left_curve
-      firstFrame: 1
-      lastFrame: 27
+      firstFrame: 18
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 13
+      cycleOffset: 0
       loop: 0
       loopTime: 0
       loopBlend: 0
@@ -1527,12 +1678,12 @@ ModelImporter:
     - serializedVersion: 16
       name: right_curve
       takeName: right_curve
-      firstFrame: 1
-      lastFrame: 27
+      firstFrame: 18
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 12
+      cycleOffset: 0
       loop: 0
       loopTime: 0
       loopBlend: 0
@@ -1709,7 +1860,7 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: root
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

@@ -33,6 +33,6 @@ public class PlayerCharacterStart : PlayerCharacterAnimationBehaviour {
         base.OnStateExit(animator, stateInfo, layerIndex);
 
         m_playerCharacterController.state = PlayerCharacterController.DriveState.Normal;
-        m_playerCharacterController.animator.Play("Normal");
+        //m_playerCharacterController.animator.Play("Normal");
     }
 }
