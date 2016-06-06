@@ -81,15 +81,15 @@ public class SelectCharacter : MonoBehaviour {
         }
         for(int i=0; i<charMax; ++i)
         {
-            trans.x = -1 * Mathf.Sin((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad);
+            trans.x = -1 * Mathf.Sin((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad)*1.2f;
             trans.y = 0.3f;
-            trans.z = -1 * Mathf.Cos((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad);
+            trans.z = -1 * Mathf.Cos((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
             
             position[i].transform.position = trans;
             position[i].transform.rotation = qt;
             position[i].transform.Rotate(new Vector3(0, 1, 0), (nowrad + (i * 360.0f/charMax)));
         }
-
+        /*
         if (Input.GetKey(KeyCode.Backspace))
         {
             Application.LoadLevel("Menu");
@@ -98,5 +98,6 @@ public class SelectCharacter : MonoBehaviour {
         {
             Application.LoadLevel("main");
         }
+         * */
 	}
 }

@@ -8,7 +8,7 @@ public class PauseUI : MonoBehaviour {
     PauseObject pausingStartUI;
     [SerializeField]
     PauseObject pauseObjects;
-    bool pausing;
+    public bool pausing;
     bool prevPausing;
 
 	// Use this for initialization
@@ -20,16 +20,22 @@ public class PauseUI : MonoBehaviour {
 	void Update () {
 	    if(Input.GetKeyDown(KeyCode.F3))
         {
-            pausing = !pausing;
-            // ポーズ状態が変更されていたら、Pause/Resumeを呼び出す。
-            if (prevPausing != pausing)
-            {
-                if (pausing) Pause();
-                else Resume();
-                prevPausing = pausing;
-            }
+            //pausing = !pausing;
+            
+        }
+        // ポーズ状態が変更されていたら、Pause/Resumeを呼び出す。
+        if (prevPausing != pausing)
+        {
+            if (pausing) Pause();
+            else Resume();
+            prevPausing = pausing;
         }
 	}
+
+    public void ChangePause()
+    {
+        pausing = !pausing;
+    }
 
     void Pause()
     {

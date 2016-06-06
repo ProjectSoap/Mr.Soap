@@ -3,9 +3,6 @@ using System.Collections;
 
 public class TitleMgr : MonoBehaviour {
 
-    // フェード
-    public Fade prefab;
-    private Fade FadeObj;
 
     public bool Jumpflag;
     public string JumpSceneName = null;
@@ -54,7 +51,6 @@ public class TitleMgr : MonoBehaviour {
             timer += Time.deltaTime;
         }
 
-        MoveButton();
     }
 
     void UpdateInput()
@@ -105,18 +101,5 @@ public class TitleMgr : MonoBehaviour {
     private Transform FromPos;
     float time;
     private float startTime;
-    void MoveButton()
-    {
-        time = 0.2f;
 
-        var diff = Time.timeSinceLevelLoad - startTime;
-        var rate = diff / time;
-
-        for (int i = 0; i < 3; i++)
-        {
-            ToPos = GameObject.Find("StartButton").GetComponent<Transform>().transform;
-            ToPos.localScale = Vector3.Lerp(ToPos.localScale, moveScale, rate);
-        }
-
-    }
 }

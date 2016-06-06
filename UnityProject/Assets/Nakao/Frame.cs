@@ -110,14 +110,7 @@ public class Frame : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.Backspace))
-        {
-            Application.LoadLevel("sekTitle");
-        }
-        if (Input.GetKey(KeyCode.Return))
-        {
-            Application.LoadLevel("Select");
-        }
+        
     }
 
     public void SelectJump()

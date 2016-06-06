@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0607390404, y: 1.25069022, z: -.456469595}
+  m_LocalPosition: {x: 26.06007, y: 1.53420162, z: 25.7306557}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 455484}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 131258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b1123f98be9aa4ab5d503675df7e42, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b431431707120b419572f74e7ba0750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
@@ -229,15 +229,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 163082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ccdd7d1ecb69a448d04c45f9c78111, type: 3}
+  m_Script: {fileID: 11500000, guid: 21d2a5f9d6a9fc149bcd65d1ab4b7369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   create: 1
-  fogcolor:
-    r: 1
-    g: 1
-    b: 1
-    a: 0
+  fogcolor: {r: 1, g: 1, b: 1, a: 0}
   fognear: 2
   fogfar: 5
 --- !u!182 &18219322

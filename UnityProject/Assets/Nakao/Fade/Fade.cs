@@ -56,6 +56,8 @@ public class Fade : MonoBehaviour{
         time = 0.0f;
         fadeflg = false;
         DontDestroyOnLoad(this);
+        soapheight = (float)Screen.height*0.9f;
+        soapheightinter = Screen.height / 5;
 	}
 
     void Update(){
@@ -64,7 +66,7 @@ public class Fade : MonoBehaviour{
            DestryBubble();
            destroy = false;
        }
-       Vector3 move = new Vector3(578.0f/fadeintime * Time.deltaTime, 0, 0);
+       Vector3 move = new Vector3((float)Screen.width / fadeintime * Time.deltaTime, 0, 0);
        
        if (fadeflg)
        {   
@@ -74,8 +76,8 @@ public class Fade : MonoBehaviour{
                if (time - (i * awainter) > 0)
                {
                    move = soaps[i].rectTransform.position;
-                   move.x += 800.0f / (fadeintime - soaps.Count * awainter) * (Time.deltaTime);
-                   if((int)move.x>bubblecount[i] * 100 && move.x <800.0f)
+                   move.x += (float)Screen.width / (fadeintime - soaps.Count * awainter) * (Time.deltaTime);
+                   if ((int)move.x > bubblecount[i] * (float)Screen.width/8 && move.x < (float)Screen.width)
                    {
                        Image add = Image.Instantiate(bubble[0]);
                        add.rectTransform.parent = soaps[i].rectTransform.parent;
@@ -94,7 +96,7 @@ public class Fade : MonoBehaviour{
         for(int i= 1; i<bubble.Count;++i)
         {
             c = bubble[i].color;
-            if(c.a<1.0f && time<fadeintime)
+            if(c.a<1.0f || time<fadeintime)
             {
                 c.a+= 0.04f;
                 bubble[i].color = c;
@@ -112,7 +114,7 @@ public class Fade : MonoBehaviour{
             }
         }
 
-        if (time>fadeintime && Application.loadedLevelName != SceneName)
+        if (time>fadeouttime && Application.loadedLevelName != SceneName)
         {
             Application.LoadLevel(SceneName);
         }
@@ -129,8 +131,11 @@ public class Fade : MonoBehaviour{
     {
         SceneName = nextScene;
        // if (Input.GetKeyDown(KeyCode.L))
-        fadeflg = true;
-        destroy = true;
+        if (!fadeflg)
+        {
+            fadeflg = true;
+            destroy = true;
+        }
     }
 
     void DestryBubble()

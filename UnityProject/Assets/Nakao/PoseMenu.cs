@@ -84,7 +84,7 @@ public class PoseMenu : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Backspace))
         {
-            Application.LoadLevel("sekTitle");
+            //Application.LoadLevel("sekTitle");
         }
         if (Input.GetKey(KeyCode.Return))
         {
