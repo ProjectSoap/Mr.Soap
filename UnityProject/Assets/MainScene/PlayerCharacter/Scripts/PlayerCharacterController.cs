@@ -17,6 +17,7 @@ public class PlayerCharacterController : MonoBehaviour
         JumpAfter,
         Damage,
         DamageAfter,
+        End,
     }
 
     public enum WeatherState
@@ -212,6 +213,8 @@ public class PlayerCharacterController : MonoBehaviour
     ParticleSystem m_driftParticleSystemRight;
     ParticleSystem m_driftParticleSystemLeft;
 
+    EndStateSystem m_endStateSystem;
+
     // Property
     public PlayerCharacterAnimationBehaviour stateMachineBehaviour
     {
@@ -250,11 +253,12 @@ public class PlayerCharacterController : MonoBehaviour
 
     void Start()
     {
-        m_rigidbody = GetComponent<Rigidbody>();
-        m_animator = GetComponent<Animator>();
-        m_bubbleDriftShooter = GetComponentInChildren<BubbleDriftShooter>();
-        m_driftParticleSystemRight = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
-        m_driftParticleSystemLeft = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
+        m_rigidbody                 = GetComponent<Rigidbody>();
+        m_animator                  = GetComponent<Animator>();
+        m_bubbleDriftShooter        = GetComponentInChildren<BubbleDriftShooter>();
+        m_driftParticleSystemRight  = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
+        m_driftParticleSystemLeft   = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
+        m_endStateSystem            = GameObject.Find("EndStateSystem").GetComponent<EndStateSystem>();
 
         m_driftParticleSystemRight.enableEmission = false;
         m_driftParticleSystemLeft.enableEmission = false;
@@ -337,11 +341,12 @@ public class PlayerCharacterController : MonoBehaviour
             m_size -= m_sizeDecrementionRate * Time.deltaTime;
         }
 
-        if (m_size <= 0.0f)
+        if (m_size <= 0.0f && m_driveState != DriveState.End)
         {
             Debug.Log("Sekkenkun Died");
+            m_driveState = DriveState.End;
+            m_endStateSystem.StartEndState();
         }
-
 
         float scaleRate = ((m_size / 100) + 1) * 0.5f;
 
@@ -540,11 +545,13 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 m_driftParticleSystemRight.enableEmission = true;
                 m_driftParticleSystemLeft.enableEmission = false;
+                //m_driftParticleSystemLeft.Clear();
             }
             else
             {
                 m_driftParticleSystemRight.enableEmission = false;
                 m_driftParticleSystemLeft.enableEmission = true;
+                //m_driftParticleSystemRight.Clear();
             }
         }
 
