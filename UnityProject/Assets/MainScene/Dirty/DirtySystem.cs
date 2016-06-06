@@ -210,7 +210,10 @@ public class DirtySystem : MonoBehaviour
             creater.CheckDistance(player.transform.position);
         }
         totalDestroyDirtyCount = destroyDirtyCount1 + destroyDirtyCount2 + destroyDirtyCount3 + destroyDirtyCount4;
-        dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
+        if (dirtyCounterObject)
+        {
+            dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
+        }
 
 
     }

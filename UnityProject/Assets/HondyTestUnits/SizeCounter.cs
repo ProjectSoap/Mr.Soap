@@ -25,14 +25,18 @@ public class SizeCounter : MonoBehaviour {
     
     [SerializeField]
     int centerPosition;
+
+
+    GameObject player;
     // Use this for initialization
-    void Start () {
-	
-	}
+    void Start ()
+    {
+        player = GameObject.Find("PlayerCharacter");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject player = GameObject.Find("PlayerCharacter");
         count = (int)player.GetComponent<PlayerCharacterController>().size;
         int temp = count;
         GameObject obj;

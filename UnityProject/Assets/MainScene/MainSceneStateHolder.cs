@@ -51,6 +51,7 @@ public class MainSceneStateHolder : MonoBehaviour
 
     void Start () {
         state = State.START;
+        player = GameObject.Find("PlayerCharacter");
     }
 
     /**********************************************************************************************//**

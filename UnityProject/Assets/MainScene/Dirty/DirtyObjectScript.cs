@@ -19,11 +19,11 @@ public class DirtyObjectScript : MonoBehaviour
     }
 
 
-    void SwitchMaterial(int num)
+    public void SwitchMaterial(int num)
     {
         if (0 <= num && num < dirtyMaterials.Length)
         {
-            GetComponent<MeshRenderer>().materials[0] = dirtyMaterials[num];
+            GetComponent<MeshRenderer>().material = dirtyMaterials[num];
         }
     }
 
@@ -34,7 +34,7 @@ public class DirtyObjectScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Bubble")
+        if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")))
         {
             myPoint.NoticeDestroy();
             Destroy(gameObject);

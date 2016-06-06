@@ -36,8 +36,9 @@ public class DityApparancePosition : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-	
-	}
+        dirtyObjectInstance = new GameObject[createNumber];
+        isMyDityDestroy = new bool[createNumber];
+    }
 
 
     bool isCreate;
@@ -66,7 +67,7 @@ public class DityApparancePosition : MonoBehaviour {
                 pos = transform.rotation * pos;
 
                 // 消されたオブジェクトは新たに作る
-                if (dirtyObjectInstance[i])
+                if (dirtyObjectInstance[i] == null)
                 {
 
                     dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
@@ -75,10 +76,12 @@ public class DityApparancePosition : MonoBehaviour {
                     DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
                     dirtyObjectInstance[i].transform.parent = this.transform;
                     obj.MyPoint = this;   // 汚れスクリプトに自分を伝える
+                    obj.SwitchMaterial((int)Random.Range(0,7));
                     isMyDityDestroy[i] = false;
                 }
 
             }
+            isCreate = false;
         }
     }
 
