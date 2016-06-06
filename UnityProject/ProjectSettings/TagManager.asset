@@ -9,6 +9,7 @@ TagManager:
   - DirtyPoint
   - Building
   - RecoverySoap
+  - DummyBubble
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Bubble
   - Dirty
   - Building
-  - 
+  - DummyBubble
   - 
   - 
   - 
