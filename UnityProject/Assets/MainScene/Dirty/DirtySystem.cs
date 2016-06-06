@@ -96,7 +96,10 @@ public class DirtySystem : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-
+        if (player == null)
+        {
+            player = GameObject.Find("PlayerCharacter");
+        }
     }
 
     void Awake()
