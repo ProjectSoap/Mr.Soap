@@ -13,9 +13,9 @@ public class MiniMap : MonoBehaviour {
     }
     void OnRenderObject()
     {
-        if (Camera.current.name == "MinimapCamera")
-            Debug.Log("A");
-        else
-            Debug.Log("B");
+        //if (Camera.current.name == "MinimapCamera")
+        //    Debug.Log("A");
+        //else
+        //    Debug.Log("B");
     }
 }

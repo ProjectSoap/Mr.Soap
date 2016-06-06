@@ -32,7 +32,7 @@ public class PlayerCharacterController : MonoBehaviour
         Head,       // 向かい風
         Tail,       // 追い風
         Right,
-        Left,            
+        Left,
     }
 
     [SerializeField, Tooltip("最大速度"), Header("速度")]
@@ -59,7 +59,7 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("ドリフトが開始されるまでの入力時間")]
     float m_driftStartInputTime = 1.0f;
 
-    [SerializeField, Range(1.0f, 0.0f),Tooltip("ドリフトがキャンセルされるまでのHorizontalの値")]
+    [SerializeField, Range(1.0f, 0.0f), Tooltip("ドリフトがキャンセルされるまでのHorizontalの値")]
     float m_driftCancelHorizontal = 0.0f;
 
     [SerializeField, Tooltip("ブレーキが開始されるまでの入力受付時間"), Header("ブレーキ")]
@@ -138,54 +138,54 @@ public class PlayerCharacterController : MonoBehaviour
     float m_windSideAddMaxRotation;
 
     [SerializeField, Tooltip("横向きの風時のドリフト時間加算値")]
-    float m_windSideAddDriftStartTime;    
+    float m_windSideAddDriftStartTime;
 
     // Rigidbody
     Rigidbody m_rigidbody;
 
     // Animation
-    PlayerCharacterAnimationBehaviour   m_stateMachineBehaviour;
-    Animator                            m_animator;
+    PlayerCharacterAnimationBehaviour m_stateMachineBehaviour;
+    Animator m_animator;
 
     // States
-    DriveState  m_driveState = DriveState.Normal;
+    DriveState m_driveState = DriveState.Normal;
 
     // Accel
-    float       m_velocity = 0.0f;
+    float m_velocity = 0.0f;
 
     // Rotation
-    float       m_rotation      = 0.0f;
-    float       m_maxRotation   = 45.0f;
-    float       m_rotationPower = 10.0f;
+    float m_rotation = 0.0f;
+    float m_maxRotation = 45.0f;
+    float m_rotationPower = 10.0f;
 
-    float       m_pushRotationKeyTime = 0.0f;
+    float m_pushRotationKeyTime = 0.0f;
 
     // Breake
-    float       m_pushProgressBreakeKeyTime = 0.0f;      // 前回ブレーキキーが押されてからの時間
+    float m_pushProgressBreakeKeyTime = 0.0f;      // 前回ブレーキキーが押されてからの時間
 
     // BreakeAfter
-    float       m_breakeAfterTime = 0.0f;
+    float m_breakeAfterTime = 0.0f;
 
     // Jump
-    bool        m_isGround = true;
+    bool m_isGround = true;
 
     // jumpAfter
-    float       m_jumpAfterTime = 0.0f;
+    float m_jumpAfterTime = 0.0f;
 
     // Damage
-    float       m_damageAfterTime = 0.0f;
+    float m_damageAfterTime = 0.0f;
 
     // Scale
-    float       m_size                = 100;
+    float m_size = 100;
     //float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
-    Vector3     m_defaultScale        = new Vector3(1, 1, 1);
+    Vector3 m_defaultScale = new Vector3(1, 1, 1);
 
     // Input
-    bool        m_isPushJump = false;
-    float       m_horizontal = 0.0f;
+    bool m_isPushJump = false;
+    float m_horizontal = 0.0f;
 
     // Animation
-    float       m_animationTime = 0.0f;
+    float m_animationTime = 0.0f;
 
     // Bubble
     BubbleDriftShooter m_bubbleDriftShooter;
@@ -199,7 +199,7 @@ public class PlayerCharacterController : MonoBehaviour
     float m_weatherAddAcceleration;
     float m_weatherAddRotationPower;
     float m_weatherAddMaxRotation;
-    float m_weatherAddDriftStartTime;    
+    float m_weatherAddDriftStartTime;
     float m_weatherAddBreakePower;
 
     // Particle Effect
@@ -248,29 +248,30 @@ public class PlayerCharacterController : MonoBehaviour
         get { return m_animator; }
     }
 
-    void Start () {
-        m_rigidbody                 = GetComponent<Rigidbody>();
-        m_animator                  = GetComponent<Animator>();
-        m_bubbleDriftShooter        = GetComponentInChildren<BubbleDriftShooter>();
+    void Start()
+    {
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_animator = GetComponent<Animator>();
+        m_bubbleDriftShooter = GetComponentInChildren<BubbleDriftShooter>();
         m_driftParticleSystemRight = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
-        m_driftParticleSystemLeft  = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
+        m_driftParticleSystemLeft = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
 
         m_driftParticleSystemRight.enableEmission = false;
         m_driftParticleSystemLeft.enableEmission = false;
 
-        m_maxRotation       = m_maxRotationNormal;
-        m_breakeAfterTime   = m_breakeAfterEndTime;
-        m_defaultScale      = transform.localScale;
-        m_driveState        = DriveState.Start;
+        m_maxRotation = m_maxRotationNormal;
+        m_breakeAfterTime = m_breakeAfterEndTime;
+        m_defaultScale = transform.localScale;
+        m_driveState = DriveState.Start;
     }
-    
-	void Update ()
+
+    void Update()
     {
-        m_isPushJump    = Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0);
-        m_horizontal    = Input.GetAxis("Horizontal");
+        m_isPushJump = Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0);
+        m_horizontal = Input.GetAxis("Horizontal");
 
         // ゲーム開始入力チェック
-        if(m_isPushJump && m_driveState == DriveState.Start)
+        if (m_isPushJump && m_driveState == DriveState.Start)
         {
             m_animator.Play("Start");
 
@@ -282,8 +283,8 @@ public class PlayerCharacterController : MonoBehaviour
         {
             if (m_pushProgressBreakeKeyTime <= m_breakeStartInputTime)
             {
-                if(m_velocity >= m_breakeStartVelocity)
-                { 
+                if (m_velocity >= m_breakeStartVelocity)
+                {
                     if (m_driveState == DriveState.Normal || m_driveState == DriveState.Drift)
                     {
                         m_driveState = DriveState.Breake;
@@ -298,18 +299,18 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // ブレーキ硬直解除
-        if(m_driveState == DriveState.BreakeAfter)
+        if (m_driveState == DriveState.BreakeAfter)
         {
             m_breakeAfterTime += Time.deltaTime;
 
             if (m_breakeAfterTime >= m_breakeAfterEndTime)
-            { 
+            {
                 m_driveState = DriveState.Normal;
             }
         }
 
         // ジャンプ硬直解除
-        if(m_driveState == DriveState.JumpAfter)
+        if (m_driveState == DriveState.JumpAfter)
         {
             m_jumpAfterTime += Time.deltaTime;
 
@@ -318,21 +319,21 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // ダメージ硬直解除
-        if(m_driveState == DriveState.DamageAfter)
+        if (m_driveState == DriveState.DamageAfter)
         {
             m_damageAfterTime += Time.deltaTime;
 
-            if(m_damageAfterTime >= m_damageAfterStopTime)
+            if (m_damageAfterTime >= m_damageAfterStopTime)
             {
                 m_driveState = DriveState.Normal;
             }
         }
 
         // サイズ減少
-        if(m_driveState == DriveState.Normal || 
+        if (m_driveState == DriveState.Normal ||
             m_driveState == DriveState.Drift ||
             m_driveState == DriveState.JumpAfter)
-        { 
+        {
             m_size -= m_sizeDecrementionRate * Time.deltaTime;
         }
 
@@ -350,7 +351,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_animator.SetBool("isGround", m_isGround);
         m_animator.SetFloat("rotation", m_rotation);
 
-        if(m_driveState == DriveState.Breake ||
+        if (m_driveState == DriveState.Breake ||
             m_driveState == DriveState.BreakeAfter)
         {
             m_animator.SetBool("isBreake", true);
@@ -359,7 +360,7 @@ public class PlayerCharacterController : MonoBehaviour
             m_animator.SetBool("isBreake", false);
 
         // パーティクル更新
-        if(m_driveState != DriveState.Drift)
+        if (m_driveState != DriveState.Drift)
         {
             m_driftParticleSystemRight.enableEmission = false;
             m_driftParticleSystemLeft.enableEmission = false;
@@ -378,27 +379,35 @@ public class PlayerCharacterController : MonoBehaviour
             case WeatherState.Rain:
                 m_weatherAddMaxVelocity     = m_rainAddMaxVelocity;
                 m_weatherAddAcceleration    = m_rainAddAcceleration;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
                 break;
             case WeatherState.Wind:
 
-                float windAngle     = Vector3.Angle(transform.forward, windDirection);
-                float windAngleAbs  = Mathf.Abs(windAngle);
+                float windAngle = Vector3.Angle(transform.forward, windDirection);
+                float windAngleAbs = Mathf.Abs(windAngle);
 
-                if(windAngleAbs < m_windSideAngle)
+                if (windAngleAbs < m_windSideAngle)
                 {
                     // 追い風
                 }
-                else if(windAngleAbs >= m_windSideAngle)
+                else if (windAngleAbs >= m_windSideAngle)
                 {
                     // 横向きの風
                 }
-                else if(windAngleAbs >= m_windHeadAngle)
+                else if (windAngleAbs >= m_windHeadAngle)
                 {
                     //　向かい風
                 }
 
                 break;
             case WeatherState.Fog:
+                m_weatherAddMaxVelocity     = .0f;
+                m_weatherAddAcceleration    = .0f;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
                 break;
             default:
                 break;
@@ -436,7 +445,7 @@ public class PlayerCharacterController : MonoBehaviour
                 Accel();
                 if (m_isGround && m_rigidbody.velocity.y <= 0.0f)
                 {
-                    m_driveState    = DriveState.JumpAfter;
+                    m_driveState = DriveState.JumpAfter;
                     m_jumpAfterTime = 0.0f;
 
                     Instantiate(m_jumpBubble, transform.position, transform.rotation);
@@ -463,7 +472,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_isGround = Physics.Raycast(       // せっけんくんの真下にレイを飛ばして地形と接触チェック
             transform.position,
             transform.up * -1,
-            m_groundCheckLayLength, 
+            m_groundCheckLayLength,
             layerMask);
     }
 
@@ -488,7 +497,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     void Breake()
     {
-        if(m_driveState == DriveState.Breake)
+        if (m_driveState == DriveState.Breake)
         {
             m_velocity -= (m_velocity * m_breakePower * Time.fixedDeltaTime);
 
@@ -498,7 +507,7 @@ public class PlayerCharacterController : MonoBehaviour
 
                 m_breakeAfterTime = 0.0f;
                 m_velocity = 0.0f;
-            }                
+            }
         }
 
         m_pushProgressBreakeKeyTime += Time.deltaTime;
@@ -522,10 +531,10 @@ public class PlayerCharacterController : MonoBehaviour
                 m_pushRotationKeyTime += Time.deltaTime;
         }
 
-        if(m_driveState != DriveState.Normal)
+        if (m_driveState != DriveState.Normal)
             m_pushRotationKeyTime = 0.0f;
 
-        if(m_driveState == DriveState.Drift)
+        if (m_driveState == DriveState.Drift)
         {
             if (m_rotation > 0.0f)
             {
@@ -549,40 +558,40 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 m_driveState = DriveState.Normal;
 
-                m_maxRotation   = m_maxRotationNormal;
+                m_maxRotation = m_maxRotationNormal;
                 m_rotationPower = m_rotationPowerNormal;
             }
         }
 
-        if(m_pushRotationKeyTime >= m_driftStartInputTime)
+        if (m_pushRotationKeyTime >= m_driftStartInputTime)
         {
-            if(m_driveState == DriveState.Normal)
+            if (m_driveState == DriveState.Normal)
             {
                 m_driveState = DriveState.Drift;
 
-                m_maxRotation   = m_maxRotationDrift;
+                m_maxRotation = m_maxRotationDrift;
                 m_rotationPower = m_rotationPowerDrift;
 
                 if (m_horizontal > 0.0f)
-                { 
+                {
                     m_bubbleDriftShooter.ShotRight();
 
-                    m_driftParticleSystemRight.enableEmission   = true;
-                    m_driftParticleSystemLeft.enableEmission    = false;
+                    m_driftParticleSystemRight.enableEmission = true;
+                    m_driftParticleSystemLeft.enableEmission = false;
                 }
                 else
                 {
                     m_bubbleDriftShooter.ShotLeft();
 
-                    m_driftParticleSystemRight.enableEmission   = false;
-                    m_driftParticleSystemLeft.enableEmission    = true;
+                    m_driftParticleSystemRight.enableEmission = false;
+                    m_driftParticleSystemLeft.enableEmission = true;
                 }
             }
         }
 
         float rotationAbs = Mathf.Abs(m_rotation);
 
-        if(rotationAbs > m_maxRotation)
+        if (rotationAbs > m_maxRotation)
         {
             m_rotation = Mathf.Clamp(m_rotation, -m_maxRotation, m_maxRotation);
         }
@@ -615,11 +624,11 @@ public class PlayerCharacterController : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Building") || 
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Building") ||
             collider.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
-            if(m_velocity >= m_damageVelocity)
-            { 
+            if (m_velocity >= m_damageVelocity)
+            {
                 Damage();
             }
             else
@@ -633,10 +642,9 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_animator.Play("Damage");
 
-        m_driveState        = DriveState.Damage;
-        m_rotation          = 0.0f;
-        m_velocity          = 0.0f;
-        m_damageAfterTime   = 0.0f;
+        m_driveState = DriveState.Damage;
+        m_rotation = 0.0f;
+        m_velocity = 0.0f;
+        m_damageAfterTime = 0.0f;
     }
 }
- 

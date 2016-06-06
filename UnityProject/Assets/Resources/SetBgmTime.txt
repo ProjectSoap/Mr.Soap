@@ -1,0 +1,3 @@
+title01,0.0,0.0
+mode_select_scene,0.0,0.0
+battle01,0.0,0.0
