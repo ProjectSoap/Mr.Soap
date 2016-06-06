@@ -370,15 +370,18 @@ public class PlayerCharacterController : MonoBehaviour
         switch (m_weatherState)
         {
             case WeatherState.Sunny:
-                m_weatherAddMaxVelocity = .0f;
-                m_weatherAddAcceleration = .0f;
-                m_weatherAddMaxRotation = .0f;
-                m_weatherAddRotationPower = .0f;
-                m_weatherAddDriftStartTime = .0f;
+                m_weatherAddMaxVelocity     = .0f;
+                m_weatherAddAcceleration    = .0f;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
                 break;
             case WeatherState.Rain:
-                m_weatherAddMaxVelocity = m_rainAddMaxVelocity;
-                m_weatherAddAcceleration = m_rainAddAcceleration;
+                m_weatherAddMaxVelocity     = m_rainAddMaxVelocity;
+                m_weatherAddAcceleration    = m_rainAddAcceleration;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
                 break;
             case WeatherState.Wind:
 
@@ -400,6 +403,11 @@ public class PlayerCharacterController : MonoBehaviour
 
                 break;
             case WeatherState.Fog:
+                m_weatherAddMaxVelocity     = .0f;
+                m_weatherAddAcceleration    = .0f;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
                 break;
             default:
                 break;
