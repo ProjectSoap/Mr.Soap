@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LIVE_TIME: 5
+  MoveHeight: 5
+  MoveWidth: 5
 --- !u!135 &13525204
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1162,6 +1164,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MoveHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MoveWidth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

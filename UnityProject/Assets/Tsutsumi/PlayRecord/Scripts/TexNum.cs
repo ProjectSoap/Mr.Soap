@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class TexNum : MonoBehaviour {
-
+    public int num4keta;
     public Image keta1;
     public Image keta2;
     public Image keta3;
@@ -22,7 +22,7 @@ public class TexNum : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SetNum(0);
+        SetNum(num4keta);
 	}
 	
 	// Update is called once per frame
@@ -35,6 +35,7 @@ public class TexNum : MonoBehaviour {
         {
             return;
         }
+        num4keta = num4ketamade;
 
         int ketaCount;
         int num;
