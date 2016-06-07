@@ -542,7 +542,7 @@ public class PlayerCharacterController : MonoBehaviour
                 m_pushRotationKeyTime += Time.deltaTime;
         }
 
-        if (m_driveState != DriveState.Normal)
+        if (m_driveState != DriveState.Normal && m_driveState != DriveState.Drift)
             m_pushRotationKeyTime = 0.0f;
 
         if (m_driveState == DriveState.Drift)
