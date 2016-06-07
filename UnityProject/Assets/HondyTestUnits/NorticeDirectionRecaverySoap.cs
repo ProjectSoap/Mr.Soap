@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class NorticeDirectionRecaverySoap : MonoBehaviour {
-
-    [SerializeField]
+    
     GameObject player;
     [SerializeField]
     float angle;
@@ -39,6 +38,7 @@ public class NorticeDirectionRecaverySoap : MonoBehaviour {
     // Use this for initialization
     void Start () {
         IsAppearance = false;
+        player = GameObject.Find("PlayerCharacter");
 
     }
 	

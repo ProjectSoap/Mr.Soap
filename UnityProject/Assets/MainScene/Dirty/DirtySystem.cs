@@ -3,6 +3,13 @@ using System.Collections;
 
 public class DirtySystem : MonoBehaviour
 {
+    // 稼働してるか
+    bool isRunning;
+    public bool IsRunning
+    {
+        get { return isRunning; }
+        set { isRunning = value; }
+    }
     [SerializeField]
     GameObject player;  // プレイヤー位置を知るためのもの
 
@@ -98,6 +105,8 @@ public class DirtySystem : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        isRunning = true;
+        // プレイヤーの取得
         if (player == null)
         {
             player = GameObject.Find("PlayerCharacter");
@@ -184,39 +193,57 @@ public class DirtySystem : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        for (int i = 0;i < dirtyPointsOfArea1.Length;i++)
+
+        if (IsRunning)
         {
-            DirtyCreater creater = dirtyPointsOfArea1[i].GetComponent<DirtyCreater>();
-            creater.CheckDistance(player.transform.position);
-        }
+
+            for (int i = 0; i < dirtyPointsOfArea1.Length; i++)
+            {
+                DirtyCreater creater = dirtyPointsOfArea1[i].GetComponent<DirtyCreater>();
+                creater.CheckDistance(player.transform.position);
+            }
 
 
-        for (int i = 0; i < dirtyPointsOfArea2.Length; i++)
-        {
-            DirtyCreater creater = dirtyPointsOfArea2[i].GetComponent<DirtyCreater>();
-            creater.CheckDistance(player.transform.position);
-        }
+            for (int i = 0; i < dirtyPointsOfArea2.Length; i++)
+            {
+                DirtyCreater creater = dirtyPointsOfArea2[i].GetComponent<DirtyCreater>();
+                creater.CheckDistance(player.transform.position);
+            }
 
 
-        for (int i = 0; i < dirtyPointsOfArea3.Length; i++)
-        {
-            DirtyCreater creater = dirtyPointsOfArea3[i].GetComponent<DirtyCreater>();
-            creater.CheckDistance(player.transform.position);
-        }
+            for (int i = 0; i < dirtyPointsOfArea3.Length; i++)
+            {
+                DirtyCreater creater = dirtyPointsOfArea3[i].GetComponent<DirtyCreater>();
+                creater.CheckDistance(player.transform.position);
+            }
 
-        for (int i = 0; i < dirtyPointsOfArea4.Length; i++)
-        {
-            DirtyCreater creater = dirtyPointsOfArea4[i].GetComponent<DirtyCreater>();
-            creater.CheckDistance(player.transform.position);
-        }
-        totalDestroyDirtyCount = destroyDirtyCount1 + destroyDirtyCount2 + destroyDirtyCount3 + destroyDirtyCount4;
-        if (dirtyCounterObject)
-        {
-            dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
+            for (int i = 0; i < dirtyPointsOfArea4.Length; i++)
+            {
+                DirtyCreater creater = dirtyPointsOfArea4[i].GetComponent<DirtyCreater>();
+                creater.CheckDistance(player.transform.position);
+            }
+            totalDestroyDirtyCount = destroyDirtyCount1 + destroyDirtyCount2 + destroyDirtyCount3 + destroyDirtyCount4;
+            if (dirtyCounterObject)
+            {
+                dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
+            }
+
+
         }
 
 
     }
+
+    /**********************************************************************************************//**
+     * @fn  public void NoticeDestroyToSystem(uint areaNum ,bool isReality)
+     *
+     * @brief   外部からの汚れ消し窓口
+     *
+     * @author  Kazuyuki
+     *
+     * @param   areaNum     The area number.
+     * @param   isReality   true if this object is reality.
+     **************************************************************************************************/
 
     public void NoticeDestroyToSystem(uint areaNum ,bool isReality)
     {

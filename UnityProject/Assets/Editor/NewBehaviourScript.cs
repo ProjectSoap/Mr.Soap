@@ -113,7 +113,7 @@ public class Test : Editor
                 renderer = newObject.GetComponent<MeshRenderer>();
                 if (renderer)
                 {
-                        renderer.sharedMaterial = (Material)Resources.Load("Assets/HondyUnitTest/MiniMapBuildingIconMaterial.mat");
+                        renderer.sharedMaterial = (Material)Resources.Load("HondyUnitTest/MiniMapBuildingIconMaterial.mat");
                 }
 
                 MeshFilter filter =  newObject.AddComponent<MeshFilter>();
@@ -146,9 +146,9 @@ public class Test : Editor
                                 newObject.transform.localScale =
                                     new Vector3
                                     (
-                                        newObject.transform.localScale.x * collider.size.x,
-                                        newObject.transform.localScale.y * collider.size.y,
-                                        newObject.transform.localScale.z * collider.size.z);
+                                        pearent.lossyScale.x / pearent.localScale.x * collider.size.x,
+                                        pearent.lossyScale.y / pearent.localScale.y * collider.size.y,
+                                        pearent.lossyScale.z / pearent.localScale.z * collider.size.z);
 
 
                             }

@@ -41,6 +41,10 @@ public class MainSceneStateHolder : MonoBehaviour
     [SerializeField]
     GameObject player;  /* The player */
 
+    DirtySystem dirtySystem;
+
+    RecoverySoapCreatersManager recoverySoapCreatersManager;
+
     /**********************************************************************************************//**
      * @fn  void Start ()
      *
@@ -52,6 +56,9 @@ public class MainSceneStateHolder : MonoBehaviour
     void Start () {
         state = State.START;
         player = GameObject.Find("PlayerCharacter");
+        dirtySystem = GameObject.Find("DirtySystem").GetComponent<DirtySystem>();
+        recoverySoapCreatersManager = GameObject.Find("RecoverySoapCreatersManager").GetComponent<RecoverySoapCreatersManager>();
+        ExecuteStateEnterProcesss(state);
     }
 
     /**********************************************************************************************//**
@@ -62,7 +69,7 @@ public class MainSceneStateHolder : MonoBehaviour
      * @author  Kazuyuki
      **************************************************************************************************/
 
-	void Update ()
+    void Update ()
     {
         UpdateState();
         ExecuteStateMainProcesss();
@@ -156,8 +163,12 @@ public class MainSceneStateHolder : MonoBehaviour
         switch (enterState)
         {
             case State.START:
+                dirtySystem.IsRunning = false;
+                recoverySoapCreatersManager.IsRunning = false;
                 break;
             case State.PLAY:
+                dirtySystem.IsRunning = true;
+                recoverySoapCreatersManager.IsRunning = true;
                 break;
             case State.PAUSE:
                 break;
@@ -214,6 +225,8 @@ public class MainSceneStateHolder : MonoBehaviour
             case State.START:
                 break;
             case State.PLAY:
+                dirtySystem.IsRunning = false;
+                recoverySoapCreatersManager.IsRunning = false;
                 break;
             case State.PAUSE:
                 break;

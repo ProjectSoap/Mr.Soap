@@ -2,7 +2,13 @@
 using System.Collections;
 
 public class RecoverySoapCreatersManager : MonoBehaviour {
-
+    // 稼働しているか
+    bool isRunning;
+    public bool IsRunning
+    {
+        get { return isRunning; }
+        set { isRunning = value; }
+    }
     [SerializeField]
     bool isUnlockArea1;
     [SerializeField]
@@ -36,48 +42,53 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-	
-	}
+        isRunning = true;
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        countSecond += Time.deltaTime;
-
-
-        CheckDistanceFromPlayer();
-        // 指定した秒数内
-        if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
+        if (IsRunning)
         {
+            countSecond += Time.deltaTime;
 
-            uint difference = maxTimeForInstance - minTimeForInstance ;
-            if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
+
+            CheckDistanceFromPlayer();
+            // 指定した秒数内
+            if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
             {
-                uint elemMax;
-                elemMax = (uint)RecoverySoapCreaters1.Length;
-                if (elemMax > 0)
+
+                uint difference = maxTimeForInstance - minTimeForInstance;
+                if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
                 {
-                    uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
-                    
-                    RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
-                    if (script)
+                    uint elemMax;
+                    elemMax = (uint)RecoverySoapCreaters1.Length;
+                    if (elemMax > 0)
                     {
-                        if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                        uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+
+                        RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
+                        if (script)
                         {
-                            script.IsInstance = true;
-                            countSecond = 0;    // カウントリセット
+                            if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                            {
+                                script.IsInstance = true;
+                                countSecond = 0;    // カウントリセット
+                            }
+
                         }
-                        
+
                     }
-                        
                 }
             }
-        }
-        if (maxTimeForInstance < countSecond)
-        {
-            countSecond = 0; // 最大時間を超えたらリセット
+            if (maxTimeForInstance < countSecond)
+            {
+                countSecond = 0; // 最大時間を超えたらリセット
 
+            }
         }
+       
 	}
 
 
