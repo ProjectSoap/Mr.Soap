@@ -28,7 +28,7 @@ public class WashChain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetWash();
+      //  GetWash();
         now_time += Time.deltaTime;
         if (now_chain>0)
         {
@@ -99,7 +99,7 @@ public class WashChain : MonoBehaviour {
     }
     public void GetWash()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+       // if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             now_chain++;
             if(now_chain>=10)

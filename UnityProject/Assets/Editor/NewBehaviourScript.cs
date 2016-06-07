@@ -113,7 +113,7 @@ public class Test : Editor
                 renderer = newObject.GetComponent<MeshRenderer>();
                 if (renderer)
                 {
-                        renderer.sharedMaterial = (Material)Resources.Load("HondyUnitTest/MiniMapBuildingIconMaterial.mat");
+                        renderer.sharedMaterial = Resources.Load("Materials/MiniMapBuildingIconMaterial") as Material;
                 }
 
                 MeshFilter filter =  newObject.AddComponent<MeshFilter>();

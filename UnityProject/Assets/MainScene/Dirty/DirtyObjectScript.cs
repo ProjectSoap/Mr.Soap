@@ -7,6 +7,9 @@ public class DirtyObjectScript : MonoBehaviour
     [SerializeField]
     Material[] dirtyMaterials = new Material[8];
     DityApparancePosition myPoint;
+    [SerializeField]
+    GameObject dirtyIcon;
+
     public DityApparancePosition MyPoint
     {
         get { return myPoint; }
@@ -15,7 +18,8 @@ public class DirtyObjectScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        GameObject obj= Instantiate(dirtyIcon, new Vector3(transform.position.x, transform.position.y - 10, transform.position.z),dirtyIcon.transform.rotation) as GameObject;
+        obj.transform.parent = transform;
     }
 
 

@@ -35,7 +35,23 @@ public class DityApparancePosition : MonoBehaviour {
     uint affiliationArea;
     
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+#if DEBUG
+        if (GetComponent<MeshRenderer>() != null)
+        {
+            Destroy(GetComponent<MeshRenderer>());
+        }
+#endif
+
+        // リリースビルド時エディット用のメッシュがついてたらエラー！
+#if DEBUG
+        if (GetComponent<MeshRenderer>() != null)
+        {
+            Debug.Log(this);
+            Destroy(GetComponent<MeshRenderer>());
+        }
+#endif
         dirtyObjectInstance = new GameObject[createNumber];
         isMyDityDestroy = new bool[createNumber];
     }

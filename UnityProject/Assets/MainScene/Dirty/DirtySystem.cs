@@ -43,6 +43,7 @@ public class DirtySystem : MonoBehaviour
     int totalDestroyDirtyCount;
     [SerializeField]
     int destroyDirtyCount1;          // 区画1で汚れを落とした数
+    WashChain washChain;
     public int DestroyDirtyCount1
     {
         get { return destroyDirtyCount1; }
@@ -105,6 +106,8 @@ public class DirtySystem : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+
+        washChain = GameObject.Find("WashChain").GetComponent<WashChain>();
         isRunning = true;
         // プレイヤーの取得
         if (player == null)
@@ -112,10 +115,7 @@ public class DirtySystem : MonoBehaviour
             player = GameObject.Find("PlayerCharacter");
         }
         dirtyCounterObject = GameObject.Find("DirtyCounter");
-    }
 
-    void Awake()
-    {
         DirtyCreater creater;
 
         ///// ふつーの汚れ
@@ -128,21 +128,21 @@ public class DirtySystem : MonoBehaviour
 
         for (int i = 0; i < dirtyPointsOfArea2.Length; i++)
         {
-             creater = dirtyPointsOfArea2[i].GetComponent<DirtyCreater>();
+            creater = dirtyPointsOfArea2[i].GetComponent<DirtyCreater>();
             creater.ParntDirtySystem = this;
             creater.AffiliationArea = 2;
         }
 
         for (int i = 0; i < dirtyPointsOfArea3.Length; i++)
         {
-             creater = dirtyPointsOfArea3[i].GetComponent<DirtyCreater>();
+            creater = dirtyPointsOfArea3[i].GetComponent<DirtyCreater>();
             creater.ParntDirtySystem = this;
             creater.AffiliationArea = 3;
         }
 
         for (int i = 0; i < dirtyPointsOfArea4.Length; i++)
         {
-             creater = dirtyPointsOfArea4[i].GetComponent<DirtyCreater>();
+            creater = dirtyPointsOfArea4[i].GetComponent<DirtyCreater>();
             creater.ParntDirtySystem = this;
             creater.AffiliationArea = 4;
         }
@@ -154,8 +154,8 @@ public class DirtySystem : MonoBehaviour
         if (RealityPoint1)
         {
 
-             creater = RealityPoint1.GetComponent<DirtyCreater>();
-             creater.ParntDirtySystem = this;
+            creater = RealityPoint1.GetComponent<DirtyCreater>();
+            creater.ParntDirtySystem = this;
             creater.IsReality = true;
             creater.AffiliationArea = 1;
 
@@ -186,6 +186,12 @@ public class DirtySystem : MonoBehaviour
             creater.IsReality = true;
             creater.AffiliationArea = 4;
         }
+
+    }
+
+    void Awake()
+    {
+      
 
 
 }
@@ -247,6 +253,7 @@ public class DirtySystem : MonoBehaviour
 
     public void NoticeDestroyToSystem(uint areaNum ,bool isReality)
     {
+        washChain.GetWash();
         switch (areaNum)
         {
             case 1:
