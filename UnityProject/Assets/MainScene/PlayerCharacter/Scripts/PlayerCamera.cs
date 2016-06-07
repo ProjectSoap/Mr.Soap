@@ -51,6 +51,11 @@ public class PlayerCamera : MonoBehaviour
 
     void Start()
     {
+        if(target == null)
+        {
+            target = GameObject.Find("PlayerCharacter").transform;
+        }
+
         transform.position = target.TransformPoint(m_offset);
         transform.LookAt(target, Vector3.up);
     }
