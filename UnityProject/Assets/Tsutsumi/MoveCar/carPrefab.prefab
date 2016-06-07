@@ -283,7 +283,7 @@ GameObject:
   - 64: {fileID: 6453834}
   - 114: {fileID: 11454904}
   m_Layer: 0
-  m_Name: CarPrefab
+  m_Name: carPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

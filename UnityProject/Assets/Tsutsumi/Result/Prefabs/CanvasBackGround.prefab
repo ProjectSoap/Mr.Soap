@@ -45,6 +45,7 @@ GameObject:
   - 224: {fileID: 22471856}
   - 222: {fileID: 22261756}
   - 114: {fileID: 11418898}
+  - 114: {fileID: 11446406}
   m_Layer: 5
   m_Name: ResultText
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11446406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d211c094e6698a2488ee7a89fb3d61d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 1
+  minPercent: .400000006
 --- !u!114 &11452020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,8 +215,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22489128}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: .600000024}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: -.200000003, y: .5}
+  m_AnchorMax: {x: 1.20000005, y: 1.10000002}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}

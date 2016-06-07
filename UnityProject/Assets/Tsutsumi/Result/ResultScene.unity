@@ -230,6 +230,46 @@ Camera:
   m_PrefabParentObject: {fileID: 2071030, guid: 9b78d277ee0722546a93ab0e11386a8d,
     type: 2}
   m_PrefabInternal: {fileID: 666540975}
+--- !u!1 &798452634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 798452635}
+  - 114: {fileID: 798452636}
+  m_Layer: 0
+  m_Name: ResultManagerSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798452635
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798452634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 63.4089813, y: 125.862701, z: 1234.16541}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+--- !u!114 &798452636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798452634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f2c7d28ca08394ba014657979b4d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveDataManager: {fileID: 0}
 --- !u!1 &847988593
 GameObject:
   m_ObjectHideFlags: 0

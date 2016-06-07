@@ -1014,6 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e03ede23d290643aff5a30c8693c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstNum: 0
   keta1: {fileID: 11443114}
   keta2: {fileID: 11467450}
   keta3: {fileID: 11444006}

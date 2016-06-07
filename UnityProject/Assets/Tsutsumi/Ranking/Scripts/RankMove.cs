@@ -9,7 +9,7 @@ public class RankMove : MonoBehaviour {
     public float END_TIME;
     public float MOVE_DISTANCE;
     public int RANK;
-    public Text pointText;
+    public TexNum pointTexNum;
     public SaveDataManager dataCon;
 
     //使用変数
@@ -38,13 +38,13 @@ public class RankMove : MonoBehaviour {
             //pointを読み込んで表示部へ適用。
             if (point >= 0)
             {
-                pointText.text = point.ToString();
+                pointTexNum.SetNum(point);
             }
             else
             {
                 //エラーなら０点をとりあえず表示。
                 point = 0;
-                pointText.text = point.ToString(); 
+                pointTexNum.SetNum(point);
             }
         }
         
