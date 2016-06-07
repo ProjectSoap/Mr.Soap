@@ -90,6 +90,12 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("1秒間に減る大きさの値"), Header("大きさ")]
     float m_sizeDecrementionRate = 2.5f;
 
+    [SerializeField, Tooltip("ウォッシュチェイン時に回復する大きさ")]
+    float m_healWashChain = 50.0f;
+
+    [SerializeField, Tooltip("最大サイズ")]
+    float m_maxSize = 100;
+
     [SerializeField, Tooltip("ダメージ判定になる速度"), Header("ダメージ")]
     float m_damageVelocity = 5.0f;
 
@@ -654,4 +660,10 @@ public class PlayerCharacterController : MonoBehaviour
         m_velocity = 0.0f;
         m_damageAfterTime = 0.0f;
     }
+
+    public void WashChain()
+    {
+        m_size += m_healWashChain;
+        m_size = Mathf.Clamp(m_size, 0.0f, m_maxSize);
+    }   
 }
