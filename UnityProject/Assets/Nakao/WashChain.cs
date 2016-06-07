@@ -11,6 +11,9 @@ public class WashChain : MonoBehaviour {
     [SerializeField]
     int now_chain;
 
+    [SerializeField]
+    PlayerCharacterController playerCharacter;
+
     Shine shine;
 
     private Quaternion now_rotation;
@@ -24,11 +27,16 @@ public class WashChain : MonoBehaviour {
         rotate_angle = 18.0f;
         now_rotation = new Quaternion(0,0,25,1);
         shine = GameObject.Find("Shine").GetComponent<Shine>();
+
+        if(playerCharacter == null)
+        {
+            playerCharacter = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        GetWash();
+        //GetWash();
         now_time += Time.deltaTime;
         if (now_chain>0)
         {
@@ -45,6 +53,8 @@ public class WashChain : MonoBehaviour {
                     now_chain = 0;
                     SetLimit();
                     SetAgree();
+
+                    playerCharacter.WashChain();
                 }
             }
             else
@@ -99,7 +109,7 @@ public class WashChain : MonoBehaviour {
     }
     public void GetWash()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+     //   if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             now_chain++;
             if(now_chain>=10)
