@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//リザルトでタイトルの大きさを変える処理
 public class ResultTextScript : MonoBehaviour {
 
     public float animationTime;
