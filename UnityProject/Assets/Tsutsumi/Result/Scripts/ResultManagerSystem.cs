@@ -44,7 +44,10 @@ public class ResultManagerSystem : MonoBehaviour {
 	    //実績が解放される条件に合致すれば表示へ
         
         //入力を見てメニューへ
-
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Fade.ChangeScene("Menu");
+        }
 	}
 
     private void Load()

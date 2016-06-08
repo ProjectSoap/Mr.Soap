@@ -26,7 +26,7 @@ public class EndStateSystem : MonoBehaviour {
             if (sceneTimer > 2.0f)
             {
                 //リザルトシーンへ移動する。(フェードアウト起動？)
-
+                Fade.ChangeScene("ResultScene");
             }
         }
 
