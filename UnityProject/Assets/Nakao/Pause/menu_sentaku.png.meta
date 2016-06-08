@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 14025d7244fddab4ea117d1539f8e8d2
+timeCreated: 1465283458
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: menu_sentaku_0
+    21300002: menu_sentaku_1
+    21300004: menu_sentaku_2
+    21300006: menu_sentaku_3
+    21300008: menu_sentaku_4
+    21300010: menu_sentaku_5
+    21300012: menu_sentaku_6
+    21300014: menu_sentaku_7
+    21300016: menu_sentaku_8
+    21300018: menu_sentaku_9
+    21300020: menu_sentaku_10
+    21300022: menu_sentaku_11
+    21300024: menu_sentaku_12
+    21300026: menu_sentaku_13
+    21300028: menu_sentaku_14
+    21300030: menu_sentaku_15
+    21300032: menu_sentaku_16
+    21300034: menu_sentaku_17
+    21300036: menu_sentaku_18
+    21300038: menu_sentaku_19
+    21300040: menu_sentaku_20
+    21300042: menu_sentaku_21
+    21300044: menu_sentaku_22
+    21300046: menu_sentaku_23
+    21300048: menu_sentaku_24
+    21300050: menu_sentaku_25
+    21300052: menu_sentaku_26
+    21300054: menu_sentaku_27
+    21300056: menu_sentaku_28
+    21300058: menu_sentaku_29
+    21300060: menu_sentaku_30
+    21300062: menu_sentaku_31
+    21300064: menu_sentaku_32
+    21300066: menu_sentaku_33
+    21300068: menu_sentaku_34
+    21300070: menu_sentaku_35
+    21300072: menu_sentaku_36
+    21300074: menu_sentaku_37
+    21300076: menu_sentaku_38
+    21300078: menu_sentaku_39
+    21300080: menu_sentaku_40
+    21300082: menu_sentaku_41
+    21300084: menu_sentaku_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: menu_sentaku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: menu_sentaku_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: menu_sentaku_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: menu_sentaku_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

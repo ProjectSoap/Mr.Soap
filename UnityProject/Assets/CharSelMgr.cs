@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CharSelMgr : MonoBehaviour {
     [SerializeField]
@@ -9,10 +10,35 @@ public class CharSelMgr : MonoBehaviour {
         SELECT,
         PLAY
     };
+
+    [SerializeField]
+    List<GameObject> soaps;
+
+    [SerializeField]
+    SelectCharacter soap;
+
     Charselect state;
 	// Use this for initialization
 	void Start () {
         state = Charselect.SELECT;
+        if (PlayerPrefs.GetInt("SekkenChanPlayFlg", -1) > 0)
+        {
+            soaps[1].active = false;
+        }
+        else
+        {
+            soaps[0].active = false;
+        }
+
+        if (PlayerPrefs.GetInt("SekkenKun0PlayFlg", -1) > 0)
+        {
+            soaps[3].active = false;
+        }
+        else
+        {
+            soaps[2].active = false;
+        }
+
 	}
 	
 	// Update is called once per frame
@@ -23,8 +49,11 @@ public class CharSelMgr : MonoBehaviour {
             {
                 case Charselect.SELECT:
                     {
-                        state = Charselect.PLAY;
-                        charUI.ChangePause();
+                        if (CheckOpenChar(soap.GetCharNo()))
+                        {
+                            state = Charselect.PLAY;
+                            charUI.ChangePause();
+                        }
                         break;
                     }
                 case Charselect.PLAY:
@@ -54,4 +83,42 @@ public class CharSelMgr : MonoBehaviour {
             }
         }
 	}
+
+    bool CheckOpenChar(int no)
+    {
+        switch(no)
+        {
+            case 0 :
+                {
+                    return true;
+                }
+            case 1:
+                {
+                    if(soaps[2].active)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            case 2:
+                {
+                    if (soaps[0].active)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            default:
+                {
+                    return false;
+                }
+        }
+        return false;
+    }
 }
