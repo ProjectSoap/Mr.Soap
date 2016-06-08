@@ -10,35 +10,37 @@ public class DirtySystem : MonoBehaviour
         get { return isRunning; }
         set { isRunning = value; }
     }
-    [SerializeField]
     GameObject player;  // プレイヤー位置を知るためのもの
 
-    [SerializeField]
+    [Header("DirtyCreaterPointオブジェクトを入れる場所")]
+
+    [SerializeField,Tooltip("区画1の生成ポイント")]
     GameObject[] dirtyPointsOfArea1;    // 区画1の汚れ場所
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画2の生成ポイント")]
     GameObject[] dirtyPointsOfArea2;    // 区画2の汚れ場所
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画3の生成ポイント")]
     GameObject[] dirtyPointsOfArea3;    // 区画3の汚れ場所
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画4の生成ポイント")]
     GameObject[] dirtyPointsOfArea4;    // 区画4の汚れ場所
 
 
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画1のレア汚れ生成ポイント")]
     GameObject RealityPoint1;     // 区画1のレア汚れ
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画2のレア汚れ生成ポイント")]
     GameObject RealityPoint2;     // 区画2のレア汚れ
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画3のレア汚れ生成ポイント")]
     GameObject RealityPoint3;     // 区画3のレア汚れ
 
-    [SerializeField]
+    [SerializeField, Tooltip("区画4のレア汚れ生成ポイント")]
     GameObject RealityPoint4;     // 区画4のレア汚れ
 
+    [Header("以下確認用内部変数")]
     [SerializeField]
     int totalDestroyDirtyCount;
     [SerializeField]

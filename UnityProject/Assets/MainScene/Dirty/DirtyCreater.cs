@@ -5,23 +5,13 @@ using System.Collections;
 */
 public class DirtyCreater : MonoBehaviour {
     
-    [SerializeField]
-    GameObject dirtyObject;   // 汚れオブジェクト
-
-    [SerializeField]
-    Vector2 createRange; // 生成範囲
-
-    [SerializeField]
-    uint createNumber; // 生成個数
-
-    
     DirtySystem parntDirtySystem;   // 管理用
     public DirtySystem ParntDirtySystem
     {
         get { return parntDirtySystem; }
         set { parntDirtySystem = value; }
     }
-    [SerializeField]
+    [SerializeField,Header("出現場所(DirtyAppearancePoint)の管理配列")]
     GameObject[] appearancePoints;   // 出現位置管理
 
     bool isMyDityDestroy;  // 消されたかどうか
@@ -60,13 +50,16 @@ public class DirtyCreater : MonoBehaviour {
         countStartTime = Time.deltaTime;
         isMyDityDestroy =false;
 
-        for (int i = 0; i < createNumber; i++)
+        for (int i = 0; i < appearancePoints.Length; i++)
         {
 
             appearancePoints[i].GetComponent<DityApparancePosition>().MyCreater = this;
 
         }
-        appearancePoints[0].GetComponent<DityApparancePosition>().IsCreate = true;
+        if (0 < appearancePoints.Length)
+        {
+            appearancePoints[0].GetComponent<DityApparancePosition>().IsCreate = true;
+        }
 
 #if DEBUG
         if (GetComponent<MeshRenderer>() != null)
@@ -95,7 +88,6 @@ public class DirtyCreater : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        DrawDebugQuadMesh();
         bool isCreateFlag = false;
         if (isMyDityDestroy)
         {
@@ -114,24 +106,7 @@ public class DirtyCreater : MonoBehaviour {
             CreateDirty();
         }
     }
-
-
-    void DrawDebugQuadMesh()
-    {
-        Vector3[] line = new Vector3[4];
-        line[0].Set(-0.5f* createRange.x,  0.5f * createRange.y, 0);
-        line[1].Set(-0.5f* createRange.x, -0.5f * createRange.y, 0);
-        line[2].Set( 0.5f* createRange.x, -0.5f * createRange.y, 0);
-        line[3].Set( 0.5f* createRange.x,  0.5f * createRange.y, 0);
-        for (int i = 0; i < 4;i++)
-        {
-            line[i] = transform.rotation * line[i];
-        }
-        Debug.DrawLine(transform.position + line[0], transform.position + line[1], Color.red);
-        Debug.DrawLine(transform.position + line[1], transform.position + line[2], Color.red);
-        Debug.DrawLine(transform.position + line[2], transform.position + line[3], Color.red);
-        Debug.DrawLine(transform.position + line[3], transform.position + line[0], Color.red);
-    }
+    
 
     public void CheckDistance(Vector3 playerPosition)
     {
