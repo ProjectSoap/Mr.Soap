@@ -6,10 +6,10 @@ public class DityApparancePosition : MonoBehaviour {
     [SerializeField]
     GameObject dirtyObject;   // 汚れオブジェクト
 
-    [SerializeField]
+    [SerializeField,Header("広範囲の汚れが広がる半径")]
     Vector2 createRange; // 生成範囲
 
-    [SerializeField]
+    [SerializeField, Header("生成される個数"),Tooltip("複数個に設定すると広範囲の汚れとして円形に展開されます")]
     uint createNumber; // 生成個数
 
 
