@@ -96,7 +96,10 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("最大サイズ")]
     float m_maxSize = 100.0f;
 
-    [SerializeField, Tooltip("ダメージ判定になる速度"), Header("ダメージ")]
+    [SerializeField, Tooltip("衝突ダメージ"), Header("ダメージ")]
+    float m_damage = 5.0f;
+
+    [SerializeField, Tooltip("ダメージ判定になる速度")]
     float m_damageVelocity = 5.0f;
 
     [SerializeField, Range(0.0f, 1.0f), Tooltip("ダメージ判定でないときビルに接触すると速度に掛ける")]
@@ -278,23 +281,23 @@ public class PlayerCharacterController : MonoBehaviour
 
     void Start()
     {
-        m_rigidbody                 = GetComponent<Rigidbody>();
-        m_animator                  = GetComponent<Animator>();
-        m_bubbleDriftShooter        = GetComponentInChildren<BubbleDriftShooter>();
-        m_driftParticleSystemRight  = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
-        m_driftParticleSystemLeft   = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
-        m_endStateSystem            = GameObject.Find("EndStateSystem").GetComponent<EndStateSystem>();
-        m_meshObject                = transform.FindChild("Mesh").gameObject;
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_animator = GetComponent<Animator>();
+        m_bubbleDriftShooter = GetComponentInChildren<BubbleDriftShooter>();
+        m_driftParticleSystemRight = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
+        m_driftParticleSystemLeft = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
+        m_endStateSystem = GameObject.Find("EndStateSystem").GetComponent<EndStateSystem>();
+        m_meshObject = transform.FindChild("Mesh").gameObject;
 
-        m_driftParticleSystemRight.enableEmission   = false;
-        m_driftParticleSystemLeft.enableEmission    = false;
+        m_driftParticleSystemRight.enableEmission = false;
+        m_driftParticleSystemLeft.enableEmission = false;
         m_driftParticleSystemRight.Clear();
         m_driftParticleSystemLeft.Clear();
 
-        m_maxRotation       = m_maxRotationNormal;
-        m_breakeAfterTime   = m_breakeAfterEndTime;
-        m_defaultScale      = transform.localScale;
-        m_driveState        = DriveState.Start;
+        m_maxRotation = m_maxRotationNormal;
+        m_breakeAfterTime = m_breakeAfterEndTime;
+        m_defaultScale = transform.localScale;
+        m_driveState = DriveState.Start;
     }
 
     void Update()
@@ -319,16 +322,16 @@ public class PlayerCharacterController : MonoBehaviour
                 {
                     if (m_driveState == DriveState.Normal || m_driveState == DriveState.Drift)
                     {
-                        m_driveState    = DriveState.Breake;
-                        m_rotation      = 0.0f;
+                        m_driveState = DriveState.Breake;
+                        m_rotation = 0.0f;
 
                         GameObject.Instantiate(m_breakeBubble, transform.position, transform.rotation);
 
-                        m_driftParticleSystemRight.enableEmission   = true;
-                        m_driftParticleSystemLeft.enableEmission    = true;
+                        m_driftParticleSystemRight.enableEmission = true;
+                        m_driftParticleSystemLeft.enableEmission = true;
 
                         BGMManager.Instance.PlaySE("Soap_Brake");
-                        BGMManager.Instance.PlaySE("Wash_Fly");                        
+                        BGMManager.Instance.PlaySE("Wash_Fly");
                     }
                 }
             }
@@ -387,7 +390,7 @@ public class PlayerCharacterController : MonoBehaviour
         transform.localScale = m_defaultScale * scaleRate;
 
         // アニメーション更新
-        m_animator.SetBool("isGround",  m_isGround);
+        m_animator.SetBool("isGround", m_isGround);
         m_animator.SetFloat("rotation", m_rotation);
 
         if (m_driveState == DriveState.Breake ||
@@ -401,26 +404,26 @@ public class PlayerCharacterController : MonoBehaviour
         // パーティクル更新
         if (m_driveState != DriveState.Drift && m_driveState != DriveState.Breake)
         {
-            m_driftParticleSystemRight.enableEmission   = false;
-            m_driftParticleSystemLeft.enableEmission    = false;
+            m_driftParticleSystemRight.enableEmission = false;
+            m_driftParticleSystemLeft.enableEmission = false;
         }
 
         // 天候チェック
         switch (m_weatherState)
         {
             case WeatherState.Sunny:
-                m_weatherAddMaxVelocity     = .0f;
-                m_weatherAddAcceleration    = .0f;
-                m_weatherAddMaxRotation     = .0f;
-                m_weatherAddRotationPower   = .0f;
-                m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddMaxVelocity = .0f;
+                m_weatherAddAcceleration = .0f;
+                m_weatherAddMaxRotation = .0f;
+                m_weatherAddRotationPower = .0f;
+                m_weatherAddDriftStartTime = .0f;
                 break;
             case WeatherState.Rain:
-                m_weatherAddMaxVelocity     = m_rainAddMaxVelocity;
-                m_weatherAddAcceleration    = m_rainAddAcceleration;
-                m_weatherAddMaxRotation     = .0f;
-                m_weatherAddRotationPower   = .0f;
-                m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddMaxVelocity = m_rainAddMaxVelocity;
+                m_weatherAddAcceleration = m_rainAddAcceleration;
+                m_weatherAddMaxRotation = .0f;
+                m_weatherAddRotationPower = .0f;
+                m_weatherAddDriftStartTime = .0f;
                 break;
             case WeatherState.Wind:
 
@@ -442,11 +445,11 @@ public class PlayerCharacterController : MonoBehaviour
 
                 break;
             case WeatherState.Fog:
-                m_weatherAddMaxVelocity     = .0f;
-                m_weatherAddAcceleration    = .0f;
-                m_weatherAddMaxRotation     = .0f;
-                m_weatherAddRotationPower   = .0f;
-                m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddMaxVelocity = .0f;
+                m_weatherAddAcceleration = .0f;
+                m_weatherAddMaxRotation = .0f;
+                m_weatherAddRotationPower = .0f;
+                m_weatherAddDriftStartTime = .0f;
                 break;
             default:
                 break;
@@ -484,7 +487,7 @@ public class PlayerCharacterController : MonoBehaviour
                 Accel();
                 if (m_isGround && m_rigidbody.velocity.y <= 0.0f)
                 {
-                    m_driveState    = DriveState.JumpAfter;
+                    m_driveState = DriveState.JumpAfter;
                     m_jumpAfterTime = 0.0f;
 
                     Instantiate(m_jumpBubble, transform.position, transform.rotation);
@@ -548,11 +551,11 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 m_driveState = DriveState.BreakeAfter;
 
-                m_breakeAfterTime   = 0.0f;
-                m_velocity          = 0.0f;
+                m_breakeAfterTime = 0.0f;
+                m_velocity = 0.0f;
 
-                m_driftParticleSystemRight.enableEmission   = false;
-                m_driftParticleSystemLeft.enableEmission    = false;
+                m_driftParticleSystemRight.enableEmission = false;
+                m_driftParticleSystemLeft.enableEmission = false;
             }
         }
 
@@ -584,14 +587,14 @@ public class PlayerCharacterController : MonoBehaviour
         {
             if (m_rotation > 0.0f)
             {
-                m_driftParticleSystemRight.enableEmission   = true;
-                m_driftParticleSystemLeft.enableEmission    = false;
+                m_driftParticleSystemRight.enableEmission = true;
+                m_driftParticleSystemLeft.enableEmission = false;
                 //m_driftParticleSystemLeft.Clear();
             }
             else
             {
-                m_driftParticleSystemRight.enableEmission   = false;
-                m_driftParticleSystemLeft.enableEmission    = true;
+                m_driftParticleSystemRight.enableEmission = false;
+                m_driftParticleSystemLeft.enableEmission = true;
                 //m_driftParticleSystemRight.Clear();
             }
         }
@@ -606,7 +609,7 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 m_driveState = DriveState.Normal;
 
-                m_maxRotation   = m_maxRotationNormal;
+                m_maxRotation = m_maxRotationNormal;
                 m_rotationPower = m_rotationPowerNormal;
             }
         }
@@ -617,15 +620,15 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 m_driveState = DriveState.Drift;
 
-                m_maxRotation   = m_maxRotationDrift;
+                m_maxRotation = m_maxRotationDrift;
                 m_rotationPower = m_rotationPowerDrift;
 
                 if (m_horizontal > 0.0f)
                 {
                     m_bubbleDriftShooter.ShotRight();
 
-                    m_driftParticleSystemRight.enableEmission   = true;
-                    m_driftParticleSystemLeft.enableEmission    = false;
+                    m_driftParticleSystemRight.enableEmission = true;
+                    m_driftParticleSystemLeft.enableEmission = false;
                 }
                 else
                 {
@@ -670,8 +673,8 @@ public class PlayerCharacterController : MonoBehaviour
                 //m_driftParticleSystemRight.Clear();
                 //m_driftParticleSystemLeft.Clear();
 
-                m_rotation      = 0.0f;
-                m_driveState    = DriveState.Jump;
+                m_rotation = 0.0f;
+                m_driveState = DriveState.Jump;
 
                 BGMManager.Instance.PlaySE("Soap_Jump");
             }
@@ -701,10 +704,12 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_animator.Play("Damage");
 
-        m_driveState        = DriveState.Damage;
-        m_rotation          = 0.0f;
-        m_velocity          = 0.0f;
-        m_damageAfterTime   = 0.0f;
+        m_size -= m_damage;
+
+        m_driveState = DriveState.Damage;
+        m_rotation = 0.0f;
+        m_velocity = 0.0f;
+        m_damageAfterTime = 0.0f;
 
         BGMManager.Instance.PlaySE("Collision");
     }

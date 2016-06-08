@@ -58,6 +58,7 @@ public class MainSceneStateHolder : MonoBehaviour
         player = GameObject.Find("PlayerCharacter");
         dirtySystem = GameObject.Find("DirtySystem").GetComponent<DirtySystem>();
         recoverySoapCreatersManager = GameObject.Find("RecoverySoapCreatersManager").GetComponent<RecoverySoapCreatersManager>();
+        BGMManager.Instance.PlayBGM("GameMain_BGM",0);
         ExecuteStateEnterProcesss(state);
     }
 

@@ -8,8 +8,12 @@ public class NorticeDirectionRecaverySoap : MonoBehaviour {
     float angle;
     GameObject recoverySoap;
 
-
-
+    float near;
+    public float Near
+    {
+        get { return near; }
+        set { near = value; }
+    }
 
     [SerializeField]
     Vector3 forward;
@@ -64,9 +68,8 @@ public class NorticeDirectionRecaverySoap : MonoBehaviour {
             
             angle = Mathf.Atan2 (distance.x * forward.z - distance.z * forward.x , Vector3.Dot(forward, distance));
             angle = (Mathf.Rad2Deg * (angle));
-            Quaternion rot = new Quaternion();
-            rot.SetAxisAngle(transform.up, angle * Mathf.Deg2Rad);
-            gameObject.transform.localRotation = rot;
+            
+            transform.localRotation = Quaternion.AngleAxis(angle , transform.up) ;
         }
 
 

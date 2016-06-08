@@ -39,11 +39,16 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
     [SerializeField]
     GameObject player;
 
+    NorticeDirectionRecaverySoap arrow;
+    NorticeUIOfAppearanceRecoverySoap sprite;
+
     // Use this for initialization
     void Start ()
     {
-        isRunning = true;
+        isRunning = false;
 
+        arrow = GameObject.Find("NorticeRecoveryDirection").GetComponent<NorticeDirectionRecaverySoap>();
+        sprite = GameObject.Find("NorticeRecoverySoapSprite").GetComponent<NorticeUIOfAppearanceRecoverySoap>();
     }
 	
 	// Update is called once per frame
@@ -75,6 +80,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
                             {
                                 script.IsInstance = true;
                                 countSecond = 0;    // カウントリセット
+                                sprite.IsAppearance = true;
                             }
 
                         }
@@ -94,6 +100,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 
     void CheckDistanceFromPlayer()
     {
+        arrow.Near = 1000;
         // 区画1のせっけん出現候補地とプレイヤーの距離を検証
         if (isUnlockArea1)
         {
@@ -101,6 +108,16 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
             {
                 RecoverySoapCreater creater = RecoverySoapCreaters1[i].GetComponent<RecoverySoapCreater>();
                 creater.CheckDistance(player.transform.position);
+                if (creater.IsHaveRevoverySoap)
+                {
+
+                    arrow.IsAppearance = true;
+                    if (arrow.Near > Vector3.Distance(creater.transform.position, player.transform.position))
+                    {
+                        arrow.RecoverySoap = creater.RecoverySoap;
+                        arrow.Near = Vector3.Distance(creater.transform.position, player.transform.position);
+                    }
+                } 
 
             }
         }
