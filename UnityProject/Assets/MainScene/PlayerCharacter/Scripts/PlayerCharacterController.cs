@@ -323,6 +323,12 @@ public class PlayerCharacterController : MonoBehaviour
                         m_rotation      = 0.0f;
 
                         GameObject.Instantiate(m_breakeBubble, transform.position, transform.rotation);
+
+                        m_driftParticleSystemRight.enableEmission   = true;
+                        m_driftParticleSystemLeft.enableEmission    = true;
+
+                        BGMManager.Instance.PlaySE("Soap_Brake");
+                        BGMManager.Instance.PlaySE("Wash_Fly");                        
                     }
                 }
             }
@@ -393,7 +399,7 @@ public class PlayerCharacterController : MonoBehaviour
             m_animator.SetBool("isBreake", false);
 
         // パーティクル更新
-        if (m_driveState != DriveState.Drift)
+        if (m_driveState != DriveState.Drift && m_driveState != DriveState.Breake)
         {
             m_driftParticleSystemRight.enableEmission   = false;
             m_driftParticleSystemLeft.enableEmission    = false;
@@ -482,6 +488,8 @@ public class PlayerCharacterController : MonoBehaviour
                     m_jumpAfterTime = 0.0f;
 
                     Instantiate(m_jumpBubble, transform.position, transform.rotation);
+
+                    BGMManager.Instance.PlaySE("Wash_Fly");
                 }
                 break;
 
@@ -542,6 +550,9 @@ public class PlayerCharacterController : MonoBehaviour
 
                 m_breakeAfterTime   = 0.0f;
                 m_velocity          = 0.0f;
+
+                m_driftParticleSystemRight.enableEmission   = false;
+                m_driftParticleSystemLeft.enableEmission    = false;
             }
         }
 
@@ -623,6 +634,8 @@ public class PlayerCharacterController : MonoBehaviour
                     m_driftParticleSystemRight.enableEmission = false;
                     m_driftParticleSystemLeft.enableEmission = true;
                 }
+
+                BGMManager.Instance.PlaySE("Soap_Drift");
             }
         }
 
@@ -659,6 +672,8 @@ public class PlayerCharacterController : MonoBehaviour
 
                 m_rotation      = 0.0f;
                 m_driveState    = DriveState.Jump;
+
+                BGMManager.Instance.PlaySE("Soap_Jump");
             }
 
             m_isPushJump = false;
@@ -690,11 +705,15 @@ public class PlayerCharacterController : MonoBehaviour
         m_rotation          = 0.0f;
         m_velocity          = 0.0f;
         m_damageAfterTime   = 0.0f;
+
+        BGMManager.Instance.PlaySE("Collision");
     }
 
     public void WashChain()
     {
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+
+        BGMManager.Instance.PlaySE("Wash_Chain_MAX");
     }
 }

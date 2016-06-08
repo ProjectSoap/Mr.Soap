@@ -29,7 +29,8 @@ public class BubbleDriftShooter : MonoBehaviour
 
             Debug.Log(transform.rotation.eulerAngles.ToString());
             Instantiate(m_bubble, transform.position, transform.rotation);
-            
+            BGMManager.Instance.PlaySE("Wash_Fly");
+
             if (m_shotCount < m_shotBullet)
                 yield return new WaitForSeconds(m_shotIntervelTime);
             else
