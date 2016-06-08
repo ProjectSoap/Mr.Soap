@@ -661,6 +661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248f55a6c463a144a92a10bfb0057a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausingStopUI: {fileID: 11420460}
+  pausingStartUI: {fileID: 11462508}
+  pauseObjects: {fileID: 0}
 --- !u!114 &11462508
 MonoBehaviour:
   m_ObjectHideFlags: 1
