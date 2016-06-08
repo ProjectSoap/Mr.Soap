@@ -319,36 +319,7 @@ Prefab:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
-    - target: {fileID: 22494168, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22494168, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22494168, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: -320
-      objectReference: {fileID: 0}
-    - target: {fileID: 22494168, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22312396, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452658, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_IgnoreReversedGraphics
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22497930, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11454328, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1986060582
