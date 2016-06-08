@@ -98,7 +98,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497678}
-  - 95: {fileID: 9571210}
   m_Layer: 0
   m_Name: full_animation2
   m_TagString: Untagged
@@ -1779,7 +1778,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.9882545, y: 7.63678551, z: -30.0315475}
+  m_LocalPosition: {x: 43.6609993, y: 1.66999996, z: 12.6999998}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
   - {fileID: 453536}
@@ -2236,23 +2235,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9571210
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115504}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a0c14348c25e0bf459cc1a108c93f167, type: 3}
-  m_Controller: {fileID: 9100000, guid: c2c90ada32bfa264da239a1d512ad9ab, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11447504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2264,6 +2246,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0c334cfb8d2274d8d7b8e765a4173b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: 0
+  forward: {x: 0, y: 0, z: 0}
+  soapPosition: {x: 0, y: 0, z: 0}
+  myPosition: {x: 0, y: 0, z: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!114 &11481912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2275,6 +2262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf2c9d4b901a67448e23955aa601864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
+  m_shotBullet: 3
+  m_shotIntervelTime: .5
+  m_shotAngle: 90
 --- !u!114 &11498660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2286,6 +2277,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32bc5c8ec8f10249a8e0b1e935fa327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_maxVelocity: 20
+  m_acceleration: 5
+  m_rotationDecrementionRate: .899999976
+  m_rotationPowerNormal: 90
+  m_rotationPowerDrift: 180
+  m_maxRotationNormal: 90
+  m_maxRotationDrift: 180
+  m_driftStartInputTime: 1
+  m_driftCancelHorizontal: 0
+  m_breakeStartInputTime: 1
+  m_breakePower: .899999976
+  m_breakeStartVelocity: .5
+  m_breakeStopVelocity: .5
+  m_breakeAfterEndTime: 1
+  m_jumpPower: 400
+  m_jumpAfterEndTime: 1
+  m_groundCheckLayLength: .400000006
+  m_sizeDecrementionRate: 2.5
+  m_healSizeWashChain: 40
+  m_maxSize: 100
+  m_damageVelocity: 5
+  m_stayBildingVelocityRate: .5
+  m_damageAfterStopTime: 1
+  m_driftBubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
+  m_breakeBubble: {fileID: 110968, guid: d271803280e156840b9f1d52922638fa, type: 2}
+  m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
+  m_rainAddMaxVelocity: 0
+  m_rainAddAcceleration: 0
+  m_windSideAngle: 0
+  m_windHeadAngle: 0
+  m_windHeadMaxVelocity: 0
+  m_windHeadAcceleration: 0
+  m_windTailMaxVelocity: 0
+  m_windTailAcceleration: 0
+  m_windSideAddRotationPower: 0
+  m_windSideAddMaxRotation: 0
+  m_windSideAddDriftStartTime: 0
+  m_driftParticleEmitterRight: {fileID: 185440}
+  m_driftParticleEmitterLeft: {fileID: 187190}
 --- !u!124 &12423990
 Behaviour:
   m_ObjectHideFlags: 1
