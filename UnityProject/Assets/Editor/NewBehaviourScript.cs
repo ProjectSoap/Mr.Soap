@@ -105,10 +105,10 @@ public class Test : Editor
    
                 if (obj.transform.FindChild("MiniMapQuad") == null)
                 {
-                GameObject newObject = new GameObject("MiniMapQuad"); ;
-                newObject.transform.parent = obj.transform; // 親子付
-                newObject.transform.position = new Vector3(obj.transform.position.x,-10, obj.transform.position.z);
-                    newObject.transform.rotation = (obj.transform.localRotation);
+                    GameObject newObject = new GameObject("MiniMapQuad"); ;
+                    newObject.transform.parent = obj.transform; // 親子付
+                    newObject.transform.position = new Vector3(obj.transform.position.x,-10, obj.transform.position.z);
+                    newObject.transform.rotation = new Quaternion();
                     MeshRenderer renderer = newObject.AddComponent<MeshRenderer>();
                 renderer = newObject.GetComponent<MeshRenderer>();
                 if (renderer)
