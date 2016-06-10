@@ -107,7 +107,8 @@ public class Test : Editor
                 {
                     GameObject newObject = new GameObject("MiniMapQuad"); ;
                     newObject.transform.parent = obj.transform; // 親子付
-                    newObject.transform.position = new Vector3(obj.transform.position.x,-10, obj.transform.position.z);
+                    newObject.transform.position = new Vector3(obj.transform.position.x,0, obj.transform.position.z);
+                    newObject.transform.Translate(new Vector3(0,-490,0));
                     newObject.transform.rotation = new Quaternion();
                     MeshRenderer renderer = newObject.AddComponent<MeshRenderer>();
                 renderer = newObject.GetComponent<MeshRenderer>();
