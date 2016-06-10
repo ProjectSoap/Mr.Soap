@@ -11,7 +11,7 @@ public class SizeIcon : MonoBehaviour {
 	void Start ()
     {
         player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
-        switcher = GameObject.Find("SizeIcon").GetComponent<NumberSwitcher>();
+        switcher = this.transform.FindChild("SizeIcon").gameObject.GetComponent<NumberSwitcher>();
         iconOverFrame = GameObject.Find("SizeIconOverFrame").GetComponent<Image>();
 	}
 	

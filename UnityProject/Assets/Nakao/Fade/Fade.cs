@@ -77,7 +77,7 @@ public class Fade : MonoBehaviour{
                {
                    move = soaps[i].rectTransform.position;
                    move.x += (float)Screen.width / (fadeintime - soaps.Count * awainter) * (Time.deltaTime);
-                   if ((int)move.x > bubblecount[i] * (float)Screen.width/8 && move.x < (float)Screen.width)
+                   if ((int)move.x > bubblecount[i] * ((float)Screen.width+30)/9 && move.x < (float)Screen.width)
                    {
                        Image add = Image.Instantiate(bubble[0]);
                        add.rectTransform.parent = soaps[i].rectTransform.parent;
@@ -129,10 +129,11 @@ public class Fade : MonoBehaviour{
     
     public static void ChangeScene(string nextScene)
     {
-        SceneName = nextScene;
+        
        // if (Input.GetKeyDown(KeyCode.L))
         if (!fadeflg)
         {
+            SceneName = nextScene;
             fadeflg = true;
             destroy = true;
         }

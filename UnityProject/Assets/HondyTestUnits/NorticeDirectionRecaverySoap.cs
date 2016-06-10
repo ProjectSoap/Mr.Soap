@@ -69,7 +69,7 @@ public class NorticeDirectionRecaverySoap : MonoBehaviour {
             angle = Mathf.Atan2 (distance.x * forward.z - distance.z * forward.x , Vector3.Dot(forward, distance));
             angle = (Mathf.Rad2Deg * (angle));
             
-            transform.localRotation = Quaternion.AngleAxis(angle , transform.up) ;
+            transform.localRotation = Quaternion.AngleAxis(angle , transform.up);
         }
 
 

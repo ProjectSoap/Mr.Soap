@@ -6,6 +6,10 @@ public class SelectCharacter : MonoBehaviour {
 
     [SerializeField]
     List<Transform> position;
+
+    [SerializeField]
+    List<Sprite> Hatena;
+
     [SerializeField]
     int charno;
     [SerializeField]
@@ -19,6 +23,7 @@ public class SelectCharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
       //  Axis = this.GetComponent<Transform>();
+ 
 	}
 	
 	// Update is called once per frame
@@ -100,4 +105,10 @@ public class SelectCharacter : MonoBehaviour {
         }
          * */
 	}
+
+    public int GetCharNo()
+    {
+        return charno;
+    }
+
 }

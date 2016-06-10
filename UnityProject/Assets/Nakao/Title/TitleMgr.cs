@@ -35,6 +35,8 @@ public class TitleMgr : MonoBehaviour {
 	void Update () {
         if(Input.GetKey(KeyCode.Return))
         {
+            //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
+            //fade.ChangeScene("menu");
             Fade.ChangeScene("Menu");
         }
         // デバッグ
