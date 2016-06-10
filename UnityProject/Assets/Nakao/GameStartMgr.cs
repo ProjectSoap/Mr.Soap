@@ -20,7 +20,7 @@ public class GameStartMgr : MonoBehaviour {
         DontDestroyOnLoad(BGMManager);
         if(resReq.isDone)
         {
-            Application.LoadLevel("sekTitle");
+            Application.LoadLevel("main");
         }
 	}
 
