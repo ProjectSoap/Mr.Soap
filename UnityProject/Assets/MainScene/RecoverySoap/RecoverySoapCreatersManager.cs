@@ -49,6 +49,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 
         arrow = GameObject.Find("NorticeRecoveryDirection").GetComponent<NorticeDirectionRecaverySoap>();
         sprite = GameObject.Find("NorticeRecoverySoapSprite").GetComponent<NorticeUIOfAppearanceRecoverySoap>();
+        player = GameObject.Find("PlayerCharacter");
     }
 	
 	// Update is called once per frame
