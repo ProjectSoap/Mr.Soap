@@ -35,19 +35,19 @@ public class PlayerCamera : MonoBehaviour
     //}
 
     [SerializeField]
-    Transform target;
+    private float m_distance = 5.0f;
 
     [SerializeField]
-    private const float m_distance = 5.2f;
+    private float m_followRate = 0.1f;
 
     [SerializeField]
-    private Vector3 m_offset = new Vector3(0f, 3.5f, -m_distance);
+    private Vector3 m_offset = new Vector3(0f, 3.5f, -5.0f);
 
     [SerializeField]
     private Vector3 m_lookDown = new Vector3(-5.0f, 0f, 0f);
 
     [SerializeField]
-    private const float m_followRate = 0.1f;
+    Transform target;
 
     void Start()
     {
