@@ -10,7 +10,7 @@ public class ReturnMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetKeyDown(KeyCode.Backspace)){
+	    if(Input.GetKeyDown(KeyCode.Escape)){
             Fade.ChangeScene("Menu");
 
             BGMManager.Instance.PlaySE("Cursor_Cancel");

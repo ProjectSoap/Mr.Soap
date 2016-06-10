@@ -47,7 +47,7 @@ public class CharSelMgr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetKeyDown(KeyCode.Return))
+	    if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             switch(state)
             {
@@ -75,7 +75,7 @@ public class CharSelMgr : MonoBehaviour {
                     }
             }
         }
-        if(Input.GetKeyDown(KeyCode.Backspace))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             switch (state)
             {

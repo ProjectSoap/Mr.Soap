@@ -33,7 +33,7 @@ public class TitleMgr : MonoBehaviour {
     public float timer;
     public float ButtonWaitTime = 0.5f;
 	void Update () {
-        if(Input.GetKey(KeyCode.Return))
+        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
             //fade.ChangeScene("menu");

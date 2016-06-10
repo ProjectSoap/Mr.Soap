@@ -97,7 +97,7 @@ public class ResultManagerSystem : MonoBehaviour {
                 _getRecordflg = true;
                 canvasKaihou.gameObject.SetActive(true);
                 canvasKaihou.SetRecordImage(i);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
                 {
                     recordGetFlg[i] = false;
                 }
@@ -112,7 +112,7 @@ public class ResultManagerSystem : MonoBehaviour {
 
 
         //入力を見てメニューへ
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             Fade.ChangeScene("Menu");
         }

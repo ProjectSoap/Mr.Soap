@@ -6,8 +6,8 @@ public class ResolutionSetting : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        int width = 960;
-        int height = 540;
+        int width = 1280;
+        int height = 720;
 
         bool fullscreen = true;
 
