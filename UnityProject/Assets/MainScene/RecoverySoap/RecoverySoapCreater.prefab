@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11474068}
   m_Layer: 0
   m_Name: RecoverySoapCreater
-  m_TagString: Untagged
+  m_TagString: RecoverySoapAppearancePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 109966, guid: 572b8e059cb0061419b4d38522bbc502, type: 2}
+  recoverySoap: {fileID: 150934, guid: e6db818992e4f9c4d8b56d7bd3e26b12, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -54,6 +54,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: distanceForParmitTheCreate
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: recoverySoap
+      value: 
+      objectReference: {fileID: 150934, guid: e6db818992e4f9c4d8b56d7bd3e26b12, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: RecoverySoapAppearancePoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
