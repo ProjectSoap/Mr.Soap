@@ -120,4 +120,23 @@ public class CheckRecordCondition : MonoBehaviour {
             return false;
         }
     }
+
+    //実績が達成されたか引数の値をチェックして確認する
+    public bool CheckRecordConditionClear(int recordNo, int score)
+    {
+        if (recordNo < 0 || recordNo >= RECORD_NUM)
+        {
+            return false;
+        }
+
+        //クリア判定
+        if (score >= sConditionList[recordNo].conditionClearCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
