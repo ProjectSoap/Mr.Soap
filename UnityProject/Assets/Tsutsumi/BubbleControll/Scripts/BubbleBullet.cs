@@ -21,6 +21,7 @@ public class BubbleBullet : MonoBehaviour {
         rigid.velocity = MoveVec;
 
         timeCount = 0.0f;
+        BGMManager.Instance.PlaySE("Wash_Fly");
 	}
 	
 	// Update is called once per frame
