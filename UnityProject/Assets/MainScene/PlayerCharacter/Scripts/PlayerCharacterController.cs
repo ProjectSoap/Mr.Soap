@@ -93,13 +93,13 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("ウォッシュチェインで回復する大きさ")]
     float m_healSizeWashChain = 40.0f;
 
+    [SerializeField, Tooltip("アイテムで回復する大きさ")]
+    float m_healSizeItem = 40.0f;
+
     [SerializeField, Tooltip("最大サイズ")]
     float m_maxSize = 100.0f;
 
-    [SerializeField, Tooltip("衝突ダメージ"), Header("ダメージ")]
-    float m_damage = 5.0f;
-
-    [SerializeField, Tooltip("ダメージ判定になる速度")]
+    [SerializeField, Tooltip("ダメージ判定になる速度"), Header("ダメージ")]
     float m_damageVelocity = 5.0f;
 
     [SerializeField, Range(0.0f, 1.0f), Tooltip("ダメージ判定でないときビルに接触すると速度に掛ける")]
@@ -235,6 +235,8 @@ public class PlayerCharacterController : MonoBehaviour
     ParticleSystem m_driftParticleSystemRight;
     ParticleSystem m_driftParticleSystemLeft;
 
+    ParticleSystem m_moveBubbleSystem;
+
     EndStateSystem m_endStateSystem;
 
     // Property
@@ -288,6 +290,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_driftParticleSystemLeft = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
         m_endStateSystem = GameObject.Find("EndStateSystem").GetComponent<EndStateSystem>();
         m_meshObject = transform.FindChild("Mesh").gameObject;
+        //m_moveBubbleSystem          = transform.FindChild("MoveBubble").GetComponent<ParticleSystem>();
 
         m_driftParticleSystemRight.enableEmission = false;
         m_driftParticleSystemLeft.enableEmission = false;
@@ -511,7 +514,10 @@ public class PlayerCharacterController : MonoBehaviour
                 break;
         }
 
-        int layerMask = (1 << LayerMask.NameToLayer("Terrain")) + (1 << LayerMask.NameToLayer("Building"));
+        int layerMask =
+            (1 << LayerMask.NameToLayer("Terrain")) +
+            (1 << LayerMask.NameToLayer("Building")) +
+            (1 << LayerMask.NameToLayer("Car"));
 
         m_isGround = Physics.Raycast(       // せっけんくんの真下にレイを飛ばして地形と接触チェック
             transform.position,
@@ -524,10 +530,7 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_velocity += (m_acceleration + m_weatherAddAcceleration) * Time.fixedDeltaTime;
 
-        if (m_velocity > m_maxVelocity + m_weatherAddMaxVelocity)
-        {
-            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity + m_weatherAddMaxVelocity);
-        }
+        m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity + m_weatherAddMaxVelocity);
 
         if (Mathf.Abs(m_velocity) > .0f)
             m_rigidbody.AddRelativeForce((Vector3.forward * m_velocity));
@@ -646,11 +649,6 @@ public class PlayerCharacterController : MonoBehaviour
 
         float rotationAbs = Mathf.Abs(m_rotation);
 
-        //if (rotationAbs > m_maxRotation)
-        //{
-        //    m_rotation = Mathf.Clamp(m_rotation, -m_maxRotation, m_maxRotation);
-        //}
-
         if (rotationAbs > .0f)
         {
             transform.Rotate(.0f, Mathf.Deg2Rad * m_rotation, .0f);
@@ -704,8 +702,6 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_animator.Play("Damage");
 
-        m_size -= m_damage;
-
         m_driveState = DriveState.Damage;
         m_rotation = 0.0f;
         m_velocity = 0.0f;
@@ -720,5 +716,16 @@ public class PlayerCharacterController : MonoBehaviour
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 
         BGMManager.Instance.PlaySE("Wash_Chain_MAX");
+    }
+
+    public void Heal()
+    {
+        m_size += m_healSizeItem;
+        m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+    }
+
+    public void StartPlay()
+    {
+
     }
 }
