@@ -12,6 +12,8 @@ public class ReturnMenu : MonoBehaviour {
 	void Update () {
 	    if(Input.GetKeyDown(KeyCode.Backspace)){
             Fade.ChangeScene("Menu");
+
+            BGMManager.Instance.PlaySE("Cursor_Cancel");
         }
 	}
 }

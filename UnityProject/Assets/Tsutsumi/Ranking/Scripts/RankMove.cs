@@ -16,6 +16,7 @@ public class RankMove : MonoBehaviour {
     private Vector3 firstPosition;
     private Vector3 goalPosition;
     private float nowTime;
+    private bool seTrig;
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +48,8 @@ public class RankMove : MonoBehaviour {
                 pointTexNum.SetNum(point);
             }
         }
+
+        seTrig = true;
         
 	}
 	
@@ -70,6 +73,11 @@ public class RankMove : MonoBehaviour {
         }
 
         //移動時間中
+        if (seTrig == true)
+        {
+            BGMManager.Instance.PlaySE("Ranking_Slide");
+            seTrig = false;
+        }
 
         float percent = (nowTime - START_TIME) / (END_TIME - START_TIME);
 

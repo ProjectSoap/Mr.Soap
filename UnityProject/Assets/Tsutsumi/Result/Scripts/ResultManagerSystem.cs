@@ -67,6 +67,9 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //新しいセーブデータと古いセーブデータを確認して実績が今回で解放されたのかチェックする。
         CheckGetRecord();
+
+        //BGM再生
+        BGMManager.Instance.PlayBGM("Result_BGM", 0);
 	}
 	
 	// Update is called once per frame
