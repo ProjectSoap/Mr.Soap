@@ -93,6 +93,9 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("ウォッシュチェインで回復する大きさ")]
     float m_healSizeWashChain = 40.0f;
 
+    [SerializeField, Tooltip("アイテムで回復する大きさ")]
+    float m_healSizeItem = 40.0f;
+
     [SerializeField, Tooltip("最大サイズ")]
     float m_maxSize = 100.0f;
 
@@ -715,5 +718,11 @@ public class PlayerCharacterController : MonoBehaviour
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 
         BGMManager.Instance.PlaySE("Wash_Chain_MAX");
+    }
+
+    public void Heal()
+    {
+        m_size += m_healSizeItem;
+        m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
     }
 }
