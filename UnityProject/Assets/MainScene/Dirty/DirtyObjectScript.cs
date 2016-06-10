@@ -40,6 +40,7 @@ public class DirtyObjectScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")))
         {
+            BGMManager.Instance.PlaySE("Wash_Out");
             myPoint.NoticeDestroy();
             Destroy(gameObject);
         }

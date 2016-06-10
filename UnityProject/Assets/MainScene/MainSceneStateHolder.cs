@@ -6,6 +6,7 @@
 
 using UnityEngine;  /* The unity engine */
 using System.Collections;
+using UnityEngine.UI;
 
 /**********************************************************************************************//**
  * @class   MainSceneStateHoldr
@@ -45,6 +46,10 @@ public class MainSceneStateHolder : MonoBehaviour
 
     RecoverySoapCreatersManager recoverySoapCreatersManager;
 
+    GameObject pushKey;
+    PauseObject pauseObject;
+    PoseMenu poseMenu;
+
     /**********************************************************************************************//**
      * @fn  void Start ()
      *
@@ -58,6 +63,10 @@ public class MainSceneStateHolder : MonoBehaviour
         player = GameObject.Find("PlayerCharacter");
         dirtySystem = GameObject.Find("DirtySystem").GetComponent<DirtySystem>();
         recoverySoapCreatersManager = GameObject.Find("RecoverySoapCreatersManager").GetComponent<RecoverySoapCreatersManager>();
+        BGMManager.Instance.PlayBGM("GameMain_BGM",0);
+        pushKey = GameObject.Find("PushKey");
+        pauseObject = GameObject.Find("PauseObject").GetComponent<PauseObject>();
+        poseMenu = GameObject.Find("Cur").GetComponent<PoseMenu>();
         ExecuteStateEnterProcesss(state);
     }
 
@@ -98,7 +107,7 @@ public class MainSceneStateHolder : MonoBehaviour
                     state = State.PAUSE;
                     ExecuteStateEnterProcesss(state);
                 }
-                else if (Input.GetMouseButton(0))
+                else if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
                 {
                     ExecuteStateExitProcesss(state);
                     Debug.Log("exit start state");
@@ -129,7 +138,7 @@ public class MainSceneStateHolder : MonoBehaviour
                 }
                 break;
             case State.PAUSE:
-                if (Input.GetMouseButton(1))
+                if (Input.GetKeyUp(KeyCode.Backspace) || (poseMenu.SelectNow == 0 && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.Return))))
                 {
                     ExecuteStateExitProcesss(state);
                     state = stateBeforEnteringPause;
@@ -137,8 +146,22 @@ public class MainSceneStateHolder : MonoBehaviour
                     Debug.Log("enter play state");
                     ExecuteStateEnterProcesss(state);
                 }
+                if ( (poseMenu.SelectNow == 2 && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.Return))))
+                {
+                    ExecuteStateExitProcesss(state);
+                    state = State.ACTUAL_RESULT;
+                    ExecuteStateEnterProcesss(state);
+                }
                 break;
             case State.ACTUAL_RESULT:
+                if (Input.GetKeyUp(KeyCode.Backspace))
+                {
+                    ExecuteStateExitProcesss(state);
+                    state = State.PAUSE;
+                    Debug.Log("exit ACTUAL_RESULT  state");
+                    Debug.Log("enter pause");
+                    ExecuteStateEnterProcesss(state);
+                }
                 break;
             case State.END:
                 
@@ -165,12 +188,16 @@ public class MainSceneStateHolder : MonoBehaviour
             case State.START:
                 dirtySystem.IsRunning = false;
                 recoverySoapCreatersManager.IsRunning = false;
+                pushKey.SetActive(true);
                 break;
             case State.PLAY:
                 dirtySystem.IsRunning = true;
                 recoverySoapCreatersManager.IsRunning = true;
+                pushKey.SetActive(false);
+              //  pauseObject.pausing = false;
                 break;
             case State.PAUSE:
+               // pauseObject.pausing = true;
                 break;
             case State.ACTUAL_RESULT:
                 break;
