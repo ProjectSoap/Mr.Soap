@@ -751,6 +751,8 @@ public class PlayerCharacterController : MonoBehaviour
 
             m_rigidbody.velocity = m_rigidbody.velocity - (Vector3.Dot(m_rigidbody.velocity, normal) * normal);
 
+            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
+
             m_isStayBuilding = true;
         }
     }
