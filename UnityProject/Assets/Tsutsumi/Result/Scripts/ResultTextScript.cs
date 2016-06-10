@@ -8,9 +8,11 @@ public class ResultTextScript : MonoBehaviour {
     public float minPercent;
 
     private float timeCount;
+    private bool se1Trig;
 	// Use this for initialization
 	void Start () {
         timeCount = 0.0f;
+        se1Trig = true;
 	}
 	
 	// Update is called once per frame
@@ -23,7 +25,15 @@ public class ResultTextScript : MonoBehaviour {
         //縮尺の度合い計算
         timeCount += Time.deltaTime;
         upPercent = timeCount / animationTime;
-        if(upPercent > 1.0f) upPercent = 1.0f;
+        if (upPercent > 1.0f)
+        {
+            if (se1Trig == true)
+            {
+                BGMManager.Instance.PlaySE("Result_1");
+                se1Trig = false;
+            }
+            upPercent = 1.0f;
+        }
         scaleSize = minPercent * upPercent + 1.0f * (1.0f-upPercent);
 
         //スケールへ反映

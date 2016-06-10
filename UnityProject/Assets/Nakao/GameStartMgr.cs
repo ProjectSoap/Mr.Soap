@@ -3,13 +3,43 @@ using System.Collections;
 
 public class GameStartMgr : MonoBehaviour {
 
+    ResourceRequest resReq;
+    GameObject BGMManager;
+
 	// Use this for initialization
 	void Start () {
-        Application.LoadLevel("sekTitle");
+
+
+
+        StartCoroutine(Load());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Application.LoadLevel("sekTitle");
+       
+        DontDestroyOnLoad(BGMManager);
+        if(resReq.isDone)
+        {
+            Application.LoadLevel("sekTitle");
+        }
 	}
+
+    public IEnumerator Load()
+    {
+        // リソースの非同期読込開始
+        resReq = Resources.LoadAsync<BGMManager>("BGMManager");
+        // 終わるまで待つ
+        while (resReq.isDone == false)
+        {
+            Debug.Log("Loading progress:" + resReq.progress.ToString());
+            yield return 0;
+        }
+        // プレハブを取得
+        BGMManager = (GameObject)Instantiate(resReq.asset);
+       // Instantiate(BGMManager);
+        //BGMManager = new GameObject();
+     //   bgmmanager = BGMManager.AddComponent<BGMManager>();
+        
+    }
+
 }

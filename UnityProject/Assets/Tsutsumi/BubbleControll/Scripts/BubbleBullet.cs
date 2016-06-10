@@ -21,6 +21,7 @@ public class BubbleBullet : MonoBehaviour {
         rigid.velocity = MoveVec;
 
         timeCount = 0.0f;
+        BGMManager.Instance.PlaySE("Wash_Fly");
 	}
 	
 	// Update is called once per frame
@@ -44,8 +45,8 @@ public class BubbleBullet : MonoBehaviour {
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            Vector3 vec = rigid.velocity;
-            vec.x = vec.z = 0.0f;
+            rigid = GetComponent<Rigidbody>();
+            Vector3 vec = new Vector3( rigid.velocity.x, 0,rigid.velocity.z);
 
             rigid.velocity = vec;
         }

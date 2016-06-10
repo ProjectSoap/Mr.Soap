@@ -25,7 +25,7 @@ public class TitleMgr : MonoBehaviour {
         Application.targetFrameRate = 60;   //60flame設定
         Jumpflag = false;
         //def = GameObject.Find("Rogo").GetComponent<Rogo>().RotateSpeed;
-       // BGMManager.Instance.PlayBGM("title01",1.0f);
+        BGMManager.Instance.PlayBGM("Title",1.0f);
 	}
 	
 	// Update is called once per frame
