@@ -12163,7 +12163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needle: {fileID: 1454594537}
   now_chain: 0
-  playerCharacter: {fileID: 0}
 --- !u!1 &408406828
 GameObject:
   m_ObjectHideFlags: 0
@@ -25101,7 +25100,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 628e1d8f035c0b24b82d5a6e600c4545, type: 3}
   - {fileID: 8300000, guid: 70f32cf0a14806b49b9f6da44d6c437e, type: 3}
   - {fileID: 8300000, guid: f57062bba13a2444997bbf7a75220b80, type: 3}
-  - {fileID: 8300000, guid: 5d76b2bd17cf1374db91f7c79740cf27, type: 3}
+  - {fileID: 0}
   MaxSE: 10
   mixer: {fileID: 24100000, guid: 703e9d67a2a073343adc2db60280043d, type: 2}
   keisuu: 0
@@ -34224,9 +34223,10 @@ MonoBehaviour:
   m_groundCheckLayLength: .400000006
   m_sizeDecrementionRate: 2.5
   m_healSizeWashChain: 40
+  m_healSizeItem: 40
   m_maxSize: 100
-  m_damage: 20
   m_damageVelocity: 5
+  m_damageAngle: 45
   m_stayBuildingVelocityRate: .5
   m_stayBuildingMaxVelocity: 5
   m_damageAfterStopTime: 1
@@ -34246,14 +34246,17 @@ MonoBehaviour:
   m_windSideAddDriftStartTime: 0
   m_driftParticleEmitterRight: {fileID: 1135157821}
   m_driftParticleEmitterLeft: {fileID: 587410807}
+  m_moveBubbleEmissionVelocity: 0
   m_driveState: 1
   m_velocity: 0
   m_rotation: 0
   m_pushRotationKeyTime: 0
   m_pushProgressBreakeKeyTime: 0
   m_isGround: 1
+  m_isStayBuilding: 0
   m_size: 100
   m_horizontal: 0
+  v: {x: 0, y: 0, z: 0}
 --- !u!65 &1071930587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49242,7 +49245,7 @@ GameObject:
   - 198: {fileID: 1474827151}
   - 199: {fileID: 1474827150}
   m_Layer: 0
-  m_Name: MoveBobble
+  m_Name: MoveBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
