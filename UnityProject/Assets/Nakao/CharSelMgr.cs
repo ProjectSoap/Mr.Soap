@@ -8,7 +8,8 @@ public class CharSelMgr : MonoBehaviour {
     enum Charselect
     {
         SELECT,
-        PLAY
+        PLAY,
+        FADE
     };
 
     [SerializeField]
@@ -16,6 +17,9 @@ public class CharSelMgr : MonoBehaviour {
 
     [SerializeField]
     SelectCharacter soap;
+
+    [SerializeField]
+    SelectingCharactor no;
 
     Charselect state;
 	// Use this for initialization
@@ -59,7 +63,14 @@ public class CharSelMgr : MonoBehaviour {
                 case Charselect.PLAY:
                     {
 //                        Application.LoadLevel("Main");
+                        state = Charselect.FADE;
                         Fade.ChangeScene("main");
+                        no.SetCharNo(soap.GetCharNo());
+                        break;
+                    }
+
+                default:
+                    {
                         break;
                     }
             }
