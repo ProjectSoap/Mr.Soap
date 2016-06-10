@@ -844,7 +844,6 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_maxRotation = m_maxRotationNormal;
         m_breakeAfterTime = m_breakeAfterEndTime;
-        m_defaultScale = transform.localScale;
         m_driveState = DriveState.Start;
 
         m_velocity = 0.0f;
