@@ -90,6 +90,9 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("1秒間に減る大きさの値"), Header("大きさ")]
     float m_sizeDecrementionRate = 2.5f;
 
+    [SerializeField, Tooltip("ダメージで減る大きさ")]
+    float m_damageSize;
+
     [SerializeField, Tooltip("ウォッシュチェインで回復する大きさ")]
     float m_healSizeWashChain = 40.0f;
 
@@ -568,7 +571,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity + m_weatherAddMaxVelocity);
 
-        if(m_isStayBuilding)
+        if (m_isStayBuilding)
             m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
 
         if (Mathf.Abs(m_velocity) > .0f)
@@ -731,10 +734,13 @@ public class PlayerCharacterController : MonoBehaviour
 
             float angle = Vector3.Angle(forward, vector);
 
-            if(angle <= m_damageAngle &&
+            if( !m_isStayBuilding &&
+                angle <= m_damageAngle &&
                 m_velocity >= m_damageVelocity)
             {
                 Damage();
+
+                Debug.Log("HIIIIIITTTT!!!!!!!!!");
             }
 
             Debug.Log(angle.ToString() + " On Hit");
@@ -747,9 +753,15 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            Vector3 normal = collision.contacts[0].normal.normalized;
+            Vector3 normal  = collision.contacts[0].normal.normalized;
+            Vector3 forward = transform.forward;
 
-            m_rigidbody.velocity = m_rigidbody.velocity - (Vector3.Dot(m_rigidbody.velocity, normal) * normal);
+            Vector3 vector = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+
+            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
+
+            m_rigidbody.AddForce(vector * m_velocity);
+            m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
 
             m_isStayBuilding = true;
         }
@@ -791,6 +803,8 @@ public class PlayerCharacterController : MonoBehaviour
         m_velocity          = 0.0f;
         m_damageAfterTime   = 0.0f;
 
+        m_size              -= m_damageSize;
+
         BGMManager.Instance.PlaySE("Collision");
     }
 
@@ -806,6 +820,8 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+
+        BGMManager.Instance.PlaySE("Recovery");
     }
 
     public void PlayStart()
