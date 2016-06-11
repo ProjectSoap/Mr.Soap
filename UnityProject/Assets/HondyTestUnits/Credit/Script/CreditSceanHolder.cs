@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CreditMoveCamera : MonoBehaviour {
+public class CreditSceanHolder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
