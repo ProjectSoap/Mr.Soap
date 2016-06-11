@@ -17,7 +17,7 @@ public class CreditQuad : MonoBehaviour {
             float a = GetComponent<MeshRenderer>().sharedMaterial.GetFloat("_MaskAlpha");
             if (a < 1)
             {
-                GetComponent<MeshRenderer>().material.SetFloat("_MaskAlpha", a + 0.01f);
+                GetComponent<MeshRenderer>().material.SetFloat("_MaskAlpha", a + 0.009f);
 
             }
 
