@@ -29,8 +29,11 @@ public class ResultTextScript : MonoBehaviour {
         {
             if (se1Trig == true)
             {
-                BGMManager.Instance.PlaySE("Result_1");
                 se1Trig = false;
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Result_1");
+                }
             }
             upPercent = 1.0f;
         }

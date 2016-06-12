@@ -13,7 +13,10 @@ public class ReturnMenu : MonoBehaviour {
 	    if(Input.GetKeyDown(KeyCode.Escape)){
             Fade.ChangeScene("Menu");
 
-            BGMManager.Instance.PlaySE("Cursor_Cancel");
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.PlaySE("Cursor_Cancel");
+            }
         }
 	}
 }

@@ -5,7 +5,10 @@ public class RankingSceneSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        BGMManager.Instance.PlayBGM("Ranking_BGM", 0);
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlayBGM("Ranking_BGM", 0);
+        }
 	}
 	
 	// Update is called once per frame
