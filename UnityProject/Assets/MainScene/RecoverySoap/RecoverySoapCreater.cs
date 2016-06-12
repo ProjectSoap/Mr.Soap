@@ -54,7 +54,7 @@ public class RecoverySoapCreater : MonoBehaviour {
     {
 	    if (isInstance)
 	    {
-             soapInstance =  (GameObject)Instantiate(recoverySoap, transform.position, transform.rotation) as GameObject;
+             soapInstance =  (GameObject)Instantiate(recoverySoap, transform.position,recoverySoap.transform.rotation) as GameObject;
             RecoverySoapObject script = soapInstance.GetComponent<RecoverySoapObject>();
             script.Parent = this;
             isInstance = false;

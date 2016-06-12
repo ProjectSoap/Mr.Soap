@@ -20,6 +20,7 @@ public class WarpPoint : MonoBehaviour {
     void OnTriggerEnter( Collider collisionObject)
     {
         collisionObject.gameObject.transform.position = point.transform.position;
+        collisionObject.gameObject.transform.rotation = point.transform.rotation * collisionObject.gameObject.transform.rotation;
         controller.State = CreditMrSoapController.CreditMrSoapState.STOP
             ;
     }
