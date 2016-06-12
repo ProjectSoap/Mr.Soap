@@ -77,7 +77,10 @@ public class ResultManagerSystem : MonoBehaviour {
         CheckGetRecord();
 
         //BGM再生
-        BGMManager.Instance.PlayBGM("Result_BGM", 0);
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlayBGM("Result_BGM", 0);
+        }
 	}
 	
 	// Update is called once per frame
@@ -97,15 +100,18 @@ public class ResultManagerSystem : MonoBehaviour {
                 //実績開放音を鳴らす
                 if (recordGetBGMTrig[i] == true)
                 {
-                    //SE
-                    BGMManager.Instance.PlaySE("Actual_Open");
                     recordGetBGMTrig[i] = false;
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Actual_Open");
+                    }
                 }
 
                 _getRecordflg = true;
                 canvasKaihou.gameObject.SetActive(true);
                 canvasKaihou.SetRecordImage(i);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
                     recordGetFlg[i] = false;
                 }
@@ -120,7 +126,6 @@ public class ResultManagerSystem : MonoBehaviour {
 
 
         //入力を見てメニューへ
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
         //画面遷移表示
         if (sceneMoveDisplayFlg == true)
         {
@@ -138,7 +143,7 @@ public class ResultManagerSystem : MonoBehaviour {
             canvasSceneSelect.WakuSelect(sceneMenuFlg);
 
             //戻る
-            if (Input.GetKeyDown(KeyCode.Backspace))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 sceneMoveDisplayFlg = false;
                 sceneMenuFlg = true;
@@ -150,14 +155,14 @@ public class ResultManagerSystem : MonoBehaviour {
             //画面遷移する。
             if (sceneMenuFlg == true)
             {
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
                     Fade.ChangeScene("Menu");
                 }
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
                     Fade.ChangeScene("Main");
                 }
@@ -168,7 +173,7 @@ public class ResultManagerSystem : MonoBehaviour {
             canvasSceneSelect.gameObject.SetActive(false);
             sceneMenuFlg = true;
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 sceneMoveDisplayFlg = true;
             }

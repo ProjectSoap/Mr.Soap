@@ -58,7 +58,10 @@ public class ResultUISwitch : MonoBehaviour {
                 YogoreKesitaKazuUI.SetActive(true);
                 YogoreUI.SetActive(true);
                 //SEはここでならす
-                BGMManager.Instance.PlaySE("Result_2");
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Result_2");
+                }
             }
         }
         //桁を順番に有効化
@@ -73,8 +76,10 @@ public class ResultUISwitch : MonoBehaviour {
                 PointKeta4UI.SetActive(false);
                 KakeruUI.SetActive(true);
                 //SE
-                BGMManager.Instance.PlaySE("Result_3");
-                
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Result_3");
+                }
                 if (point < 10)
                 {
                     timeCount += 1.5f;
@@ -89,8 +94,10 @@ public class ResultUISwitch : MonoBehaviour {
                 {
                     PointKeta2UI.SetActive(true);
                     //SE
-                    BGMManager.Instance.PlaySE("Result_3");
-
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Result_3");
+                    }
                     if (point < 100)
                     {
                         timeCount += 1.0f;
@@ -106,8 +113,10 @@ public class ResultUISwitch : MonoBehaviour {
                 {
                     PointKeta3UI.SetActive(true);
                     //SE
-                    BGMManager.Instance.PlaySE("Result_3");
-
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Result_3");
+                    }
                     if (point < 1000)
                     {
                         timeCount += 0.5f;
@@ -123,8 +132,10 @@ public class ResultUISwitch : MonoBehaviour {
                 {
                     PointKeta4UI.SetActive(true);
                     //SE
-                    BGMManager.Instance.PlaySE("Result_3");
-
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Result_3");
+                    }
                 }
             }
         }

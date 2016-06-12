@@ -75,7 +75,10 @@ public class RankMove : MonoBehaviour {
         //移動時間中
         if (seTrig == true)
         {
-            BGMManager.Instance.PlaySE("Ranking_Slide");
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.PlaySE("Ranking_Slide");
+            }
             seTrig = false;
         }
 
