@@ -1314,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_camraVelocity: .0375000015
+  isEnd: 0
 --- !u!54 &846766572
 Rigidbody:
   m_ObjectHideFlags: 0

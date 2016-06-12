@@ -193,7 +193,7 @@ public class MainSceneStateHolder : MonoBehaviour
             case State.PLAY:
                 dirtySystem.IsRunning = true;
                 recoverySoapCreatersManager.IsRunning = true;
-                pushKey.SetActive(false);
+                Object.Destroy(pushKey);
               //  pauseObject.pausing = false;
                 break;
             case State.PAUSE:
