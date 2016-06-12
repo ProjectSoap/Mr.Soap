@@ -1389,6 +1389,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab161b54f43b55748a44158aba8e8f75, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &90190127 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22465784, guid: ab161b54f43b55748a44158aba8e8f75,
+    type: 2}
+  m_PrefabInternal: {fileID: 90190126}
 --- !u!4 &94079649 stripped
 Transform:
   m_PrefabParentObject: {fileID: 412752, guid: 736fc8a70191ffa40896adea426ca6e6, type: 2}
@@ -8233,6 +8238,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69fee7a117a58b54c83f0644ca6abd30, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &547106187 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22488592, guid: 69fee7a117a58b54c83f0644ca6abd30,
+    type: 2}
+  m_PrefabInternal: {fileID: 547106186}
 --- !u!4 &553698726 stripped
 Transform:
   m_PrefabParentObject: {fileID: 448254, guid: 67ce998854e1592439c770bda7e9fa25, type: 2}
@@ -15309,7 +15319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791685db50849824182f45570617ef70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   dirtyPointsOfArea1:
   - {fileID: 1531358535}
   dirtyPointsOfArea2: []
@@ -17303,6 +17312,48 @@ MeshRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 402660, guid: f02305bc613a31840b0495dee99fba7a, type: 2}
   m_PrefabInternal: {fileID: 1506483376}
+--- !u!1001 &1062103056
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -78.0695648
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -.707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 418344, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
+  m_IsPrefabParent: 0
 --- !u!21 &1064964497
 Material:
   serializedVersion: 6
@@ -23150,10 +23201,10 @@ RectTransform:
   m_Children:
   - {fileID: 1378784004}
   - {fileID: 534765908}
-  - {fileID: 1775795263}
+  - {fileID: 547106187}
   - {fileID: 1040687028}
   - {fileID: 1162836721}
-  - {fileID: 1677184010}
+  - {fileID: 90190127}
   m_Father: {fileID: 459790536}
   m_RootOrder: 13
   m_AnchorMin: {x: 0, y: 0}
@@ -27615,11 +27666,6 @@ Mesh:
 Transform:
   m_PrefabParentObject: {fileID: 489318, guid: f02305bc613a31840b0495dee99fba7a, type: 2}
   m_PrefabInternal: {fileID: 1506483376}
---- !u!224 &1677184010 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22403068, guid: ab161b54f43b55748a44158aba8e8f75,
-    type: 2}
-  m_PrefabInternal: {fileID: 90190126}
 --- !u!1 &1686823434
 GameObject:
   m_ObjectHideFlags: 0
@@ -29138,11 +29184,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!224 &1775795263 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22411136, guid: 69fee7a117a58b54c83f0644ca6abd30,
-    type: 2}
-  m_PrefabInternal: {fileID: 547106186}
 --- !u!4 &1778469768 stripped
 Transform:
   m_PrefabParentObject: {fileID: 470984, guid: f02305bc613a31840b0495dee99fba7a, type: 2}
