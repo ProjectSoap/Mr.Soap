@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
   m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
-  m_AmbientIntensity: 1.61000001
+  m_AmbientIntensity: 1.60000002
   m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: .5
@@ -3543,7 +3543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+  recoverySoap: {fileID: 179244, guid: 8d853a655d60746428252e2e8b86b3f1, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+  recoverySoap: {fileID: 179244, guid: 8d853a655d60746428252e2e8b86b3f1, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -35888,6 +35888,26 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 4.17000008
       objectReference: {fileID: 0}
+    - target: {fileID: 11498660, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_damageSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498660, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_rotationPowerDrift
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498660, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_rotationPowerNormal
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498660, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_maxRotationDrift
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498660, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_sizeDecrementionRate
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
   m_IsPrefabParent: 0
@@ -43725,7 +43745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+  recoverySoap: {fileID: 179244, guid: 8d853a655d60746428252e2e8b86b3f1, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -44875,7 +44895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+  recoverySoap: {fileID: 179244, guid: 8d853a655d60746428252e2e8b86b3f1, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15

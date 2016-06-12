@@ -152,44 +152,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalPosition.y
       value: .5
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalRotation.x
       value: .707106829
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_LocalRotation.w
       value: .707106709
       objectReference: {fileID: 0}
-    - target: {fileID: 474604, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+    - target: {fileID: 479454, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
-      propertyPath: m_Name
-      value: RecoverySoap
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: fdf6f44d25f77154d88b1d952c9b63ba, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1980127421
 GameObject:
