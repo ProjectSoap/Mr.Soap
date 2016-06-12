@@ -3543,7 +3543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150934, guid: e6db818992e4f9c4d8b56d7bd3e26b12, type: 2}
+  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150934, guid: e6db818992e4f9c4d8b56d7bd3e26b12, type: 2}
+  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -35876,6 +35876,18 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -410
       objectReference: {fileID: 0}
+    - target: {fileID: 436924, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .337083787
+      objectReference: {fileID: 0}
+    - target: {fileID: 436924, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .158907369
+      objectReference: {fileID: 0}
+    - target: {fileID: 436924, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4.17000008
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
   m_IsPrefabParent: 0
@@ -41423,8 +41435,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 511, y: 9}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 621.099976, y: 9}
+  m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1485941266
 MonoBehaviour:
@@ -41438,7 +41450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd082206f365d643a19c72b88e2779b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: -10
+  scrollSpeed: -3
 --- !u!114 &1485941267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43713,7 +43725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150934, guid: e6db818992e4f9c4d8b56d7bd3e26b12, type: 2}
+  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
@@ -44863,7 +44875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf4e6f4a2f465e4f8d77fa116eb806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoverySoap: {fileID: 150934, guid: e6db818992e4f9c4d8b56d7bd3e26b12, type: 2}
+  recoverySoap: {fileID: 150406, guid: cec546f71e4033f469daa5eb67f30d7a, type: 2}
   isInstance: 0
   isHaveRevoverySoap: 0
   distanceForParmitTheCreate: 15
