@@ -2267,11 +2267,12 @@ MonoBehaviour:
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .400000006
   m_sizeDecrementionRate: 2.5
+  m_damageSize: 0
   m_healSizeWashChain: 40
   m_healSizeItem: 40
   m_maxSize: 100
   m_damageVelocity: 7
-  m_damageAngle: 45
+  m_damageAngle: 15
   m_stayBuildingVelocityRate: .5
   m_stayBuildingMaxVelocity: 5
   m_damageAfterStopTime: 1
@@ -2292,6 +2293,8 @@ MonoBehaviour:
   m_driftParticleEmitterRight: {fileID: 185440}
   m_driftParticleEmitterLeft: {fileID: 187190}
   m_moveBubbleEmissionVelocity: 5
+  m_damageParticleEmitter: {fileID: 120068, guid: 5607ed4e2cdcc934ea55e4fb39e4f328,
+    type: 2}
   m_driveState: 1
   m_velocity: 0
   m_rotation: 0

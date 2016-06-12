@@ -168,6 +168,9 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("移動パーティクルが出る速度")]
     float m_moveBubbleEmissionVelocity;
 
+    [SerializeField, Tooltip("ダメージパーティクル")]
+    GameObject m_damageParticleEmitter;
+
     // Rigidbody
     Rigidbody m_rigidbody;
 
@@ -806,6 +809,11 @@ public class PlayerCharacterController : MonoBehaviour
         m_size              -= m_damageSize;
 
         BGMManager.Instance.PlaySE("Collision");
+
+        var particleEmitter = Instantiate(m_damageParticleEmitter, transform.position, transform.rotation) as GameObject;
+        var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        Destroy(particleEmitter, particleSystem.duration);
     }
 
     public void WashChain()
