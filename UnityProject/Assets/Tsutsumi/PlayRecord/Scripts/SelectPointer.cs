@@ -133,6 +133,9 @@ public class SelectPointer : MonoBehaviour
         }
 
         //SE
-        BGMManager.Instance.PlaySE("Cursor_Move");
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlaySE("Cursor_Move");
+        }
     }
 }

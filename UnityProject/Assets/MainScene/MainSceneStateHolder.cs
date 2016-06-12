@@ -98,7 +98,7 @@ public class MainSceneStateHolder : MonoBehaviour
         {
             case State.START:
 
-                if (Input.GetKey(KeyCode.F3))
+                if (Input.GetKey(KeyCode.F12))
                 {
                     ExecuteStateExitProcesss(state);
                     Debug.Log("exit start state");
@@ -119,7 +119,7 @@ public class MainSceneStateHolder : MonoBehaviour
             case State.PLAY:
 
 
-                if (Input.GetKey(KeyCode.F3))
+                if (Input.GetKey(KeyCode.F12))
                 {
                     ExecuteStateExitProcesss(state);
                     stateBeforEnteringPause = state;
@@ -138,7 +138,7 @@ public class MainSceneStateHolder : MonoBehaviour
                 }
                 break;
             case State.PAUSE:
-                if (Input.GetKeyUp(KeyCode.Backspace) || (poseMenu.SelectNow == 0 && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.Return))))
+                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
                 {
                     ExecuteStateExitProcesss(state);
                     state = stateBeforEnteringPause;
@@ -154,7 +154,7 @@ public class MainSceneStateHolder : MonoBehaviour
                 }
                 break;
             case State.ACTUAL_RESULT:
-                if (Input.GetKeyUp(KeyCode.Backspace))
+                if (Input.GetKeyUp(KeyCode.Escape))
                 {
                     ExecuteStateExitProcesss(state);
                     state = State.PAUSE;
@@ -193,7 +193,7 @@ public class MainSceneStateHolder : MonoBehaviour
             case State.PLAY:
                 dirtySystem.IsRunning = true;
                 recoverySoapCreatersManager.IsRunning = true;
-                pushKey.SetActive(false);
+                Object.Destroy(pushKey);
               //  pauseObject.pausing = false;
                 break;
             case State.PAUSE:

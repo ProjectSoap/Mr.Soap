@@ -66,7 +66,7 @@ public class PoseMenu : MonoBehaviour {
         r.b = r.g = 0.0f;
         Color w = new Color(1.0f, 1.0f, 1.0f, 1.0f);
        
-        if(Input.GetKeyDown(KeyCode.F3))
+        if(Input.GetKeyDown(KeyCode.F12))
         {
             Init();
         }
@@ -82,11 +82,11 @@ public class PoseMenu : MonoBehaviour {
            
         }
 
-        if (Input.GetKey(KeyCode.Backspace))
+        if (Input.GetKey(KeyCode.Escape))
         {
             //Application.LoadLevel("sekTitle");
         }
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             JumpScene();
            // Application.LoadLevel("Select");

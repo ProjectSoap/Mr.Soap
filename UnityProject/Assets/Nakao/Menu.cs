@@ -38,7 +38,7 @@ public class Menu : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.Backspace))
+        if (Input.GetKey(KeyCode.Escape))
         {
 
             Fade.ChangeScene("sekTitle");
