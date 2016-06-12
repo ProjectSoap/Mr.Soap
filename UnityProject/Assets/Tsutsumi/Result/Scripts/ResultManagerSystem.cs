@@ -13,6 +13,7 @@ public class ResultManagerSystem : MonoBehaviour {
     public SaveDataManager saveDataManager;     //セーブデータ管理
     public CheckRecordCondition checkRecord;    //実績条件判定
     public ResultCanvasKaihouCon canvasKaihou;  //実績を取得した場合有効に
+    public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
 
     //スコア関連を保持する
     private ActionRecordManager.SActionRecord gameScore;    //今回のスコアなどのデータ
@@ -38,10 +39,17 @@ public class ResultManagerSystem : MonoBehaviour {
     //BGMトリガー
     private bool[] recordGetBGMTrig = new bool[30];
 
+    //画面遷移表示フラグ
+    private bool sceneMoveDisplayFlg;
+    private bool sceneMenuFlg;
+
 	// Use this for initialization
 	void Start () {
         rank = 0;
         pointDrawEndFlg = false;
+        sceneMoveDisplayFlg = false;
+        sceneMenuFlg = true;
+
         for (int i = 0; i < 30; ++i)
         {
             recordGetBGMTrig[i] = true;
@@ -90,14 +98,14 @@ public class ResultManagerSystem : MonoBehaviour {
                 if (recordGetBGMTrig[i] == true)
                 {
                     //SE
-
+                    BGMManager.Instance.PlaySE("Actual_Open");
                     recordGetBGMTrig[i] = false;
                 }
 
                 _getRecordflg = true;
                 canvasKaihou.gameObject.SetActive(true);
                 canvasKaihou.SetRecordImage(i);
-                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                     recordGetFlg[i] = false;
                 }
@@ -113,8 +121,57 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //入力を見てメニューへ
         if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
+        //画面遷移表示
+        if (sceneMoveDisplayFlg == true)
         {
-            Fade.ChangeScene("Menu");
+            canvasSceneSelect.gameObject.SetActive(true);
+
+            //画面を選択する
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                sceneMenuFlg = true;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                sceneMenuFlg = false;
+            }
+            canvasSceneSelect.WakuSelect(sceneMenuFlg);
+
+            //戻る
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                sceneMoveDisplayFlg = false;
+                sceneMenuFlg = true;
+                canvasSceneSelect.gameObject.SetActive(false);
+
+                return;
+            }
+
+            //画面遷移する。
+            if (sceneMenuFlg == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    Fade.ChangeScene("Menu");
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    Fade.ChangeScene("Main");
+                }
+            }
+        }
+        else
+        {
+            canvasSceneSelect.gameObject.SetActive(false);
+            sceneMenuFlg = true;
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                sceneMoveDisplayFlg = true;
+            }
         }
 	}
 
@@ -351,9 +408,5 @@ public class ResultManagerSystem : MonoBehaviour {
                 recordGetFlg[i] = false;
             }
         }
-
-        recordGetFlg[7] = true;
-        recordGetFlg[14] = true;
-        recordGetFlg[21] = true;
     }
 }
