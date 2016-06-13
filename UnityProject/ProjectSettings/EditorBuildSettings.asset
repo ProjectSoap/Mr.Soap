@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Tsutsumi/Ranking/Ranking.unity
   - enabled: 1
     path: Assets/Tsutsumi/PlayRecord/PlayRecordScene.unity
+  - enabled: 1
+    path: Assets/Tsutsumi/Result/ResultScene.unity
