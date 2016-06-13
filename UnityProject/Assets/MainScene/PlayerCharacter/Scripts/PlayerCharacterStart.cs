@@ -28,6 +28,13 @@ public class PlayerCharacterStart : PlayerCharacterAnimationBehaviour {
     //
     //}
 
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        base.OnStateUpdate(animator, stateInfo, layerIndex);
+
+        m_playerCharacterController.transform.Translate(new Vector3(0, 0, 0.025f));
+    }
+
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateExit(animator, stateInfo, layerIndex);
