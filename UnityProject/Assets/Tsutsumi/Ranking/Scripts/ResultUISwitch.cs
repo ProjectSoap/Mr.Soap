@@ -35,6 +35,11 @@ public class ResultUISwitch : MonoBehaviour {
         if (point < 0) point = 0;
         PointScript.SetNum(point);
 
+        pointUIPos = PointUI.transform.position;
+        pointUIPos.x = 5.0f;
+        pointUIPos.y = -2.0f;
+        //pointDistance = Mathf.Abs(PointKeta1UI.transform.position.x - PointKeta2UI.transform.position.x);
+        pointDistance = -1.5f;
 	}
 
     void Start()
@@ -69,6 +74,7 @@ public class ResultUISwitch : MonoBehaviour {
         {
             if (PointKeta1UI.activeInHierarchy == false)
             {
+                PointPositionControll(1);
                 PointUI.SetActive(true);
                 PointKeta1UI.SetActive(true);
                 PointKeta2UI.SetActive(false);
@@ -92,6 +98,7 @@ public class ResultUISwitch : MonoBehaviour {
             {
                 if (PointKeta2UI.activeInHierarchy == false)
                 {
+                    PointPositionControll(2);
                     PointKeta2UI.SetActive(true);
                     //SE
                     if (BGMManager.Instance != null)
@@ -111,6 +118,7 @@ public class ResultUISwitch : MonoBehaviour {
             {
                 if (PointKeta3UI.activeInHierarchy == false)
                 {
+                    PointPositionControll(3);
                     PointKeta3UI.SetActive(true);
                     //SE
                     if (BGMManager.Instance != null)
@@ -130,6 +138,7 @@ public class ResultUISwitch : MonoBehaviour {
             {
                 if (PointKeta4UI.activeInHierarchy == false)
                 {
+                    PointPositionControll(4);
                     PointKeta4UI.SetActive(true);
                     //SE
                     if (BGMManager.Instance != null)
@@ -145,5 +154,47 @@ public class ResultUISwitch : MonoBehaviour {
             resultManagerSystem.SetPointDrawEndFlg(true);
         }
 
+    }
+
+
+    //ポイント中央ぞろえ制御用
+    private Vector3 pointUIPos;
+    private float pointDistance;
+
+    private void PointPositionControll(int keta)
+    {
+        Vector3 temp = pointUIPos;
+
+        switch (keta)
+        {
+            case 1:
+                PointKeta1UI.transform.position = temp;
+                break;
+            case 2:
+                temp.x -= pointDistance * 0.5f;
+                PointKeta1UI.transform.position = temp;
+                temp.x += pointDistance;
+                PointKeta2UI.transform.position = temp;
+                break;
+            case 3:
+                temp.x -= pointDistance;
+                PointKeta1UI.transform.position = temp;
+                temp.x += pointDistance;
+                PointKeta2UI.transform.position = temp;
+                temp.x += pointDistance;
+                PointKeta3UI.transform.position = temp;
+                break;
+            case 4:
+                temp.x -= pointDistance * 0.5f;
+                temp.x -= pointDistance;
+                PointKeta1UI.transform.position = temp;
+                temp.x += pointDistance;
+                PointKeta2UI.transform.position = temp;
+                temp.x += pointDistance;
+                PointKeta3UI.transform.position = temp;
+                temp.x += pointDistance;
+                PointKeta4UI.transform.position = temp;
+                break;
+        }
     }
 }
