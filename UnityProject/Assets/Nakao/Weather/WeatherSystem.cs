@@ -19,6 +19,8 @@ public class WeatherSystem : MonoBehaviour {
     [SerializeField]
     Weather nowWeather;
 
+    PlayerCharacterController.WeatherState nowWeathers;
+
     bool[] weatherflg = new bool[3];
     short numWeather;
 
@@ -29,10 +31,30 @@ public class WeatherSystem : MonoBehaviour {
 	void Start () {
         numWeather = 2;
         nowWeather = Weather.SUN;
+        nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         ActiveWeather();
         minute = 0;
         weatherflg[0] = true;
+        LoadSave();
 	}
+
+    void LoadSave()
+    {
+        if(PlayerPrefs.GetInt("RainPlayFlg", -1) == 1)
+        {
+            weatherflg[1] = true;
+        }
+        if(PlayerPrefs.GetInt("FogPlayFlg", -1) == 1)
+        {
+            weatherflg[2] = true;
+        }
+        if(PlayerPrefs.GetInt("WindPlayFlg", -1) == 1)
+        {
+            //weatherflg[3] = true;
+        }
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,6 +73,10 @@ public class WeatherSystem : MonoBehaviour {
         if (numWeather == 0)
         {
             nowWeather = Weather.SUN;
+            nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+            GameObject we;
+            we = GameObject.Find("PlayerCharacter");
+            we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
         }
         else
         {
@@ -68,6 +94,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         else if (numWeather >= 2)
@@ -80,6 +110,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         break;
@@ -96,6 +130,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         else if (numWeather >= 2)
@@ -108,6 +146,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         break;
@@ -124,6 +166,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         else if (numWeather >= 2)
@@ -136,6 +182,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         break;
@@ -152,6 +202,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         else if (numWeather >= 2)
@@ -164,6 +218,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         break;
@@ -178,6 +236,10 @@ public class WeatherSystem : MonoBehaviour {
                         else
                         {
                             nowWeather = Weather.SUN;
+                            nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                            GameObject we;
+                            we = GameObject.Find("PlayerCharacter");
+                            we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                         }
                         break;
                     }
@@ -193,6 +255,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         else if (numWeather == 2)
@@ -205,6 +271,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         else if (numWeather == 3)
@@ -217,6 +287,10 @@ public class WeatherSystem : MonoBehaviour {
                             else
                             {
                                 nowWeather = Weather.SUN;
+                                nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+                                GameObject we;
+                                we = GameObject.Find("PlayerCharacter");
+                                we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                             }
                         }
                         break;
@@ -294,6 +368,10 @@ public class WeatherSystem : MonoBehaviour {
                     if (weatherflg[0])
                     {
                         nowWeather = Weather.RAIN;
+                        nowWeathers = PlayerCharacterController.WeatherState.Rain;
+                        GameObject we;
+                        we = GameObject.Find("PlayerCharacter");
+                        we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                         return true;
                     }
                     else
@@ -306,6 +384,10 @@ public class WeatherSystem : MonoBehaviour {
                     if (weatherflg[1])
                     {
                         nowWeather = Weather.FOG;
+                        nowWeathers = PlayerCharacterController.WeatherState.Fog;
+                        GameObject we;
+                        we = GameObject.Find("PlayerCharacter");
+                        we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                         return true;
                     }
                     else
