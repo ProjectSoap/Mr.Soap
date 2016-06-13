@@ -129,10 +129,11 @@ public class Fade : MonoBehaviour{
     
     public static void ChangeScene(string nextScene)
     {
-        SceneName = nextScene;
+        
        // if (Input.GetKeyDown(KeyCode.L))
         if (!fadeflg)
         {
+            SceneName = nextScene;
             fadeflg = true;
             destroy = true;
         }

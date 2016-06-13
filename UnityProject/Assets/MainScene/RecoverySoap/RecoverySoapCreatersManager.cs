@@ -2,7 +2,13 @@
 using System.Collections;
 
 public class RecoverySoapCreatersManager : MonoBehaviour {
-
+    // 稼働しているか
+    bool isRunning;
+    public bool IsRunning
+    {
+        get { return isRunning; }
+        set { isRunning = value; }
+    }
     [SerializeField]
     bool isUnlockArea1;
     [SerializeField]
@@ -33,56 +39,70 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
     [SerializeField]
     GameObject player;
 
+    NorticeDirectionRecaverySoap arrow;
+    NorticeUIOfAppearanceRecoverySoap sprite;
+
     // Use this for initialization
     void Start ()
     {
-	
-	}
+        isRunning = false;
+
+        arrow = GameObject.Find("NorticeRecoveryDirection").GetComponent<NorticeDirectionRecaverySoap>();
+        sprite = GameObject.Find("NorticeRecoverySoapSprite").GetComponent<NorticeUIOfAppearanceRecoverySoap>();
+        player = GameObject.Find("PlayerCharacter");
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        countSecond += Time.deltaTime;
-
-
-        CheckDistanceFromPlayer();
-        // 指定した秒数内
-        if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
+        if (IsRunning)
         {
+            countSecond += Time.deltaTime;
 
-            uint difference = maxTimeForInstance - minTimeForInstance ;
-            if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
+
+            CheckDistanceFromPlayer();
+            // 指定した秒数内
+            if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
             {
-                uint elemMax;
-                elemMax = (uint)RecoverySoapCreaters1.Length;
-                if (elemMax > 0)
+
+                uint difference = maxTimeForInstance - minTimeForInstance;
+                if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
                 {
-                    uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
-                    
-                    RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
-                    if (script)
+                    uint elemMax;
+                    elemMax = (uint)RecoverySoapCreaters1.Length;
+                    if (elemMax > 0)
                     {
-                        if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                        uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+
+                        RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
+                        if (script)
                         {
-                            script.IsInstance = true;
-                            countSecond = 0;    // カウントリセット
+                            if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                            {
+                                script.IsInstance = true;
+                                countSecond = 0;    // カウントリセット
+                                sprite.IsAppearance = true;
+                            }
+
                         }
-                        
+
                     }
-                        
                 }
             }
-        }
-        if (maxTimeForInstance < countSecond)
-        {
-            countSecond = 0; // 最大時間を超えたらリセット
+            if (maxTimeForInstance < countSecond)
+            {
+                countSecond = 0; // 最大時間を超えたらリセット
 
+            }
         }
+       
 	}
 
 
     void CheckDistanceFromPlayer()
     {
+        arrow.Near = 1000;
+        arrow.IsAppearance = false;
         // 区画1のせっけん出現候補地とプレイヤーの距離を検証
         if (isUnlockArea1)
         {
@@ -90,6 +110,16 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
             {
                 RecoverySoapCreater creater = RecoverySoapCreaters1[i].GetComponent<RecoverySoapCreater>();
                 creater.CheckDistance(player.transform.position);
+                if (creater.IsHaveRevoverySoap)
+                {
+
+                    arrow.IsAppearance = true;
+                    if (arrow.Near > Vector3.Distance(creater.transform.position, player.transform.position))
+                    {
+                        arrow.RecoverySoap = creater.RecoverySoap;
+                        arrow.Near = Vector3.Distance(creater.transform.position, player.transform.position);
+                    }
+                } 
 
             }
         }

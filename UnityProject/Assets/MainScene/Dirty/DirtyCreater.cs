@@ -5,25 +5,16 @@ using System.Collections;
 */
 public class DirtyCreater : MonoBehaviour {
     
-    [SerializeField]
-    GameObject dirtyObject;   // 汚れオブジェクト
-
-    [SerializeField]
-    Vector2 createRange; // 生成範囲
-
-    [SerializeField]
-    uint createNumber; // 生成個数
-
-    
     DirtySystem parntDirtySystem;   // 管理用
     public DirtySystem ParntDirtySystem
     {
         get { return parntDirtySystem; }
         set { parntDirtySystem = value; }
     }
-    GameObject[] dirtyObjectInstance;   // 管理用
+    [SerializeField,Header("出現場所(DirtyAppearancePoint)の管理配列")]
+    GameObject[] appearancePoints;   // 出現位置管理
 
-    bool[] isMyDityDestroy;  // 消されたかどうか
+    bool isMyDityDestroy;  // 消されたかどうか
 
     bool isRangeOut;   // マップ範囲外であるか
 
@@ -34,7 +25,7 @@ public class DirtyCreater : MonoBehaviour {
 
     float countStartTime;
     bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
-    uint affiliationArea;
+    uint affiliationArea;   // 所属区画
 
     bool isReality;
     public bool IsReality
@@ -56,35 +47,18 @@ public class DirtyCreater : MonoBehaviour {
 
     void Awake()
     {
-        dirtyObjectInstance = new GameObject[createNumber];
         countStartTime = Time.deltaTime;
-        isMyDityDestroy = new bool[createNumber];
-        for (int i = 0;i< createNumber;i++)
+        isMyDityDestroy =false;
+
+        for (int i = 0; i < appearancePoints.Length; i++)
         {
-            isMyDityDestroy[i] = false;
+
+            appearancePoints[i].GetComponent<DityApparancePosition>().MyCreater = this;
 
         }
-
-        for (int i = 0; i < createNumber; i++)
+        if (0 < appearancePoints.Length)
         {
-            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), 0);
-            pos.x *= createRange.x;
-            pos.y *= createRange.y;
-            pos = transform.rotation * pos;
-
-            // 消されたオブジェクトは新たに作る
-            if (dirtyObjectInstance[i] == null)
-            {
-
-                dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
-
-                // 親子関係的なものを構築
-                DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
-                dirtyObjectInstance[i].transform.parent = this.transform;
-                obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
-                isMyDityDestroy[i] = false;
-            }
-
+            appearancePoints[0].GetComponent<DityApparancePosition>().IsCreate = true;
         }
 
 #if DEBUG
@@ -103,30 +77,22 @@ public class DirtyCreater : MonoBehaviour {
         }
 #endif
     }
-
-    void DirtyDestroy(uint num)
-    {
-        isMyDityDestroy[num] = true;
-    }
+    
 
     public void NoticeDestroy()
     {
         ParntDirtySystem.NoticeDestroyToSystem(AffiliationArea,isReality);
+        isMyDityDestroy = true;
     }
 
     // Update is called once per frame
     void Update ()
     {
-        DrawDebugQuadMesh();
         bool isCreateFlag = false;
-        // どれか汚れが消されているなら生成カウント
-        for (int i  = 0;i < createNumber;i++)
+        if (isMyDityDestroy)
         {
-            if (isMyDityDestroy[i])
-            {
-                // どれか消されてんなら生成フラグ立てる
-                isCreateFlag = true;
-            }
+            // どれか消されてんなら生成フラグ立てる
+            isCreateFlag = true;
         }
 
         // 汚れが一個でも消されてんなら生成するためのカウントを行う
@@ -140,24 +106,7 @@ public class DirtyCreater : MonoBehaviour {
             CreateDirty();
         }
     }
-
-
-    void DrawDebugQuadMesh()
-    {
-        Vector3[] line = new Vector3[4];
-        line[0].Set(-0.5f* createRange.x,  0.5f * createRange.y, 0);
-        line[1].Set(-0.5f* createRange.x, -0.5f * createRange.y, 0);
-        line[2].Set( 0.5f* createRange.x, -0.5f * createRange.y, 0);
-        line[3].Set( 0.5f* createRange.x,  0.5f * createRange.y, 0);
-        for (int i = 0; i < 4;i++)
-        {
-            line[i] = transform.rotation * line[i];
-        }
-        Debug.DrawLine(transform.position + line[0], transform.position + line[1], Color.red);
-        Debug.DrawLine(transform.position + line[1], transform.position + line[2], Color.red);
-        Debug.DrawLine(transform.position + line[2], transform.position + line[3], Color.red);
-        Debug.DrawLine(transform.position + line[3], transform.position + line[0], Color.red);
-    }
+    
 
     public void CheckDistance(Vector3 playerPosition)
     {
@@ -186,6 +135,7 @@ public class DirtyCreater : MonoBehaviour {
                     {
                         isCreate = true;
                         deltaTime = 0;
+                        rangeOutCountPar10Seconds = (char)0;
                     }
                     break;
                 case (char)2:
@@ -193,6 +143,7 @@ public class DirtyCreater : MonoBehaviour {
                     {
                         isCreate = true;
                         deltaTime = 0;
+                        rangeOutCountPar10Seconds = (char)0;
                     }
                     break;
                 case (char)3:
@@ -200,13 +151,15 @@ public class DirtyCreater : MonoBehaviour {
                     {
                         isCreate = true;
                         deltaTime = 0;
+                        rangeOutCountPar10Seconds = (char)0;
                     }
                     break;
                 case (char)4:
-                    if (Random.Range(0, 100) <= 100)
+                    if (true)
                     {
                         isCreate = true;
                         deltaTime = 0;
+                        rangeOutCountPar10Seconds = (char)0;
                     }
                     break;
                 default:
@@ -217,27 +170,9 @@ public class DirtyCreater : MonoBehaviour {
             // フラグが立ってるなら汚れ作る
             if (isCreate)
             {
-                for (int i = 0; i < createNumber; i++)
-                {
-                    Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)createNumber), 0);
-                    pos.x *= createRange.x;
-                    pos.y *= createRange.y;
-                    pos = transform.rotation * pos;
-
-                    // 消されたオブジェクトは新たに作る
-                    if (dirtyObjectInstance[i])
-                    {
-
-                        dirtyObjectInstance[i] = (GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation);
-
-                        // 親子関係的なものを構築
-                        DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
-                        dirtyObjectInstance[i].transform.parent = this.transform;
-                        obj.MyCreater = this;   // 汚れスクリプトに自分を伝える
-                        isMyDityDestroy[i] = false;
-                    }
-
-                }
+                int num = appearancePoints.Length;
+                num = (int)Random.Range((int)0, (int)num);
+                appearancePoints[num].GetComponent<DityApparancePosition>().IsCreate = true;
             }
         }
         isCountPar10Seconds = false;

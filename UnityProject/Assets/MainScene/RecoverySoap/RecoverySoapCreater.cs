@@ -6,6 +6,11 @@ public class RecoverySoapCreater : MonoBehaviour {
     [SerializeField]
     GameObject recoverySoap;
 
+    GameObject soapInstance;
+    public UnityEngine.GameObject RecoverySoap
+    {
+        get { return soapInstance; }
+    }
     [SerializeField]
     bool isInstance;    // 生成するかのフラグ
 
@@ -13,7 +18,9 @@ public class RecoverySoapCreater : MonoBehaviour {
     bool isHaveRevoverySoap; // 生成したものを所持しているかのフラグ
 
     [SerializeField,TooltipAttribute("生成を許可するプレイヤーとの距離")]
-    float distanceForParmitTheCreate;   
+    float distanceForParmitTheCreate;
+
+
 
     [SerializeField]
     bool isRangeOut;
@@ -47,12 +54,13 @@ public class RecoverySoapCreater : MonoBehaviour {
     {
 	    if (isInstance)
 	    {
-            GameObject soap =  (GameObject)Instantiate(recoverySoap, transform.position, transform.rotation) as GameObject;
-            RecoverySoapObject script = soap.GetComponent<RecoverySoapObject>();
+             soapInstance =  (GameObject)Instantiate(recoverySoap, transform.position,recoverySoap.transform.rotation) as GameObject;
+            RecoverySoapObject script = soapInstance.GetComponent<RecoverySoapObject>();
             script.Parent = this;
             isInstance = false;
             IsHaveRevoverySoap = true;
-	    }
+
+        }
 	}
 
     public void CheckDistance(Vector3 playerPosition)

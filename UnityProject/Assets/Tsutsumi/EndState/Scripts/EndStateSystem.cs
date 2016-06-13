@@ -26,7 +26,7 @@ public class EndStateSystem : MonoBehaviour {
             if (sceneTimer > 2.0f)
             {
                 //リザルトシーンへ移動する。(フェードアウト起動？)
-
+                Fade.ChangeScene("ResultScene");
             }
         }
 
@@ -44,7 +44,7 @@ public class EndStateSystem : MonoBehaviour {
         Vector3 pos = Sekkenkun.transform.position;
         pos.y += 1.0f;
         obj.transform.position = pos;
-
+        obj.transform.rotation = Sekkenkun.transform.rotation;
 
         effectStartFlg = true;
     }

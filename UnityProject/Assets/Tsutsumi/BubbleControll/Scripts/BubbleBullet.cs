@@ -4,6 +4,9 @@ using System.Collections;
 public class BubbleBullet : MonoBehaviour {
 
     public float LIVE_TIME;
+    public float MoveHeight;
+    public float MoveWidth;
+
     private float timeCount;
     private Rigidbody rigid;
 
@@ -13,11 +16,12 @@ public class BubbleBullet : MonoBehaviour {
 
         Vector3 MoveVec;
 
-        MoveVec = transform.forward*5.0f;
-        MoveVec.y += 10.0f;
+        MoveVec = transform.forward * MoveWidth;
+        MoveVec.y += MoveHeight;
         rigid.velocity = MoveVec;
 
         timeCount = 0.0f;
+        BGMManager.Instance.PlaySE("Wash_Fly");
 	}
 	
 	// Update is called once per frame
@@ -41,8 +45,8 @@ public class BubbleBullet : MonoBehaviour {
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            Vector3 vec = rigid.velocity;
-            vec.x = vec.z = 0.0f;
+            rigid = GetComponent<Rigidbody>();
+            Vector3 vec = new Vector3( rigid.velocity.x, 0,rigid.velocity.z);
 
             rigid.velocity = vec;
         }

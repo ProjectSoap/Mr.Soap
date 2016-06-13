@@ -131,5 +131,11 @@ public class SelectPointer : MonoBehaviour
         {
             abnormalMoveTimer = 0.3f;
         }
+
+        //SE
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlaySE("Cursor_Move");
+        }
     }
 }

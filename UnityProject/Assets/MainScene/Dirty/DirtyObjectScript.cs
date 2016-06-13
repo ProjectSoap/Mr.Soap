@@ -1,23 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DirtyObjectScript : MonoBehaviour
 {
+    [SerializeField]
+    Material[] dirtyMaterials = new Material[8];
+    DityApparancePosition myPoint;
+    [SerializeField]
+    GameObject dirtyIcon;
 
-    DirtyCreater myCreater;
-    public DirtyCreater MyCreater
+    public DityApparancePosition MyPoint
     {
-        get { return myCreater; }
-        set { myCreater = value; }
+        get { return myPoint; }
+        set { myPoint = value; }
     }
-    public AudioClip audioClip;
-    AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
+        GameObject obj= Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z),dirtyIcon.transform.rotation) as GameObject;
+        obj.transform.parent = transform;
+    }
 
+
+    public void SwitchMaterial(int num)
+    {
+        if (0 <= num && num < dirtyMaterials.Length)
+        {
+            GetComponent<MeshRenderer>().material = dirtyMaterials[num];
+        }
     }
 
     // Update is called once per frame
@@ -27,10 +38,10 @@ public class DirtyObjectScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Bubble")
+        if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")))
         {
-            myCreater.NoticeDestroy();
-            audioSource.Play();
+            BGMManager.Instance.PlaySE("Wash_Out");
+            myPoint.NoticeDestroy();
             Destroy(gameObject);
         }
     }

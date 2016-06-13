@@ -9,13 +9,14 @@ public class RankMove : MonoBehaviour {
     public float END_TIME;
     public float MOVE_DISTANCE;
     public int RANK;
-    public Text pointText;
+    public TexNum pointTexNum;
     public SaveDataManager dataCon;
 
     //使用変数
     private Vector3 firstPosition;
     private Vector3 goalPosition;
     private float nowTime;
+    private bool seTrig;
 
 	// Use this for initialization
 	void Start () {
@@ -38,15 +39,17 @@ public class RankMove : MonoBehaviour {
             //pointを読み込んで表示部へ適用。
             if (point >= 0)
             {
-                pointText.text = point.ToString();
+                pointTexNum.SetNum(point);
             }
             else
             {
                 //エラーなら０点をとりあえず表示。
                 point = 0;
-                pointText.text = point.ToString(); 
+                pointTexNum.SetNum(point);
             }
         }
+
+        seTrig = true;
         
 	}
 	
@@ -70,6 +73,14 @@ public class RankMove : MonoBehaviour {
         }
 
         //移動時間中
+        if (seTrig == true)
+        {
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.PlaySE("Ranking_Slide");
+            }
+            seTrig = false;
+        }
 
         float percent = (nowTime - START_TIME) / (END_TIME - START_TIME);
 

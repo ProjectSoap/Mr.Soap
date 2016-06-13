@@ -25,7 +25,7 @@ public class TitleMgr : MonoBehaviour {
         Application.targetFrameRate = 60;   //60flame設定
         Jumpflag = false;
         //def = GameObject.Find("Rogo").GetComponent<Rogo>().RotateSpeed;
-       // BGMManager.Instance.PlayBGM("title01",1.0f);
+        BGMManager.Instance.PlayBGM("Title",1.0f);
 	}
 	
 	// Update is called once per frame
@@ -33,7 +33,7 @@ public class TitleMgr : MonoBehaviour {
     public float timer;
     public float ButtonWaitTime = 0.5f;
 	void Update () {
-        if(Input.GetKey(KeyCode.Return))
+        if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
             //fade.ChangeScene("menu");
