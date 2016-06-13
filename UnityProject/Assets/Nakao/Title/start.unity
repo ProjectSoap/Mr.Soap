@@ -592,15 +592,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576640743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7546b0bf1296b2245af6a753358696d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 11a32277d845f8c40bd9bcb56596a0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {fileID: 1576640748}
+  size: {fileID: 0}
   waittime: 0
-  delay: 0
-  waittimelimitMin: .300000012
-  waittimelimitMax: .600000024
-  delaylimit: .800000012
+  waittimelimit: 1
+  count: 0
 --- !u!114 &1576640746
 MonoBehaviour:
   m_ObjectHideFlags: 0
