@@ -171,6 +171,9 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("ダメージパーティクル")]
     GameObject m_damageParticleEmitter;
 
+    [SerializeField, Tooltip("回復パーティクル")]
+    GameObject m_healParticleEmitter;
+
     // Rigidbody
     Rigidbody m_rigidbody;
 
@@ -826,18 +829,23 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size              -= m_damageSize;
 
-        BGMManager.Instance.PlaySE("Collision");
-
         var particleEmitter = Instantiate(m_damageParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
 
         Destroy(particleEmitter, particleSystem.duration);
+
+        BGMManager.Instance.PlaySE("Collision");
     }
 
     public void WashChain()
     {
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+
+        var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
+        var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        Destroy(particleEmitter, particleSystem.duration);
 
         BGMManager.Instance.PlaySE("Wash_Chain_MAX");
     }
@@ -846,6 +854,11 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+
+        var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
+        var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        Destroy(particleEmitter, particleSystem.duration);
 
         BGMManager.Instance.PlaySE("Recovery");
     }
