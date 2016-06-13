@@ -14,6 +14,7 @@ public class ResultManagerSystem : MonoBehaviour {
     public CheckRecordCondition checkRecord;    //実績条件判定
     public ResultCanvasKaihouCon canvasKaihou;  //実績を取得した場合有効に
     public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
+    public ResultSekkenControll sekkenControll;             //せっけんくんの制御
 
     //スコア関連を保持する
     private ActionRecordManager.SActionRecord gameScore;    //今回のスコアなどのデータ
@@ -63,7 +64,19 @@ public class ResultManagerSystem : MonoBehaviour {
 	    //ゲームの結果を確認
         gameScore = ActionRecordManager.sActionRecord;
         rankingPoint[10] = gameScore.C1WashCount + gameScore.C2WashCount + gameScore.C3WashCount + gameScore.C4WashCount;
-        
+
+        //取得ポイントを元にアニメーション切り替え
+        ResultSekkenControll.ESekkenNo sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun;
+        if (gameScore.isSekkenChanPlay == true)
+        {
+            sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
+        }
+        if (gameScore.isSekkenKun0Play == true)
+        {
+            sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun0;
+        }
+        sekkenControll.SelectSekkenAndAnimation(sekkenNo, rankingPoint[10]);
+
         //新しいセーブデータ作成
         playCount++;
         UpdateSaveData();
@@ -85,6 +98,7 @@ public class ResultManagerSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         //まだポイント表示がおわっていなければ何もしない。
         if (pointDrawEndFlg == false)
         {
@@ -164,7 +178,9 @@ public class ResultManagerSystem : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
-                    Fade.ChangeScene("Main");
+                    //キャラクター情報を保持したまま今回の成績を削除
+                    ActionRecordManager.sActionRecord.ResetCharaHozi();
+                    Fade.ChangeScene("main");
                 }
             }
         }
@@ -212,7 +228,7 @@ public class ResultManagerSystem : MonoBehaviour {
         if (saveDataManager.LoadData(SaveDataManager.ESaveDataNo.WindPlayFlg) > 0) saveDataOld.isWind = true;
 
         if (saveDataManager.LoadData(SaveDataManager.ESaveDataNo.SekkenChanPlayFlg) > 0) saveDataOld.isSekkenChanPlay = true;
-        if (saveDataManager.LoadData(SaveDataManager.ESaveDataNo.SekkenKun0PlayFlg) > 0) saveDataOld.isSekkenKunPlay = true;
+        if (saveDataManager.LoadData(SaveDataManager.ESaveDataNo.SekkenKun0PlayFlg) > 0) saveDataOld.isSekkenKun0Play = true;
 
         if (saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C1HideWash) > 0) saveDataOld.C1HideWashFlg = true;
         if (saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C2HideWash) > 0) saveDataOld.C2HideWashFlg = true;
@@ -266,7 +282,7 @@ public class ResultManagerSystem : MonoBehaviour {
             saveDataManager.SaveData(SaveDataManager.ESaveDataNo.SekkenChanPlayFlg, 1);
         else
             saveDataManager.SaveData(SaveDataManager.ESaveDataNo.SekkenChanPlayFlg, 0);
-        if (saveDataNew.isSekkenKunPlay == true)
+        if (saveDataNew.isSekkenKun0Play == true)
             saveDataManager.SaveData(SaveDataManager.ESaveDataNo.SekkenKun0PlayFlg, 1);
         else
             saveDataManager.SaveData(SaveDataManager.ESaveDataNo.SekkenKun0PlayFlg, 0);
@@ -321,7 +337,7 @@ public class ResultManagerSystem : MonoBehaviour {
         saveDataNew.isWind = saveDataOld.isWind || gameScore.isWind;
 
         saveDataNew.isSekkenChanPlay = saveDataOld.isSekkenChanPlay || gameScore.isSekkenChanPlay;
-        saveDataNew.isSekkenKunPlay = saveDataOld.isSekkenKunPlay || gameScore.isSekkenKunPlay;
+        saveDataNew.isSekkenKun0Play = saveDataOld.isSekkenKun0Play || gameScore.isSekkenKun0Play;
 
         saveDataNew.C1HideWashFlg = saveDataOld.C1HideWashFlg || gameScore.C1HideWashFlg;
         saveDataNew.C2HideWashFlg = saveDataOld.C2HideWashFlg || gameScore.C2HideWashFlg;
