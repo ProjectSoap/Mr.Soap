@@ -319,6 +319,38 @@ Prefab:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 11422002, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.g
+      value: .746450365
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422002, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.b
+      value: .0808823705
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439278, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.r
+      value: .367647052
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439278, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.g
+      value: .686004162
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439278, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407422, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.r
+      value: .139705896
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407422, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407422, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_Color.b
+      value: .537221134
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
   m_IsPrefabParent: 0
