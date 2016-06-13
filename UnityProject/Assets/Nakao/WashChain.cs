@@ -36,6 +36,10 @@ public class WashChain : MonoBehaviour {
             if (now_time > limit)
             {
                 now_chain--;
+                if(now_chain<0)
+                {
+                    now_chain = 0;
+                }
                 SetLimit();
                 SetAgree();
             }

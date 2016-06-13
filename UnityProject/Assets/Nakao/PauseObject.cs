@@ -55,6 +55,8 @@ public class PauseObject : MonoBehaviour
     /// </summary>
     ParticleSystem[] pausingParticleSystem;
 
+    Animator[] pausingAnimation;
+
     /// <summary>
     /// 更新処理
     /// </summary>
@@ -115,6 +117,17 @@ public class PauseObject : MonoBehaviour
             particleSystem.Pause();
         }
 
+        Predicate<Animator> animationPredicate =
+           obj => obj.enabled &&
+                  obj != this &&
+                  Array.FindIndex(ignoreGameObjects, gameObject => gameObject == obj.gameObject) < 0;
+        pausingAnimation = Array.FindAll(transform.GetComponentsInChildren<Animator>(), animationPredicate);
+        foreach (var animation in pausingAnimation)
+        {
+            animation.enabled = false;
+        }
+
+
     }
 
     /// <summary>
@@ -140,5 +153,11 @@ public class PauseObject : MonoBehaviour
         {
             particleSystem.Play();
         }
+
+        foreach (var animation in pausingAnimation)
+        {
+            animation.enabled = true;
+        }
+
     }
 }
