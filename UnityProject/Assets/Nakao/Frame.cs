@@ -14,8 +14,12 @@ public class Frame : MonoBehaviour {
     public List<Image> Key;
     public int SelectNow;
     public int SelectOld;
-/*    
-    public List<Vector3> ButtonScale;
+
+    public int side;
+    public int[] longi = new int[2];
+    
+    public Vector2 ButtonScale;
+    /*
     private bool JumpFlag;
     private bool JumpSceneFlag;
     private int JumpWait;
@@ -62,11 +66,11 @@ public class Frame : MonoBehaviour {
         Key[1].color = w;
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            Key[0].color = r;
+     //       Key[0].color = r;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            Key[1].color = r;
+       //     Key[1].color = r;
         }
 
         // コントローラの上下左右押すー
@@ -79,7 +83,7 @@ public class Frame : MonoBehaviour {
            // Key[0].color=r;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Key[0].color = r;
+                ChangeLongi(0);
 //                BGMManager.Instance.PlaySE("se_key_move");
                 controllerFlagU = true;
                 controllerFlagD = false;
@@ -87,10 +91,21 @@ public class Frame : MonoBehaviour {
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Key[1].color=r;
+                ChangeLongi(1);
   //              BGMManager.Instance.PlaySE("se_key_move");
                 controllerFlagU = false;
                 controllerFlagD = true;
+                controllerWait = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                ChangeSide(0);
+                controllerWait = 0;
+            }
+
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                ChangeSide(1);
                 controllerWait = 0;
             }
 
@@ -113,8 +128,142 @@ public class Frame : MonoBehaviour {
         
     }
 
+    void ChangeLongi(int updown)
+    {
+        if(side ==0)
+        {
+            switch(updown)
+            {
+                case 0:
+                    if(longi[0] > 0)
+                    {
+                        longi[0]--;
+                    }
+                    else
+                    {
+                        longi[0] = 0;
+                    }
+                    if (longi[1] == 2)
+                    {
+                        longi[1] = 0;
+                    }
+                    break;
+                case 1:
+                    if(longi[0] < 1)
+                    {
+                        longi[0]++;
+                    }
+                    else
+                    {
+                        longi[0] = 1;
+                    }
+                    
+                    break;
+            }
+        }
+
+        if (side == 1)
+        {
+            switch (updown)
+            {
+                case 0:
+                    if (longi[1] > 0)
+                    {
+                        longi[1]--;
+                    }
+                    else
+                    {
+                        longi[1] = 0;
+                    }
+                    break;
+                case 1:
+                    if (longi[1] < 2)
+                    {
+                        longi[1]++;
+                    }
+                    else
+                    {
+                        longi[1] = 2;
+                    }
+                    break;
+            }
+        }
+
+    }
+
+    void ChangeSide(int _side)
+    {
+        if(_side == 0)
+        {
+            switch(side)
+            {
+                case 0:
+                    {
+
+                        break;
+                    }
+                case 1:
+                    {
+                        if(side == 1)
+                        {
+                            if(longi[1]<2)
+                            {
+                                longi[0] = 0;
+                            }
+                            else
+                            {
+                                longi[0] = 1;
+                            }
+                        }
+                        side--;
+                        if(side<0)
+                        {
+                            side = 0;
+                        }
+                        break;
+                    }
+            }
+
+        }
+        if(_side == 1)
+        {
+            switch (side)
+            {
+                case 0:
+                    {
+                        if (side == 0)
+                        {
+                            if (longi[0] < 1)
+                            {
+                            }
+                            else
+                            {
+                                longi[1] = 2;
+                            }
+                        }
+                        side++;
+                        if (side > 1)
+                        {
+                            side = 1;
+                        }
+                        break;
+                    }
+                case 1:
+                    {
+                        break;
+                    }
+            }
+        }
+    }
+
+    void SetSelectingNo()
+    {
+
+    }
+
     public void SelectJump()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             SelectNow++;
@@ -132,6 +281,41 @@ public class Frame : MonoBehaviour {
         {
             SelectNow = Button.Count - 1;
         }
+         * */
+
+        switch(side)
+        {
+            case 0:
+                {
+                    switch(longi[0])
+                    {
+                        case 0:
+                            SelectNow = 0;
+                            break;
+                        case 1:
+                            SelectNow = 4;
+                            break;
+                    }
+                    break;
+                }
+            case 1:
+                {
+                    switch (longi[1])
+                    {
+                        case 0:
+                            SelectNow = 1;
+                            break;
+                        case 1:
+                            SelectNow = 2;
+                            break;
+                        case 2:
+                            SelectNow = 3;
+                            break;
+                    }
+                    break;
+                }
+        }
+
         if (SelectOld != SelectNow)
         {
             startTime = Time.timeSinceLevelLoad;
@@ -218,7 +402,9 @@ public class Frame : MonoBehaviour {
         for (int i = 0; i < Button.Count - 1; i++)
         {
             ToTrans = Button[i].GetComponent<Transform>().transform;
-          //  ToTrans.localScale = Vector3.Lerp(ToTrans.localScale, ButtonScale[i], rate);
+            Vector2 scale = new Vector2(10, 10);
+            ButtonScale = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta + scale;
+            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, rate);
         }
     }
 
@@ -236,17 +422,21 @@ public class Frame : MonoBehaviour {
         var diff = Time.timeSinceLevelLoad - startTime;
         var rate = diff / MoveColorTime;
 
-        for (int i = 0; i < Button.Count - 1; i++)
+        for (int i = 0; i < Button.Count ; i++)
         {
-            //Color NowColor = Button[i].transform.FindChild("Background").GetComponent<UISprite>().color;
+            Color NowColor = Key[0].GetComponent<Image>().color;
+            Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, SelectColor, rate);
+            Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
+            /*
             if (i == SelectNow)
             {
-              //  Button[i].transform.FindChild("Background").GetComponent<UISprite>().color = Color.Lerp(NowColor, SelectColor, rate);
+                
             }
             else
             {
-            //    Button[i].transform.FindChild("Background").GetComponent<UISprite>().color = Color.Lerp(NowColor, NoneColor, rate);
+                Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
             }
+             * */
         }
     }
 }
