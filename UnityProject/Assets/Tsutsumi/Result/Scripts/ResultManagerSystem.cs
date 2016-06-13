@@ -185,6 +185,10 @@ public class ResultManagerSystem : MonoBehaviour {
     {
         pointDrawEndFlg = _flg;
     }
+    public int GetMyRank()
+    {
+        return rank;
+    }
 
     //セーブデータを読み込む
     private void Load()
