@@ -42,6 +42,8 @@ MonoBehaviour:
   saveDataManager: {fileID: 0}
   checkRecord: {fileID: 0}
   canvasKaihou: {fileID: 0}
+  canvasSceneSelect: {fileID: 0}
+  sekkenControll: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
