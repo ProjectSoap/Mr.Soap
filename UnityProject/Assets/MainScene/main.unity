@@ -4924,7 +4924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerObject: {fileID: 1945734503}
-  TRecordName: {fileID: 1247859269}
+  RecordName: {fileID: 0}
   TConditionText: {fileID: 124850742}
   ClearTextImage: {fileID: 1889396852}
 --- !u!1 &182535212
@@ -10641,6 +10641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needle: {fileID: 1454594537}
   now_chain: 0
+  chainmax: 0
+  heal: 0
 --- !u!1 &408406828
 GameObject:
   m_ObjectHideFlags: 0
@@ -35761,6 +35763,10 @@ Prefab:
       propertyPath: m_sizeDecrementionRate
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11498660, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
+      propertyPath: m_healParticleEmitter
+      value: 
+      objectReference: {fileID: 183698, guid: ff2d08a90cef3474aab706bc75bec757, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0039dec84b79e943a07212268cb9f75, type: 2}
   m_IsPrefabParent: 0
