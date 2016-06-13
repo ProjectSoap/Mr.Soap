@@ -95,16 +95,16 @@ public class SelectCharacter : MonoBehaviour {
             position[i].transform.Rotate(new Vector3(0, 1, 0), (nowrad + (i * 360.0f/charMax)));
         }
         /*
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Backspace))
         {
             Application.LoadLevel("Menu");
         }
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0)
+        if (Input.GetKey(KeyCode.Return))
         {
             Application.LoadLevel("main");
         }
          * */
-    }
+	}
 
     public int GetCharNo()
     {

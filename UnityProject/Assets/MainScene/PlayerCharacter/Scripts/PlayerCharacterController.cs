@@ -168,6 +168,12 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("移動パーティクルが出る速度")]
     float m_moveBubbleEmissionVelocity;
 
+    [SerializeField, Tooltip("ダメージパーティクル")]
+    GameObject m_damageParticleEmitter;
+
+    [SerializeField, Tooltip("回復パーティクル")]
+    GameObject m_healParticleEmitter;
+
     // Rigidbody
     Rigidbody m_rigidbody;
 
@@ -316,6 +322,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_moveBubbleSystem.Clear();
 
         m_maxRotation       = m_maxRotationNormal;
+        m_rotationPower     = m_rotationPowerNormal;
         m_breakeAfterTime   = m_breakeAfterEndTime;
         m_defaultScale      = transform.localScale;
         m_driveState        = DriveState.Start;
@@ -335,7 +342,14 @@ public class PlayerCharacterController : MonoBehaviour
 #endif
 
         m_isPushJump = Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0);
-        m_horizontal = Input.GetAxis("Horizontal");
+        //m_horizontal = Input.GetAxis("Horizontal");
+
+        if (Input.GetKey(KeyCode.RightArrow))
+            m_horizontal = 1.0f;
+        else if (Input.GetKey(KeyCode.LeftArrow))
+            m_horizontal = -1.0f;
+        else
+            m_horizontal = 0.0f;
 
         // ゲーム開始入力チェック
         if (m_isPushJump && m_driveState == DriveState.Start)
@@ -611,6 +625,9 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (m_horizontal < 0.0f)
         {
+            if (m_rotation > 0.0f)
+                m_rotation = 0.0f;
+
             m_rotation -= m_rotationPower * Time.deltaTime;
 
             if (m_driveState == DriveState.Normal)
@@ -619,6 +636,11 @@ public class PlayerCharacterController : MonoBehaviour
 
         if (m_horizontal > 0.0f)
         {
+            if (m_rotation < 0.0f)
+            {
+                m_rotation = 0.0f;
+            }
+
             m_rotation += m_rotationPower * Time.deltaTime;
 
             if (m_driveState == DriveState.Normal)
@@ -646,9 +668,11 @@ public class PlayerCharacterController : MonoBehaviour
 
         if (Mathf.Abs(m_horizontal) <= m_driftCancelHorizontal)
         {
-            m_rotation -= (m_rotation * m_rotationDecrementionRate * Time.deltaTime);
+            m_rotation *= m_rotationDecrementionRate;
 
             m_pushRotationKeyTime = 0;
+
+            m_horizontal = 0.0f;
 
             if (m_driveState == DriveState.Drift)
             {
@@ -805,6 +829,11 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size              -= m_damageSize;
 
+        var particleEmitter = Instantiate(m_damageParticleEmitter, transform.position, transform.rotation) as GameObject;
+        var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        Destroy(particleEmitter, particleSystem.duration);
+
         BGMManager.Instance.PlaySE("Collision");
     }
 
@@ -813,6 +842,11 @@ public class PlayerCharacterController : MonoBehaviour
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 
+        var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
+        var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        Destroy(particleEmitter, particleSystem.duration);
+
         BGMManager.Instance.PlaySE("Wash_Chain_MAX");
     }
 
@@ -820,6 +854,11 @@ public class PlayerCharacterController : MonoBehaviour
     {
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+
+        var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
+        var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        Destroy(particleEmitter, particleSystem.duration);
 
         BGMManager.Instance.PlaySE("Recovery");
     }
@@ -844,7 +883,6 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_maxRotation = m_maxRotationNormal;
         m_breakeAfterTime = m_breakeAfterEndTime;
-        m_defaultScale = transform.localScale;
         m_driveState = DriveState.Start;
 
         m_velocity = 0.0f;
