@@ -389,6 +389,10 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_mainState = MainState.PAUSE;
 						ExecuteStateEnterProcesss(m_mainState);
 					}
+					if (m_selectIconInTransitionMenu == SelectMainTransitionMenu.SELECT_YES)
+					{
+						Fade.ChangeScene("Menu");
+					}
 				}
 				break;
 			case MainState.PLAY_RECORD:

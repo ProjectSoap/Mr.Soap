@@ -32,7 +32,7 @@ public class WeatherSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         numWeather = 2;
-        nowWeather = Weather.FOG;
+        nowWeather = Weather.SUN;
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         ActiveWeather();
         minute = 0;
