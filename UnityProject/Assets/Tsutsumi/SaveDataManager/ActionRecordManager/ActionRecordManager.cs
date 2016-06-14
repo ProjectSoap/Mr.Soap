@@ -21,13 +21,14 @@ public class ActionRecordManager : MonoBehaviour {
         public bool isWind;
 
         public bool isSekkenChanPlay;
-        public bool isSekkenKunPlay;
+        public bool isSekkenKun0Play;
 
         public bool C1HideWashFlg;
         public bool C2HideWashFlg;
         public bool C3HideWashFlg;
         public bool C4HideWashFlg;
 
+        //キャラセレクトシーンのみ読み込みを許す。
         public void Reset()
         {
             C1WashCount = 0;
@@ -44,7 +45,29 @@ public class ActionRecordManager : MonoBehaviour {
             isWind = false;
 
             isSekkenChanPlay = false;
-            isSekkenKunPlay = false;
+            isSekkenKun0Play = false;
+
+            C1HideWashFlg = false;
+            C2HideWashFlg = false;
+            C3HideWashFlg = false;
+            C4HideWashFlg = false;
+        }
+
+        //リザルトのもう一度遊ぶ選択時のみ読み込みを許す。
+        public void ResetCharaHozi()
+        {
+            C1WashCount = 0;
+            C2WashCount = 0;
+            C3WashCount = 0;
+            C4WashCount = 0;
+            WashChainCount = 0;
+            ChachSopeCount = 0;
+            CrashCount = 0;
+            WashCarCount = 0;
+
+            isRain = false;
+            isFog = false;
+            isWind = false;
 
             C1HideWashFlg = false;
             C2HideWashFlg = false;
