@@ -6,6 +6,7 @@ public class ActionRecordManager : MonoBehaviour {
     //構造体定義
     public struct SActionRecord
     {
+        public int Score;
         public int C1WashCount;
         public int C2WashCount;
         public int C3WashCount;
@@ -31,6 +32,7 @@ public class ActionRecordManager : MonoBehaviour {
         //キャラセレクトシーンのみ読み込みを許す。
         public void Reset()
         {
+            Score = 0;
             C1WashCount = 0;
             C2WashCount = 0;
             C3WashCount = 0;
@@ -56,6 +58,7 @@ public class ActionRecordManager : MonoBehaviour {
         //リザルトのもう一度遊ぶ選択時のみ読み込みを許す。
         public void ResetCharaHozi()
         {
+            Score = 0;
             C1WashCount = 0;
             C2WashCount = 0;
             C3WashCount = 0;

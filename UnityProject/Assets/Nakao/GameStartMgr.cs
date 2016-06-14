@@ -5,6 +5,7 @@ public class GameStartMgr : MonoBehaviour {
 
     ResourceRequest resReq;
     GameObject BGMManager;
+    public string nextSceneName = "sekTitle";
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class GameStartMgr : MonoBehaviour {
         DontDestroyOnLoad(BGMManager);
         if(resReq.isDone)
         {
-            Application.LoadLevel("main");
+            Application.LoadLevel(nextSceneName);
         }
 	}
 

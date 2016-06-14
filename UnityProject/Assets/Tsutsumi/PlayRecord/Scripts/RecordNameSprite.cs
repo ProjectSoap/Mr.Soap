@@ -10,7 +10,7 @@ public class RecordNameSprite : MonoBehaviour {
     private Image thisImage;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         thisImage = transform.GetComponent<Image>();
 	}
 	
