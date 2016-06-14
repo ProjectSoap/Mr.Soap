@@ -8,9 +8,9 @@ public class FogGenerator : MonoBehaviour {
     [SerializeField]
     Color fogcolor;
     [SerializeField]
-    float fognear;
+    float fognear = 2;
     [SerializeField]
-    float fogfar;
+    float fogfar = 10;
 
 
 	// Use this for initialization
@@ -24,10 +24,13 @@ public class FogGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    if(create)
-        {
-            RenderSettings.fog = true;
-            RenderSettings.fogColor = fogcolor;
-        }
+		{
+			RenderSettings.fog = true;
+			RenderSettings.fogColor = fogcolor;
+			RenderSettings.fogMode = FogMode.Linear;
+			RenderSettings.fogStartDistance = fognear;
+			RenderSettings.fogEndDistance = fogfar;
+		}
         else
         {
             RenderSettings.fog = false;
@@ -41,7 +44,10 @@ public class FogGenerator : MonoBehaviour {
         {
             RenderSettings.fog = true;
             RenderSettings.fogColor = fogcolor;
-        }
+			RenderSettings.fogMode = FogMode.Linear;
+			RenderSettings.fogStartDistance = fognear;
+			RenderSettings.fogEndDistance = fogfar;
+		}
         else
         {
             RenderSettings.fog = false;

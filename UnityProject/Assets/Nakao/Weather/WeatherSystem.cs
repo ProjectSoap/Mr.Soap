@@ -27,15 +27,19 @@ public class WeatherSystem : MonoBehaviour {
     [SerializeField]
     List<GameObject> weathers;
 
+	PlayerCharacterController m_player;
+
 	// Use this for initialization
 	void Start () {
         numWeather = 2;
-        nowWeather = Weather.SUN;
+        nowWeather = Weather.FOG;
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         ActiveWeather();
         minute = 0;
         weatherflg[0] = true;
-        LoadSave();
+		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
+
+		LoadSave();
 	}
 
     void LoadSave()
@@ -65,6 +69,8 @@ public class WeatherSystem : MonoBehaviour {
             minute++;
             ChangeWeather();
         }
+		transform.position = new Vector3( m_player.transform.position.x, 0, m_player.transform.position.z);
+
 	}
 
     void ChangeWeather()
