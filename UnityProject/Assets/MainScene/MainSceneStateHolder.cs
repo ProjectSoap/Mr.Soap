@@ -32,6 +32,8 @@ public class MainSceneStateHolder : MonoBehaviour
         PLAY,   /* 遊んでる時 */
         PAUSE,  /* ポーズ中 */
         ACTUAL_RESULT,  /* 実績確認中 */
+        FREE_RUN,   // フリーランモード
+        CHECK_END,
         END /* せっけんくん死んだ */
     }
 
@@ -50,6 +52,11 @@ public class MainSceneStateHolder : MonoBehaviour
     PauseObject pauseObject;
     PoseMenu poseMenu;
 
+    PauseMainMgr pauseManager;
+
+    [SerializeField]
+    bool isFree;
+
     /**********************************************************************************************//**
      * @fn  void Start ()
      *
@@ -67,6 +74,11 @@ public class MainSceneStateHolder : MonoBehaviour
         pushKey = GameObject.Find("PushKey");
         pauseObject = GameObject.Find("PauseObject").GetComponent<PauseObject>();
         poseMenu = GameObject.Find("Cur").GetComponent<PoseMenu>();
+        pauseManager = GameObject.Find("PauseMainMgr").GetComponent<PauseMainMgr>();
+        if (isFree)
+        {
+            state = State.FREE_RUN;
+        }
         ExecuteStateEnterProcesss(state);
     }
 
@@ -201,7 +213,11 @@ public class MainSceneStateHolder : MonoBehaviour
                 break;
             case State.ACTUAL_RESULT:
                 break;
+            case State.FREE_RUN:
+
+                break;
             case State.END:
+                pauseManager.enabled = false;
                 break;
             default:
                 break;
