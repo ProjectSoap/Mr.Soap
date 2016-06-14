@@ -1142,8 +1142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 1
-  END_TIME: 1.5
+  START_TIME: 2
+  END_TIME: 2.5
   MOVE_DISTANCE: -350
   RANK: 5
   pointTexNum: {fileID: 11483968}
@@ -1401,8 +1401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: .5
-  END_TIME: 1
+  START_TIME: 1.5
+  END_TIME: 2
   MOVE_DISTANCE: -300
   RANK: 7
   pointTexNum: {fileID: 11406562}
@@ -1445,8 +1445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: .5
+  START_TIME: 1
+  END_TIME: 1.5
   MOVE_DISTANCE: -300
   RANK: 9
   pointTexNum: {fileID: 11484582}
@@ -1516,8 +1516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 1.5
-  END_TIME: 2.5
+  START_TIME: 2.5
+  END_TIME: 3.5
   MOVE_DISTANCE: -300
   RANK: 3
   pointTexNum: {fileID: 11498870}
@@ -1587,8 +1587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: .5
+  START_TIME: 1
+  END_TIME: 1.5
   MOVE_DISTANCE: -300
   RANK: 8
   pointTexNum: {fileID: 11473646}
@@ -1845,8 +1845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 3.0999999
-  END_TIME: 4.0999999
+  START_TIME: 4.0999999
+  END_TIME: 5.0999999
   MOVE_DISTANCE: -400
   RANK: 1
   pointTexNum: {fileID: 11457224}
@@ -2013,8 +2013,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 1
-  END_TIME: 1.5
+  START_TIME: 2
+  END_TIME: 2.5
   MOVE_DISTANCE: -350
   RANK: 4
   pointTexNum: {fileID: 11422860}
@@ -2668,8 +2668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: 2.29999995
-  END_TIME: 3.29999995
+  START_TIME: 3.29999995
+  END_TIME: 4.30000019
   MOVE_DISTANCE: -300
   RANK: 2
   pointTexNum: {fileID: 11432496}
@@ -2711,8 +2711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  START_TIME: .5
-  END_TIME: 1
+  START_TIME: 1.5
+  END_TIME: 2
   MOVE_DISTANCE: -300
   RANK: 6
   pointTexNum: {fileID: 11494942}
