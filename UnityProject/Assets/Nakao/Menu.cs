@@ -12,7 +12,7 @@ public class Menu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             switch(menu.SelectNow)
             {
@@ -38,7 +38,7 @@ public class Menu : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
 
             Fade.ChangeScene("sekTitle");

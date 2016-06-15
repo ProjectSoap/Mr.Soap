@@ -14,7 +14,8 @@ public class WashChain : MonoBehaviour {
     Shine shine;
 
     private Quaternion now_rotation;
-
+    public bool chainmax;
+    public bool heal;
     float limit;
     float now_time;
     float rotate_angle;
@@ -35,13 +36,25 @@ public class WashChain : MonoBehaviour {
             if (now_time > limit)
             {
                 now_chain--;
+                if(now_chain<0)
+                {
+                    now_chain = 0;
+                }
                 SetLimit();
                 SetAgree();
             }
             else if (now_chain == 10)
             {
+                if(heal)
+                {
+                    GameObject player;
+                    player = GameObject.Find("PlayerCharacter");
+                    player.GetComponent<PlayerCharacterController>().WashChain();
+                    heal = false;
+                }
                 if(now_time > 1.3f)
                 {
+                    chainmax = false;
                     now_chain = 0;
                     SetLimit();
                     SetAgree();
@@ -105,6 +118,13 @@ public class WashChain : MonoBehaviour {
             if(now_chain>=10)
             {
                 now_chain = 10;
+                if (!chainmax)
+                {
+                    heal = true;
+                }
+                chainmax = true;
+               
+
                // shine.StartLight();
             }
             SetLimit();

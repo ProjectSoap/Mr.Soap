@@ -18,7 +18,7 @@ public class PlayRecordSystem : MonoBehaviour {
 
     //外部からセットされるオブジェクト
     public SelectPointer pointerObject;
-    public Text TRecordName;
+    public RecordNameSprite RecordName;
     public Text TConditionText;
     public Image ClearTextImage;
 
@@ -32,7 +32,7 @@ public class PlayRecordSystem : MonoBehaviour {
         //テキストを初期設定
         TConditionText.text = recordList.GetRecordCondtion(selectLecordNo);
         //獲得済み表示のオンオフ
-        TRecordName.text = recordList.GetRecordName(selectLecordNo);
+        RecordName.SetImageSprite(0);
         ClearTextImage.enabled = true;
 
         selectLecordNo = 0;
@@ -106,12 +106,14 @@ public class PlayRecordSystem : MonoBehaviour {
         //獲得済み表示のオンオフ
         if (recordList.GetStatusLevel(selectLecordNo) == 0)
         {
-            TRecordName.text = "";
+            RecordName.SetImageSprite(selectLecordNo);
+            RecordName.gameObject.SetActive(false);
             ClearTextImage.enabled = false;
         }
         else
         {
-            TRecordName.text = recordList.GetRecordName(selectLecordNo);
+            RecordName.SetImageSprite(selectLecordNo);
+            RecordName.gameObject.SetActive(true);
             ClearTextImage.enabled = true;
         }
     }

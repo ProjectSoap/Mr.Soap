@@ -9,6 +9,8 @@ public class DirtyObjectScript : MonoBehaviour
     DityApparancePosition myPoint;
     [SerializeField]
     GameObject dirtyIcon;
+    bool isDestory = false;
+
 
     public DityApparancePosition MyPoint
     {
@@ -40,8 +42,12 @@ public class DirtyObjectScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")))
         {
-            BGMManager.Instance.PlaySE("Wash_Out");
-            myPoint.NoticeDestroy();
+            if (isDestory == false)
+            {
+                BGMManager.Instance.PlaySE("Wash_Out");
+                myPoint.NoticeDestroy();
+                isDestory = true;
+            }
             Destroy(gameObject);
         }
     }

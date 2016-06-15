@@ -39,6 +39,10 @@ public class SizeCounter : MonoBehaviour {
 	void Update () {
         count = (int)player.GetComponent<PlayerCharacterController>().size;
         int temp = count;
+        if (temp < 0)
+        {
+            temp = 0;
+        }
         GameObject obj;
         obj = transform.FindChild("One").gameObject;
         if (obj)
