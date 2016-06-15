@@ -1988,7 +1988,7 @@ Animator:
   m_GameObject: {fileID: 146160}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a0c14348c25e0bf459cc1a108c93f167, type: 3}
-  m_Controller: {fileID: 9100000, guid: c2c90ada32bfa264da239a1d512ad9ab, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2040,8 +2040,14 @@ MonoBehaviour:
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: 1.5
   m_sizeDecrementionRate: 2.5
+  m_damageSize: 0
+  m_healSizeWashChain: 40
+  m_healSizeItem: 40
+  m_maxSize: 100
   m_damageVelocity: 5
-  m_stayBildingVelocityRate: .5
+  m_damageAngle: 45
+  m_stayBuildingVelocityRate: .5
+  m_stayBuildingMaxVelocity: 5
   m_damageAfterStopTime: 1
   m_driftBubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_breakeBubble: {fileID: 110968, guid: d271803280e156840b9f1d52922638fa, type: 2}
@@ -2059,6 +2065,19 @@ MonoBehaviour:
   m_windSideAddDriftStartTime: 0
   m_driftParticleEmitterRight: {fileID: 127294}
   m_driftParticleEmitterLeft: {fileID: 100102}
+  m_moveBubbleEmissionVelocity: 0
+  m_damageParticleEmitter: {fileID: 0}
+  m_healParticleEmitter: {fileID: 0}
+  m_driveState: 1
+  m_velocity: 0
+  m_rotation: 0
+  m_pushRotationKeyTime: 0
+  m_pushProgressBreakeKeyTime: 0
+  m_isGround: 1
+  m_isStayBuilding: 0
+  m_size: 100
+  m_horizontal: 0
+  v: {x: 0, y: 0, z: 0}
 --- !u!137 &13707446
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
