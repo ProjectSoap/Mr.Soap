@@ -23,77 +23,80 @@ public class SelectCharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
       //  Axis = this.GetComponent<Transform>();
- 
+          
 	}
 	
 	// Update is called once per frame
 	void Update () {
         Vector3 trans;
         Quaternion qt = new Quaternion(0,0,0,0);
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && nowrad == selectrad)
+        if (Fade.FadeEnd())
         {
-            charno--;
-            if(nowrad == 0.0f)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && nowrad == selectrad)
             {
-                nowrad = 360.0f;
+                charno--;
+                if (nowrad == 0.0f)
+                {
+                    nowrad = 360.0f;
+                }
+                if (charno < 0)
+                {
+                    charno = charMax - 1;
+                }
+                if (charno >= charMax)
+                {
+                    charno = 0;
+                }
+                selectrad = charno * 360.0f / charMax;
             }
-            if (charno < 0)
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && nowrad == selectrad)
             {
-                charno = charMax-1;
+                charno++;
+                if (nowrad == 360.0f)
+                {
+                    nowrad = 0;
+                }
+
+                selectrad = charno * 360.0f / charMax;
+                if (charno < 0)
+                {
+                    charno = charMax;
+                }
+                if (charno >= charMax)
+                {
+                    charno = 0;
+                }
             }
-            if (charno >= charMax)
+
+            if (nowrad < selectrad)
             {
-                charno = 0;
+                nowrad += rotspead;
+                if (nowrad >= selectrad)
+                {
+                    // nowrad = selectrad;
+                }
+                //       Axis.transform.rotation = rot;
             }
-            selectrad = charno * 360.0f/charMax;
+            else if (nowrad > selectrad)
+            {
+                nowrad -= rotspead;
+                if (nowrad >= selectrad)
+                {
+                    //nowrad = selectrad;
+                }
+                //          Axis.transform.rotation = rot;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && nowrad == selectrad)
+        for (int i = 0; i < charMax; ++i)
         {
-            charno++;
-            if(nowrad == 360.0f)
-            {
-                nowrad = 0;
-            }
-            
-            selectrad = charno * 360.0f/charMax;
-            if (charno < 0)
-            {
-                charno = charMax;
-            }
-            if (charno >= charMax)
-            {
-                charno = 0;
-            }
-        }
-        
-        if(nowrad < selectrad)
-        {
-            nowrad += rotspead;
-            if(nowrad >= selectrad)
-            {
-               // nowrad = selectrad;
-            }
-     //       Axis.transform.rotation = rot;
-        }
-        else if (nowrad > selectrad)
-        {
-            nowrad -= rotspead;
-            if (nowrad >= selectrad)
-            {
-                //nowrad = selectrad;
-            }
-  //          Axis.transform.rotation = rot;
-        }
-        for(int i=0; i<charMax; ++i)
-        {
-            trans.x = -1 * Mathf.Sin((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad)*1.2f;
-            trans.y = 0.3f;
-            trans.z = -1 * Mathf.Cos((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
-            
-            position[i].transform.position = trans;
-            position[i].transform.rotation = qt;
-            position[i].transform.Rotate(new Vector3(0, 1, 0), (nowrad + (i * 360.0f/charMax)));
-        }
+             trans.x = -1 * Mathf.Sin((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
+             trans.y = 0.3f;
+             trans.z = -1 * Mathf.Cos((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
+
+             position[i].transform.position = trans;
+             position[i].transform.rotation = qt;
+             position[i].transform.Rotate(new Vector3(0, 1, 0), (nowrad + (i * 360.0f / charMax)));
+         }
         /*
         if (Input.GetKey(KeyCode.Backspace))
         {
@@ -109,6 +112,18 @@ public class SelectCharacter : MonoBehaviour {
     public int GetCharNo()
     {
         return charno;
+    }
+
+    public bool EndRotation()
+    {
+        if(selectrad == nowrad)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

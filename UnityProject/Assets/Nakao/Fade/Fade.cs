@@ -96,7 +96,7 @@ public class Fade : MonoBehaviour{
         for(int i= 1; i<bubble.Count;++i)
         {
             c = bubble[i].color;
-            if(c.a<1.0f || time<fadeintime)
+            if ((c.a < 1.0f || time < fadeintime) && time < fadeouttime + i * 0.02f)
             {
                 c.a+= 0.04f;
                 bubble[i].color = c;
@@ -105,7 +105,7 @@ public class Fade : MonoBehaviour{
             {
                 c.a -= 0.08f;
                 bubble[i].color = c;
-                if (bubble[bubble.Count - 1].color.a < 0.0f)
+                if (bubble[bubble.Count - 1].color.a <= 0.0f)
                 {
                     DestryBubble();
                     fadeflg = false;
@@ -158,6 +158,11 @@ public class Fade : MonoBehaviour{
             bubble.Add(bubblekun);
             time = 0.0f;
         }
+    }
+
+    public static bool FadeEnd()
+    {
+        return !fadeflg;
     }
 
 }
