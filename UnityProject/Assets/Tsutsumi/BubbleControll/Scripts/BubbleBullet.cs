@@ -22,7 +22,9 @@ public class BubbleBullet : MonoBehaviour {
 
         timeCount = 0.0f;
         BGMManager.Instance.PlaySE("Wash_Fly");
-	}
+
+        transform.parent = GameObject.Find("PauseObject").transform;
+    }
 	
 	// Update is called once per frame
 	void Update () {
