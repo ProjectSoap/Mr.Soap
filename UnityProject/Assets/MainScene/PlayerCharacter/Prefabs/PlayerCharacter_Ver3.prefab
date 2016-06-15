@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_damageVelocity: 7
   m_damageAngle: 15
   m_stayBuildingVelocityRate: .5
-  m_stayBuildingMaxVelocity: 5
+  m_stayBuildingMaxVelocity: 7
   m_damageAfterStopTime: 1
   m_driftBubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_breakeBubble: {fileID: 110968, guid: d271803280e156840b9f1d52922638fa, type: 2}
@@ -5939,7 +5939,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119638}

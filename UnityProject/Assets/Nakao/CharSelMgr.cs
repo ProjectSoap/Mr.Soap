@@ -47,13 +47,13 @@ public class CharSelMgr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+	    if(((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))) && Fade.FadeEnd())
         {
             switch(state)
             {
                 case Charselect.SELECT:
                     {
-                        if (CheckOpenChar(soap.GetCharNo()))
+                        if (CheckOpenChar(soap.GetCharNo()) && soap.EndRotation())
                         {
                             state = Charselect.PLAY;
                             charUI.ChangePause();

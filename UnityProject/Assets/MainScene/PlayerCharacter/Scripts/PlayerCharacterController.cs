@@ -304,6 +304,11 @@ public class PlayerCharacterController : MonoBehaviour
         set { m_meshObject = value; }
     }
 
+    void Awake()
+    {
+        gameObject.name = "PlayerCharacter";
+    }
+
     void Start()
     {
         m_rigidbody                 = GetComponent<Rigidbody>();
