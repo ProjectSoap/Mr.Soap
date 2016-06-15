@@ -2,7 +2,7 @@
 	Properties{
 		_MainTex("Base", 2D) = "white" {}
 		_MaskTex("Mask",2D) = "white"{}
-		_MaskAlpha("MaskAlpha", Range(0,1)) = 0.5
+		_MaskAlpha("MaskAlpha", Range(-0.01,1)) = 0.5
 		_Color("Color", Color) = (1,1,1,1)
 	}
 		SubShader{
@@ -44,7 +44,14 @@
 			{
 				half4 base = tex2D(_MainTex, i.uv1)*0.5;
 				half4 mask = tex2D(_MaskTex, i.uv2);
-				base.w = -mask.a + _MaskAlpha *2;
+				if (mask.r <= _MaskAlpha) 
+				{
+					base.w = -mask.r + 2 * _MaskAlpha;
+				}
+				else 
+				{
+					base.w = -mask.r + 2 * _MaskAlpha;
+				}
 				half4 color = saturate(base * (_Color * 2.0f));
 				return color;
 			}
