@@ -590,7 +590,10 @@ public class PlayerCharacterController : MonoBehaviour
         m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity + m_weatherAddMaxVelocity);
 
         if (m_isStayBuilding)
+        { 
             m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
+            m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
+        }
 
         if (Mathf.Abs(m_velocity) > .0f)
             m_rigidbody.AddRelativeForce((Vector3.forward * m_velocity));
@@ -785,11 +788,14 @@ public class PlayerCharacterController : MonoBehaviour
             Vector3 normal  = collision.contacts[0].normal.normalized;
             Vector3 forward = transform.forward;
 
-            Vector3 vector = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+            Vector3 reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+
+            reflect.y = 0.0f;
 
             m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
 
-            m_rigidbody.AddForce(vector * m_velocity);
+            m_rigidbody.AddForce(reflect * m_velocity);
+            //m_rigidbody.velocity = reflect;
             m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
 
             m_isStayBuilding = true;
@@ -806,22 +812,22 @@ public class PlayerCharacterController : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider collider)
-    {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Building") ||
-            collider.gameObject.layer == LayerMask.NameToLayer("Car"))
-        {
-            if (m_velocity >= m_damageVelocity)
-            {
-                Damage();
-            }
-            else
-            {
-                m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
-                m_velocity *= m_stayBuildingVelocityRate;
-            }
-        }
-    }
+    //void OnTriggerStay(Collider collider)
+    //{
+    //    if (collider.gameObject.layer == LayerMask.NameToLayer("Building") ||
+    //        collider.gameObject.layer == LayerMask.NameToLayer("Car"))
+    //    {
+    //        if (m_velocity >= m_damageVelocity)
+    //        {
+    //            Damage();
+    //        }
+    //        else
+    //        {
+    //            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
+    //            m_velocity *= m_stayBuildingVelocityRate;
+    //        }
+    //    }
+    //}
 
     void Damage()
     {
