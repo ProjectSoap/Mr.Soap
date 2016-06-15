@@ -260,6 +260,8 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField]
     Vector3 v;
 
+    Transform m_pauseObjectTransform;
+
     // Property
     public PlayerCharacterAnimationBehaviour stateMachineBehaviour
     {
@@ -312,6 +314,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_endStateSystem            = GameObject.Find("EndStateSystem").GetComponent<EndStateSystem>();
         m_meshObject                = transform.FindChild("Mesh").gameObject;
         m_moveBubbleSystem          = transform.FindChild("MoveBubble").GetComponent<ParticleSystem>();
+        m_pauseObjectTransform      = transform.parent;
 
         m_driftParticleSystemRight.enableEmission   = false;
         m_driftParticleSystemLeft.enableEmission    = false;
@@ -581,7 +584,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     void Accel()
     {
-        m_velocity += (m_acceleration + m_weatherAddAcceleration) * Time.fixedDeltaTime;
+        if(m_isGround)
+            m_velocity += (m_acceleration + m_weatherAddAcceleration) * Time.fixedDeltaTime;
 
         m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_maxVelocity + m_weatherAddMaxVelocity);
 
@@ -737,6 +741,7 @@ public class PlayerCharacterController : MonoBehaviour
                 //m_driftParticleSystemRight.Clear();
                 //m_driftParticleSystemLeft.Clear();
 
+                //m_velocity      = 0.0f;
                 m_rotation      = 0.0f;
                 m_driveState    = DriveState.Jump;
 
