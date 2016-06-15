@@ -9,7 +9,7 @@ public class CreditSceanHolder : MonoBehaviour
 	void Start ()
     {
         m_camera = GameObject.Find("Main Camera").GetComponent<CreditCameraController>();
-        BGMManager.Instance.PlayBGM("Credit",0);
+        //BGMManager.Instance.PlayBGM("Credit",0);
 	}
 	
 	// Update is called once per frame

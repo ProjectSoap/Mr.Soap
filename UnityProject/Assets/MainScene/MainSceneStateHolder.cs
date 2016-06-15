@@ -35,40 +35,36 @@ public class MainSceneStateHolder : MonoBehaviour
 	 **************************************************************************************************/
 
 	///
-	/// <summary>   Values that represent main states.  </summary>
+	/// <summary>   メインの状態.  </summary>
 	///
 	/// <remarks>   Kazuyuki,.  </remarks>
 	///
 
 	enum MainState
 	{
-		/** <summary>    An enum constant representing the start option. </summary> */
-
-		/// <summary>   An enum constant representing the start option. </summary>
-		/** <summary>    An enum constant representing the start option. </summary> */
+        /// <summary>   けっていきー待ち. </summary>
 		START,
 
 
-		/// <summary>   An enum constant representing the play option.  </summary>
-		/** <summary>    An enum constant representing the play option.  </summary> */
-		PLAY,   /* An enum constant representing the play option */
+        /// <summary>   遊んでる.  </summary>
+		PLAY,  
 
+		
 
-		/// <summary>   An enum constant representing the pause option. </summary>
-		/** <summary>    An enum constant representing the pause option. </summary> */
-		PAUSE,  /* An enum constant representing the pause option */
+        /// <summary>   ポーズ画面. </summary>
+		PAUSE, 
 
-		/// <summary>   遷移確認.   </summary>
+		/// <summary>   遷移確認画面.   </summary>
 		CHECK_TRANSITION,
 
-		/// <summary>   An enum constant representing the play record option.   </summary>
-		/** <summary>    An enum constant representing the play record option.   </summary> */
-		PLAY_RECORD,    /* An enum constant representing the play record option */
 
+        /// <summary>   実績確認画面.   </summary>
+		PLAY_RECORD,  
 
-		/// <summary>   An enum constant representing the end option.   </summary>
-		/** <summary>    An enum constant representing the end option.   </summary> */
-		END /* An enum constant representing the end option */
+		
+
+        /// <summary>   死亡時.   </summary>
+		END 
 	}
 
 	///
