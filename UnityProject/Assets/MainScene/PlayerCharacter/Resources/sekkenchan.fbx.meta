@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 97c4ee64124d65a4a83ca9a046ddccb7
+labels:
+- Character
 timeCreated: 1465976136
 licenseType: Free
 ModelImporter:
@@ -194,7 +196,2113 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: normal2
+      takeName: normal2
+      firstFrame: 1
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: hit2
+      takeName: hit2
+      firstFrame: 0
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: start2
+      takeName: start2
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: joy2
+      takeName: joy2
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jump2
+      takeName: jump2
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stand2
+      takeName: stand2
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: sad2
+      takeName: sad2
+      firstFrame: 0
+      lastFrame: 91
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: wave_hand2
+      takeName: wave_hand2
+      firstFrame: 0
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: up_arm2
+      takeName: up_arm2
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stop2
+      takeName: stop2
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shy2
+      takeName: shy2
+      firstFrame: 0
+      lastFrame: 112
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: left_curve2
+      takeName: left_curve2
+      firstFrame: 1
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: right_curve2
+      takeName: right_curve2
+      firstFrame: 1
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__polySurface44
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_l/transform4
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r
+        weight: 1
+      - path: group/pasted__polySurface44/pasted__polySurface43/leg_r/transform5
+        weight: 1
+      - path: group/pasted__polySurface45
+        weight: 1
+      - path: group/pasted__polySurface46
+        weight: 1
+      - path: group/pasted__polySurface47
+        weight: 1
+      - path: group/pasted__polySurface48
+        weight: 1
+      - path: group/pasted__polySurface49
+        weight: 1
+      - path: group/pasted__polySurface50
+        weight: 1
+      - path: group/pasted__polySurface51
+        weight: 1
+      - path: group/pasted__polySurface52
+        weight: 1
+      - path: group/pasted__polySurface53
+        weight: 1
+      - path: group/pasted__polySurface54
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/arm_L
+        weight: 1
+      - path: group1/arm_L/transform9
+        weight: 1
+      - path: group1/arm_R
+        weight: 1
+      - path: group1/arm_R/transform8
+        weight: 1
+      - path: group1/body
+        weight: 1
+      - path: group1/body/transform10
+        weight: 1
+      - path: group1/polySurface45
+        weight: 1
+      - path: group1/polySurface45/transform6
+        weight: 1
+      - path: group1/ribon1
+        weight: 1
+      - path: group1/ribon1/transform7
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__polySurface41
+        weight: 1
+      - path: group2/pasted__polySurface42
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_1/transform2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2
+        weight: 1
+      - path: group2/pasted__polySurface42/ie_2/transform1
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: polySurface46
+        weight: 1
+      - path: polySurface46/transform3
+        weight: 1
+      - path: polySurface47
+        weight: 1
+      - path: polySurface47/polySurface48
+        weight: 1
+      - path: polySurface47/polySurface49
+        weight: 1
+      - path: polySurface47/polySurface50
+        weight: 1
+      - path: polySurface47/polySurface51
+        weight: 1
+      - path: polySurface47/polySurface52
+        weight: 1
+      - path: polySurface47/polySurface53
+        weight: 1
+      - path: polySurface47/polySurface54
+        weight: 1
+      - path: polySurface47/polySurface55
+        weight: 1
+      - path: polySurface47/polySurface56
+        weight: 1
+      - path: polySurface47/polySurface57
+        weight: 1
+      - path: polySurface47/transform12
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
