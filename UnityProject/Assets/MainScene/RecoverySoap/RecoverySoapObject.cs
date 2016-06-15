@@ -68,12 +68,7 @@ public class RecoverySoapObject : MonoBehaviour {
         {
             Parent.IsHaveRevoverySoap = false;
             PlayerCharacterController player = collisionObject.gameObject.GetComponent<PlayerCharacterController>();
-            player.size = player.size + 50;
-            if (player.size > 100)
-            {
-                player.size = 100;
-            }
-            BGMManager.Instance.PlaySE("Recovery");
+			player.Heal();
             Destroy(gameObject);
         }
     }}
