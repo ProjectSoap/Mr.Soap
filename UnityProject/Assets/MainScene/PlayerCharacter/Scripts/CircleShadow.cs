@@ -24,7 +24,7 @@ public class CircleShadow : MonoBehaviour {
         if (m_playerCharacterController.state == PlayerCharacterController.DriveState.Start)
             transform.localPosition = new Vector3(0, 0, 0);
         else
-            transform.localPosition = new Vector3(0, 0, 1);
+            transform.localPosition = new Vector3(0, 0, 0);
 
         int layerMask = 
             ~(1 << LayerMask.NameToLayer("Player")) + 
