@@ -64,67 +64,69 @@ public class Frame : MonoBehaviour {
         Color w = new Color(1.0f,1.0f,1.0f,1.0f);
         Key[0].color = w;
         Key[1].color = w;
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (Fade.FadeEnd())
         {
-     //       Key[0].color = r;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-       //     Key[1].color = r;
-        }
-
-        // コントローラの上下左右押すー
-        if (controllerWait < controllerWaitTime)
-        {
-            controllerWait++;
-        }
-        else
-        {
-           // Key[0].color=r;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
-                ChangeLongi(0);
-//                BGMManager.Instance.PlaySE("se_key_move");
-                controllerFlagU = true;
-                controllerFlagD = false;
-                controllerWait = 0;
+                //       Key[0].color = r;
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
-                ChangeLongi(1);
-  //              BGMManager.Instance.PlaySE("se_key_move");
-                controllerFlagU = false;
-                controllerFlagD = true;
-                controllerWait = 0;
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                ChangeSide(0);
-                controllerWait = 0;
+                //     Key[1].color = r;
             }
 
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            // コントローラの上下左右押すー
+            if (controllerWait < controllerWaitTime)
             {
-                ChangeSide(1);
-                controllerWait = 0;
+                controllerWait++;
             }
+            else
+            {
+                // Key[0].color=r;
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    ChangeLongi(0);
+                    //                BGMManager.Instance.PlaySE("se_key_move");
+                    controllerFlagU = true;
+                    controllerFlagD = false;
+                    controllerWait = 0;
+                }
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    ChangeLongi(1);
+                    //              BGMManager.Instance.PlaySE("se_key_move");
+                    controllerFlagU = false;
+                    controllerFlagD = true;
+                    controllerWait = 0;
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    ChangeSide(0);
+                    controllerWait = 0;
+                }
 
-            if (Input.GetAxisRaw("Horizontal") > 0.9f && controllerFlagL == false)
-            {
-    //            BGMManager.Instance.PlaySE("se_key_move");
-                controllerFlagL = true;
-                controllerFlagR = false;
-                controllerWait = 0;
-            }
-            else if (Input.GetAxisRaw("Horizontal") < -0.9f && controllerFlagR == false)
-            {
-      //          BGMManager.Instance.PlaySE("se_key_move");
-                controllerFlagL = false;
-                controllerFlagR = true;
-                controllerWait = 0;
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    ChangeSide(1);
+                    controllerWait = 0;
+                }
+
+                if (Input.GetAxisRaw("Horizontal") > 0.9f && controllerFlagL == false)
+                {
+                    //            BGMManager.Instance.PlaySE("se_key_move");
+                    controllerFlagL = true;
+                    controllerFlagR = false;
+                    controllerWait = 0;
+                }
+                else if (Input.GetAxisRaw("Horizontal") < -0.9f && controllerFlagR == false)
+                {
+                    //          BGMManager.Instance.PlaySE("se_key_move");
+                    controllerFlagL = false;
+                    controllerFlagR = true;
+                    controllerWait = 0;
+                }
             }
         }
-
         
     }
 

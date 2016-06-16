@@ -40,7 +40,7 @@ public class DirtyObjectScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")))
+        if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")) || (collision.gameObject.layer == LayerMask.NameToLayer("Bubbble")))
         {
             if (isDestory == false)
             {

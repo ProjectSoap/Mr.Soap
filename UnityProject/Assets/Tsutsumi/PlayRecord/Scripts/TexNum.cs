@@ -66,6 +66,14 @@ public class TexNum : MonoBehaviour {
 
     }
 
+    public void ChangeColor(Color col)
+    {
+        keta1.color = col;
+        keta2.color = col;
+        keta3.color = col;
+        keta4.color = col;
+    }
+
     private void SetNumTex(int ketaNo, int num1keta){
         Image ketaObj;
 
