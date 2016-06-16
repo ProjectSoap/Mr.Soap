@@ -47,13 +47,15 @@ public class DirtyCreater : MonoBehaviour {
 		get { return affiliationArea; }
 		set { affiliationArea = value; }
 	}
+
+	PlayerCharacterController m_player;
+	public PlayerCharacterController Player
+	{
+		get { return m_player; }
+		set { m_player = value; }
+	}
 	// Use this for initialization
 	void Start ()
-	{
-	}
-
-
-	void Awake()
 	{
 		countStartTime = Time.deltaTime;
 		isMyDityDestroy =false;
@@ -62,7 +64,7 @@ public class DirtyCreater : MonoBehaviour {
 		{
 
 			appearancePoints[i].GetComponent<DityApparancePosition>().MyCreater = this;
-
+			appearancePoints[i].GetComponent<DityApparancePosition>().Player = m_player;
 		}
 		if (0 < appearancePoints.Length)
 		{
@@ -84,6 +86,11 @@ public class DirtyCreater : MonoBehaviour {
 			Destroy(GetComponent<MeshRenderer>());
 		}
 #endif
+	}
+
+
+	void Awake()
+	{
 	}
 	
 

@@ -33,9 +33,14 @@ public class DityApparancePosition : MonoBehaviour {
     float countStartTime;
     bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
     uint affiliationArea;
-    
-    // Use this for initialization
-    void Start ()
+	PlayerCharacterController m_player;
+	public PlayerCharacterController Player
+	{
+		get { return m_player; }
+		set { m_player = value; }
+	}
+	// Use this for initialization
+	void Start ()
     {
 #if DEBUG
         if (GetComponent<MeshRenderer>() != null)
@@ -94,7 +99,8 @@ public class DityApparancePosition : MonoBehaviour {
                     obj.MyPoint = this;   // 汚れスクリプトに自分を伝える
                     obj.SwitchMaterial((int)Random.Range(0,7));
                     isMyDityDestroy[i] = false;
-                }
+					obj.Player = Player;
+				}
 
             }
             isCreate = false;

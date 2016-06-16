@@ -42,7 +42,7 @@ public class DirtySystem : MonoBehaviour
      * <summary>プレイヤー位置を知るためのもの.</summary>
      */
 
-    GameObject player;
+    PlayerCharacterController player;
 
     [Header("DirtyCreaterPointオブジェクトを入れる場所")]
 
@@ -323,7 +323,7 @@ public class DirtySystem : MonoBehaviour
         // プレイヤーの取得
         if (player == null)
         {
-            player = GameObject.Find("PlayerCharacter");
+            player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
         }
         dirtyCounterObject = GameObject.Find("DirtyCounter");
 		
@@ -333,25 +333,30 @@ public class DirtySystem : MonoBehaviour
         {
 			m_commonDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea1[i].AffiliationArea = 1;
-        }
+			m_commonDirtyCreatersOfArea1[i].Player = player;
+
+		}
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
         {
 			m_commonDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea2[i].AffiliationArea = 2;
-        }
+			m_commonDirtyCreatersOfArea2[i].Player = player;
+		}
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
         {
 			m_commonDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea3[i].AffiliationArea = 3;
-        }
+			m_commonDirtyCreatersOfArea3[i].Player = player;
+		}
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
         {
 			m_commonDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea4[i].AffiliationArea = 4;
-        }
+			m_commonDirtyCreatersOfArea4[i].Player = player;
+		}
 
 
 
@@ -360,24 +365,28 @@ public class DirtySystem : MonoBehaviour
 		{
 			m_landingDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea1[i].AffiliationArea = 1;
+			m_landingDirtyCreatersOfArea1[i].Player = player;
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea2.Length; i++)
 		{
 			m_landingDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea2[i].AffiliationArea = 2;
+			m_landingDirtyCreatersOfArea2[i].Player = player;
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea3.Length; i++)
 		{
 			m_landingDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea3[i].AffiliationArea = 3;
+			m_landingDirtyCreatersOfArea3[i].Player = player;
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea4.Length; i++)
 		{
 			m_landingDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea4[i].AffiliationArea = 4;
+			m_landingDirtyCreatersOfArea4[i].Player = player;
 		}
 
 		///// 壁についた汚れ
@@ -385,24 +394,28 @@ public class DirtySystem : MonoBehaviour
 		{
 			m_wallDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea1[i].AffiliationArea = 1;
+			m_wallDirtyCreatersOfArea1[i].Player = player;
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea2.Length; i++)
 		{
 			m_wallDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea2[i].AffiliationArea = 2;
+			m_wallDirtyCreatersOfArea2[i].Player = player;
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea3.Length; i++)
 		{
 			m_wallDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea3[i].AffiliationArea = 3;
+			m_wallDirtyCreatersOfArea3[i].Player = player;
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea4.Length; i++)
 		{
 			m_wallDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea4[i].AffiliationArea = 4;
+			m_wallDirtyCreatersOfArea4[i].Player = player;
 		}
 
 		///// 車についた汚れ
@@ -411,6 +424,7 @@ public class DirtySystem : MonoBehaviour
 			m_carDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea1[i].AffiliationArea = 1;
 			m_carDirtyCreatersOfArea1[i].IsAdhereCar = true;
+			m_carDirtyCreatersOfArea1[i].Player = player;
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea2.Length; i++)
@@ -418,6 +432,7 @@ public class DirtySystem : MonoBehaviour
 			m_carDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea2[i].AffiliationArea = 2;
 			m_carDirtyCreatersOfArea2[i].IsAdhereCar = true;
+			m_carDirtyCreatersOfArea2[i].Player = player;
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea3.Length; i++)
@@ -425,6 +440,7 @@ public class DirtySystem : MonoBehaviour
 			m_carDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea3[i].AffiliationArea = 3;
 			m_carDirtyCreatersOfArea3[i].IsAdhereCar = true;
+			m_carDirtyCreatersOfArea3[i].Player = player;
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea4.Length; i++)
@@ -432,6 +448,7 @@ public class DirtySystem : MonoBehaviour
 			m_carDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea4[i].AffiliationArea = 4;
 			m_carDirtyCreatersOfArea4[i].IsAdhereCar = true;
+			m_carDirtyCreatersOfArea4[i].Player = player;
 		}
 
 		//// レアの汚れ
@@ -442,8 +459,9 @@ public class DirtySystem : MonoBehaviour
 			RealityPoint1.ParntDirtySystem = this;
 			RealityPoint1.IsReality = true;
 			RealityPoint1.AffiliationArea = 1;
+			RealityPoint1.Player = player;
 
-        }
+		}
 
 
         if (RealityPoint2)
@@ -451,20 +469,23 @@ public class DirtySystem : MonoBehaviour
 			RealityPoint2.ParntDirtySystem = this;
 			RealityPoint2.IsReality = true;
 			RealityPoint2.AffiliationArea = 2;
-        }
+			RealityPoint2.Player = player;
+		}
         if (RealityPoint3)
         {
             RealityPoint3.ParntDirtySystem = this;
             RealityPoint3.IsReality = true;
 			RealityPoint3.AffiliationArea = 3;
-        }
+			RealityPoint3.Player = player;
+		}
         if (RealityPoint4)
         {
 			
             RealityPoint4.ParntDirtySystem = this;
             RealityPoint4.IsReality = true;
 			RealityPoint4.AffiliationArea = 4;
-        }
+			RealityPoint4.Player = player;
+		}
 
     }
 
@@ -481,138 +502,134 @@ public class DirtySystem : MonoBehaviour
 
 }
 
-    /**
+	/**
      * <summary>Update is called once per frame.</summary>
      *
      * <remarks>Kazuyuki,.</remarks>
      */
 
-	void Update ()
-    {
-
-        if (IsRunning)
-        {
-
-            for (int i = 0; i < m_commonDirtyCreatersOfArea1.Length; i++)
-            {
-                DirtyCreater creater = m_commonDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
-                creater.CheckDistance(player.transform.position);
-            }
+	void Update()
+	{
 
 
-            for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
-            {
-                DirtyCreater creater = m_commonDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
-                creater.CheckDistance(player.transform.position);
-            }
+		for (int i = 0; i < m_commonDirtyCreatersOfArea1.Length; i++)
+		{
+			DirtyCreater creater = m_commonDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-            for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
-            {
-                DirtyCreater creater = m_commonDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
-                creater.CheckDistance(player.transform.position);
-            }
-
-            for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
-            {
-                DirtyCreater creater = m_commonDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
-                creater.CheckDistance(player.transform.position);
-            }
-
-			// 着地
-			for (int i = 0; i < m_landingDirtyCreatersOfArea1.Length; i++)
-			{
-				DirtyCreater creater = m_landingDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
+		{
+			DirtyCreater creater = m_commonDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			for (int i = 0; i < m_landingDirtyCreatersOfArea2.Length; i++)
-			{
-				DirtyCreater creater = m_landingDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
+		{
+			DirtyCreater creater = m_commonDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+
+		for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
+		{
+			DirtyCreater creater = m_commonDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+
+		// 着地
+		for (int i = 0; i < m_landingDirtyCreatersOfArea1.Length; i++)
+		{
+			DirtyCreater creater = m_landingDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			for (int i = 0; i < m_landingDirtyCreatersOfArea3.Length; i++)
-			{
-				DirtyCreater creater = m_landingDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
-
-			for (int i = 0; i < m_landingDirtyCreatersOfArea4.Length; i++)
-			{
-				DirtyCreater creater = m_landingDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
-			// 壁
-
-			for (int i = 0; i < m_wallDirtyCreatersOfArea1.Length; i++)
-			{
-				DirtyCreater creater = m_wallDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_landingDirtyCreatersOfArea2.Length; i++)
+		{
+			DirtyCreater creater = m_landingDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			for (int i = 0; i < m_wallDirtyCreatersOfArea2.Length; i++)
-			{
-				DirtyCreater creater = m_wallDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_landingDirtyCreatersOfArea3.Length; i++)
+		{
+			DirtyCreater creater = m_landingDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+
+		for (int i = 0; i < m_landingDirtyCreatersOfArea4.Length; i++)
+		{
+			DirtyCreater creater = m_landingDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+		// 壁
+
+		for (int i = 0; i < m_wallDirtyCreatersOfArea1.Length; i++)
+		{
+			DirtyCreater creater = m_wallDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			for (int i = 0; i < m_wallDirtyCreatersOfArea3.Length; i++)
-			{
-				DirtyCreater creater = m_wallDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
-
-			for (int i = 0; i < m_wallDirtyCreatersOfArea4.Length; i++)
-			{
-				DirtyCreater creater = m_wallDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
-
-			// 車
-			for (int i = 0; i < m_carDirtyCreatersOfArea1.Length; i++)
-			{
-				DirtyCreater creater = m_carDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_wallDirtyCreatersOfArea2.Length; i++)
+		{
+			DirtyCreater creater = m_wallDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			for (int i = 0; i < m_carDirtyCreatersOfArea2.Length; i++)
-			{
-				DirtyCreater creater = m_carDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_wallDirtyCreatersOfArea3.Length; i++)
+		{
+			DirtyCreater creater = m_wallDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+
+		for (int i = 0; i < m_wallDirtyCreatersOfArea4.Length; i++)
+		{
+			DirtyCreater creater = m_wallDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+
+		// 車
+		for (int i = 0; i < m_carDirtyCreatersOfArea1.Length; i++)
+		{
+			DirtyCreater creater = m_carDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			for (int i = 0; i < m_carDirtyCreatersOfArea3.Length; i++)
-			{
-				DirtyCreater creater = m_carDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
-
-			for (int i = 0; i < m_carDirtyCreatersOfArea4.Length; i++)
-			{
-				DirtyCreater creater = m_carDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
-				creater.CheckDistance(player.transform.position);
-			}
+		for (int i = 0; i < m_carDirtyCreatersOfArea2.Length; i++)
+		{
+			DirtyCreater creater = m_carDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-			// レアの汚れは距離をチェックしない = 生成しない
-			totalDestroyDirtyCount = destroyDirtyCount1 + destroyDirtyCount2 + destroyDirtyCount3 + destroyDirtyCount4;
-            if (dirtyCounterObject)
-            {
-                dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
-            }
+		for (int i = 0; i < m_carDirtyCreatersOfArea3.Length; i++)
+		{
+			DirtyCreater creater = m_carDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
+
+		for (int i = 0; i < m_carDirtyCreatersOfArea4.Length; i++)
+		{
+			DirtyCreater creater = m_carDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			creater.CheckDistance(player.transform.position);
+		}
 
 
-        }
+		// レアの汚れは距離をチェックしない = 生成しない
+		totalDestroyDirtyCount = destroyDirtyCount1 + destroyDirtyCount2 + destroyDirtyCount3 + destroyDirtyCount4;
+		if (dirtyCounterObject)
+		{
+			dirtyCounterObject.GetComponent<DirtyCounter>().Count = totalDestroyDirtyCount;
+		}
 
 
-    }
+
+	}
 
     /**********************************************************************************************//**
      * @fn  public void NoticeDestroyToSystem(uint areaNum ,bool isReality)

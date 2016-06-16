@@ -4,10 +4,12 @@ using System.Collections;
 public class TrackingObject : MonoBehaviour {
 
 	public GameObject m_goalObject;
-	public float m_velocity;
-	Quaternion m_goalRot;
-	Quaternion m_rotNow;
-	Quaternion m_firstRot;
+	public float m_velocity = 2;
+	public float m_velocityMax = 8;
+	public float m_addVelocity = 0.005f;
+	protected Quaternion m_goalRot;
+	protected Quaternion m_rotNow;
+	protected Quaternion m_firstRot;
 	public float s = 0;
 	public float add = 0;
 	// Use this for initialization
