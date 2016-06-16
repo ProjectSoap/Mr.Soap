@@ -38,5 +38,9 @@ public class PlayerCharacterCreator : MonoBehaviour
             gameObject.name = "PlayerCharacter";
             gameObject.SetActive(true);
         }
+        else
+        {
+            Debug.LogError("fuck!!!! playercharacter not create!!!!!");
+        }
     }
 }

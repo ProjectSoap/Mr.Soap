@@ -15,10 +15,13 @@ public class BubbleDriftShooter : MonoBehaviour
     [SerializeField, Tooltip("泡を撃つ角度(Y軸)")]
     float m_shotAngle = 90.0f;
 
-    int     m_shotCount = 0;
+    int m_shotCount = 0;
+
+    PlayerCharacterController m_playerCharacterConntroller;
 
     void Start()
     {
+        m_playerCharacterConntroller = transform.parent.GetComponent<PlayerCharacterController>();
     }
 
     IEnumerator ShotCorutine()
@@ -28,8 +31,13 @@ public class BubbleDriftShooter : MonoBehaviour
             m_shotCount++;
 
             Debug.Log(transform.rotation.eulerAngles.ToString());
-            Instantiate(m_bubble, transform.position, transform.rotation);
-            BGMManager.Instance.PlaySE("Wash_Fly");
+            var obj = Instantiate(m_bubble, transform.position, transform.rotation) as GameObject;
+            var bubbleBullet = obj.GetComponent<BubbleBullet>();
+
+            bubbleBullet.MoveWidth  += m_playerCharacterConntroller.weatherAddBubbleWidth;
+            bubbleBullet.MoveHeight += m_playerCharacterConntroller.weatherAddBubbleHeight;
+
+            //BGMManager.Instance.PlaySE("Wash_Fly");
 
             if (m_shotCount < m_shotBullet)
                 yield return new WaitForSeconds(m_shotIntervelTime);
@@ -56,5 +64,10 @@ public class BubbleDriftShooter : MonoBehaviour
         m_shotCount = 0;
 
         StartCoroutine(ShotCorutine());
+    }
+
+    public void StopShot()
+    {
+        StopAllCoroutines();
     }
 }

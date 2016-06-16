@@ -28,14 +28,6 @@ public class PlayerCharacterController : MonoBehaviour
         Fog,
     }
 
-    enum WindState
-    {
-        Head,       // 向かい風
-        Tail,       // 追い風
-        Right,
-        Left,
-    }
-
     [SerializeField, Tooltip("最大速度"), Header("速度")]
     float m_maxVelocity = 10.0f;
 
@@ -132,32 +124,11 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField, Tooltip("雨天時加速度加算値")]
     float m_rainAddAcceleration;
 
-    [SerializeField, Tooltip("横向きの風と判定する角度")]
-    float m_windSideAngle;
+    [SerializeField, Tooltip("風時の泡飛距離")]
+    float m_windAddBubbleWidth;
 
-    [SerializeField, Tooltip("向かい風と判定する角度")]
-    float m_windHeadAngle;
-
-    [SerializeField, Tooltip("追い風時の最大速度")]
-    float m_windHeadMaxVelocity;
-
-    [SerializeField, Tooltip("追い風時の加速度加算値")]
-    float m_windHeadAcceleration;
-
-    [SerializeField, Tooltip("向かい風時の最大速度")]
-    float m_windTailMaxVelocity;
-
-    [SerializeField, Tooltip("向かい風時の加速度加算値")]
-    float m_windTailAcceleration;
-
-    [SerializeField, Tooltip("横向きの風時の回転力加算値")]
-    float m_windSideAddRotationPower;
-
-    [SerializeField, Tooltip("横向きの風時の最大回転力加算値")]
-    float m_windSideAddMaxRotation;
-
-    [SerializeField, Tooltip("横向きの風時のドリフト時間加算値")]
-    float m_windSideAddDriftStartTime;
+    [SerializeField, Tooltip("風時の泡高さ")]
+    float m_windAddBubbleHeight;
 
     [SerializeField, Tooltip("ドリフトパーティクル右"), Header("パーティクル")]
     GameObject m_driftParticleEmitterRight;
@@ -238,6 +209,7 @@ public class PlayerCharacterController : MonoBehaviour
     BubbleDriftShooter m_bubbleDriftShooter;
 
     // Weather
+    [SerializeField]
     WeatherState m_weatherState;
 
     Vector3 m_windDirection = new Vector3(.0f, .0f, .0f);
@@ -248,6 +220,8 @@ public class PlayerCharacterController : MonoBehaviour
     float m_weatherAddMaxRotation;
     float m_weatherAddDriftStartTime;
     float m_weatherAddBreakePower;
+    float m_weatherAddBubbleWidth;
+    float m_weatherAddBubbleHeight;
 
     // Particle Effect
     ParticleSystem m_driftParticleSystemRight;
@@ -304,6 +278,16 @@ public class PlayerCharacterController : MonoBehaviour
         set { m_meshObject = value; }
     }
 
+    public float weatherAddBubbleWidth
+    {
+        get { return m_weatherAddBubbleWidth; }
+    }
+
+    public float weatherAddBubbleHeight
+    {
+        get { return m_weatherAddBubbleHeight; }
+    }
+
     void Awake()
     {
         gameObject.name = "PlayerCharacter";
@@ -328,6 +312,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_moveBubbleSystem.enableEmission = false;
         m_moveBubbleSystem.Clear();
+
+        m_endStateSystem.Sekkenkun = gameObject;
 
         m_maxRotation       = m_maxRotationNormal;
         m_rotationPower     = m_rotationPowerNormal;
@@ -379,13 +365,17 @@ public class PlayerCharacterController : MonoBehaviour
                         m_driveState    = DriveState.Breake;
                         m_rotation      = 0.0f;
 
-                        GameObject.Instantiate(m_breakeBubble, transform.position, transform.rotation);
+                        var obj = GameObject.Instantiate(m_breakeBubble, transform.position, transform.rotation) as GameObject;
+                        var bubbleBullet = obj.GetComponent<BubbleBullet>();
+
+                        bubbleBullet.MoveWidth  += m_windAddBubbleWidth;
+                        bubbleBullet.MoveHeight += m_windAddBubbleHeight;
 
                         m_driftParticleSystemRight.enableEmission   = true;
                         m_driftParticleSystemLeft.enableEmission    = true;
 
                         BGMManager.Instance.PlaySE("Soap_Brake");
-                        BGMManager.Instance.PlaySE("Wash_Fly");                        
+                        //BGMManager.Instance.PlaySE("Wash_Fly");                        
                     }
                 }
             }
@@ -481,6 +471,8 @@ public class PlayerCharacterController : MonoBehaviour
                 m_weatherAddMaxRotation     = .0f;
                 m_weatherAddRotationPower   = .0f;
                 m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddBubbleWidth     = .0f;
+                m_weatherAddBubbleHeight    = .0f;
                 break;
             case WeatherState.Rain:
                 m_weatherAddMaxVelocity     = m_rainAddMaxVelocity;
@@ -490,23 +482,13 @@ public class PlayerCharacterController : MonoBehaviour
                 m_weatherAddDriftStartTime  = .0f;
                 break;
             case WeatherState.Wind:
-
-                float windAngle = Vector3.Angle(transform.forward, windDirection);
-                float windAngleAbs = Mathf.Abs(windAngle);
-
-                if (windAngleAbs < m_windSideAngle)
-                {
-                    // 追い風
-                }
-                else if (windAngleAbs >= m_windSideAngle)
-                {
-                    // 横向きの風
-                }
-                else if (windAngleAbs >= m_windHeadAngle)
-                {
-                    //　向かい風
-                }
-
+                m_weatherAddMaxVelocity     = .0f;
+                m_weatherAddAcceleration    = .0f;
+                m_weatherAddMaxRotation     = .0f;
+                m_weatherAddRotationPower   = .0f;
+                m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddBubbleWidth     = m_windAddBubbleWidth;
+                m_weatherAddBubbleHeight    = m_windAddBubbleHeight;
                 break;
             case WeatherState.Fog:
                 m_weatherAddMaxVelocity     = .0f;
@@ -514,6 +496,8 @@ public class PlayerCharacterController : MonoBehaviour
                 m_weatherAddMaxRotation     = .0f;
                 m_weatherAddRotationPower   = .0f;
                 m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddBubbleWidth     = .0f;
+                m_weatherAddBubbleHeight    = .0f;
                 break;
             default:
                 break;
@@ -556,7 +540,7 @@ public class PlayerCharacterController : MonoBehaviour
 
                     Instantiate(m_jumpBubble, transform.position, m_jumpBubble.transform.rotation);
 
-                    BGMManager.Instance.PlaySE("Wash_Fly");
+                    //BGMManager.Instance.PlaySE("Wash_Fly");
                 }
                 break;
 
@@ -638,7 +622,20 @@ public class PlayerCharacterController : MonoBehaviour
         if (m_horizontal < 0.0f)
         {
             if (m_rotation > 0.0f)
+            { 
                 m_rotation = 0.0f;
+                m_pushRotationKeyTime = 0.0f;
+
+                if (m_driveState == DriveState.Drift)
+                {
+                    m_driveState = DriveState.Normal;
+
+                    m_maxRotation = m_maxRotationNormal;
+                    m_rotationPower = m_rotationPowerNormal;
+
+                    //m_bubbleDriftShooter.StopShot();
+                }
+            }
 
             m_rotation -= m_rotationPower * Time.deltaTime;
 
@@ -651,6 +648,17 @@ public class PlayerCharacterController : MonoBehaviour
             if (m_rotation < 0.0f)
             {
                 m_rotation = 0.0f;
+                m_pushRotationKeyTime = 0.0f;
+
+                if (m_driveState == DriveState.Drift)
+                {
+                    m_driveState = DriveState.Normal;
+
+                    m_maxRotation = m_maxRotationNormal;
+                    m_rotationPower = m_rotationPowerNormal;
+
+                    //m_bubbleDriftShooter.StopShot();
+                }
             }
 
             m_rotation += m_rotationPower * Time.deltaTime;
