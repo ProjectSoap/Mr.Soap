@@ -249,8 +249,6 @@ public class MainSceneStateHolder : MonoBehaviour
 
 		ActionRecordManager.sActionRecord.Reset();
 
-
-
 		if (m_modeState == ModeState.FREE_PLAY)
 		{
 		}
