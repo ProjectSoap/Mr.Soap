@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTime: 1
-  minPercent: .400000006
+  minPercent: .600000024
 --- !u!114 &11452020
 MonoBehaviour:
   m_ObjectHideFlags: 1
