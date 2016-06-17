@@ -290,6 +290,18 @@ public class PlayerCharacterController : MonoBehaviour
         get { return m_weatherAddBubbleHeight; }
     }
 
+    public Rigidbody rigidBody
+    {
+        get { return m_rigidbody; }
+        set { m_rigidbody = value; }
+    }
+
+    public float velocity
+    {
+        get { return m_velocity; }
+        set { m_velocity = value; }
+    }
+
     void Awake()
     {
         gameObject.name = "PlayerCharacter";
@@ -599,7 +611,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(m_isStayBuilding)
         {
-            m_rigidbody.AddForce(m_reflect * m_velocity);
+            m_rigidbody.AddForce(m_reflect * m_velocity, ForceMode.Force);
+            //m_rigidbody.velocity = m_reflect * m_velocity;
         }
 
         // 速度制限を掛ける
