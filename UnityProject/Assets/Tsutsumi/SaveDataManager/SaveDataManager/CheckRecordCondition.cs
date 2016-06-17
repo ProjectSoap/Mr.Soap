@@ -69,9 +69,9 @@ public class CheckRecordCondition : MonoBehaviour {
             new SCondition(SaveDataManager.ESaveDataNo.FogPlayFlg, 1),
 
             new SCondition(SaveDataManager.ESaveDataNo.WindPlayFlg, 1),
-            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint3, 301),
-            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint2, 501),
-            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint1, 1001),
+            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint3, 81),
+            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint2, 91),
+            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint1, 101),
             new SCondition(SaveDataManager.ESaveDataNo.SekkenChanPlayFlg, 1),
 
             new SCondition(SaveDataManager.ESaveDataNo.SekkenKun0PlayFlg, 1),
