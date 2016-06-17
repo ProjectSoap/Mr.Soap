@@ -231,10 +231,12 @@ public class PlayerCharacterController : MonoBehaviour
 
     EndStateSystem m_endStateSystem;
 
-    [SerializeField]
-    Vector3 v;
+    Vector3 m_reflect;
 
     Transform m_pauseObjectTransform;
+
+    [SerializeField]
+    Vector3 v;
 
     // Property
     public PlayerCharacterAnimationBehaviour stateMachineBehaviour
@@ -335,7 +337,7 @@ public class PlayerCharacterController : MonoBehaviour
 
 #endif
 
-        m_isPushJump = Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0);
+        m_isPushJump = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0);
         //m_horizontal = Input.GetAxis("Horizontal");
 
         if (Input.GetKey(KeyCode.RightArrow))
@@ -364,6 +366,8 @@ public class PlayerCharacterController : MonoBehaviour
                     {
                         m_driveState    = DriveState.Breake;
                         m_rotation      = 0.0f;
+
+                        m_animator.Play("Breake");
 
                         var obj = GameObject.Instantiate(m_breakeBubble, transform.position, transform.rotation) as GameObject;
                         var bubbleBullet = obj.GetComponent<BubbleBullet>();
@@ -434,6 +438,12 @@ public class PlayerCharacterController : MonoBehaviour
             m_endStateSystem.StartEndState();
         }
 
+        if(m_driveState == DriveState.End)
+        {
+            m_meshObject.transform.Rotate(transform.up, 10.0f);
+            //m_meshObject.transform.Translate(new Vector3(0, 0.0025f, 0));
+        }
+
         float scaleRate = ((m_size / 100) + 1) * 0.5f;
 
         transform.localScale = m_defaultScale * scaleRate;
@@ -442,13 +452,13 @@ public class PlayerCharacterController : MonoBehaviour
         m_animator.SetBool("isGround",  m_isGround);
         m_animator.SetFloat("rotation", m_rotation);
 
-        if (m_driveState == DriveState.Breake ||
-            m_driveState == DriveState.BreakeAfter)
-        {
-            m_animator.SetBool("isBreake", true);
-        }
-        else
-            m_animator.SetBool("isBreake", false);
+        //if (m_driveState == DriveState.Breake ||
+        //    m_driveState == DriveState.BreakeAfter)
+        //{
+        //    m_animator.SetBool("isBreake", true);
+        //}
+        //else
+        //    m_animator.SetBool("isBreake", false);
 
         // パーティクル更新
         if (m_driveState != DriveState.Drift && m_driveState != DriveState.Breake)
@@ -584,8 +594,13 @@ public class PlayerCharacterController : MonoBehaviour
             m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
         }
 
-        if (Mathf.Abs(m_velocity) > .0f)
+        if (Mathf.Abs(m_velocity) > .0f && !m_isStayBuilding)
             m_rigidbody.AddRelativeForce((Vector3.forward * m_velocity));
+
+        if(m_isStayBuilding)
+        {
+            m_rigidbody.AddForce(m_reflect * m_velocity);
+        }
 
         // 速度制限を掛ける
         m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_maxVelocity);
@@ -790,7 +805,19 @@ public class PlayerCharacterController : MonoBehaviour
 
             Debug.Log(angle.ToString() + " On Hit");
 
+            Vector3 normal = collision.contacts[0].normal.normalized;
+            forward = transform.forward;
+
+            m_reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+            m_reflect.y = 0.0f;
+
+
             m_isStayBuilding = true;
+        }
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Car"))
+        {
+            Damage();
         }
     }
 
@@ -798,18 +825,17 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            Vector3 normal  = collision.contacts[0].normal.normalized;
+            Vector3 normal = collision.contacts[0].normal.normalized;
             Vector3 forward = transform.forward;
 
-            Vector3 reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+            m_reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+            m_reflect.y = 0.0f;
 
-            reflect.y = 0.0f;
+            //m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
 
-            m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
-
-            m_rigidbody.AddForce(reflect * m_velocity);
+            //m_rigidbody.AddForce(reflect * m_velocity);
             //m_rigidbody.velocity = reflect;
-            m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
+            //m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
 
             m_isStayBuilding = true;
         }
@@ -869,6 +895,8 @@ public class PlayerCharacterController : MonoBehaviour
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
 
+        particleEmitter.transform.parent = transform;
+
         Destroy(particleEmitter, particleSystem.duration);
 
         BGMManager.Instance.PlaySE("Wash_Chain_MAX");
@@ -881,6 +909,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
+
+        particleEmitter.transform.parent = transform;
 
         Destroy(particleEmitter, particleSystem.duration);
 

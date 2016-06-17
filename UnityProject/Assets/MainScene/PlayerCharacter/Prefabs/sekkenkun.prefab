@@ -2254,15 +2254,8 @@ MonoBehaviour:
   m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
   m_rainAddMaxVelocity: 1
   m_rainAddAcceleration: .200000003
-  m_windSideAngle: 0
-  m_windHeadAngle: 0
-  m_windHeadMaxVelocity: 0
-  m_windHeadAcceleration: 0
-  m_windTailMaxVelocity: 0
-  m_windTailAcceleration: 0
-  m_windSideAddRotationPower: 0
-  m_windSideAddMaxRotation: 0
-  m_windSideAddDriftStartTime: 0
+  m_windAddBubbleWidth: 0
+  m_windAddBubbleHeight: 0
   m_driftParticleEmitterRight: {fileID: 164850}
   m_driftParticleEmitterLeft: {fileID: 106644}
   m_moveBubbleEmissionVelocity: 5
@@ -2279,6 +2272,7 @@ MonoBehaviour:
   m_isStayBuilding: 0
   m_size: 100
   m_horizontal: 0
+  m_weatherState: 0
   v: {x: 0, y: 0, z: 0}
 --- !u!114 &11465748
 MonoBehaviour:

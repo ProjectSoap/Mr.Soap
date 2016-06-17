@@ -19,7 +19,7 @@ public class PlayRecordSystem : MonoBehaviour {
     //外部からセットされるオブジェクト
     public SelectPointer pointerObject;
     public RecordNameSprite RecordName;
-    public Text TConditionText;
+    public RecordNameSprite RecordConditionName;
     public Image ClearTextImage;
 
 	// Use this for initialization
@@ -28,11 +28,9 @@ public class PlayRecordSystem : MonoBehaviour {
         recordListNum = recordList.GetRecordNum();
         selectLecordNo = 0;
 
-
-        //テキストを初期設定
-        TConditionText.text = recordList.GetRecordCondtion(selectLecordNo);
         //獲得済み表示のオンオフ
         RecordName.SetImageSprite(0);
+        RecordConditionName.SetImageSprite(0);
         ClearTextImage.enabled = true;
 
         selectLecordNo = 0;
@@ -101,7 +99,7 @@ public class PlayRecordSystem : MonoBehaviour {
         pointerObject.MovePointer(mode, pos);
 
         //テキスト情報修正
-        TConditionText.text = recordList.GetRecordCondtion(selectLecordNo);
+        RecordConditionName.SetImageSprite(selectLecordNo);
 
         //獲得済み表示のオンオフ
         if (recordList.GetStatusLevel(selectLecordNo) == 0)

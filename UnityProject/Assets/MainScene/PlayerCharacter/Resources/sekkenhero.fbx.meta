@@ -1,0 +1,1136 @@
+fileFormatVersion: 2
+guid: ae1199ca8f425354eb192b04d3eea070
+timeCreated: 1466128266
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: L_arm
+    100002: L_hand
+    100004: L_hiza
+    100006: L_hizi
+    100008: L_kakato
+    100010: L_leg
+    100012: L_tumasaki
+    100014: polySurface41
+    100016: polySurface42
+    100018: polySurface43
+    100020: polySurface45
+    100022: polySurface48
+    100024: polySurface49
+    100026: polySurface50
+    100028: R_arm
+    100030: R_hand
+    100032: R_hiza
+    100034: R_hizi
+    100036: R_kakato
+    100038: R_leg
+    100040: R_tumasaki
+    100042: root
+    100044: //RootNode
+    100046: transform11
+    100048: up_body
+    400000: L_arm
+    400002: L_hand
+    400004: L_hiza
+    400006: L_hizi
+    400008: L_kakato
+    400010: L_leg
+    400012: L_tumasaki
+    400014: polySurface41
+    400016: polySurface42
+    400018: polySurface43
+    400020: polySurface45
+    400022: polySurface48
+    400024: polySurface49
+    400026: polySurface50
+    400028: R_arm
+    400030: R_hand
+    400032: R_hiza
+    400034: R_hizi
+    400036: R_kakato
+    400038: R_leg
+    400040: R_tumasaki
+    400042: root
+    400044: //RootNode
+    400046: transform11
+    400048: up_body
+    4300000: polySurface42
+    4300002: polySurface43
+    4300004: polySurface45
+    4300006: polySurface48
+    4300008: polySurface49
+    4300010: polySurface50
+    7400000: wave_hand3
+    7400002: right_curve3
+    7400004: joy3
+    7400006: normal3
+    7400008: left_curve3
+    7400010: stop3
+    7400012: jump3
+    7400014: hit3
+    7400016: start3
+    7400018: stand3
+    7400020: shy3
+    7400022: sad3
+    7400024: up_arm3
+    7400026: up_hand3
+    9500000: //RootNode
+    13700000: polySurface42
+    13700002: polySurface43
+    13700004: polySurface45
+    13700006: polySurface48
+    13700008: polySurface49
+    13700010: polySurface50
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: stop3
+      takeName: stop3
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: hit3
+      takeName: hit3
+      firstFrame: 1
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stand3
+      takeName: stand3
+      firstFrame: 1
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: start3
+      takeName: start3
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: up_hand3
+      takeName: up_hand3
+      firstFrame: 1
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: wave_hand3
+      takeName: wave_hand3
+      firstFrame: 1
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: normal3
+      takeName: normal3
+      firstFrame: 1
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: left_curve3
+      takeName: left_curve3
+      firstFrame: 1
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: right_curve3
+      takeName: right_curve3
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jump3
+      takeName: jump3
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: joy3
+      takeName: joy3
+      firstFrame: 1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: sad3
+      takeName: sad3
+      firstFrame: 1
+      lastFrame: 91
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shy3
+      takeName: shy3
+      firstFrame: 1
+      lastFrame: 91
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/polySurface49
+        weight: 1
+      - path: polySurface41/polySurface50
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

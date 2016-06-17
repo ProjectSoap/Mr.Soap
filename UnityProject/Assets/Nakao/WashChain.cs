@@ -10,12 +10,15 @@ public class WashChain : MonoBehaviour {
 
     [SerializeField]
     int now_chain;
+    [SerializeField]
+    float delay;
 
     Shine shine;
 
     private Quaternion now_rotation;
     public bool chainmax;
     public bool heal;
+    public bool minus;
     float limit;
     float now_time;
     float rotate_angle;
@@ -35,6 +38,7 @@ public class WashChain : MonoBehaviour {
         {
             if (now_time > limit)
             {
+                minus = true;
                 now_chain--;
                 if(now_chain<0)
                 {
@@ -51,7 +55,9 @@ public class WashChain : MonoBehaviour {
                     player = GameObject.Find("PlayerCharacter");
                     player.GetComponent<PlayerCharacterController>().WashChain();
                     heal = false;
+
                 }
+                needle.rectTransform.rotation = Quaternion.Lerp(needle.rectTransform.rotation, now_rotation, (now_time / limit));
                 if(now_time > 1.3f)
                 {
                     chainmax = false;
@@ -62,7 +68,16 @@ public class WashChain : MonoBehaviour {
             }
             else
             {
-                needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation,(now_time/limit));
+                if(now_time < limit/delay && !minus)
+                {
+                    needle.rectTransform.rotation = Quaternion.Lerp(needle.rectTransform.rotation, now_rotation, (now_time / limit));
+                }
+                else
+                {
+                    needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
+                }
+               // needle.rectTransform.rotation = Quaternion.Lerp(needle.rectTransform.rotation, now_rotation, (now_time / limit));
+                //needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation,(now_time/limit));
             }
         }
         else
@@ -82,7 +97,8 @@ public class WashChain : MonoBehaviour {
         if(now_chain >= 10)
         {
             shine.StartLight();
-            needle.rectTransform.rotation =  Quaternion.Euler(0, 0, (25.0f - rotate_angle * (now_chain)));
+            before_rotation = needle.rectTransform.rotation;
+            now_rotation =  Quaternion.Euler(0, 0, (25.0f - rotate_angle * (now_chain)));
         }
 
         if (now_chain > 7) { limit = 5.0f; }
@@ -103,6 +119,7 @@ public class WashChain : MonoBehaviour {
         {
             now_rotation = Quaternion.Euler(0, 0, (25.0f - rotate_angle * (now_chain)));
             before_rotation = Quaternion.Euler(0, 0, 25.0f - rotate_angle * (now_chain - 1));
+            //before_rotation = needle.rectTransform.rotation;
         }
         else
         {
@@ -127,6 +144,7 @@ public class WashChain : MonoBehaviour {
 
                // shine.StartLight();
             }
+            minus = false;
             SetLimit();
             SetAgree();
         }
