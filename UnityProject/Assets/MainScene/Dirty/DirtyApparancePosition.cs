@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DityApparancePosition : MonoBehaviour {
+public class DirtyApparancePosition : MonoBehaviour {
 
     [SerializeField]
     GameObject dirtyObject;   // 汚れオブジェクト
@@ -22,8 +22,22 @@ public class DityApparancePosition : MonoBehaviour {
     GameObject[] dirtyObjectInstance;   // 管理用
 
     bool[] isMyDityDestroy;  // 消されたかどうか
-
-    bool isRangeOut;   // マップ範囲外であるか
+	
+	public bool IsHaveObject
+	{
+		get
+		{
+			for (int i = 0;i < 0;i++)
+			{
+				if (dirtyObjectInstance[i] == null)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	bool isRangeOut;   // マップ範囲外であるか
 
     char rangeOutCountPar10Seconds; // ミニマップ範囲外に出て何毎10秒いたか
 
