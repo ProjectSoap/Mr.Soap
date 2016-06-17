@@ -429,7 +429,7 @@ GameObject:
   - 114: {fileID: 11427338}
   - 136: {fileID: 13613912}
   m_Layer: 8
-  m_Name: SekkenKun
+  m_Name: sekkenkun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
