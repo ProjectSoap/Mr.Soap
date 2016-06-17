@@ -438,6 +438,12 @@ public class PlayerCharacterController : MonoBehaviour
             m_endStateSystem.StartEndState();
         }
 
+        if(m_driveState == DriveState.End)
+        {
+            m_meshObject.transform.Rotate(transform.up, 10.0f);
+            //m_meshObject.transform.Translate(new Vector3(0, 0.0025f, 0));
+        }
+
         float scaleRate = ((m_size / 100) + 1) * 0.5f;
 
         transform.localScale = m_defaultScale * scaleRate;
@@ -798,6 +804,13 @@ public class PlayerCharacterController : MonoBehaviour
             }
 
             Debug.Log(angle.ToString() + " On Hit");
+
+            Vector3 normal = collision.contacts[0].normal.normalized;
+            forward = transform.forward;
+
+            m_reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+            m_reflect.y = 0.0f;
+
 
             m_isStayBuilding = true;
         }
