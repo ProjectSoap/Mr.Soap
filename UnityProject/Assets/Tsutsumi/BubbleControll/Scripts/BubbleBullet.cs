@@ -21,8 +21,10 @@ public class BubbleBullet : MonoBehaviour {
         rigid.velocity = MoveVec;
 
         timeCount = 0.0f;
-        BGMManager.Instance.PlaySE("Wash_Fly");
-
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.PlaySE("Wash_Fly");
+        }
         transform.parent = GameObject.Find("PauseObject").transform;
     }
 	

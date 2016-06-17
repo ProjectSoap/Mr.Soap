@@ -689,16 +689,7 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11444492, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11405644, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11476666, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11494210, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11496574, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11465024, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11474194, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11491796, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-    - {fileID: 11491108, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1450561395
@@ -784,10 +775,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 666540976}
-    - target: {fileID: 115558, guid: 2b6408a0b6078ee498a0fb1e592000c7, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b6408a0b6078ee498a0fb1e592000c7, type: 2}
   m_IsPrefabParent: 0
