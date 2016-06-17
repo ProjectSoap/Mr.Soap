@@ -180,7 +180,7 @@ ModelImporter:
     - serializedVersion: 16
       name: hit
       takeName: hit
-      firstFrame: 1
+      firstFrame: 0
       lastFrame: 46
       wrapMode: 0
       orientationOffsetY: 0
@@ -330,7 +330,7 @@ ModelImporter:
     - serializedVersion: 16
       name: stop
       takeName: stop
-      firstFrame: 1
+      firstFrame: 30
       lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
