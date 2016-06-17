@@ -128,7 +128,23 @@ public class SaveDataManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        int _playCount = LoadData(ESaveDataNo.PlayCount);
 
+        //初回起動ならランキングを初期化
+        if (_playCount <= 0)
+        {
+            SaveData(ESaveDataNo.RankingPoint1, 100);
+            SaveData(ESaveDataNo.RankingPoint2, 90);
+            SaveData(ESaveDataNo.RankingPoint3, 80);
+            SaveData(ESaveDataNo.RankingPoint4, 70);
+            SaveData(ESaveDataNo.RankingPoint5, 60);
+
+            SaveData(ESaveDataNo.RankingPoint6, 50);
+            SaveData(ESaveDataNo.RankingPoint7, 40);
+            SaveData(ESaveDataNo.RankingPoint8, 30);
+            SaveData(ESaveDataNo.RankingPoint9, 20);
+            SaveData(ESaveDataNo.RankingPoint10, 10);
+        }
 	}
 	
 	// Update is called once per frame
@@ -191,5 +207,27 @@ public class SaveDataManager : MonoBehaviour {
         PlayerPrefs.SetInt(SaveDataName[(int)no], data);
 
         return true;
+    }
+
+    //セーブデータ全削除。
+    private void Reset()
+    {
+        //全てのデータに０代入
+        for (int i = 0; i < (int)ESaveDataNo.SAVE_DATA_NUM; ++i)
+        {
+            SaveData((ESaveDataNo)i, 0);
+        }
+        //ランキング初期化
+        SaveData(ESaveDataNo.RankingPoint1, 100);
+        SaveData(ESaveDataNo.RankingPoint2, 90);
+        SaveData(ESaveDataNo.RankingPoint3, 80);
+        SaveData(ESaveDataNo.RankingPoint4, 70);
+        SaveData(ESaveDataNo.RankingPoint5, 60);
+
+        SaveData(ESaveDataNo.RankingPoint6, 50);
+        SaveData(ESaveDataNo.RankingPoint7, 40);
+        SaveData(ESaveDataNo.RankingPoint8, 30);
+        SaveData(ESaveDataNo.RankingPoint9, 20);
+        SaveData(ESaveDataNo.RankingPoint10, 10);
     }
 }

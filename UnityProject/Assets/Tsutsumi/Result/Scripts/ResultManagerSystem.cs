@@ -70,7 +70,7 @@ public class ResultManagerSystem : MonoBehaviour {
         gameScore = ActionRecordManager.sActionRecord;
         rankingPoint[10] = gameScore.C1WashCount + gameScore.C2WashCount + gameScore.C3WashCount + gameScore.C4WashCount;
 
-        //取得ポイントを元にアニメーション切り替え
+        //取得ポイントを元にせっけんキャラクターとアニメーション切り替え
         ResultSekkenControll.ESekkenNo sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun;
         if (gameScore.isSekkenChanPlay == true)
         {
@@ -80,6 +80,7 @@ public class ResultManagerSystem : MonoBehaviour {
         {
             sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun0;
         }
+        //sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
         sekkenControll.SelectSekkenAndAnimation(sekkenNo, rankingPoint[10]);
 
         //新しいセーブデータ作成
