@@ -4,7 +4,7 @@ using System.Collections;
 public class Eter : MonoBehaviour {
 
     [SerializeField]
-    Transform size;
+    RectTransform size;
     [SerializeField]
     float waittime;
     [SerializeField]
@@ -20,7 +20,7 @@ public class Eter : MonoBehaviour {
     bool scale = false;
 	// Use this for initialization
 	void Start () {
-        size = GetComponent<Transform>();
+        size = GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
@@ -45,6 +45,6 @@ public class Eter : MonoBehaviour {
             delay+= Time.deltaTime;
             //size.localScale = new Vector3(60.0f * (1 + ((delay / delaylimit) * 0.05f)), 50.0f * (1 + ((delay / delaylimit) * 0.025f)), 1);
         }
-        size.localScale = new Vector3(1.5f * (1.0f + ((delay / delaylimit) * 0.2f)), 1.5f * (1.0f + ((delay / delaylimit) * 0.2f)), 1);
+        size.localScale = new Vector3(1.0f * (1.0f + ((delay / delaylimit) * 0.1f)), 1.0f * (1.0f + ((delay / delaylimit) * 0.1f)), 1);
     }
 }
