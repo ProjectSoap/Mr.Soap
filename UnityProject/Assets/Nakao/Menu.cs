@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+	    
 	}
 	
 	// Update is called once per frame
@@ -31,6 +31,18 @@ public class Menu : MonoBehaviour {
                     case 2:
                         {
                             Fade.ChangeScene("Ranking");
+                            break;
+                        }
+                    case 3:
+                        {
+                            //kure
+                            Fade.ChangeScene("Credit");
+                            break;
+                        }
+                    case 4:
+                        {
+                            //asobikata
+                            Fade.ChangeScene("Asobikata");
                             break;
                         }
                     default:

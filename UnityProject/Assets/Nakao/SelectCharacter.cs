@@ -11,6 +11,9 @@ public class SelectCharacter : MonoBehaviour {
     List<Sprite> Hatena;
 
     [SerializeField]
+    List<Animator> soapsAnimation;
+
+    [SerializeField]
     int charno;
     [SerializeField]
     int charMax;
@@ -89,9 +92,9 @@ public class SelectCharacter : MonoBehaviour {
         }
         for (int i = 0; i < charMax; ++i)
         {
-             trans.x = -1 * Mathf.Sin((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
-             trans.y = 0.3f;
-             trans.z = -1 * Mathf.Cos((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
+             trans.x = -1.5f * Mathf.Sin((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
+             trans.y = position[i].transform.position.y;
+             trans.z = -1.5f * Mathf.Cos((nowrad + (i * 360.0f / charMax)) * Mathf.Deg2Rad) * 1.2f;
 
              position[i].transform.position = trans;
              position[i].transform.rotation = qt;
@@ -107,6 +110,18 @@ public class SelectCharacter : MonoBehaviour {
             Application.LoadLevel("main");
         }
          * */
+        for (int i = 0; i < soapsAnimation.Count; ++i )
+        {
+            if(i == charno)
+            {
+                soapsAnimation[i].SetBool("Select", true);
+            }
+            else
+            {
+                soapsAnimation[i].SetBool("Select", false);
+            }
+        }
+            
 	}
 
     public int GetCharNo()

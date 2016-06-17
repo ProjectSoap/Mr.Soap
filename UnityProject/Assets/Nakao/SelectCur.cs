@@ -23,11 +23,13 @@ public class SelectCur : MonoBehaviour {
         Key[1].color = new Color(1, 1, 1, 1);
 	    if (Input.GetKey(KeyCode.LeftArrow)){
             Key[0].enabled = false;
+            Key[1].enabled = true;
             Key[2].enabled = true;
             Key[3].enabled = false;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
+            Key[0].enabled = true;
             Key[1].enabled = false;
             Key[3].enabled = true;
             Key[2].enabled = false;
