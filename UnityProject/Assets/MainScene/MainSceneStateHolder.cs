@@ -289,7 +289,7 @@ public class MainSceneStateHolder : MonoBehaviour
 			case MainState.START:
 
 				// ヘルプ(F12)押したらポーズに遷移
-				if (Input.GetKeyDown(KeyCode.F12))
+				if (Input.GetKeyDown(KeyCode.F12) && Fade.FadeEnd())
 				{
 					ExecuteStateExitProcesss(m_mainState);
 					if (m_modeState == ModeState.NORMAL_PLAY)
