@@ -58,12 +58,7 @@ public class Frame : MonoBehaviour {
     public int controllerWaitTime = 10;
     void UpdateInput()
     {
-        Color r;
-        r.r = r.a = 1.0f;
-        r.b = r.g = 0.0f;
-        Color w = new Color(1.0f,1.0f,1.0f,1.0f);
-        Key[0].color = w;
-        Key[1].color = w;
+      
         if (Fade.FadeEnd())
         {
             if (Input.GetKey(KeyCode.UpArrow))
@@ -415,7 +410,7 @@ public class Frame : MonoBehaviour {
     /// カラーの変更
     /// </summary>
     public Color SelectColor =  new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    public Color NoneColor = new Color(0.3f, 0.3f, 0.3f, 1.0f);
+    public Color NoneColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
     public float MoveColorTime = 0.8f;
     void ChangeMoveColor()
     {
@@ -423,22 +418,21 @@ public class Frame : MonoBehaviour {
 
         var diff = Time.timeSinceLevelLoad - startTime;
         var rate = diff / MoveColorTime;
-
+        Color NowColor = Key[0].GetComponent<Image>().color;
+        Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
         for (int i = 0; i < Button.Count ; i++)
         {
-            Color NowColor = Key[0].GetComponent<Image>().color;
-            Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, SelectColor, rate);
-            Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
-            /*
+            NowColor = Button[i].GetComponent<Image>().color;
+            
+            
             if (i == SelectNow)
             {
-                
+                Button[i].GetComponent<Image>().color = Color.Lerp(NowColor, SelectColor, rate);
             }
             else
             {
-                Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
+                Button[i].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
             }
-             * */
         }
     }
 }

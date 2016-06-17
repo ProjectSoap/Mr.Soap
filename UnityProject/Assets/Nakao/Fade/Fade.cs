@@ -77,9 +77,11 @@ public class Fade : MonoBehaviour{
                {
                    move = soaps[i].rectTransform.position;
                    move.x += (float)Screen.width / (fadeintime - soaps.Count * awainter) * (Time.deltaTime);
-                   if ((int)move.x > bubblecount[i] * ((float)Screen.width+30)/9 && move.x < (float)Screen.width)
+                   soaps[i].rectTransform.position = move;
+                   if ((int)move.x > bubblecount[i] * ((float)Screen.width+50)/9 && move.x < (float)Screen.width)
                    {
                        Image add = Image.Instantiate(bubble[0]);
+                       move.x = bubblecount[i] * ((float)Screen.width) / 9  + 80;
                        add.rectTransform.parent = soaps[i].rectTransform.parent;
                        add.color = bubble[0].color;
                        add.transform.SetAsLastSibling();
@@ -88,7 +90,7 @@ public class Fade : MonoBehaviour{
                        bubblecount[i]++;
                    }
                    soaps[i].transform.SetAsLastSibling();
-                   soaps[i].rectTransform.position = move;
+                   
                }
            }
        }

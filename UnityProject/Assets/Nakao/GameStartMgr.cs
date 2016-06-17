@@ -10,7 +10,7 @@ public class GameStartMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
+		Application.targetFrameRate = 60;
 
         StartCoroutine(Load());
 	}

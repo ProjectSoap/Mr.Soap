@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &103456
 GameObject:
   m_ObjectHideFlags: 1
@@ -112,7 +112,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22489818}
-  - 114: {fileID: 11476666}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -128,7 +127,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22457474}
-  - 114: {fileID: 11494210}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -161,7 +159,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22484982}
-  - 114: {fileID: 11496574}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -262,7 +259,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22475702}
-  - 114: {fileID: 11491108}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -550,7 +546,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22490502}
-  - 114: {fileID: 11474194}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -583,7 +578,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22454748}
-  - 114: {fileID: 11405644}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -616,7 +610,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22454906}
-  - 114: {fileID: 11491796}
   m_Layer: 5
   m_Name: RankGaiSet
   m_TagString: Untagged
@@ -785,7 +778,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22478358}
-  - 114: {fileID: 11465024}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -1241,7 +1233,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22480230}
-  - 114: {fileID: 11444492}
   m_Layer: 5
   m_Name: RankingSet
   m_TagString: Untagged
@@ -1293,23 +1284,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11405644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 3
-  pointTexNum: {fileID: 11431666}
-  dataCon: {fileID: 0}
 --- !u!114 &11406746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1392,7 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: .497000009}
+  m_Color: {r: 0, g: 0, b: 0, a: .70588237}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2203,23 +2177,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11444492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 2
-  pointTexNum: {fileID: 11465462}
-  dataCon: {fileID: 0}
 --- !u!114 &11444788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2490,23 +2447,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11465024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 8
-  pointTexNum: {fileID: 11441496}
-  dataCon: {fileID: 0}
 --- !u!114 &11465462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2668,23 +2608,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11474194
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 6
-  pointTexNum: {fileID: 11412022}
-  dataCon: {fileID: 0}
 --- !u!114 &11475340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2739,23 +2662,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11476666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 4
-  pointTexNum: {fileID: 11477446}
-  dataCon: {fileID: 0}
 --- !u!114 &11477152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3024,23 +2930,6 @@ MonoBehaviour:
   num7: {fileID: 21300014, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
   num8: {fileID: 21300016, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
   num9: {fileID: 21300018, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
---- !u!114 &11491108
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 7
-  pointTexNum: {fileID: 11490806}
-  dataCon: {fileID: 0}
 --- !u!114 &11491116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3094,23 +2983,6 @@ MonoBehaviour:
   num7: {fileID: 21300014, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
   num8: {fileID: 21300016, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
   num9: {fileID: 21300018, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
---- !u!114 &11491796
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 9
-  pointTexNum: {fileID: 11417486}
-  dataCon: {fileID: 0}
 --- !u!114 &11493126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3138,23 +3010,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11494210
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 5
-  pointTexNum: {fileID: 11441532}
-  dataCon: {fileID: 0}
 --- !u!114 &11495034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3181,23 +3036,6 @@ MonoBehaviour:
   num7: {fileID: 21300014, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
   num8: {fileID: 21300016, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
   num9: {fileID: 21300018, guid: c0f07f2feaa14a146997dd8e0b586c48, type: 3}
---- !u!114 &11496574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b491d69476df4f478a1bede1c449306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  START_TIME: 0
-  END_TIME: 0
-  MOVE_DISTANCE: 0
-  RANK: 9
-  pointTexNum: {fileID: 11495034}
-  dataCon: {fileID: 0}
 --- !u!222 &22202486
 CanvasRenderer:
   m_ObjectHideFlags: 1
