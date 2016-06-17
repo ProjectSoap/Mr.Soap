@@ -72761,7 +72761,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     type: 0
-    plane0: {fileID: 0}
+    plane0: {fileID: 669390300}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
@@ -88002,6 +88002,14 @@ Prefab:
     - target: {fileID: 109294, guid: 2331a93b5b1a150458d7afce071a0b74, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472080, guid: 2331a93b5b1a150458d7afce071a0b74, type: 2}
+      propertyPath: chainmax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472080, guid: 2331a93b5b1a150458d7afce071a0b74, type: 2}
+      propertyPath: delay
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2331a93b5b1a150458d7afce071a0b74, type: 2}
