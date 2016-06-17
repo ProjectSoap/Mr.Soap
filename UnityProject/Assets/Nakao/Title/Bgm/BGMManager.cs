@@ -70,23 +70,7 @@ public class BGMManager : SingletonMonoBehaviour<BGMManager>
     }
     void readBGMText(string fileName)
     {
-        if (_bgmTime == null)
-        {
-            _bgmTime = Resources.Load("Sound/SetBgmTime") as TextAsset;
-        }
-        char[] kugiri = { '\r', '\n' };
-        string[] layoutInfo = _bgmTime.text.Split(kugiri);
-
-        string[] eachInfo;
-        for (int i = 0; i < layoutInfo.Length; i++)
-        {
-            eachInfo = layoutInfo[i].Split(","[0]);
-            if (eachInfo[0] == fileName)
-            {
-                loopTime = float.Parse(eachInfo[1]);
-                endTime = float.Parse(eachInfo[2]);
-            }
-        }
+        
     }
 
 

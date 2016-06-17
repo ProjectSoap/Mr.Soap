@@ -37,6 +37,7 @@ public class WeatherSystem : MonoBehaviour {
         ActiveWeather();
         minute = 0;
         weatherflg[0] = true;
+        weatherflg[1] = true;
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 
 		LoadSave();
@@ -374,7 +375,7 @@ public class WeatherSystem : MonoBehaviour {
         {
             case 0:
                 {
-                    if (weatherflg[1])
+                    if (weatherflg[0])
                     {
                         nowWeather = Weather.RAIN;
                         nowWeathers = PlayerCharacterController.WeatherState.Rain;
@@ -390,7 +391,7 @@ public class WeatherSystem : MonoBehaviour {
                 }
             case 1:
                 {
-                    if (weatherflg[2])
+                    if (weatherflg[1])
                     {
                         nowWeather = Weather.FOG;
                         nowWeathers = PlayerCharacterController.WeatherState.Fog;
