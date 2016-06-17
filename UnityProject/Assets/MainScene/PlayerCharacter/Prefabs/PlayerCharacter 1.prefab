@@ -2186,7 +2186,7 @@ Animator:
   m_GameObject: {fileID: 129014}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a0c14348c25e0bf459cc1a108c93f167, type: 3}
-  m_Controller: {fileID: 9100000, guid: c2c90ada32bfa264da239a1d512ad9ab, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2281,20 +2281,14 @@ MonoBehaviour:
   m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
   m_rainAddMaxVelocity: 1
   m_rainAddAcceleration: .200000003
-  m_windSideAngle: 0
-  m_windHeadAngle: 0
-  m_windHeadMaxVelocity: 0
-  m_windHeadAcceleration: 0
-  m_windTailMaxVelocity: 0
-  m_windTailAcceleration: 0
-  m_windSideAddRotationPower: 0
-  m_windSideAddMaxRotation: 0
-  m_windSideAddDriftStartTime: 0
+  m_windAddBubbleWidth: 0
+  m_windAddBubbleHeight: 0
   m_driftParticleEmitterRight: {fileID: 185440}
   m_driftParticleEmitterLeft: {fileID: 187190}
   m_moveBubbleEmissionVelocity: 5
   m_damageParticleEmitter: {fileID: 120068, guid: 5607ed4e2cdcc934ea55e4fb39e4f328,
     type: 2}
+  m_healParticleEmitter: {fileID: 0}
   m_driveState: 1
   m_velocity: 0
   m_rotation: 0
@@ -2304,6 +2298,7 @@ MonoBehaviour:
   m_isStayBuilding: 0
   m_size: 100
   m_horizontal: 0
+  m_weatherState: 0
   v: {x: 0, y: 0, z: 0}
 --- !u!124 &12423990
 Behaviour:
