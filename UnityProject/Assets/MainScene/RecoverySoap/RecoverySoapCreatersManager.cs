@@ -55,51 +55,47 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (IsRunning)
-        {
             countSecond += Time.deltaTime;
 
 
             CheckDistanceFromPlayer();
-            // 指定した秒数内
-            if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
-            {
+		// 指定した秒数内
+		if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
+		{
 
-                uint difference = maxTimeForInstance - minTimeForInstance;
-                if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
-                {
-                    uint elemMax;
-                    elemMax = (uint)RecoverySoapCreaters1.Length;
-                    if (elemMax > 0)
-                    {
-                        uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+			uint difference = maxTimeForInstance - minTimeForInstance;
+			if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
+			{
+				uint elemMax;
+				elemMax = (uint)RecoverySoapCreaters1.Length;
+				if (elemMax > 0)
+				{
+					uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
 
-                        RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
-                        if (script)
-                        {
-                            if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-                            {
-                                script.IsInstance = true;
-                                countSecond = 0;    // カウントリセット
-                                sprite.IsAppearance = true;
-                            }
+					RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
+							countSecond = 0;    // カウントリセット
+							sprite.IsAppearance = true;
+						}
 
-                        }
+					}
 
-                    }
-                }
-            }
-            if (maxTimeForInstance < countSecond)
-            {
-                countSecond = 0; // 最大時間を超えたらリセット
+				}
+			}
+		}
+		if (maxTimeForInstance < countSecond)
+		{
+			countSecond = 0; // 最大時間を超えたらリセット
 
-            }
-        }
-       
-	}
+		}
+}
 
 
-    void CheckDistanceFromPlayer()
+void CheckDistanceFromPlayer()
     {
         arrow.Near = 1000;
         arrow.IsAppearance = false;

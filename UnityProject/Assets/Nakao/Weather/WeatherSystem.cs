@@ -31,7 +31,7 @@ public class WeatherSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        numWeather = 2;
+        numWeather = 3;
         nowWeather = Weather.SUN;
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         ActiveWeather();
@@ -47,18 +47,21 @@ public class WeatherSystem : MonoBehaviour {
         if(PlayerPrefs.GetInt("RainPlayFlg", -1) == 1)
         {
             weatherflg[1] = true;
+			numWeather++;
         }
         if(PlayerPrefs.GetInt("FogPlayFlg", -1) == 1)
         {
             weatherflg[2] = true;
-        }
+			numWeather++;
+		}
         if(PlayerPrefs.GetInt("WindPlayFlg", -1) == 1)
         {
-            //weatherflg[3] = true;
-        }
+			//weatherflg[3] = true;
+			// numWeather++;
+		}
 
 
-    }
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -371,7 +374,7 @@ public class WeatherSystem : MonoBehaviour {
         {
             case 0:
                 {
-                    if (weatherflg[0])
+                    if (weatherflg[1])
                     {
                         nowWeather = Weather.RAIN;
                         nowWeathers = PlayerCharacterController.WeatherState.Rain;
@@ -387,7 +390,7 @@ public class WeatherSystem : MonoBehaviour {
                 }
             case 1:
                 {
-                    if (weatherflg[1])
+                    if (weatherflg[2])
                     {
                         nowWeather = Weather.FOG;
                         nowWeathers = PlayerCharacterController.WeatherState.Fog;

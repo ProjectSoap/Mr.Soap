@@ -12,6 +12,7 @@ public class ResultManagerSystem : MonoBehaviour {
     //外部からセット
     public SaveDataManager saveDataManager;     //セーブデータ管理
     public CheckRecordCondition checkRecord;    //実績条件判定
+    public ResultCanvasRanking canvasRanking;   //ランキング画面表示
     public ResultCanvasKaihouCon canvasKaihou;  //実績を取得した場合有効に
     public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
     public ResultSekkenControll sekkenControll;             //せっけんくんの制御
@@ -21,7 +22,7 @@ public class ResultManagerSystem : MonoBehaviour {
     private ActionRecordManager.SActionRecord saveDataOld;  //更新前のセーブデータ
     private ActionRecordManager.SActionRecord saveDataNew;  //更新後のセーブデータ
 
-    //ランキングを先頭１位から順番に保持。最後の所は今回のスコアが入る。
+    //ランキングを先頭１位から順番に保持。ソート関数がこれを並び替える。
     private int[] rankingPoint = new int[11];
 
     //プレイ回数
@@ -40,6 +41,9 @@ public class ResultManagerSystem : MonoBehaviour {
     //BGMトリガー
     private bool[] recordGetBGMTrig = new bool[30];
 
+    //ランキング表示完了フラグ
+    private bool rankingDrawEndFlg;
+
     //画面遷移表示フラグ
     private bool sceneMoveDisplayFlg;
     private bool sceneMenuFlg;
@@ -48,6 +52,7 @@ public class ResultManagerSystem : MonoBehaviour {
 	void Start () {
         rank = 0;
         pointDrawEndFlg = false;
+        rankingDrawEndFlg = false;
         sceneMoveDisplayFlg = false;
         sceneMenuFlg = true;
 
@@ -79,7 +84,7 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //新しいセーブデータ作成
         playCount++;
-        UpdateSaveData();
+        UpdateSaveData();   //内部でランキングをソートしているので注意。
 
         //セーブ
         Save();
@@ -88,6 +93,26 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //新しいセーブデータと古いセーブデータを確認して実績が今回で解放されたのかチェックする。
         CheckGetRecord();
+
+        //ランキング画面へスコアをセット
+        for (int i = 0; i < 9; ++i)
+        {
+            canvasRanking.SetPoint(rankingPoint[i], i);
+        }
+        //10位以下だった
+        if (rank >= 9)
+        {
+            canvasRanking.SetPoint(rankingPoint[rank], 9);
+            canvasRanking.SetScoreRank(9);
+            canvasRanking.ChangeActive(true, 9);
+        }
+        else
+        {
+            //１～９位にランクイン
+            canvasRanking.SetScoreRank(rank);
+            canvasRanking.ChangeActive(false, 9);
+        }
+        
 
         //BGM再生
         if (BGMManager.Instance != null)
@@ -103,6 +128,21 @@ public class ResultManagerSystem : MonoBehaviour {
         if (pointDrawEndFlg == false)
         {
             return;
+        }
+
+        //ランキング表示へ
+        if (rankingDrawEndFlg == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+            {
+                rankingDrawEndFlg = true;
+            }
+            canvasRanking.gameObject.SetActive(true);
+            return;
+        }
+        else
+        {
+            canvasRanking.gameObject.SetActive(false);
         }
 
 	    //実績が今回で解放されていれば表示へ
@@ -363,7 +403,9 @@ public class ResultManagerSystem : MonoBehaviour {
             selectFlg[i] = false;
         }
 
-        //高いの選んでいくソート
+        //高いの選んでいくソート。
+        rank = 10;  //初期値セット。11位(ランク外)
+        //０番配列（１位）から順番に決定
         for(int count = 0; count < 11; ++count)
         {
             highPoint = 0;
@@ -392,8 +434,8 @@ public class ResultManagerSystem : MonoBehaviour {
             //今回のスコアだった
             if (highPointListNo == 10)
             {
-                //0番配列は1位。
-                rank = count + 1;
+                //index番号を入れる
+                rank = count;
             }
 
             //答え格納先へ代入

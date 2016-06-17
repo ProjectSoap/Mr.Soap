@@ -4,15 +4,21 @@ using UnityEngine.UI;
 
 public class DirtyObjectScript : MonoBehaviour
 {
-    [SerializeField]
+	[SerializeField]
+	GameObject m_effect;
+	[SerializeField]
     Material[] dirtyMaterials = new Material[8];
     DityApparancePosition myPoint;
     [SerializeField]
     GameObject dirtyIcon;
     bool isDestory = false;
-
-
-    public DityApparancePosition MyPoint
+	PlayerCharacterController m_player;
+	public PlayerCharacterController Player
+	{
+		get { return m_player; }
+		set { m_player = value; }
+	}
+	public DityApparancePosition MyPoint
     {
         get { return myPoint; }
         set { myPoint = value; }
@@ -40,7 +46,7 @@ public class DirtyObjectScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")))
+        if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")) || (collision.gameObject.layer == LayerMask.NameToLayer("Bubbble")))
         {
             if (isDestory == false)
             {
@@ -48,6 +54,8 @@ public class DirtyObjectScript : MonoBehaviour
                 myPoint.NoticeDestroy();
                 isDestory = true;
             }
+			DirtyWashEffect effect = (Instantiate(m_effect, this.transform.position, this.transform.rotation)as GameObject).GetComponent<DirtyWashEffect>();
+			effect.m_goalObject = Player.gameObject;
             Destroy(gameObject);
         }
     }
