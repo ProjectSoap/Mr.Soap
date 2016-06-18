@@ -17,9 +17,9 @@ using System.Collections;
 public class CarMovePoint : MonoBehaviour {
 
     public CarMovePoint NextPoint;
-    public float NEXT_CAR_SPEED;    //次のポイントを目指す際の車のスピード
-    public float ROTATION_TIME;     //車が次のポイントの方向へ向くまでかかる時間
-    public float GOAL_WIDTH;        //この値の距離まで近づいたら車は次のポイントを目指す
+    public float NEXT_CAR_SPEED = 1.0f;    //次のポイントを目指す際の車のスピード
+    public float ROTATION_TIME = 3.0f;     //車が次のポイントの方向へ向くまでかかる時間
+    public float GOAL_WIDTH = 2.0f;        //この値の距離まで近づいたら車は次のポイントを目指す
 
 	// Use this for initialization
 	void Start () {
