@@ -68,7 +68,7 @@ public class PoseMenu : MonoBehaviour {
        
         if(Input.GetKeyDown(KeyCode.F12))
         {
-            Init();
+           // Init();
         }
         
         // コントローラの上下左右押すー
