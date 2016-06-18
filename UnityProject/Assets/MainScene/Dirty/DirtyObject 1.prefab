@@ -75,7 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6f50d7112351f45be10925a007b2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_effect: {fileID: 101830, guid: 5ec10e8acaf7daf4d8ce14ae07b3abfe, type: 2}
+  m_effect0: {fileID: 101830, guid: 5ec10e8acaf7daf4d8ce14ae07b3abfe, type: 2}
+  m_effect1: {fileID: 141062, guid: 6a52b16c50bf7ec45849ab82ff063242, type: 2}
   dirtyMaterials:
   - {fileID: 2100000, guid: 7397da03a9cc52d4c91f220dd386ce90, type: 2}
   - {fileID: 2100000, guid: 91db8ff475d66ac43a6a42e59a5bede6, type: 2}
@@ -117,6 +118,14 @@ Prefab:
       propertyPath: m_effect
       value: 
       objectReference: {fileID: 101830, guid: 5ec10e8acaf7daf4d8ce14ae07b3abfe, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_effect0
+      value: 
+      objectReference: {fileID: 101830, guid: 5ec10e8acaf7daf4d8ce14ae07b3abfe, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_effect1
+      value: 
+      objectReference: {fileID: 141062, guid: 6a52b16c50bf7ec45849ab82ff063242, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112820}
