@@ -23,10 +23,13 @@ public class DirtyCreater : MonoBehaviour {
 	float deltaTime;    // 消されてからの経過時間
 	float oldDeltaTime;    // 前の経過時間
 
-	float countStartTime;
+	float m_countStartTime;
 	bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
 	uint affiliationArea;   // 所属区画
-
+	
+	[SerializeField,Header("10秒毎の生成確率(%)")]
+	uint[] m_probabilityPar10Seconds = new uint[6];
+	
 	bool isAdhereCar;   // 車に付着しているか
 	public bool IsAdhereCar
 	{
@@ -57,18 +60,18 @@ public class DirtyCreater : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		countStartTime = Time.deltaTime;
+		m_countStartTime = Time.deltaTime;
 		isMyDityDestroy =false;
 
 		for (int i = 0; i < appearancePoints.Length; i++)
 		{
 
-			appearancePoints[i].GetComponent<DityApparancePosition>().MyCreater = this;
-			appearancePoints[i].GetComponent<DityApparancePosition>().Player = m_player;
+			appearancePoints[i].GetComponent<DirtyApparancePosition>().MyCreater = this;
+			appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
 		}
 		if (0 < appearancePoints.Length)
 		{
-			appearancePoints[0].GetComponent<DityApparancePosition>().IsCreate = true;
+			appearancePoints[0].GetComponent<DirtyApparancePosition>().IsCreate = true;
 		}
 
 #if DEBUG
@@ -143,51 +146,80 @@ public class DirtyCreater : MonoBehaviour {
 		{
 			bool isCreate = false;
 			// 毎10秒経過回数で確率アップ
-			switch (rangeOutCountPar10Seconds)
+			//switch (rangeOutCountPar10Seconds)
+			//{
+			//	case (char)1:
+			//		if (Random.Range(0, 100) <= 20)
+			//		{
+			//			isCreate = true;
+			//			deltaTime = 0;
+			//			rangeOutCountPar10Seconds = (char)0;
+			//		}
+			//		break;
+			//	case (char)2:
+			//		if (Random.Range(0, 100) <= 30)
+			//		{
+			//			isCreate = true;
+			//			deltaTime = 0;
+			//			rangeOutCountPar10Seconds = (char)0;
+			//		}
+			//		break;
+			//	case (char)3:
+			//		if (Random.Range(0, 100) <= 60)
+			//		{
+			//			isCreate = true;
+			//			deltaTime = 0;
+			//			rangeOutCountPar10Seconds = (char)0;
+			//		}
+			//		break;
+			//	case (char)4:
+			//		if (true)
+			//		{
+			//			isCreate = true;
+			//			deltaTime = 0;
+			//			rangeOutCountPar10Seconds = (char)0;
+			//		}
+			//		break;
+			//	default:
+			//		isCreate = false;
+			//		break;
+			//}
+
+			for (int  i = 0;  i < m_probabilityPar10Seconds.Length;i++)
 			{
-				case (char)1:
-					if (Random.Range(0, 100) <= 20)
-					{
-						isCreate = true;
-						deltaTime = 0;
-						rangeOutCountPar10Seconds = (char)0;
-					}
-					break;
-				case (char)2:
-					if (Random.Range(0, 100) <= 30)
-					{
-						isCreate = true;
-						deltaTime = 0;
-						rangeOutCountPar10Seconds = (char)0;
-					}
-					break;
-				case (char)3:
-					if (Random.Range(0, 100) <= 60)
-					{
-						isCreate = true;
-						deltaTime = 0;
-						rangeOutCountPar10Seconds = (char)0;
-					}
-					break;
-				case (char)4:
-					if (true)
-					{
-						isCreate = true;
-						deltaTime = 0;
-						rangeOutCountPar10Seconds = (char)0;
-					}
-					break;
-				default:
-					isCreate = false;
-					break;
+
+				if (Random.Range(0, 100) <= m_probabilityPar10Seconds[i])
+				{
+					isCreate = true;
+					deltaTime = 0;
+					rangeOutCountPar10Seconds = (char)0;
+				}
 			}
 
 			// フラグが立ってるなら汚れ作る
 			if (isCreate)
 			{
 				int num = appearancePoints.Length;
-				num = (int)Random.Range((int)0, (int)num);
-				appearancePoints[num].GetComponent<DityApparancePosition>().IsCreate = true;
+				bool isCreated = false;	// 今回生成したか
+				for (int i = 0;i < num;i++)
+				{
+					// 一つでもオブジェクトが残っているかチェック
+					if (appearancePoints[i].GetComponent<DirtyApparancePosition>().IsHaveObject)
+					{
+						// 残っていたらそこで生成フラグを立てる
+						appearancePoints[i].GetComponent<DirtyApparancePosition>().IsCreate = true;
+						isCreated = true;
+						break;
+					}
+				}
+				if (isCreated == false)
+				{
+					// どの出現ポイントも一つもオブジェクトを保持していない
+					num = (int)Random.Range((int)0, (int)num);
+					appearancePoints[num].GetComponent<DirtyApparancePosition>().IsCreate = true;
+					isCreated = true;
+				}
+
 			}
 		}
 		isCountPar10Seconds = false;

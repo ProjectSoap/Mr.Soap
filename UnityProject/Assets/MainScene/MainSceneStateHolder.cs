@@ -535,13 +535,15 @@ public class MainSceneStateHolder : MonoBehaviour
 				break;
 			case MainState.PAUSE:
 				//子の状態管理すんのめんどい
+				
+
 				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
-					m_selectIconInPause = (SelectMainPauseScene)((int)(++m_selectIconInPause)%3);
+					m_selectIconInPause = (SelectMainPauseScene)((int)(m_selectIconInPause + 1)%3);
 				}
 				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
-					m_selectIconInPause = (SelectMainPauseScene)((int)(--m_selectIconInPause ) % 3);
+					m_selectIconInPause = (SelectMainPauseScene)((int)(m_selectIconInPause-1 ) % 3);
 				}
 				break;
 			case MainState.CHECK_TRANSITION:

@@ -8,7 +8,7 @@ public class DirtyObjectScript : MonoBehaviour
 	GameObject m_effect;
 	[SerializeField]
     Material[] dirtyMaterials = new Material[8];
-    DityApparancePosition myPoint;
+    DirtyApparancePosition myPoint;
     [SerializeField]
     GameObject dirtyIcon;
     bool isDestory = false;
@@ -18,7 +18,7 @@ public class DirtyObjectScript : MonoBehaviour
 		get { return m_player; }
 		set { m_player = value; }
 	}
-	public DityApparancePosition MyPoint
+	public DirtyApparancePosition MyPoint
     {
         get { return myPoint; }
         set { myPoint = value; }

@@ -7,6 +7,9 @@ public class ResultSekkenControll : MonoBehaviour {
     public GameObject Sekkenchan;
     public GameObject Sekkenkun0;
 
+    public int motion2Point = 50;
+    public int motion3Point = 100;
+
     public enum ESekkenNo
     {
         No_Sekkenkun,
@@ -33,13 +36,13 @@ public class ResultSekkenControll : MonoBehaviour {
         Sekkenkun0.SetActive(false);
 
         //スコアを元にアニメーション切り替え
-        if (scorePoint <= 50)
+        if (scorePoint < motion2Point)
         {
             TriggerName = "KanasimiTrig";
         }
         else
         {
-            if (scorePoint < 100)
+            if (scorePoint < motion3Point)
             {
                 TriggerName = "TereTrig";
             }
