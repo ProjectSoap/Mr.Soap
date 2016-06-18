@@ -653,7 +653,6 @@ public class DirtySystem : MonoBehaviour
 
     public void NoticeDestroyToSystem(DirtyCreater destroyedParent)
     {
-        washChain.GetWash();
         switch (destroyedParent.AffiliationArea)
         {
             case 1:

@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Recovery
-  m_Shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: WashOutEffectMaterial
+  m_Shader: {fileID: 10722, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c5777ee48d90c7d40af93e635ae8771b, type: 3}
+          m_Texture: {fileID: 2800000, guid: 53bafcf3fb92fa84ab81ecae28c6f27a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -127,6 +127,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _InvFade
+        second: 1
     m_Colors:
       data:
         first:
@@ -139,4 +143,4 @@ Material:
       data:
         first:
           name: _EmisColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
+        second: {r: .735294104, g: .989046633, b: 1, a: 1}

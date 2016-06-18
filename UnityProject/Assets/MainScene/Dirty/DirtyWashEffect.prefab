@@ -141,10 +141,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_goalObject: {fileID: 0}
   m_velocity: 1
-  m_velocityMax: 8
+  m_velocityMax: 10
   m_addVelocity: .0500000007
   s: 0
-  add: .0700000003
+  add: .00999999978
 --- !u!135 &13528784
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -321,10 +321,10 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 3406852710
+        rgba: 4285857774
       minMaxState: 0
     startSize:
-      scalar: .100000001
+      scalar: .200000003
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1200,7 +1200,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: f0a30deacc431a94ab9501d2deb6b4c9, type: 2}
+  - {fileID: 2100000, guid: c6ec2cf76f613fe4f9d33168b8d68765, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1253,7 +1253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: add
-      value: .0700000003
+      value: .00999999978
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startSize.maxCurve.m_Curve.Array.data[1].time
@@ -1281,8 +1281,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startSize.scalar
-      value: .100000001
+      value: .200000003
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4285857774
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_velocityMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6ec2cf76f613fe4f9d33168b8d68765, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 101830}

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class DirtyObjectScript : MonoBehaviour
 {
 	[SerializeField]
-	GameObject m_effect;
+	GameObject m_effect0;
+	[SerializeField]
+	GameObject m_effect1;
 	[SerializeField]
     Material[] dirtyMaterials = new Material[8];
     DirtyApparancePosition myPoint;
@@ -48,14 +50,16 @@ public class DirtyObjectScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble" || (collision.gameObject.layer == LayerMask.NameToLayer("Player")) || (collision.gameObject.layer == LayerMask.NameToLayer("Bubbble")))
         {
-            if (isDestory == false)
+			Instantiate(m_effect1, this.transform.position, this.transform.rotation);
+
+			if (isDestory == false)
             {
-                BGMManager.Instance.PlaySE("Wash_Out");
                 myPoint.NoticeDestroy();
-                isDestory = true;
+				isDestory = true;
+				DirtyWashEffect effect = (Instantiate(m_effect0, this.transform.position, this.transform.rotation)as GameObject).GetComponent<DirtyWashEffect>();
+				effect.m_goalObject = Player.gameObject;
+				BGMManager.Instance.PlaySE("Wash_Out");
             }
-			DirtyWashEffect effect = (Instantiate(m_effect, this.transform.position, this.transform.rotation)as GameObject).GetComponent<DirtyWashEffect>();
-			effect.m_goalObject = Player.gameObject;
             Destroy(gameObject);
         }
     }
