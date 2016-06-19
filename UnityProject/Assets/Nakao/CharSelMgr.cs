@@ -21,11 +21,13 @@ public class CharSelMgr : MonoBehaviour {
     [SerializeField]
     SelectingCharactor no;
 
+	[SerializeField]
+	SelectPlayMode playmode;
+
     Charselect state;
 	// Use this for initialization
 	void Start () {
-
-		BGMManager.Instance.PlayBGM("Munu_BGM", 0.0f);
+		
 		state = Charselect.SELECT;
         if (PlayerPrefs.GetInt("SekkenChanPlayFlg", -1) > 0)
         {
@@ -44,7 +46,11 @@ public class CharSelMgr : MonoBehaviour {
         {
             soaps[2].active = false;
         }
-        BGMManager.Instance.PlayBGM("Character_Choice_BGM", 1.0f);
+
+
+
+
+		BGMManager.Instance.PlayBGM("Character_Choice_BGM", 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -68,7 +74,9 @@ public class CharSelMgr : MonoBehaviour {
                         state = Charselect.FADE;
 						Fade.ChangeScene("main");
                         no.SetCharNo(soap.GetCharNo());
-                        break;
+						no.PlayMode = (PlayModeState)playmode.SelectNow;
+
+						break;
                     }
 
                 default:

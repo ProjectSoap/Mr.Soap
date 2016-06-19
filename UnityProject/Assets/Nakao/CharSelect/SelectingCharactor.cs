@@ -8,11 +8,24 @@ public enum SelectingCharactorNo
     SOAPTYAN
 }
 
+
+public enum PlayModeState
+{
+	NORMAL,
+	FREE
+}
+
 public class SelectingCharactor : MonoBehaviour {
     
     public bool loaded;
     SelectingCharactorNo no;
 
+	PlayModeState m_playMode;
+	public PlayModeState PlayMode
+	{
+		get { return m_playMode; }
+		set { m_playMode = value; }
+	}
 	// Use this for initialization
 	void Start () {
         loaded = false;
