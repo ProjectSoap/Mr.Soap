@@ -12,9 +12,20 @@ public class RecoverySoapObject : MonoBehaviour {
     }
 
     [SerializeField]
-    float lifeTime;
+    float m_lifeTime;
+	float m_lifeTimeMax;
 
-    [SerializeField, Header("回転角")]
+	[SerializeField,Header("点滅始める時間")]
+	float m_flashStartTime = 10;
+	[SerializeField, Header("最小点滅間隔")]
+	float m_flashingIntervalMinTime = 0.1f;
+
+	[SerializeField, Header("最大点滅間隔")]
+	float m_flashingIntervalMaxTime = 0.5f;
+
+	// フラッシュ中の計測時間
+	float m_flashTime;
+	[SerializeField, Header("回転角")]
     float m_rotation = 60.0f;
 
     [SerializeField]
@@ -26,16 +37,27 @@ public class RecoverySoapObject : MonoBehaviour {
     float m_moveSpeed = 0.2f;
 
     bool isUpMove = true;
+
+	enum FlashState
+	{
+		ON,
+		OFF
+	}
+
+	FlashState m_flashState;
     // Use this for initialization
     void Start () {
-	
+		m_lifeTimeMax = m_lifeTime;
+		m_flashTime = m_flashingIntervalMaxTime;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        lifeTime -= Time.deltaTime;
-        if (lifeTime <= 0)
+        m_lifeTime -= Time.deltaTime;
+		FlashProcesss();
+
+		if (m_lifeTime <= 0)
         {
             parent.IsHaveRevoverySoap = false;
             Destroy(gameObject);
@@ -61,6 +83,36 @@ public class RecoverySoapObject : MonoBehaviour {
         }
     }
 
+	void FlashProcesss()
+	{
+		if (m_lifeTime <= m_flashStartTime)
+		{
+			m_flashTime -= Time.deltaTime;
+			switch (m_flashState)
+			{
+				case FlashState.ON:
+					if (m_flashTime <= 0)
+					{
+						m_flashState = FlashState.OFF;
+						GetComponent<MeshRenderer>().enabled = false;
+						m_flashTime = Mathf.Lerp(m_flashingIntervalMinTime, m_flashingIntervalMaxTime, (m_lifeTime)/(m_lifeTimeMax-m_flashStartTime));
+					}
+						break;
+				case FlashState.OFF:
+					if (m_flashTime <= 0)
+					{
+						m_flashState = FlashState.ON;
+						GetComponent<MeshRenderer>().enabled = true;
+						m_flashTime = Mathf.Lerp(m_flashingIntervalMinTime, m_flashingIntervalMaxTime, (m_lifeTime) / (m_lifeTimeMax - m_flashStartTime));
+					}
+					break;
+				default:
+					break;
+
+			}
+
+		}
+	}
 
     void OnTriggerEnter(Collider collisionObject)
     {
@@ -69,6 +121,8 @@ public class RecoverySoapObject : MonoBehaviour {
             Parent.IsHaveRevoverySoap = false;
             PlayerCharacterController player = collisionObject.gameObject.GetComponent<PlayerCharacterController>();
 			player.Heal();
+			ActionRecordManager.sActionRecord.ChachSopeCount++;
+			
             Destroy(gameObject);
         }
     }}

@@ -25,7 +25,7 @@ public class CharSelMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		BGMManager.Instance.PlayBGM("Munu_BGM", 0);
+		BGMManager.Instance.PlayBGM("Munu_BGM", 0.0f);
 		state = Charselect.SELECT;
         if (PlayerPrefs.GetInt("SekkenChanPlayFlg", -1) > 0)
         {
@@ -66,7 +66,7 @@ public class CharSelMgr : MonoBehaviour {
                     {
 //                        Application.LoadLevel("Main");
                         state = Charselect.FADE;
-                        Fade.ChangeScene("main");
+						Fade.ChangeScene("main");
                         no.SetCharNo(soap.GetCharNo());
                         break;
                     }
@@ -82,8 +82,9 @@ public class CharSelMgr : MonoBehaviour {
             switch (state)
             {
                 case Charselect.SELECT:
-                    {
-                        Fade.ChangeScene("Menu");
+					{
+						BGMManager.Instance.StopBGM(0.0f);
+						Fade.ChangeScene("Menu");
                         break;
                         
                     }

@@ -260,6 +260,7 @@ public class MainSceneStateHolder : MonoBehaviour
 		poseMenu = GameObject.Find("PauseCur").GetComponent<PoseMenu>();
 		
 		m_playRecordAsPauseObject.pausing = true;
+		m_endUI = GameObject.Find("EndUI").GetComponent<PauseObject>();
 		m_dirtys = GameObject.Find("Dirtys").GetComponent<PauseObject>();
 		ActionRecordManager.sActionRecord.Reset();
 
@@ -573,6 +574,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				m_playRecordAsPauseObject.PushPose();
 				break;
 			case MainState.END:
+				m_endUI.pausing = false;
 				break;
 			default:
 				break;
