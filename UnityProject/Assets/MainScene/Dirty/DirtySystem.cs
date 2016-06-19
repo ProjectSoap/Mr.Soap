@@ -148,11 +148,6 @@ public class DirtySystem : MonoBehaviour
     [SerializeField]
     int destroyDirtyCount1;
 
-    /**
-     * <summary>The wash chain.</summary>
-     */
-
-    WashChain washChain;
 
     /**
      * <summary>Gets or sets the destroy dirty count 1.</summary>
@@ -318,7 +313,6 @@ public class DirtySystem : MonoBehaviour
     void Start ()
     {
 
-        washChain = GameObject.Find("WashChain").GetComponent<WashChain>();
         isRunning = true;
         // プレイヤーの取得
         if (player == null)
@@ -653,7 +647,6 @@ public class DirtySystem : MonoBehaviour
 
     public void NoticeDestroyToSystem(DirtyCreater destroyedParent)
     {
-        washChain.GetWash();
         switch (destroyedParent.AffiliationArea)
         {
             case 1:

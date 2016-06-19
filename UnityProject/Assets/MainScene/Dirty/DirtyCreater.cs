@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-/*
-#define CREATE_MAX 10   // 念の為に
-*/
+
 public class DirtyCreater : MonoBehaviour {
 	
 	DirtySystem parntDirtySystem;   // 管理用
@@ -185,15 +183,23 @@ public class DirtyCreater : MonoBehaviour {
 			//		break;
 			//}
 
-			for (int  i = 0;  i < m_probabilityPar10Seconds.Length;i++)
+			if (rangeOutCountPar10Seconds < m_probabilityPar10Seconds.Length)
 			{
 
-				if (Random.Range(0, 100) <= m_probabilityPar10Seconds[i])
+				if (Random.Range(0, 100) <= m_probabilityPar10Seconds[rangeOutCountPar10Seconds])
 				{
 					isCreate = true;
 					deltaTime = 0;
 					rangeOutCountPar10Seconds = (char)0;
 				}
+			}
+			// 要素外ならとりあえず生成許可
+			else
+			{
+				
+				isCreate = true;
+				deltaTime = 0;
+				rangeOutCountPar10Seconds = (char)0;
 			}
 
 			// フラグが立ってるなら汚れ作る
