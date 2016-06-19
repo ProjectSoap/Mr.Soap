@@ -140,11 +140,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_goalObject: {fileID: 0}
-  m_velocity: 1
-  m_velocityMax: 10
+  m_velocity: 3
+  m_velocityMax: 12
   m_addVelocity: .0500000007
   s: 0
   add: .00999999978
+  m_waitTime: .100000001
+  m_riseTime: .100000001
+  m_riseVelocity: .100000001
 --- !u!135 &13528784
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1245,7 +1248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_velocity
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_addVelocity
@@ -1289,7 +1292,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_velocityMax
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
@@ -1298,6 +1301,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_goalObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_riseTime
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_waitTime
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_riseVelocity
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

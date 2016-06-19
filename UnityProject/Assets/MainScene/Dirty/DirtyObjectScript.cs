@@ -95,13 +95,14 @@ public class DirtyObjectScript : MonoBehaviour
 			)
         {
 			m_shibukiEffect = Instantiate(m_effect1, this.transform.position, this.transform.rotation * Quaternion.AngleAxis(-90,new Vector3(1,0,0)))as GameObject;
-
+			m_shibukiEffect.transform.parent = transform.parent;
 			if (isDestory == false)
             {
                 myPoint.NoticeDestroy();
 				isDestory = true;
 				DirtyWashEffect effect = (Instantiate(m_effect0, this.transform.position, this.transform.rotation)as GameObject).GetComponent<DirtyWashEffect>();
 				effect.m_goalObject = Player.gameObject;
+				effect.transform.parent = transform.parent;
 				BGMManager.Instance.PlaySE("Wash_Out");
             }
         }

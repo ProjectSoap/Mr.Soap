@@ -24,7 +24,9 @@ public class CharSelMgr : MonoBehaviour {
     Charselect state;
 	// Use this for initialization
 	void Start () {
-        state = Charselect.SELECT;
+
+		BGMManager.Instance.PlayBGM("Munu_BGM", 0);
+		state = Charselect.SELECT;
         if (PlayerPrefs.GetInt("SekkenChanPlayFlg", -1) > 0)
         {
             soaps[1].active = false;

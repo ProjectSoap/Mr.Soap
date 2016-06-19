@@ -27,14 +27,14 @@ public class DirtyApparancePosition : MonoBehaviour {
 	{
 		get
 		{
-			for (int i = 0;i < 0;i++)
+			for (int i = 0;i < dirtyObjectInstance.Length; i++)
 			{
-				if (dirtyObjectInstance[i] == null)
+				if (dirtyObjectInstance[i] != null)
 				{
-					return false;
+					return true;
 				}
 			}
-			return true;
+			return false;
 		}
 	}
 	bool isRangeOut;   // マップ範囲外であるか

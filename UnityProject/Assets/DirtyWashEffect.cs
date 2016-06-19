@@ -13,8 +13,9 @@ public class DirtyWashEffect : TrackingObject {
 	State m_state = State.RISE;
 
 	float m_time;
-	float m_waitTime = 0.5f;
-	float m_riseTime = 0.5f;
+	public float m_waitTime = 0.5f;
+	public float m_riseTime = 0.5f;
+	public float m_riseVelocity = 1;
 	/**
      * <summary>The wash chain.</summary>
      */
@@ -89,7 +90,7 @@ public class DirtyWashEffect : TrackingObject {
 		switch (m_state)
 		{
 			case State.RISE:
-				rb.velocity = ( -transform.forward * m_velocity);
+				rb.velocity = ( -transform.forward * m_riseVelocity);
 				rb.AddForce(rb.velocity);
 				break;
 			case State.WAIT:
