@@ -260,7 +260,7 @@ public class MainSceneStateHolder : MonoBehaviour
 		poseMenu = GameObject.Find("PauseCur").GetComponent<PoseMenu>();
 		
 		m_playRecordAsPauseObject.pausing = true;
-
+		m_dirtys = GameObject.Find("Dirtys").GetComponent<PauseObject>();
 		ActionRecordManager.sActionRecord.Reset();
 
 		if (m_modeState == ModeState.FREE_PLAY)
@@ -483,6 +483,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_gamePlayUI.pausing = false;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
+						m_dirtys.pausing = false;
 
 						m_pauseScreenUI.pausing = true;
 						break;
@@ -492,13 +493,16 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_gamePlayUI.pausing = false;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
+						m_dirtys.pausing = false;
 
 						m_pauseScreenUI.pausing = true;
+						
 						break;
 					case MainState.PLAY_RECORD:
 						m_gamePlayUI.pausing = false;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
+						m_dirtys.pausing = false;
 
 						m_pauseScreenUI.pausing = true;
 						break;
@@ -506,6 +510,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_gamePlayUI.pausing = false;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
+						m_dirtys.pausing = false;
 
 						m_pauseScreenUI.pausing = true;
 						break;
@@ -531,6 +536,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_gamePlayUI.pausing = true;
 						m_pauseObjects.pausing = true;
 						m_pauseSystems.pausing = true;
+						m_dirtys.pausing = true;
 
 						m_pauseScreenUI.pausing = false;
 						break;
@@ -538,6 +544,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_gamePlayUI.pausing = true;
 						m_pauseObjects.pausing = true;
 						m_pauseSystems.pausing = true;
+						m_dirtys.pausing = true;
 
 						m_pauseScreenUI.pausing = false;
 						break;
