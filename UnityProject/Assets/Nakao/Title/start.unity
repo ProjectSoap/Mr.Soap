@@ -284,6 +284,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11483476, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: SEList.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d35b07148fb17941b06a35ccb1a48b9, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
   m_IsPrefabParent: 0
@@ -458,14 +462,6 @@ Prefab:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
-    - target: {fileID: 22497930, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 22497930, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 180
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
   m_IsPrefabParent: 0
@@ -532,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
