@@ -42,7 +42,7 @@ public class CharSelMgr : MonoBehaviour {
         {
             soaps[2].active = false;
         }
-
+        BGMManager.Instance.PlayBGM("Character_Choice_BGM", 1.0f);
 	}
 	
 	// Update is called once per frame

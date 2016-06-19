@@ -217,7 +217,7 @@ public class SelectPlayMode : MonoBehaviour
         var rate = diff / MoveCurTime;
 
         // 移動
-        SelectCur.GetComponent<Transform>().transform.localPosition = Vector3.Lerp(FromTrans.localPosition, ToTrans.localPosition, rate);
+        SelectCur.GetComponent<Transform>().transform.localPosition = Vector3.Lerp(FromTrans.localPosition, ToTrans.localPosition, 1.0f);
 
        
     }

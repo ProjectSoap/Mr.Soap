@@ -30,17 +30,16 @@ public class Fade : MonoBehaviour{
     [SerializeField]
     Sprite awa;
 
-    [SerializeField]
-    float soapheight;
-
-    [SerializeField]
-    float soapheightinter;
+    public static float soapheight;
+    public static Vector2 awaScale;
+    public static float soapheightinter;
 
     [SerializeField]
     float awainter;
     private static bool fadeflg;
     private static bool destroy;
-
+    [SerializeField]
+    Canvas screen;
     //========================================
     // Use this for initialization
     //========================================
@@ -58,6 +57,7 @@ public class Fade : MonoBehaviour{
         DontDestroyOnLoad(this);
         soapheight = (float)Screen.height*0.9f;
         soapheightinter = Screen.height / 5;
+        awaScale = new Vector2(Screen.width / 8.5f, Screen.height / 4.5f);
 	}
 
     void Update(){
@@ -67,7 +67,7 @@ public class Fade : MonoBehaviour{
            destroy = false;
        }
        Vector3 move = new Vector3((float)Screen.width / fadeintime * Time.deltaTime, 0, 0);
-       
+       bubble[0].rectTransform.sizeDelta = awaScale;
        if (fadeflg)
        {   
            time += Time.deltaTime;
@@ -81,7 +81,7 @@ public class Fade : MonoBehaviour{
                    if ((int)move.x > bubblecount[i] * ((float)Screen.width+50)/9 && move.x < (float)Screen.width)
                    {
                        Image add = Image.Instantiate(bubble[0]);
-                       move.x = bubblecount[i] * ((float)Screen.width) / 9  + 80;
+                       move.x = bubblecount[i] * ((float)Screen.width) / 9+Screen.width/17;
                        add.rectTransform.parent = soaps[i].rectTransform.parent;
                        add.color = bubble[0].color;
                        add.transform.SetAsLastSibling();
@@ -101,6 +101,10 @@ public class Fade : MonoBehaviour{
             if ((c.a < 1.0f || time < fadeintime) && time < fadeouttime + i * 0.02f)
             {
                 c.a+= 0.04f;
+                if(c.a>1.0f)
+                {
+                    c.a = 1.0f;
+                }
                 bubble[i].color = c;
             }
             if(c.a >0.0f && time > fadeouttime+ i * 0.02f)
@@ -138,6 +142,9 @@ public class Fade : MonoBehaviour{
             SceneName = nextScene;
             fadeflg = true;
             destroy = true;
+            soapheight = (float)Screen.height * 0.9f;
+            soapheightinter = Screen.height / 5;
+            awaScale = new Vector2(Screen.width / 6.5f, Screen.height / 3.5f);
         }
     }
 
