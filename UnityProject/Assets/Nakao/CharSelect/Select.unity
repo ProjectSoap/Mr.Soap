@@ -3015,6 +3015,7 @@ MonoBehaviour:
   - {fileID: 1015592035}
   soap: {fileID: 29364513}
   no: {fileID: 1255722565}
+  m_playMode: {fileID: 183801615}
 --- !u!4 &1022362261
 Transform:
   m_ObjectHideFlags: 0
