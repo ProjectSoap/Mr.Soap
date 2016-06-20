@@ -502,6 +502,8 @@ public class PlayerCharacterController : MonoBehaviour
                 m_weatherAddMaxRotation     = .0f;
                 m_weatherAddRotationPower   = .0f;
                 m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddBubbleWidth     = .0f;
+                m_weatherAddBubbleHeight    = .0f;
                 break;
             case WeatherState.Wind:
                 m_weatherAddMaxVelocity     = .0f;
