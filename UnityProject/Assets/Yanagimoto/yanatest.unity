@@ -7680,7 +7680,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 437730, guid: ca0766a8206c05e4db4d75db5be5d243, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 90.5
+      value: 90.9499969
       objectReference: {fileID: 0}
     - target: {fileID: 437730, guid: ca0766a8206c05e4db4d75db5be5d243, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10729,8 +10729,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needle: {fileID: 1454594537}
   now_chain: 0
+  delay: 0
   chainmax: 0
   heal: 0
+  minus: 0
 --- !u!1 &408406828
 GameObject:
   m_ObjectHideFlags: 0
@@ -13847,6 +13849,60 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &528904656
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 780730468}
+    m_Modifications:
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459666, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_stayBuildingMaxVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 13629368, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459666, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+      propertyPath: m_velocity
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &529759801
 GameObject:
   m_ObjectHideFlags: 0
@@ -21377,6 +21433,7 @@ Transform:
   m_Children:
   - {fileID: 638271455}
   - {fileID: 2141448329}
+  - {fileID: 2142308597}
   m_Father: {fileID: 0}
   m_RootOrder: 15
 --- !u!114 &780730469
@@ -34954,7 +35011,7 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 35
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -37495,29 +37552,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791685db50849824182f45570617ef70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirtyPointsOfArea1:
-  - {fileID: 1734463470}
-  - {fileID: 1313255600}
-  - {fileID: 1932144664}
-  - {fileID: 604136707}
-  - {fileID: 1443607773}
-  - {fileID: 1742037606}
-  - {fileID: 613698896}
-  - {fileID: 1732450378}
-  - {fileID: 1234587440}
-  - {fileID: 1509250948}
-  - {fileID: 2054161241}
-  - {fileID: 678022176}
-  - {fileID: 1997943261}
-  - {fileID: 1127860785}
-  - {fileID: 665790517}
-  - {fileID: 1113981802}
-  - {fileID: 441974761}
-  - {fileID: 518799370}
-  - {fileID: 1436600230}
-  dirtyPointsOfArea2: []
-  dirtyPointsOfArea3: []
-  dirtyPointsOfArea4: []
+  m_commonDirtyCreatersOfArea1: []
+  m_landingDirtyCreatersOfArea1: []
+  m_wallDirtyCreatersOfArea1: []
+  m_carDirtyCreatersOfArea1: []
+  m_commonDirtyCreatersOfArea2: []
+  m_landingDirtyCreatersOfArea2: []
+  m_wallDirtyCreatersOfArea2: []
+  m_carDirtyCreatersOfArea2: []
+  m_commonDirtyCreatersOfArea3: []
+  m_landingDirtyCreatersOfArea3: []
+  m_wallDirtyCreatersOfArea3: []
+  m_carDirtyCreatersOfArea3: []
+  m_commonDirtyCreatersOfArea4: []
+  m_landingDirtyCreatersOfArea4: []
+  m_wallDirtyCreatersOfArea4: []
+  m_carDirtyCreatersOfArea4: []
   RealityPoint1: {fileID: 0}
   RealityPoint2: {fileID: 0}
   RealityPoint3: {fileID: 0}
@@ -62920,6 +62970,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 453356, guid: bc7f9fd09ed374e4dac6b652341d5ec8, type: 2}
   m_PrefabInternal: {fileID: 1713351385}
+--- !u!4 &2142308597 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 427978, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
+  m_PrefabInternal: {fileID: 528904656}
 --- !u!1 &2142441162
 GameObject:
   m_ObjectHideFlags: 0

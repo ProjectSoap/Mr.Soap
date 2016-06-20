@@ -85,6 +85,7 @@ public class SelectPlayMode : MonoBehaviour
                         SelectNow--;
                     }
                     //                BGMManager.Instance.PlaySE("se_key_move");
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = true;
                     controllerFlagD = false;
                     controllerWait = 0;
@@ -96,7 +97,7 @@ public class SelectPlayMode : MonoBehaviour
                     {
                         SelectNow++;
                     }
-
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = false;
                     controllerFlagD = true;
                     controllerWait = 0;

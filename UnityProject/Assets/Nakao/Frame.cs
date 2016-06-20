@@ -81,7 +81,7 @@ public class Frame : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     ChangeLongi(0);
-                    //                BGMManager.Instance.PlaySE("se_key_move");
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = true;
                     controllerFlagD = false;
                     controllerWait = 0;
@@ -89,7 +89,7 @@ public class Frame : MonoBehaviour {
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     ChangeLongi(1);
-                    //              BGMManager.Instance.PlaySE("se_key_move");
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = false;
                     controllerFlagD = true;
                     controllerWait = 0;
