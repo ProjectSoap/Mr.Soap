@@ -9,7 +9,7 @@ public class ResolutionSetting : MonoBehaviour {
         int width = 1280;
         int height = 720;
 
-        bool fullscreen = true;
+        bool fullscreen = false;
 
         int preferredRefreshRate = 60;
 
