@@ -91,7 +91,7 @@ public class Test : Editor
         }
     }
 
-    [MenuItem("Project Soap/ミニマップ用クアッドを追加（テスト版）")]
+    [MenuItem("Project Soap/ミニマップ用クアッドを追加")]
     public static void AddMiniMapQuadForBuilding()
     {
 
@@ -141,7 +141,9 @@ public class Test : Editor
                                  newObject.transform.localScale.y * obj.transform.localScale.y * collider.size.y,
                                  newObject.transform.localScale.z * obj.transform.localScale.z * collider.size.z);
 
-                            if (obj.transform.parent)
+							
+
+							if (obj.transform.parent)
                             {
                                 Transform pearent = obj.transform.parent;
                                 newObject.transform.localScale =
@@ -151,10 +153,15 @@ public class Test : Editor
                                         pearent.lossyScale.y / pearent.localScale.y * collider.size.y,
                                         pearent.lossyScale.z / pearent.localScale.z * collider.size.z);
 
+							newObject.transform.Translate(new Vector3
+									(
+										pearent.lossyScale.x * obj.transform.localScale.x * collider.center.x,
+										pearent.lossyScale.y * obj.transform.localScale.y * collider.center.y,
+										pearent.lossyScale.z * obj.transform.localScale.z * collider.center.z));
 
-                            }
+							}
 
-                            mesh.triangles = new int[] {
+							mesh.triangles = new int[] {
                         0, 1, 2, 1, 3, 2
                         };
 

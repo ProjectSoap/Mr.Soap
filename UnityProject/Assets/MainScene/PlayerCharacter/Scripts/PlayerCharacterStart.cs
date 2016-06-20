@@ -32,7 +32,10 @@ public class PlayerCharacterStart : PlayerCharacterAnimationBehaviour {
     {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
 
-        m_playerCharacterController.transform.Translate(new Vector3(0, 0, 0.025f));
+        //m_playerCharacterController.transform.Translate(new Vector3(0, 0, 0.025f));
+        //m_playerCharacterController.transform.Translate(m_playerCharacterController.transform.forward * m_playerCharacterController.velocity);
+        m_playerCharacterController.rigidBody.AddRelativeForce(Vector3.forward * m_playerCharacterController.velocity);
+        //m_playerCharacterController.rigidBody.velocity = m_playerCharacterController.transform.forward * m_playerCharacterController.velocity;
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        BGMManager.Instance.PlayBGM("Menu_BGM", 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -15,6 +16,7 @@ public class Menu : MonoBehaviour {
         {
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
             {
+                BGMManager.Instance.PlaySE("Cursor_Decision");
                 switch (menu.SelectNow)
                 {
                     case 0:
@@ -54,7 +56,7 @@ public class Menu : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape) && Fade.FadeEnd())
         {
-
+            BGMManager.Instance.PlaySE("Cursor_Cancel");
             Fade.ChangeScene("sekTitle");
         }
 	}

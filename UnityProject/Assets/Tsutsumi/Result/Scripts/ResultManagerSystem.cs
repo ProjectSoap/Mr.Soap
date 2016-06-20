@@ -48,6 +48,9 @@ public class ResultManagerSystem : MonoBehaviour {
     private bool sceneMoveDisplayFlg;
     private bool sceneMenuFlg;
 
+    //入力完了フラグ
+    private bool inputEndFlg;
+
 	// Use this for initialization
 	void Start () {
         rank = 0;
@@ -55,6 +58,7 @@ public class ResultManagerSystem : MonoBehaviour {
         rankingDrawEndFlg = false;
         sceneMoveDisplayFlg = false;
         sceneMenuFlg = true;
+        inputEndFlg = false;
 
         for (int i = 0; i < 30; ++i)
         {
@@ -126,7 +130,7 @@ public class ResultManagerSystem : MonoBehaviour {
 	void Update () {
 
         //まだポイント表示がおわっていなければ何もしない。
-        if (pointDrawEndFlg == false)
+        if (pointDrawEndFlg == false || inputEndFlg == true)
         {
             return;
         }
@@ -190,10 +194,20 @@ public class ResultManagerSystem : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 sceneMenuFlg = true;
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Move");
+                }
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 sceneMenuFlg = false;
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Move");
+                }
             }
             canvasSceneSelect.WakuSelect(sceneMenuFlg);
 
@@ -203,6 +217,11 @@ public class ResultManagerSystem : MonoBehaviour {
                 sceneMoveDisplayFlg = false;
                 sceneMenuFlg = true;
                 canvasSceneSelect.gameObject.SetActive(false);
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Cancel");
+                }
 
                 return;
             }
@@ -212,16 +231,28 @@ public class ResultManagerSystem : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
+                    }
                     Fade.ChangeScene("Menu");
+                    inputEndFlg = true;
                 }
             }
             else
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
+                    }
                     //キャラクター情報を保持したまま今回の成績を削除
                     ActionRecordManager.sActionRecord.ResetCharaHozi();
                     Fade.ChangeScene("main");
+                    inputEndFlg = true;
                 }
             }
         }
@@ -233,6 +264,11 @@ public class ResultManagerSystem : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 sceneMoveDisplayFlg = true;
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Decision");
+                }
             }
         }
 	}

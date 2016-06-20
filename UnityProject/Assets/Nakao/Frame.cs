@@ -81,7 +81,7 @@ public class Frame : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     ChangeLongi(0);
-                    //                BGMManager.Instance.PlaySE("se_key_move");
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = true;
                     controllerFlagD = false;
                     controllerWait = 0;
@@ -89,7 +89,7 @@ public class Frame : MonoBehaviour {
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     ChangeLongi(1);
-                    //              BGMManager.Instance.PlaySE("se_key_move");
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = false;
                     controllerFlagD = true;
                     controllerWait = 0;
@@ -401,7 +401,7 @@ public class Frame : MonoBehaviour {
             ToTrans = Button[i].GetComponent<Transform>().transform;
             Vector2 scale = new Vector2(10, 10);
             ButtonScale = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta + scale;
-            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, rate);
+            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, 1.0f);
         }
     }
 
@@ -419,7 +419,7 @@ public class Frame : MonoBehaviour {
         var diff = Time.timeSinceLevelLoad - startTime;
         var rate = diff / MoveColorTime;
         Color NowColor = Key[0].GetComponent<Image>().color;
-        Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
+        //Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
         for (int i = 0; i < Button.Count ; i++)
         {
             NowColor = Button[i].GetComponent<Image>().color;

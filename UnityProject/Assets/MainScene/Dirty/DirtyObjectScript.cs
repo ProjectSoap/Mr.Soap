@@ -62,14 +62,6 @@ public class DirtyObjectScript : MonoBehaviour
 			case State.ALIVE:
 				if (isDestory == true)
 				{
-					m_state = State.WASH;
-				}
-				break;
-			case State.WASH:
-
-				GetComponent<MeshRenderer>().material.color = GetComponent<MeshRenderer>().material.color - new Color(0, 0, 0, 2.0f * Time.deltaTime);
-				if (GetComponent<MeshRenderer>().material.color.a  <=  0)
-				{
 					m_state = State.DEAD;
 				}
 				break;

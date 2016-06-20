@@ -99,11 +99,13 @@ public class PoseMenu : MonoBehaviour {
         {
             SelectNow++;
             controllerWait = 0;
+            BGMManager.Instance.PlaySE("Cursor_Move");
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             SelectNow--;
             controllerWait = 0;
+            BGMManager.Instance.PlaySE("Cursor_Move");
         }
 
         if (SelectNow > Button.Count - 1)
