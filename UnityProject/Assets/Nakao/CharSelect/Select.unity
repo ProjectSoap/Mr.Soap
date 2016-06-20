@@ -535,7 +535,7 @@ MonoBehaviour:
   MoveCurTime: 0
   MoveButtonTime: .200000003
   SelectColor: {r: 1, g: 1, b: 1, a: 1}
-  NoneColor: {r: 1, g: .20588237, b: .20588237, a: .5}
+  NoneColor: {r: 1, g: .20588237, b: .20588237, a: .497000009}
   MoveColorTime: .800000012
 --- !u!1 &194693646
 GameObject:
@@ -2803,7 +2803,6 @@ MonoBehaviour:
   - {fileID: 1015592035}
   soap: {fileID: 29364513}
   no: {fileID: 1255722565}
-  playmode: {fileID: 183801615}
 --- !u!4 &1022362261
 Transform:
   m_ObjectHideFlags: 0
@@ -3414,7 +3413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .551470578, g: .466317028, b: .466317028, a: 1}
+  m_Color: {r: 1, g: 0, b: .889655113, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

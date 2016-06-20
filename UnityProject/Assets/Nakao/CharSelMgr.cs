@@ -25,7 +25,7 @@ public class CharSelMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		BGMManager.Instance.PlayBGM("Munu_BGM", 0);
+		
 		state = Charselect.SELECT;
         if (PlayerPrefs.GetInt("SekkenChanPlayFlg", -1) > 0)
         {
