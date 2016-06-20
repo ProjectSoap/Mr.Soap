@@ -14,7 +14,7 @@ GameObject:
   - 54: {fileID: 5407940}
   - 114: {fileID: 11406910}
   - 114: {fileID: 11443098}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: DirtyWashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 4: {fileID: 452900}
   - 198: {fileID: 19876022}
   - 199: {fileID: 19919122}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1313,6 +1313,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_riseVelocity
       value: .0199999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

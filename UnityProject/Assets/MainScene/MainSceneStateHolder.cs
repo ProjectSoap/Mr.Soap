@@ -367,11 +367,11 @@ public class MainSceneStateHolder : MonoBehaviour
 				// 決定キー押されたらプレイ状態
 				if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
 				{
-                    BGMManager.Instance.PlaySE("Game_Start");
 					ExecuteStateExitProcesss(m_mainState);
 					m_beforeMainStete = m_mainState;
 					m_mainState = MainState.PLAY;
 					ExecuteStateEnterProcesss(m_mainState);
+                    BGMManager.Instance.PlaySE("Game_Start");
 				}
 				break;
 			case MainState.PLAY:
@@ -379,7 +379,6 @@ public class MainSceneStateHolder : MonoBehaviour
 				// ヘルプ(F12)押したらポーズに遷移
 				if (Input.GetKeyDown(KeyCode.F12))
 				{
-                    BGMManager.Instance.PlaySE("Game_Pause");
 					ExecuteStateExitProcesss(m_mainState);
 					if (m_modeState == ModeState.NORMAL_PLAY)
 					{
@@ -395,15 +394,16 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_mainState = MainState.CHECK_TRANSITION;
 					}
 					ExecuteStateEnterProcesss(m_mainState);
+                    BGMManager.Instance.PlaySE("Game_Pause");
 				}
 				// プレイヤーが死んだらエンド状態
 				else if (player.GetComponent<PlayerCharacterController>().size <= 0.0f)
 				{
-                    BGMManager.Instance.PlaySE("Game_Set");
 					ExecuteStateExitProcesss(m_mainState);
 					m_beforeMainStete = m_mainState;
 					m_mainState = MainState.END;
 					ExecuteStateEnterProcesss(m_mainState);
+					BGMManager.Instance.PlaySE("Game_Set");
 				}
 				break;
 			case MainState.PAUSE:
@@ -412,28 +412,28 @@ public class MainSceneStateHolder : MonoBehaviour
                     
 					if (m_selectIconInPause == SelectMainPauseScene.SELECT_BACK)
 					{
-                        BGMManager.Instance.PlaySE("Cursor_Cancel");
 						ExecuteStateExitProcesss(m_mainState);
 						MainState temp = m_beforeEnterPauseMainStete;//前の状態に戻る
 						m_beforeMainStete = m_mainState;
 						m_mainState = temp;
 						ExecuteStateEnterProcesss(m_mainState);
+                        BGMManager.Instance.PlaySE("Cursor_Cancel");
 					}
 					else if (m_selectIconInPause == SelectMainPauseScene.SELECT_TRANSITION_MENU)
 					{
-                        BGMManager.Instance.PlaySE("Cursor_Decision");
 						ExecuteStateExitProcesss(m_mainState);
 						m_beforeMainStete = m_mainState;
 						m_mainState = MainState.CHECK_TRANSITION;
 						ExecuteStateEnterProcesss(m_mainState);
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
 					}
 					else if (m_selectIconInPause == SelectMainPauseScene.SELECT_PLAY_RECORD)
 					{
-                        BGMManager.Instance.PlaySE("Cursor_Decision");
 						ExecuteStateExitProcesss(m_mainState);
 						m_beforeMainStete = m_mainState;
 						m_mainState = MainState.PLAY_RECORD;
 						ExecuteStateEnterProcesss(m_mainState);
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
 					}
 				}
 				break;

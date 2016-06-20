@@ -13,7 +13,7 @@ GameObject:
   - 135: {fileID: 13505248}
   - 54: {fileID: 5443332}
   - 114: {fileID: 11422370}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleLanding
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 4: {fileID: 491076}
   - 198: {fileID: 19800138}
   - 199: {fileID: 19999396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 491520}
   - 198: {fileID: 19809156}
   - 199: {fileID: 19999152}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 4: {fileID: 437786}
   - 198: {fileID: 19812562}
   - 199: {fileID: 19937672}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - 4: {fileID: 437430}
   - 198: {fileID: 19888108}
   - 199: {fileID: 19947414}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5642,6 +5642,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: LIVE_TIMER
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 440204}
   - 198: {fileID: 19818116}
   - 199: {fileID: 19993598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 135: {fileID: 13525204}
   - 54: {fileID: 5478608}
   - 114: {fileID: 11421960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleDrift
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 472328}
   - 198: {fileID: 19866552}
   - 199: {fileID: 19977762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 4: {fileID: 496960}
   - 198: {fileID: 19851464}
   - 199: {fileID: 19979212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - 4: {fileID: 426252}
   - 198: {fileID: 19808358}
   - 199: {fileID: 19976106}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5660,6 +5660,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: LIVE_TIME
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
