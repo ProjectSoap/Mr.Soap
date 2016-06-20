@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3374464}
   - 64: {fileID: 6425710}
   - 23: {fileID: 2357232}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MiniMapRecoveryIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2341910}
   - 114: {fileID: 11470030}
   - 135: {fileID: 13500898}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RecoverySoap
   m_TagString: RecoverySoap
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 444434}
   - 198: {fileID: 19874608}
   - 199: {fileID: 19904898}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 4: {fileID: 462382}
   - 212: {fileID: 21269646}
   - 114: {fileID: 11402422}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CircleShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,6 +1371,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_lifeTime
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
