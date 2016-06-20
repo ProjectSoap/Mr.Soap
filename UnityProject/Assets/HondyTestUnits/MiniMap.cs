@@ -1,22 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MiniMap : MonoBehaviour {
 
     [SerializeField]
-    GameObject player;
-    GameObject playerIcon;
-	// Use this for initialization
+    WeatherSystem m_wStytem;
+
+
+	[SerializeField]
+	Image m_mistFrame; 
 	void Start () {
-        playerIcon = GameObject.Find("MiniMapPlayerIcon");
+		m_wStytem = GameObject.Find("WeatherSystem").GetComponent<WeatherSystem>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (player && playerIcon)
-        {
-            playerIcon.transform.position = new Vector3(player.transform.position.x, -10, player.transform.position.z);
-        }
+	void Update ()
+	{
+		if (m_wStytem.NowWeather == Weather.FOG)
+		{
+			m_mistFrame.enabled = true;
+		}
+		else
+		{
+
+			m_mistFrame.enabled = false;
+		}
 
     }
 }
