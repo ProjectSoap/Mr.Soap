@@ -37,6 +37,7 @@ public class SelectCharacter : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) && nowrad == selectrad)
             {
+                BGMManager.Instance.PlaySE("Character_Change");
                 charno--;
                 if (nowrad == 0.0f)
                 {
@@ -54,6 +55,7 @@ public class SelectCharacter : MonoBehaviour {
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) && nowrad == selectrad)
             {
+                BGMManager.Instance.PlaySE("Character_Change");
                 charno++;
                 if (nowrad == 360.0f)
                 {

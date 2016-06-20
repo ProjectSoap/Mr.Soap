@@ -9,7 +9,7 @@ public class SceneData : MonoBehaviour {
     {
         SekkenKun,
         SekkenChan,
-        SekkenKing,
+        SekkenHero,
     }
 
     [SerializeField, Tooltip("どのキャラクターを選択したか")]

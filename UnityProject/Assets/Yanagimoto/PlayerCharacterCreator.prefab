@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &437730
 Transform:
   m_ObjectHideFlags: 1
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90.5, y: .0960000008, z: 113.489998}
+  m_LocalPosition: {x: 90.9499969, y: .0960000008, z: 113.489998}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sekkenKun: {fileID: 138192, guid: ab6daec9f1b281a4fa005d0667be8f99, type: 2}
   m_sekkenChan: {fileID: 106412, guid: bc7f9fd09ed374e4dac6b652341d5ec8, type: 2}
-  m_sekkenKing: {fileID: 0}
+  m_sekkenHero: {fileID: 198506, guid: 759598948b0e2fe48a67e293684f4199, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

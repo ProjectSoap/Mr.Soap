@@ -290,6 +290,18 @@ public class PlayerCharacterController : MonoBehaviour
         get { return m_weatherAddBubbleHeight; }
     }
 
+    public Rigidbody rigidBody
+    {
+        get { return m_rigidbody; }
+        set { m_rigidbody = value; }
+    }
+
+    public float velocity
+    {
+        get { return m_velocity; }
+        set { m_velocity = value; }
+    }
+
     void Awake()
     {
         gameObject.name = "PlayerCharacter";
@@ -490,6 +502,8 @@ public class PlayerCharacterController : MonoBehaviour
                 m_weatherAddMaxRotation     = .0f;
                 m_weatherAddRotationPower   = .0f;
                 m_weatherAddDriftStartTime  = .0f;
+                m_weatherAddBubbleWidth     = .0f;
+                m_weatherAddBubbleHeight    = .0f;
                 break;
             case WeatherState.Wind:
                 m_weatherAddMaxVelocity     = .0f;
@@ -599,7 +613,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(m_isStayBuilding)
         {
-            m_rigidbody.AddForce(m_reflect * m_velocity);
+            m_rigidbody.AddForce(m_reflect * m_velocity, ForceMode.Force);
+            //m_rigidbody.velocity = m_reflect * m_velocity;
         }
 
         // 速度制限を掛ける
@@ -817,7 +832,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
-            Damage();
+            if(m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
+                Damage();
         }
     }
 
