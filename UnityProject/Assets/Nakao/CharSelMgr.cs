@@ -59,6 +59,11 @@ public class CharSelMgr : MonoBehaviour {
                         {
                             state = Charselect.PLAY;
                             charUI.ChangePause();
+                            BGMManager.Instance.PlaySE("Character_Decision");
+                        }
+                        else
+                        {
+                            BGMManager.Instance.PlaySE("Not_Character_Decision");
                         }
                         break;
                     }
@@ -66,6 +71,7 @@ public class CharSelMgr : MonoBehaviour {
                     {
 //                        Application.LoadLevel("Main");
                         state = Charselect.FADE;
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
                         Fade.ChangeScene("main");
                         no.SetCharNo(soap.GetCharNo());
                         break;
