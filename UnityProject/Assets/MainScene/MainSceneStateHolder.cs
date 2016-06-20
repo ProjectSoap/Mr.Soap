@@ -286,6 +286,7 @@ public class MainSceneStateHolder : MonoBehaviour
 			if (no.PlayMode == PlayModeState.NORMAL)
 			{
 				m_modeState = ModeState.NORMAL_PLAY;
+				m_pauseSystems.pausing = true;
 			}
 			else
 			{
@@ -301,6 +302,7 @@ public class MainSceneStateHolder : MonoBehaviour
 		}
 		no.loaded = true;
 
+		m_pauseSystems.pausing = true;
 		ExecuteStateEnterProcesss(m_mainState);
 		BGMManager.Instance.PlayBGM("GameMain_BGM",0);
 
@@ -574,6 +576,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_pauseSystems.pausing = false;
 
 						m_pauseScreenUI.pausing = true;
+						m_dirtys.pausing = false;
 
 						//フリープレイ時オフ
 						if (m_modeState == ModeState.FREE_PLAY)
