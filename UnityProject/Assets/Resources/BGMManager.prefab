@@ -77,6 +77,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 628e1d8f035c0b24b82d5a6e600c4545, type: 3}
   - {fileID: 8300000, guid: 70f32cf0a14806b49b9f6da44d6c437e, type: 3}
   - {fileID: 8300000, guid: f57062bba13a2444997bbf7a75220b80, type: 3}
+  - {fileID: 8300000, guid: 9f7e8444c524e4f48a7f43991353c981, type: 3}
   MaxSE: 10
   mixer: {fileID: 24100000, guid: 703e9d67a2a073343adc2db60280043d, type: 2}
   keisuu: 0
@@ -88,9 +89,17 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: SEList.Array.size
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: SEList.Array.data[13]
       value: 
       objectReference: {fileID: 8300000, guid: 8d35b07148fb17941b06a35ccb1a48b9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: SEList.Array.data[28]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f7e8444c524e4f48a7f43991353c981, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 156456}
