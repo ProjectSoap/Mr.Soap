@@ -42,28 +42,28 @@ public class MainSceneStateHolder : MonoBehaviour
 
 	enum MainState
 	{
-        /// <summary>   けっていきー待ち. </summary>
+		/// <summary>   けっていきー待ち. </summary>
 		START,
 
 
-        /// <summary>   遊んでる.  </summary>
+		/// <summary>   遊んでる.  </summary>
 		PLAY,  
 
 		
 
-        /// <summary>   ポーズ画面. </summary>
+		/// <summary>   ポーズ画面. </summary>
 		PAUSE, 
 
 		/// <summary>   遷移確認画面.   </summary>
 		CHECK_TRANSITION,
 
 
-        /// <summary>   実績確認画面.   </summary>
+		/// <summary>   実績確認画面.   </summary>
 		PLAY_RECORD,  
 
 		
 
-        /// <summary>   死亡時.   </summary>
+		/// <summary>   死亡時.   </summary>
 		END 
 	}
 
@@ -229,14 +229,43 @@ public class MainSceneStateHolder : MonoBehaviour
 
 	public PauseObject m_pauseScreenUI;
 
+
+	// ゲームプレイ中のUI
+	
+
+	///
+	/// <summary>   The size icon user interface.   </summary>
+	///
+
+	public PauseObject m_sizeIconUI;
+	public PauseObject m_sizeCounterUI;
+	public PauseObject m_dirtyCounterUI;
+	public PauseObject m_miniMapUI;
+	public PauseObject m_washChainUI;
+
+
+	public PauseObject m_norticeRecoveryUI;
+	public PauseObject m_pushKeyUI;
+
+
+
+
+	public PauseObject m_dirtys;
+
+
+	public PauseObject m_endUI;
+
 	///
 	/// <summary>   Use this for initialization.    </summary>
 	///
 	/// <remarks>   Kazuyuki,.  </remarks>
 	///
 
+	public PauseObject m_pauseSystems;
+
 	void Start()
 	{
+		
 		m_mainState = MainState.START;//スタートから開始
 		player = GameObject.Find("PlayerCharacter");
 		m_dirtySystemObject = GameObject.Find("DirtySystem");
@@ -246,12 +275,32 @@ public class MainSceneStateHolder : MonoBehaviour
 		poseMenu = GameObject.Find("PauseCur").GetComponent<PoseMenu>();
 		
 		m_playRecordAsPauseObject.pausing = true;
-
+		m_endUI = GameObject.Find("EndUI").GetComponent<PauseObject>();
+		m_dirtys = GameObject.Find("Dirtys").GetComponent<PauseObject>();
 		ActionRecordManager.sActionRecord.Reset();
 
-		if (m_modeState == ModeState.FREE_PLAY)
+		//モード確認
+		SelectingCharactor no = GameObject.Find("CharNo").GetComponent<SelectingCharactor>();
+		if (no != null)
 		{
+			if (no.PlayMode == PlayModeState.NORMAL)
+			{
+				m_modeState = ModeState.NORMAL_PLAY;
+			}
+			else
+			{
+
+				m_modeState = ModeState.FREE_PLAY;
+				m_sizeCounterUI.pausing = true;
+				m_dirtyCounterUI.pausing = true;
+				m_washChainUI.pausing = true;
+				m_pauseSystems.pausing = true;
+				m_dirtys.gameObject.SetActive(false);
+
+			}
 		}
+		no.loaded = true;
+
 		ExecuteStateEnterProcesss(m_mainState);
 		BGMManager.Instance.PlayBGM("GameMain_BGM",0);
 
@@ -274,6 +323,10 @@ public class MainSceneStateHolder : MonoBehaviour
 	{
 		UpdateState();
 		ExecuteStateMainProcesss();
+		if (m_modeState == ModeState.FREE_PLAY)
+		{
+			player.GetComponent<PlayerCharacterController>().size = 100.9f;
+		}
 	}
 
 	///
@@ -284,6 +337,7 @@ public class MainSceneStateHolder : MonoBehaviour
 
 	protected void UpdateState()
 	{
+		
 		switch (m_mainState)
 		{
 			case MainState.START:
@@ -383,7 +437,14 @@ public class MainSceneStateHolder : MonoBehaviour
 						ExecuteStateExitProcesss(m_mainState);
 						m_beforeMainStete = m_mainState;
 						m_mainState = MainState.PAUSE;
+						if (m_modeState == ModeState.FREE_PLAY)
+						{
+							MainState temp = m_beforeEnterPauseMainStete;//前の状態に戻る
+							m_beforeMainStete = m_mainState;
+							m_mainState = temp;
+						}
 						ExecuteStateEnterProcesss(m_mainState);
+
 					}
 					if (m_selectIconInTransitionMenu == SelectMainTransitionMenu.SELECT_YES)
 					{
@@ -425,18 +486,40 @@ public class MainSceneStateHolder : MonoBehaviour
 				switch (m_beforeMainStete)
 				{
 					case MainState.START:
+						m_pauseSystems.pausing = true;
 						break;
 					case MainState.PLAY:
+						m_pauseSystems.pausing = true;
 						break;
 					case MainState.PAUSE:
 						// 前の状態はポーズ
-						m_gamePlayUI.PushPose();
-						m_pauseObjects.PushPose();
+						m_sizeIconUI.pausing = false;
+						m_sizeCounterUI.pausing = false;
+						m_dirtyCounterUI.pausing = false;
+						m_washChainUI.pausing = false;
+						m_miniMapUI.pausing = false;
+
+						m_norticeRecoveryUI.pausing = false;
+						m_pushKeyUI.pausing = false;
+
+						//フリープレイ時オフ
+						if (m_modeState == ModeState.FREE_PLAY)
+						{
+							m_sizeCounterUI.pausing = true;
+							m_dirtyCounterUI.pausing = true;
+							m_washChainUI.pausing = true;
+							m_pauseSystems.pausing = true;
+						}
+
+						m_pauseObjects.pausing = false;
 						m_pauseScreenUI.pausing = true;
+						m_pauseSystems.pausing = true;
 						break;
 					case MainState.PLAY_RECORD:
+						m_pauseSystems.pausing = true;
 						break;
 					case MainState.END:
+						m_pauseSystems.pausing = true;
 						break;
 					default:
 						break;
@@ -449,27 +532,124 @@ public class MainSceneStateHolder : MonoBehaviour
 				{
 					case MainState.START:
 						// 
-						GameObject.Destroy(pushKey);
+						m_sizeIconUI.pausing = false;
+						m_sizeCounterUI.pausing = false;
+						m_dirtyCounterUI.pausing = false;
+						m_washChainUI.pausing = false;
+						m_miniMapUI.pausing = false;
+
+						m_norticeRecoveryUI.pausing = false;
+						m_pushKeyUI.pausing = true;
+
+
+						m_pauseObjects.pausing = false;
+						m_pauseSystems.pausing = false;
+						if (m_dirtys)
+						{
+							m_dirtys.pausing = false;
+						}
+
+						m_pauseScreenUI.pausing = true;
+						//フリープレイ時オフ
+						if (m_modeState == ModeState.FREE_PLAY)
+						{
+							m_sizeCounterUI.pausing = true;
+							m_dirtyCounterUI.pausing = true;
+							m_washChainUI.pausing = true;
+							m_pauseSystems.pausing = true;
+						}
 						break;
 					case MainState.PLAY:
 						break;
 					case MainState.PAUSE:
-						m_gamePlayUI.PushPose();
-						m_pauseObjects.PushPose();
+						m_sizeIconUI.pausing = false;
+						m_sizeCounterUI.pausing = false;
+						m_dirtyCounterUI.pausing = false;
+						m_washChainUI.pausing = false;
+						m_miniMapUI.pausing = false;
+
+						m_norticeRecoveryUI.pausing = false;
+						m_pushKeyUI.pausing = true;
+						m_pauseObjects.pausing = false;
+						m_pauseSystems.pausing = false;
+
 						m_pauseScreenUI.pausing = true;
+
+						//フリープレイ時オフ
+						if (m_modeState == ModeState.FREE_PLAY)
+						{
+							m_sizeCounterUI.pausing = true;
+							m_dirtyCounterUI.pausing = true;
+							m_washChainUI.pausing = true;
+							m_pauseSystems.pausing = true;
+						}
 						break;
 					case MainState.PLAY_RECORD:
+						m_sizeIconUI.pausing = false;
+						m_sizeCounterUI.pausing = false;
+						m_dirtyCounterUI.pausing = false;
+						m_washChainUI.pausing = false;
+						m_miniMapUI.pausing = false;
+
+						m_norticeRecoveryUI.pausing = false;
+						m_pushKeyUI.pausing = true;
+						
+						m_pauseObjects.pausing = false;
+						m_pauseSystems.pausing = false;
+						if (m_dirtys)
+						{
+							m_dirtys.pausing = true;
+						}
+
+						m_pauseScreenUI.pausing = true;
+
+						//フリープレイ時オフ
+						if (m_modeState == ModeState.FREE_PLAY)
+						{
+							m_sizeCounterUI.pausing = true;
+							m_dirtyCounterUI.pausing = true;
+							m_washChainUI.pausing = true;
+							m_pauseSystems.pausing = true;
+						}
 						break;
 					case MainState.CHECK_TRANSITION:
-						m_gamePlayUI.PushPose();
-						m_pauseObjects.PushPose();
-						m_checkTransitionMenuScreeenUI.pausing = true;
+						m_sizeIconUI.pausing = false;
+						m_sizeCounterUI.pausing = false;
+						m_dirtyCounterUI.pausing = false;
+						m_washChainUI.pausing = false;
+						m_miniMapUI.pausing = false;
+
+						m_norticeRecoveryUI.pausing = false;
+						m_pushKeyUI.pausing = true;
+						m_pauseObjects.pausing = false;
+						m_pauseSystems.pausing = false;
+						if (m_dirtys)
+						{
+							m_dirtys.pausing = true;
+						}
+
+						m_pauseScreenUI.pausing = true;
+
+						//フリープレイ時オフ
+						if (m_modeState == ModeState.FREE_PLAY)
+						{
+							m_sizeCounterUI.pausing = true;
+							m_dirtyCounterUI.pausing = true;
+							m_washChainUI.pausing = true;
+							m_pauseSystems.pausing = true;
+						}
 						break;
 					case MainState.END:
+						
 						break;
 					default:
 						break;
 
+				}
+
+				if (m_modeState == ModeState.FREE_PLAY)
+				{
+					m_pauseSystems.pausing = true;
 				}
 				//  pauseObject.pausing = false;
 				break;
@@ -478,13 +658,41 @@ public class MainSceneStateHolder : MonoBehaviour
 				switch (m_beforeMainStete)
 				{
 					case MainState.START:
-						m_gamePlayUI.pausing = true;
+						m_sizeIconUI.pausing = true;
+						m_sizeCounterUI.pausing = true;
+						m_dirtyCounterUI.pausing = true;
+						m_washChainUI.pausing = true;
+						m_miniMapUI.pausing = true;
+
+						m_norticeRecoveryUI.pausing = true;
+						m_pushKeyUI.pausing = true;
+						
 						m_pauseObjects.pausing = true;
+						m_pauseSystems.pausing = true;
+						if (m_dirtys)
+						{
+							m_dirtys.pausing = true;
+						} 
+
 						m_pauseScreenUI.pausing = false;
 						break;
 					case MainState.PLAY:
-						m_gamePlayUI.pausing = true;
+						m_sizeIconUI.pausing = true;
+						m_sizeCounterUI.pausing = true;
+						m_dirtyCounterUI.pausing = true;
+						m_washChainUI.pausing = true;
+						m_miniMapUI.pausing = true;
+
+						m_norticeRecoveryUI.pausing = true;
+						m_pushKeyUI.pausing = true;
+
 						m_pauseObjects.pausing = true;
+						m_pauseSystems.pausing = true;
+						if (m_dirtys)
+						{
+							m_dirtys.pausing = true;
+						}
+
 						m_pauseScreenUI.pausing = false;
 						break;
 					case MainState.PLAY_RECORD:
@@ -499,10 +707,16 @@ public class MainSceneStateHolder : MonoBehaviour
 				break;
 			case MainState.CHECK_TRANSITION:
 				// 前状態がスタートもしくはプレイ（＝フリーモード）
-				if (m_beforeMainStete == MainState.START || m_beforeMainStete == MainState.PLAY)
+				if (m_modeState == ModeState.FREE_PLAY)
 				{
-					
-					m_gamePlayUI.pausing = true;
+					m_sizeIconUI.pausing = true;
+					m_sizeCounterUI.pausing = true;
+					m_dirtyCounterUI.pausing = true;
+					m_washChainUI.pausing = true;
+					m_miniMapUI.pausing = true;
+
+					m_norticeRecoveryUI.pausing = true;
+					m_pushKeyUI.pausing = true;
 					m_pauseObjects.pausing = true;
 				}
 				m_checkTransitionMenuScreeenUI.pausing = false;
@@ -513,6 +727,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				m_playRecordAsPauseObject.PushPose();
 				break;
 			case MainState.END:
+				m_endUI.pausing = false;
 				break;
 			default:
 				break;
@@ -535,13 +750,15 @@ public class MainSceneStateHolder : MonoBehaviour
 				break;
 			case MainState.PAUSE:
 				//子の状態管理すんのめんどい
+				
+
 				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
-					m_selectIconInPause = (SelectMainPauseScene)((int)(++m_selectIconInPause)%3);
+					m_selectIconInPause = (SelectMainPauseScene)((int)(m_selectIconInPause + 1)%3);
 				}
 				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
-					m_selectIconInPause = (SelectMainPauseScene)((int)(--m_selectIconInPause ) % 3);
+					m_selectIconInPause = (SelectMainPauseScene)((int)(m_selectIconInPause-1 ) % 3);
 				}
 				break;
 			case MainState.CHECK_TRANSITION:

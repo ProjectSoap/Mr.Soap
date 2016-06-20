@@ -19,7 +19,7 @@ public class SizeIcon : MonoBehaviour {
 	void Update ()
     {
         float size = player.size;
-        if (60.0f <= size && size <= 100.0f)
+        if (60.0f <= size )
         {
             switcher.SetNumber(0);
             iconOverFrame.color = new UnityEngine.Color(0.5f, 0.5f, 1.0f);

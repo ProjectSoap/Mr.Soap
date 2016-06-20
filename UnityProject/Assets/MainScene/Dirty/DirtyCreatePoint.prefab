@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appearancePoints:
   - {fileID: 0}
+  m_probabilityPar10Seconds: 640000000a000000140000001e0000002800000064000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -114,6 +115,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
       value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_probabilityPar10Seconds.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_probabilityPar10Seconds.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_probabilityPar10Seconds.Array.data[2]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_probabilityPar10Seconds.Array.data[3]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_probabilityPar10Seconds.Array.data[4]
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_probabilityPar10Seconds.Array.data[5]
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

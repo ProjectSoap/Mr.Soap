@@ -148,11 +148,6 @@ public class DirtySystem : MonoBehaviour
     [SerializeField]
     int destroyDirtyCount1;
 
-    /**
-     * <summary>The wash chain.</summary>
-     */
-
-    WashChain washChain;
 
     /**
      * <summary>Gets or sets the destroy dirty count 1.</summary>
@@ -318,7 +313,6 @@ public class DirtySystem : MonoBehaviour
     void Start ()
     {
 
-        washChain = GameObject.Find("WashChain").GetComponent<WashChain>();
         isRunning = true;
         // プレイヤーの取得
         if (player == null)
@@ -653,12 +647,12 @@ public class DirtySystem : MonoBehaviour
 
     public void NoticeDestroyToSystem(DirtyCreater destroyedParent)
     {
-        washChain.GetWash();
         switch (destroyedParent.AffiliationArea)
         {
             case 1:
 
                 DestroyDirtyCount1++;
+				ActionRecordManager.sActionRecord.C1WashCount = destroyDirtyCount1;
                 if (10000 < DestroyDirtyCount1)
                 {
                     DestroyDirtyCount1 = 9999;
@@ -677,7 +671,8 @@ public class DirtySystem : MonoBehaviour
             case 2:
 
                 DestroyDirtyCount2++;
-                if (10000 < DestroyDirtyCount2)
+				ActionRecordManager.sActionRecord.C2WashCount = destroyDirtyCount2;
+				if (10000 < DestroyDirtyCount2)
                 {
                     DestroyDirtyCount2 = 9999;
                 }
@@ -693,7 +688,8 @@ public class DirtySystem : MonoBehaviour
             case 3:
 
                 DestroyDirtyCount3++;
-                if (10000 < DestroyDirtyCount3)
+				ActionRecordManager.sActionRecord.C3WashCount = destroyDirtyCount3;
+				if (10000 < DestroyDirtyCount3)
                 {
                     DestroyDirtyCount3 = 9999;
                 }
@@ -709,7 +705,8 @@ public class DirtySystem : MonoBehaviour
             case 4:
 
                 DestroyDirtyCount4++;
-                if (10000 < DestroyDirtyCount4)
+				ActionRecordManager.sActionRecord.C4WashCount = destroyDirtyCount4;
+				if (10000 < DestroyDirtyCount4)
                 {
                     DestroyDirtyCount4 = 9999;
                 }
@@ -724,5 +721,10 @@ public class DirtySystem : MonoBehaviour
                 break;
         }
 
-    }
+		if (destroyedParent.IsAdhereCar)
+		{
+			ActionRecordManager.sActionRecord.WashCarCount++;
+		}
+
+	}
 }
