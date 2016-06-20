@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LIVE_TIME: 2.5
-  MoveHeight: 5
+  MoveHeight: 100
   MoveWidth: 5
 --- !u!135 &13562970
 SphereCollider:
@@ -5651,7 +5651,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveHeight
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveWidth

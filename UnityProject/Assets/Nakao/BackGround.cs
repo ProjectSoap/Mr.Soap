@@ -8,13 +8,14 @@ public class BackGround : MonoBehaviour {
     Image back;
 
     float v;
-    Color color;
+    public Color color;
+    public Color gura_color;
     // スクロールするスピード
     public float speed = 0.1f;
 
     void Start()
     {
-        color = back.color;
+        //color = back.color;
     }
 
     void Update ()
@@ -24,10 +25,9 @@ public class BackGround : MonoBehaviour {
 
         // Yの値がずれていくオフセットを作成
         Vector2 offset = new Vector2 (y, y);
-        color.b = 0.6f + Mathf.PingPong(Time.time * speed, 0.4f);
 
         // マテリアルにオフセットを設定する
         GetComponent<Renderer>().sharedMaterial.SetTextureOffset ("_MainTex", offset);
-        back.color = color;
+        back.color = Color.Lerp(color, gura_color, Mathf.PingPong(Time.time * speed, 1.0f));
     }
 }

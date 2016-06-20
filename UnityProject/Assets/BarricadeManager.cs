@@ -8,7 +8,7 @@ public class BarricadeManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		if (PlayerPrefs.GetInt("C1WashCount", 0) >= 30)
+		if (PlayerPrefs.GetInt("C1WashCount", 0) >= 100)
 		{
 			for (int i= 0;i < m_barricade.Length;i++)
 			{
@@ -18,7 +18,8 @@ public class BarricadeManager : MonoBehaviour {
 				}
 			}
 		}
-		if (PlayerPrefs.GetInt("C2WashCount", 0) > 50)
+
+		if (PlayerPrefs.GetInt("C2WashCount", 0) >= 150)
 		{
 			for (int i = 0; i < m_barricade.Length; i++)
 			{
@@ -28,7 +29,8 @@ public class BarricadeManager : MonoBehaviour {
 				}
 			}
 		}
-		if (PlayerPrefs.GetInt("C2WashCount", 0) > 70)
+
+		if (PlayerPrefs.GetInt("C2WashCount", 0) >= 150)
 		{
 			for (int i = 0; i < m_barricade.Length; i++)
 			{
@@ -38,7 +40,6 @@ public class BarricadeManager : MonoBehaviour {
 				}
 			}
 		}
-
 	}
 
 	// Update is called once per frame
