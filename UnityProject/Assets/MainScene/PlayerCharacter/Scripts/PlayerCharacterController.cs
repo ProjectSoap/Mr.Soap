@@ -832,7 +832,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
-            Damage();
+            if(m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
+                Damage();
         }
     }
 
