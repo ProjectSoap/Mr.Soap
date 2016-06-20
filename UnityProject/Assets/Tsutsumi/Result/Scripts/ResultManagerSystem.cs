@@ -16,6 +16,7 @@ public class ResultManagerSystem : MonoBehaviour {
     public ResultCanvasKaihouCon canvasKaihou;  //実績を取得した場合有効に
     public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
     public ResultSekkenControll sekkenControll;             //せっけんくんの制御
+    public SelectingCharactor selectingChara;               //もう一度遊ぶ押したときにメインへ引き継ぐ
 
     //スコア関連を保持する
     private ActionRecordManager.SActionRecord gameScore;    //今回のスコアなどのデータ
@@ -76,13 +77,16 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //取得ポイントを元にせっけんキャラクターとアニメーション切り替え
         ResultSekkenControll.ESekkenNo sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun;
+        selectingChara.SetCharNo((int)SelectingCharactorNo.SOAP);
         if (gameScore.isSekkenChanPlay == true)
         {
             sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
+            selectingChara.SetCharNo((int)SelectingCharactorNo.SOAPTYAN);
         }
         if (gameScore.isSekkenKun0Play == true)
         {
             sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun0;
+            selectingChara.SetCharNo((int)SelectingCharactorNo.SOAP0);
         }
         //sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
         sekkenControll.SelectSekkenAndAnimation(sekkenNo, rankingPoint[10]);
@@ -236,6 +240,7 @@ public class ResultManagerSystem : MonoBehaviour {
                     {
                         BGMManager.Instance.PlaySE("Cursor_Decision");
                     }
+                    selectingChara.loaded = true;   //引き継がない
                     Fade.ChangeScene("Menu");
                     inputEndFlg = true;
                 }
