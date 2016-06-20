@@ -36,7 +36,7 @@ public class GameStartMgr : MonoBehaviour {
             yield return 0;
         }
         // プレハブを取得
-        BGMManager = (GameObject)Instantiate(resReq.asset);
+        BGMManager = Instantiate(resReq.asset) as GameObject;
        // Instantiate(BGMManager);
         //BGMManager = new GameObject();
      //   bgmmanager = BGMManager.AddComponent<BGMManager>();
