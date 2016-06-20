@@ -300,7 +300,7 @@ public class ResultManagerSystem : MonoBehaviour {
         saveDataOld.C3WashCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C3WashCount);
         saveDataOld.C4WashCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C4WashCount);
 
-        saveDataOld.WashChainCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C1WashCount);
+        saveDataOld.WashChainCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.WashChainCount);
         saveDataOld.ChachSopeCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.ChachSopeCount);
         saveDataOld.CrashCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.CrashCount);
         saveDataOld.WashCarCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.WashCarCount);
