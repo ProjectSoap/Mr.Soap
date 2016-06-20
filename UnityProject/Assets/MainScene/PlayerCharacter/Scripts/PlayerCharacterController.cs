@@ -905,6 +905,9 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void WashChain()
     {
+        if (m_driveState == DriveState.End)
+            return;
+
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 
@@ -920,6 +923,9 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void Heal()
     {
+        if (m_driveState == DriveState.End)
+            return;
+
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 
