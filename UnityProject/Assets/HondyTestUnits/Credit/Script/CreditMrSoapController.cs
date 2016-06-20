@@ -33,7 +33,11 @@ public class CreditMrSoapController : MonoBehaviour
             case CreditMrSoapState.STOP:
                 break;
             case CreditMrSoapState.MOVE:
+<<<<<<< HEAD
                 transform.position += transform.forward * -m_velocity;
+=======
+                transform.position += transform.forward * m_velocity;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                 break;
             default:
                 break;

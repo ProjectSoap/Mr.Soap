@@ -290,6 +290,21 @@ public class PlayerCharacterController : MonoBehaviour
         get { return m_weatherAddBubbleHeight; }
     }
 
+<<<<<<< HEAD
+=======
+    public Rigidbody rigidBody
+    {
+        get { return m_rigidbody; }
+        set { m_rigidbody = value; }
+    }
+
+    public float velocity
+    {
+        get { return m_velocity; }
+        set { m_velocity = value; }
+    }
+
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     void Awake()
     {
         gameObject.name = "PlayerCharacter";
@@ -490,6 +505,11 @@ public class PlayerCharacterController : MonoBehaviour
                 m_weatherAddMaxRotation     = .0f;
                 m_weatherAddRotationPower   = .0f;
                 m_weatherAddDriftStartTime  = .0f;
+<<<<<<< HEAD
+=======
+                m_weatherAddBubbleWidth     = .0f;
+                m_weatherAddBubbleHeight    = .0f;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                 break;
             case WeatherState.Wind:
                 m_weatherAddMaxVelocity     = .0f;
@@ -599,7 +619,12 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(m_isStayBuilding)
         {
+<<<<<<< HEAD
             m_rigidbody.AddForce(m_reflect * m_velocity);
+=======
+            m_rigidbody.AddForce(m_reflect * m_velocity, ForceMode.Force);
+            //m_rigidbody.velocity = m_reflect * m_velocity;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
 
         // 速度制限を掛ける
@@ -817,7 +842,12 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
+<<<<<<< HEAD
             Damage();
+=======
+            if(m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
+                Damage();
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
     }
 
@@ -889,6 +919,12 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void WashChain()
     {
+<<<<<<< HEAD
+=======
+        if (m_driveState == DriveState.End)
+            return;
+
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 
@@ -904,6 +940,12 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void Heal()
     {
+<<<<<<< HEAD
+=======
+        if (m_driveState == DriveState.End)
+            return;
+
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
 

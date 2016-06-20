@@ -9,8 +9,13 @@ public class PlayerCharacterCreator : MonoBehaviour
     [SerializeField, Tooltip("せっけんちゃん")]
     GameObject m_sekkenChan;
 
+<<<<<<< HEAD
     [SerializeField, Tooltip("せっけんキング")]
     GameObject m_sekkenKing;
+=======
+    [SerializeField, Tooltip("せっけんヒーロー")]
+    GameObject m_sekkenHero;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 
     void Awake()
     {
@@ -25,8 +30,13 @@ public class PlayerCharacterCreator : MonoBehaviour
             case SceneData.CharacterSelect.SekkenChan:
                 gameObject = Instantiate(m_sekkenChan, transform.position, transform.rotation) as GameObject;
                 break;
+<<<<<<< HEAD
             case SceneData.CharacterSelect.SekkenKing:
                 gameObject = Instantiate(m_sekkenKing, transform.position, transform.rotation) as GameObject;
+=======
+            case SceneData.CharacterSelect.SekkenHero:
+                gameObject = Instantiate(m_sekkenHero, transform.position, transform.rotation) as GameObject;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                 break;
             default:
                 break;

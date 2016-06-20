@@ -14,7 +14,11 @@ GameObject:
   - 54: {fileID: 5407940}
   - 114: {fileID: 11406910}
   - 114: {fileID: 11443098}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 15
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: DirtyWashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +35,11 @@ GameObject:
   - 4: {fileID: 452900}
   - 198: {fileID: 19876022}
   - 199: {fileID: 19919122}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 15
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_goalObject: {fileID: 0}
+<<<<<<< HEAD
   m_velocity: 3
   m_velocityMax: 12
   m_addVelocity: .0500000007
@@ -148,6 +157,16 @@ MonoBehaviour:
   m_waitTime: .100000001
   m_riseTime: .100000001
   m_riseVelocity: .100000001
+=======
+  m_velocity: 1
+  m_velocityMax: 18
+  m_addVelocity: .100000001
+  s: 0
+  add: .00999999978
+  m_waitTime: .100000001
+  m_riseTime: .0199999996
+  m_riseVelocity: .0199999996
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!135 &13528784
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1248,11 +1267,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_velocity
+<<<<<<< HEAD
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_addVelocity
       value: .0500000007
+=======
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_addVelocity
+      value: .100000001
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: add
@@ -1292,7 +1319,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_velocityMax
+<<<<<<< HEAD
       value: 12
+=======
+      value: 18
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
@@ -1304,7 +1335,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_riseTime
+<<<<<<< HEAD
       value: .100000001
+=======
+      value: .0199999996
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_waitTime
@@ -1312,7 +1347,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_riseVelocity
+<<<<<<< HEAD
       value: .100000001
+=======
+      value: .0199999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 15
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

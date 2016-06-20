@@ -18,8 +18,17 @@ public class WeatherSystem : MonoBehaviour {
     int minute;
     [SerializeField]
     Weather nowWeather;
+<<<<<<< HEAD
 
     PlayerCharacterController.WeatherState nowWeathers;
+=======
+	public Weather NowWeather
+	{
+		get { return nowWeather; }
+		set { nowWeather = value; }
+	}
+	PlayerCharacterController.WeatherState nowWeathers;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 
     bool[] weatherflg = new bool[3];
     short numWeather;
@@ -32,7 +41,11 @@ public class WeatherSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         numWeather = 3;
+<<<<<<< HEAD
         nowWeather = Weather.SUN;
+=======
+        NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         ActiveWeather();
         minute = 0;
@@ -82,7 +95,11 @@ public class WeatherSystem : MonoBehaviour {
         float par;
         if (numWeather == 0)
         {
+<<<<<<< HEAD
             nowWeather = Weather.SUN;
+=======
+            NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             nowWeathers = PlayerCharacterController.WeatherState.Sunny;
             GameObject we;
             we = GameObject.Find("PlayerCharacter");
@@ -103,7 +120,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -119,7 +140,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -139,7 +164,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -155,7 +184,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -175,7 +208,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -191,7 +228,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -211,7 +252,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -227,7 +272,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -245,7 +294,11 @@ public class WeatherSystem : MonoBehaviour {
                         }
                         else
                         {
+<<<<<<< HEAD
                             nowWeather = Weather.SUN;
+=======
+                            NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                             nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                             GameObject we;
                             we = GameObject.Find("PlayerCharacter");
@@ -264,7 +317,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -280,7 +337,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -296,7 +357,11 @@ public class WeatherSystem : MonoBehaviour {
                             }
                             else
                             {
+<<<<<<< HEAD
                                 nowWeather = Weather.SUN;
+=======
+                                NowWeather = Weather.SUN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                                 nowWeathers = PlayerCharacterController.WeatherState.Sunny;
                                 GameObject we;
                                 we = GameObject.Find("PlayerCharacter");
@@ -314,7 +379,11 @@ public class WeatherSystem : MonoBehaviour {
     void ActiveWeather()
     {
         weathers[1].GetComponent<FogGenerator>().End();
+<<<<<<< HEAD
         switch(nowWeather)
+=======
+        switch(NowWeather)
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         {
             case Weather.SUN:
                 {
@@ -377,7 +446,11 @@ public class WeatherSystem : MonoBehaviour {
                 {
                     if (weatherflg[0])
                     {
+<<<<<<< HEAD
                         nowWeather = Weather.RAIN;
+=======
+                        NowWeather = Weather.RAIN;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                         nowWeathers = PlayerCharacterController.WeatherState.Rain;
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
@@ -393,7 +466,11 @@ public class WeatherSystem : MonoBehaviour {
                 {
                     if (weatherflg[1])
                     {
+<<<<<<< HEAD
                         nowWeather = Weather.FOG;
+=======
+                        NowWeather = Weather.FOG;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                         nowWeathers = PlayerCharacterController.WeatherState.Fog;
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
@@ -411,11 +488,19 @@ public class WeatherSystem : MonoBehaviour {
                     {
                         if (Random.Range(0, 2) == 1)
                         {
+<<<<<<< HEAD
                             nowWeather = Weather.WINDRIGHT;
                         }
                         else
                         {
                             nowWeather = Weather.WINDLEFT;
+=======
+                            NowWeather = Weather.WINDRIGHT;
+                        }
+                        else
+                        {
+                            NowWeather = Weather.WINDLEFT;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                         }
                         return true;
                     }
@@ -432,6 +517,10 @@ public class WeatherSystem : MonoBehaviour {
     }
     public Weather GetWeater()
     {
+<<<<<<< HEAD
         return nowWeather;
+=======
+        return NowWeather;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     }
 }

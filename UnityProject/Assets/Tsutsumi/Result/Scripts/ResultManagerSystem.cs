@@ -16,6 +16,10 @@ public class ResultManagerSystem : MonoBehaviour {
     public ResultCanvasKaihouCon canvasKaihou;  //実績を取得した場合有効に
     public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
     public ResultSekkenControll sekkenControll;             //せっけんくんの制御
+<<<<<<< HEAD
+=======
+    public SelectingCharactor selectingChara;               //もう一度遊ぶ押したときにメインへ引き継ぐ
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 
     //スコア関連を保持する
     private ActionRecordManager.SActionRecord gameScore;    //今回のスコアなどのデータ
@@ -48,6 +52,12 @@ public class ResultManagerSystem : MonoBehaviour {
     private bool sceneMoveDisplayFlg;
     private bool sceneMenuFlg;
 
+<<<<<<< HEAD
+=======
+    //入力完了フラグ
+    private bool inputEndFlg;
+
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 	// Use this for initialization
 	void Start () {
         rank = 0;
@@ -55,6 +65,10 @@ public class ResultManagerSystem : MonoBehaviour {
         rankingDrawEndFlg = false;
         sceneMoveDisplayFlg = false;
         sceneMenuFlg = true;
+<<<<<<< HEAD
+=======
+        inputEndFlg = false;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 
         for (int i = 0; i < 30; ++i)
         {
@@ -72,13 +86,25 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //取得ポイントを元にせっけんキャラクターとアニメーション切り替え
         ResultSekkenControll.ESekkenNo sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun;
+<<<<<<< HEAD
         if (gameScore.isSekkenChanPlay == true)
         {
             sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
+=======
+        selectingChara.SetCharNo((int)SelectingCharactorNo.SOAP);
+        if (gameScore.isSekkenChanPlay == true)
+        {
+            sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
+            selectingChara.SetCharNo((int)SelectingCharactorNo.SOAPTYAN);
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
         if (gameScore.isSekkenKun0Play == true)
         {
             sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun0;
+<<<<<<< HEAD
+=======
+            selectingChara.SetCharNo((int)SelectingCharactorNo.SOAP0);
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
         //sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenchan;
         sekkenControll.SelectSekkenAndAnimation(sekkenNo, rankingPoint[10]);
@@ -126,7 +152,11 @@ public class ResultManagerSystem : MonoBehaviour {
 	void Update () {
 
         //まだポイント表示がおわっていなければ何もしない。
+<<<<<<< HEAD
         if (pointDrawEndFlg == false)
+=======
+        if (pointDrawEndFlg == false || inputEndFlg == true)
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         {
             return;
         }
@@ -190,10 +220,26 @@ public class ResultManagerSystem : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 sceneMenuFlg = true;
+<<<<<<< HEAD
+=======
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Move");
+                }
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 sceneMenuFlg = false;
+<<<<<<< HEAD
+=======
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Move");
+                }
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             }
             canvasSceneSelect.WakuSelect(sceneMenuFlg);
 
@@ -203,6 +249,14 @@ public class ResultManagerSystem : MonoBehaviour {
                 sceneMoveDisplayFlg = false;
                 sceneMenuFlg = true;
                 canvasSceneSelect.gameObject.SetActive(false);
+<<<<<<< HEAD
+=======
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Cancel");
+                }
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 
                 return;
             }
@@ -212,16 +266,39 @@ public class ResultManagerSystem : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
+<<<<<<< HEAD
                     Fade.ChangeScene("Menu");
+=======
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
+                    }
+                    selectingChara.loaded = true;   //引き継がない
+                    Fade.ChangeScene("Menu");
+                    inputEndFlg = true;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                 }
             }
             else
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
+<<<<<<< HEAD
                     //キャラクター情報を保持したまま今回の成績を削除
                     ActionRecordManager.sActionRecord.ResetCharaHozi();
                     Fade.ChangeScene("main");
+=======
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
+                    }
+                    //キャラクター情報を保持したまま今回の成績を削除
+                    ActionRecordManager.sActionRecord.ResetCharaHozi();
+                    Fade.ChangeScene("main");
+                    inputEndFlg = true;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                 }
             }
         }
@@ -233,6 +310,14 @@ public class ResultManagerSystem : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 sceneMoveDisplayFlg = true;
+<<<<<<< HEAD
+=======
+                //SE
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.PlaySE("Cursor_Decision");
+                }
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             }
         }
 	}
@@ -259,7 +344,11 @@ public class ResultManagerSystem : MonoBehaviour {
         saveDataOld.C3WashCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C3WashCount);
         saveDataOld.C4WashCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C4WashCount);
 
+<<<<<<< HEAD
         saveDataOld.WashChainCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.C1WashCount);
+=======
+        saveDataOld.WashChainCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.WashChainCount);
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         saveDataOld.ChachSopeCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.ChachSopeCount);
         saveDataOld.CrashCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.CrashCount);
         saveDataOld.WashCarCount = saveDataManager.LoadData(SaveDataManager.ESaveDataNo.WashCarCount);

@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Dirty
-  - Bubble
-  - DirtyPoint
-  - Building
-  - RecoverySoap
-  - DummyBubble
-  - RecoverySoapAppearancePoint
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -20,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Terrain
-  - Bubble
-  - Dirty
-  - Building
-  - DummyBubble
-  - Car
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

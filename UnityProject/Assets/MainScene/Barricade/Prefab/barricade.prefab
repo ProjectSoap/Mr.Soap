@@ -1,16 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &129324
+=======
+--- !u!1 &141768
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
   - 4: {fileID: 460250}
   - 33: {fileID: 3350014}
   - 23: {fileID: 2396828}
   - 65: {fileID: 6552476}
+=======
+  - 4: {fileID: 459262}
+  - 33: {fileID: 3305804}
+  - 23: {fileID: 2317780}
+  - 65: {fileID: 6532508}
+  - 114: {fileID: 11484324}
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Layer: 0
   m_Name: barricade
   m_TagString: Untagged
@@ -18,11 +30,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &460250
+=======
+--- !u!4 &459262
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 129324}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
   m_LocalPosition: {x: 150.369995, y: .48300001, z: 146.513}
@@ -31,20 +48,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2396828
+=======
+  m_GameObject: {fileID: 141768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 154.789993, y: .649999976, z: 312.369995}
+  m_LocalScale: {x: .00800000038, y: .00800000038, z: .00800000038}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!23 &2317780
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 129324}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+=======
+  m_GameObject: {fileID: 141768}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Materials:
   - {fileID: 2100000, guid: fd85c1de8f762d3448172e3f909dcac0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
+<<<<<<< HEAD
   m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
+=======
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
@@ -56,33 +95,74 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
 --- !u!33 &3350014
+=======
+--- !u!33 &3305804
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 129324}
   m_Mesh: {fileID: 4300000, guid: e8bd44185cbd4b74383b5c1e80738571, type: 3}
 --- !u!65 &6552476
+=======
+  m_GameObject: {fileID: 141768}
+  m_Mesh: {fileID: 4300000, guid: e8bd44185cbd4b74383b5c1e80738571, type: 3}
+--- !u!65 &6532508
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 129324}
+=======
+  m_GameObject: {fileID: 141768}
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0, y: 400, z: 550}
   m_Center: {x: -.015625, y: 100, z: -12.7001476}
+<<<<<<< HEAD
+=======
+--- !u!114 &11484324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaafef3a288ba5340975cccece91252d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_lockArea: 4
+  m_isUnlock: 0
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
+<<<<<<< HEAD
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129324}
+=======
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_lockArea
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 141768}
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_IsPrefabParent: 1

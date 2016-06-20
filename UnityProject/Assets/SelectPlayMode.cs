@@ -85,6 +85,10 @@ public class SelectPlayMode : MonoBehaviour
                         SelectNow--;
                     }
                     //                BGMManager.Instance.PlaySE("se_key_move");
+<<<<<<< HEAD
+=======
+                    BGMManager.Instance.PlaySE("Cursor_Move");
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                     controllerFlagU = true;
                     controllerFlagD = false;
                     controllerWait = 0;
@@ -96,7 +100,11 @@ public class SelectPlayMode : MonoBehaviour
                     {
                         SelectNow++;
                     }
+<<<<<<< HEAD
 
+=======
+                    BGMManager.Instance.PlaySE("Cursor_Move");
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                     controllerFlagU = false;
                     controllerFlagD = true;
                     controllerWait = 0;
@@ -237,7 +245,11 @@ public class SelectPlayMode : MonoBehaviour
             ToTrans = Button[i].GetComponent<Transform>().transform;
             Vector2 scale = new Vector2(10, 10);
             ButtonScale = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta + scale;
+<<<<<<< HEAD
             Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, rate);
+=======
+            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, 1.0f);
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
     }
 
@@ -246,7 +258,11 @@ public class SelectPlayMode : MonoBehaviour
     /// カラーの変更
     /// </summary>
     public Color SelectColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+<<<<<<< HEAD
     public Color NoneColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
+=======
+    public Color NoneColor;// = new Color(0.3f, 0.3f, 0.3f, 0.5f);
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     public float MoveColorTime = 0.8f;
     void ChangeMoveColor()
     {
@@ -255,7 +271,11 @@ public class SelectPlayMode : MonoBehaviour
         var diff = Time.timeSinceLevelLoad - startTime;
         var rate = diff / MoveColorTime;
         Color NowColor = Key[0].GetComponent<Image>().color;
+<<<<<<< HEAD
         Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
+=======
+        //Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         for (int i = 0; i < Button.Count; i++)
         {
             NowColor = Button[i].GetComponent<Image>().color;

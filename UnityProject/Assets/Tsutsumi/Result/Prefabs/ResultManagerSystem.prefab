@@ -41,9 +41,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveDataManager: {fileID: 0}
   checkRecord: {fileID: 0}
+<<<<<<< HEAD
   canvasKaihou: {fileID: 0}
   canvasSceneSelect: {fileID: 0}
   sekkenControll: {fileID: 0}
+=======
+  canvasRanking: {fileID: 0}
+  canvasKaihou: {fileID: 0}
+  canvasSceneSelect: {fileID: 0}
+  sekkenControll: {fileID: 0}
+  selectingChara: {fileID: 0}
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

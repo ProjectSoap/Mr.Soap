@@ -10,7 +10,11 @@ GameObject:
   - 4: {fileID: 440204}
   - 198: {fileID: 19818116}
   - 199: {fileID: 19993598}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 10
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: Particle System 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +34,11 @@ GameObject:
   - 135: {fileID: 13525204}
   - 54: {fileID: 5478608}
   - 114: {fileID: 11421960}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 10
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: BubbleDrift
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -47,7 +55,11 @@ GameObject:
   - 4: {fileID: 472328}
   - 198: {fileID: 19866552}
   - 199: {fileID: 19977762}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 10
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: Particle System 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +76,11 @@ GameObject:
   - 4: {fileID: 496960}
   - 198: {fileID: 19851464}
   - 199: {fileID: 19979212}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 10
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: Particle System 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +97,11 @@ GameObject:
   - 4: {fileID: 426252}
   - 198: {fileID: 19808358}
   - 199: {fileID: 19976106}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  m_Layer: 10
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: Particle System 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +199,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LIVE_TIME: 2.5
+<<<<<<< HEAD
   MoveHeight: 6
+=======
+  MoveHeight: 5
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   MoveWidth: 5
 --- !u!135 &13525204
 SphereCollider:
@@ -191,7 +215,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Radius: 1
+=======
+  m_Radius: 1.5
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19808358
 ParticleSystem:
@@ -5651,7 +5679,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveHeight
+<<<<<<< HEAD
       value: 6
+=======
+      value: 5
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveWidth
@@ -5662,8 +5694,13 @@ Prefab:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+<<<<<<< HEAD
       propertyPath: m_Radius
       value: 1
+=======
+      propertyPath: m_Layer
+      value: 10
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

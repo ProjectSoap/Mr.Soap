@@ -124,14 +124,22 @@ public class AsobikataPicMove : MonoBehaviour {
         {
             //選択されているので中央へ
             nextParam.PosX = 0;
+<<<<<<< HEAD
             nextParam.PosY = 0;
+=======
+            nextParam.PosY = 1;
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
         else
         {
             //選択されていないので位置計算
             nextParam.PosX = ParamObject.NotSelectDistanceX;
             nextParam.PosY = ParamObject.NotSelectDistanceY;
+<<<<<<< HEAD
 
+=======
+            /*
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             //選択を過ぎたのかまだ来てないのか
             if(noDistance < 0)
             {
@@ -147,6 +155,28 @@ public class AsobikataPicMove : MonoBehaviour {
             //選択番号との距離で追加計算
             nextParam.PosX += ParamObject.MoveParamX * noDistance;
             nextParam.PosY += ParamObject.MoveParamY * noDistance;
+<<<<<<< HEAD
+=======
+            */
+            //選択を過ぎたのかまだ来てないのか
+            if (noDistance < 0)
+            {
+                noDistance++;
+                nextParam.PosX *= -1.0f;
+                nextParam.PosY *= -1.0f;
+                //選択番号との距離で追加計算
+                nextParam.PosX += ParamObject.MoveParamX * noDistance;
+                nextParam.PosY += ParamObject.MoveParamY * noDistance;
+            }
+            else
+            {
+                noDistance--;
+                nextParam.PosY *= -1.0f;
+                //選択番号との距離で追加計算
+                nextParam.PosX += ParamObject.MoveParamX * noDistance;
+                nextParam.PosY -= ParamObject.MoveParamY * noDistance;
+            }
+>>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             
         }
     }
