@@ -18,7 +18,7 @@ public class AsobikataSceneManager : MonoBehaviour {
     public GameObject leftArrow;
     public GameObject rightArrowActive;
     public GameObject leftArrowActive;
-
+    public AsobikataText asobikataTextObject;
 
     //現在選択中の写真
     private int selectPicNo = 0;
@@ -78,7 +78,8 @@ public class AsobikataSceneManager : MonoBehaviour {
                     {
                         PicObjList[i].StartMove(selectPicNo);
                     }
-
+                    //テキスト切り替え
+                    asobikataTextObject.TextSwitch(selectPicNo);
                     //SE再生
                     if (BGMManager.Instance != null)
                     {
@@ -97,7 +98,8 @@ public class AsobikataSceneManager : MonoBehaviour {
                     {
                         PicObjList[i].StartMove(selectPicNo);
                     }
-
+                    //テキスト切り替え
+                    asobikataTextObject.TextSwitch(selectPicNo);
                     //SE再生
                     if (BGMManager.Instance != null)
                     {
