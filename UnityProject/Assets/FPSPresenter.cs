@@ -24,7 +24,6 @@ public class FPSPresenter : MonoBehaviour
 
 	void OnPreRender ()
 	{
-		cpuEndTime = Time.realtimeSinceStartup;
 		gpuBeginTime = Time.realtimeSinceStartup;
 	}
 
@@ -45,7 +44,9 @@ public class FPSPresenter : MonoBehaviour
 	public void Update ()
 	{
         fps = 1.0f / Time.unscaledDeltaTime;
-        
+
+        cpuEndTime = Time.realtimeSinceStartup;
+
         cpuTime = cpuEndTime - cpuBeginTime;
         gpuTime = gpuEndTime - gpuBeginTime;
 
