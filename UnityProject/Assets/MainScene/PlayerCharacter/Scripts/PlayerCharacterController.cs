@@ -614,9 +614,10 @@ public class PlayerCharacterController : MonoBehaviour
             m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_stayBuildingMaxVelocity);
         }
 
-        if (Mathf.Abs(m_velocity) > .0f && !m_isStayBuilding)
+        if (Mathf.Abs(m_velocity) > .0f)
             m_rigidbody.AddRelativeForce((Vector3.forward * m_velocity));
 
+<<<<<<< HEAD
         if(m_isStayBuilding)
         {
 <<<<<<< HEAD
@@ -626,6 +627,13 @@ public class PlayerCharacterController : MonoBehaviour
             //m_rigidbody.velocity = m_reflect * m_velocity;
 >>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
         }
+=======
+        //if(m_isStayBuilding)
+        //{
+            //m_rigidbody.AddForce(m_reflect * m_velocity, ForceMode.Force);
+            //m_rigidbody.velocity = m_reflect * m_velocity;
+        //}
+>>>>>>> d7c5d8dabb48dbbdf6a18d93d219b72cf83292c4
 
         // 速度制限を掛ける
         m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_maxVelocity);
@@ -855,11 +863,11 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            Vector3 normal = collision.contacts[0].normal.normalized;
-            Vector3 forward = transform.forward;
+            //Vector3 normal = collision.contacts[0].normal.normalized;
+            //Vector3 forward = transform.forward;
 
-            m_reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
-            m_reflect.y = 0.0f;
+            //m_reflect = (forward - (Vector3.Dot(forward, normal) * normal)).normalized;
+            //m_reflect.y = 0.0f;
 
             //m_velocity = Mathf.Clamp(m_velocity, 0.0f, m_stayBuildingMaxVelocity);
 
