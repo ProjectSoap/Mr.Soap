@@ -10,7 +10,7 @@ public class AsobikataText : MonoBehaviour {
     private SpriteRenderer thisRender;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         thisRender = transform.GetComponent<SpriteRenderer>();
 	}
 	
