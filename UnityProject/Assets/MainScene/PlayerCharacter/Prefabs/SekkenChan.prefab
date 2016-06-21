@@ -2177,7 +2177,7 @@ Transform:
   m_GameObject: {fileID: 191184}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 453356}
   m_RootOrder: 9
@@ -2425,15 +2425,8 @@ MonoBehaviour:
   m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
   m_rainAddMaxVelocity: 1
   m_rainAddAcceleration: .200000003
-  m_windSideAngle: 0
-  m_windHeadAngle: 0
-  m_windHeadMaxVelocity: 0
-  m_windHeadAcceleration: 0
-  m_windTailMaxVelocity: 0
-  m_windTailAcceleration: 0
-  m_windSideAddRotationPower: 0
-  m_windSideAddMaxRotation: 0
-  m_windSideAddDriftStartTime: 0
+  m_windAddBubbleWidth: 0
+  m_windAddBubbleHeight: 0
   m_driftParticleEmitterRight: {fileID: 142662}
   m_driftParticleEmitterLeft: {fileID: 138200}
   m_moveBubbleEmissionVelocity: 5
@@ -2450,6 +2443,7 @@ MonoBehaviour:
   m_isStayBuilding: 0
   m_size: 100
   m_horizontal: 0
+  m_weatherState: 0
   v: {x: 0, y: 0, z: 0}
 --- !u!114 &11418952
 MonoBehaviour:
@@ -4064,7 +4058,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4294047869
+          rgba: 4294967295
         key1:
           serializedVersion: 2
           rgba: 4294967295
@@ -4094,8 +4088,8 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 578
-        atime1: 10409
+        atime0: 0
+        atime1: 65535
         atime2: 0
         atime3: 0
         atime4: 0
@@ -6132,7 +6126,7 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01dd02bf25f593a4f987e68e8219f0de, type: 2}
+  - {fileID: 2100000, guid: d2c425e9c36b16b47ab939a5c9bc04f6, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -6224,7 +6218,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e15b57eb96a2de546b533f411824fa27, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -6236,6 +6230,39 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e15b57eb96a2de546b533f411824fa27,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2c425e9c36b16b47ab939a5c9bc04f6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxGradient.key0.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxGradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxGradient.atime1
+      value: 65535
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
