@@ -2889,7 +2889,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 80
+      scalar: 40
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6081,7 +6081,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.scalar
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: SizeModule.enabled
