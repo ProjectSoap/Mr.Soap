@@ -7,8 +7,7 @@ public enum Weather
     SUN,
     RAIN,
     FOG,
-    WINDRIGHT,
-    WINDLEFT
+    WIND
 }
 
 
@@ -78,7 +77,7 @@ public class WeatherSystem : MonoBehaviour {
             ChangeWeather();
         }
 		transform.position = new Vector3( m_player.transform.position.x, 0, m_player.transform.position.z);
-
+        transform.rotation = m_player.transform.rotation;
 	}
 
     void ChangeWeather()
@@ -336,6 +335,7 @@ public class WeatherSystem : MonoBehaviour {
                         weathers[i].active = false;
                     }
                     weathers[0].active = true;
+                    ActionRecordManager.sActionRecord.isRain = true;
                     break;
                 }
             case Weather.FOG:
@@ -346,14 +346,16 @@ public class WeatherSystem : MonoBehaviour {
                     }
                     weathers[1].active =  true;
                     weathers[1].GetComponent<FogGenerator>().ChangeCreateMode();
+                    ActionRecordManager.sActionRecord.isFog = true;
                     break;
                 }
-            case Weather.WINDLEFT:
+            case Weather.WIND:
                 {
                     for (int i = 0; i < weathers.Count; i++)
                     {
                         weathers[i].active = false;
                     }
+                    ActionRecordManager.sActionRecord.isWind = true;
 
                     break;
                 }
@@ -413,14 +415,11 @@ public class WeatherSystem : MonoBehaviour {
                 {
                     if (weatherflg[2])
                     {
-                        if (Random.Range(0, 2) == 1)
-                        {
-                            NowWeather = Weather.WINDRIGHT;
-                        }
-                        else
-                        {
-                            NowWeather = Weather.WINDLEFT;
-                        }
+                        NowWeather = Weather.WIND;
+                        nowWeathers = PlayerCharacterController.WeatherState.Wind;
+                        GameObject we;
+                        we = GameObject.Find("PlayerCharacter");
+                        we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
                         return true;
                     }
                     else
