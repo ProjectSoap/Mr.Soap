@@ -364,7 +364,7 @@ public class Frame : MonoBehaviour {
 
     private Transform ToTrans;
     private Transform FromTrans;
-    public Vector3 ScalingCur = new Vector3(1.04f, 1.04f, 1.04f);
+    public Vector3 ScalingCur = new Vector3(1.02f, 1.02f, 1.02f);
     public float MoveCurTime = 1.0f;
 	private float startTime;
     void ChangeMoveCur()
@@ -399,9 +399,9 @@ public class Frame : MonoBehaviour {
         for (int i = 0; i < Button.Count - 1; i++)
         {
             ToTrans = Button[i].GetComponent<Transform>().transform;
-            Vector2 scale = new Vector2(10, 10);
+            Vector2 scale = new Vector2(0, 0);
             ButtonScale = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta + scale;
-            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, 1.0f);
+            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, rate);
         }
     }
 
@@ -410,7 +410,7 @@ public class Frame : MonoBehaviour {
     /// カラーの変更
     /// </summary>
     public Color SelectColor =  new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    public Color NoneColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
+    public Color NoneColor;// = new Color(0.3f, 0.3f, 0.3f, 0.5f);
     public float MoveColorTime = 0.8f;
     void ChangeMoveColor()
     {

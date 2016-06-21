@@ -22,6 +22,9 @@ public class CharSelMgr : MonoBehaviour {
     SelectingCharactor no;
 
     Charselect state;
+
+	[SerializeField]
+	SelectPlayMode m_playMode;
 	// Use this for initialization
 	void Start () {
 
@@ -74,7 +77,9 @@ public class CharSelMgr : MonoBehaviour {
                         BGMManager.Instance.PlaySE("Cursor_Decision");
                         Fade.ChangeScene("main");
                         no.SetCharNo(soap.GetCharNo());
-                        break;
+						no.PlayMode = (PlayModeState) m_playMode.SelectNow;
+
+						break;
                     }
 
                 default:

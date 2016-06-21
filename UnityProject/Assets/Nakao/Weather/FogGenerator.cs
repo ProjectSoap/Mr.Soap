@@ -11,7 +11,7 @@ public class FogGenerator : MonoBehaviour {
     float fognear = 2;
     [SerializeField]
     float fogfar = 15;
-
+    public float time; 
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,7 @@ public class FogGenerator : MonoBehaviour {
 	void Update () {
 	    if(create)
 		{
+            time += Time.deltaTime;
             /*
 			RenderSettings.fog = true;
 			RenderSettings.fogColor = fogcolor;
@@ -33,6 +34,7 @@ public class FogGenerator : MonoBehaviour {
 			RenderSettings.fogStartDistance = fognear;
 			RenderSettings.fogEndDistance = fogfar;
              * */
+            RenderSettings.fogEndDistance = Mathf.Lerp(1000,15,time);
 		}
         else
         {
@@ -45,7 +47,8 @@ public class FogGenerator : MonoBehaviour {
         create = !create;
         if (create)
         {
-			RenderSettings.fogEndDistance = fogfar;
+            time = 0.0f;
+			//RenderSettings.fogEndDistance = fogfar;
 		}
         else
         {
