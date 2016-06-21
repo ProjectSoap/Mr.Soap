@@ -8,12 +8,19 @@ public class DirtyObjectScript : MonoBehaviour
 	GameObject m_effect0;
 	[SerializeField]
 	GameObject m_effect1;
+	GameObject m_realityEffect;
 	[SerializeField]
     Material[] dirtyMaterials = new Material[8];
     DirtyApparancePosition myPoint;
     [SerializeField]
     GameObject dirtyIcon;
     bool isDestory = false;
+	bool m_isReality = false;
+	public bool Reality
+	{
+		get { return m_isReality; }
+		set { m_isReality = value; }
+	}
 	PlayerCharacterController m_player;
 	public PlayerCharacterController Player
 	{
@@ -42,7 +49,11 @@ public class DirtyObjectScript : MonoBehaviour
     {
         GameObject obj= Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z),dirtyIcon.transform.rotation) as GameObject;
         obj.transform.parent = transform;
-
+		if (m_isReality)
+		{
+			GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation) as GameObject;
+			particle.transform.parent = this.transform;
+		}
 	}
 
 

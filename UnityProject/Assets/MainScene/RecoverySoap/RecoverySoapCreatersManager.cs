@@ -10,13 +10,13 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
         set { isRunning = value; }
     }
     [SerializeField]
-    bool isUnlockArea1;
+    bool isUnlockArea1 = true;
     [SerializeField]
-    bool isUnlockArea2;
+    bool isUnlockArea2 = false;
     [SerializeField]
-    bool isUnlockArea3;
+    bool isUnlockArea3 = false;
     [SerializeField]
-    bool isUnlockArea4;
+    bool isUnlockArea4 = false;
 
     [SerializeField]
     float countSecond;
@@ -50,7 +50,21 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
         arrow = GameObject.Find("NorticeRecoveryDirection").GetComponent<NorticeDirectionRecaverySoap>();
         sprite = GameObject.Find("NorticeRecoverySoapSprite").GetComponent<NorticeUIOfAppearanceRecoverySoap>();
         player = GameObject.Find("PlayerCharacter");
-    }
+
+		CheckRecordCondition saveData = GameObject.Find("CheckRecordCondition").GetComponent<CheckRecordCondition>();
+		if (saveData.CheckRecordConditionClear(2))
+		{
+			isUnlockArea2 = true;
+		}
+		if (saveData.CheckRecordConditionClear(3))
+		{
+			isUnlockArea2 = true;
+		}
+		if (saveData.CheckRecordConditionClear(4))
+		{
+			isUnlockArea2 = true;
+		}
+	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -63,22 +77,65 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 		if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
 		{
 
-			uint difference = maxTimeForInstance - minTimeForInstance;
-			if (difference / ((float)maxTimeForInstance - countSecond) > Random.value)
+			float difference = maxTimeForInstance - minTimeForInstance;	// 最大と最小の差分
+			if ( ((float)maxTimeForInstance - countSecond) / (float)difference > Random.value)
 			{
+				countSecond = 0;    // カウントリセット
 				uint elemMax;
 				elemMax = (uint)RecoverySoapCreaters1.Length;
 				if (elemMax > 0)
 				{
-					uint randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+					uint randElem;
+					RecoverySoapCreater script;
 
-					RecoverySoapCreater script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
+					// 区画1
+					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+					 script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
 					if (script)
 					{
 						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
 						{
 							script.IsInstance = true;
-							countSecond = 0;    // カウントリセット
+							sprite.IsAppearance = true;
+						}
+
+					}
+
+					// 区画2
+					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+
+					script = RecoverySoapCreaters2[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
+							sprite.IsAppearance = true;
+						}
+
+					}
+					// 区画3
+					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+
+					 script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
+							sprite.IsAppearance = true;
+						}
+
+					}
+					// 区画4
+					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+
+					script = RecoverySoapCreaters4[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
 							sprite.IsAppearance = true;
 						}
 
@@ -127,8 +184,18 @@ void CheckDistanceFromPlayer()
             {
                 RecoverySoapCreater creater = RecoverySoapCreaters2[i].GetComponent<RecoverySoapCreater>();
                 creater.CheckDistance(player.transform.position);
+				if (creater.IsHaveRevoverySoap)
+				{
 
-            }
+					arrow.IsAppearance = true;
+					if (arrow.Near > Vector3.Distance(creater.transform.position, player.transform.position))
+					{
+						arrow.RecoverySoap = creater.RecoverySoap;
+						arrow.Near = Vector3.Distance(creater.transform.position, player.transform.position);
+					}
+				}
+
+			}
         }
 
         // 区画3のせっけん出現候補地とプレイヤーの距離を検証
@@ -138,8 +205,18 @@ void CheckDistanceFromPlayer()
             {
                 RecoverySoapCreater creater = RecoverySoapCreaters3[i].GetComponent<RecoverySoapCreater>();
                 creater.CheckDistance(player.transform.position);
+				if (creater.IsHaveRevoverySoap)
+				{
 
-            }
+					arrow.IsAppearance = true;
+					if (arrow.Near > Vector3.Distance(creater.transform.position, player.transform.position))
+					{
+						arrow.RecoverySoap = creater.RecoverySoap;
+						arrow.Near = Vector3.Distance(creater.transform.position, player.transform.position);
+					}
+				}
+
+			}
         }
 
         // 区画4のせっけん出現候補地とプレイヤーの距離を検証
@@ -149,8 +226,18 @@ void CheckDistanceFromPlayer()
             {
                 RecoverySoapCreater creater = RecoverySoapCreaters4[i].GetComponent<RecoverySoapCreater>();
                 creater.CheckDistance(player.transform.position);
+				if (creater.IsHaveRevoverySoap)
+				{
 
-            }
+					arrow.IsAppearance = true;
+					if (arrow.Near > Vector3.Distance(creater.transform.position, player.transform.position))
+					{
+						arrow.RecoverySoap = creater.RecoverySoap;
+						arrow.Near = Vector3.Distance(creater.transform.position, player.transform.position);
+					}
+				}
+
+			}
         }
     }
 }
