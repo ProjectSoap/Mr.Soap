@@ -8,13 +8,9 @@ public class MainScreenEndSprite : MonoBehaviour {
 	float m_addScale = 2f;
 	bool m_isAdd = true;
 	// Use this for initialization
-<<<<<<< HEAD
-	void Start () {
-=======
 	void Start ()
 	{
 		
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 	}
 	
 	// Update is called once per frame
@@ -28,10 +24,7 @@ public class MainScreenEndSprite : MonoBehaviour {
 			if (transform.localScale.x > 1.2)
 			{
 				m_isAdd = false;
-<<<<<<< HEAD
-=======
 				m_addScale = 1.0f;
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 			}
 		}
 		else

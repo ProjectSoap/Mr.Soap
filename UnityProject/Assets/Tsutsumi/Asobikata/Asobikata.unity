@@ -260,8 +260,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-<<<<<<< HEAD
-=======
 --- !u!1 &1133575692
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoopTime: 2
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!1 &1629118657
 GameObject:
   m_ObjectHideFlags: 0

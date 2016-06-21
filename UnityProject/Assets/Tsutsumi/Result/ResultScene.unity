@@ -755,8 +755,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .639999986
-<<<<<<< HEAD
-=======
 --- !u!1 &567660246
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +794,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!1 &590527054
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,8 +958,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1853899477}
   m_Script: {fileID: 11500000, guid: 86f2c7d28ca08394ba014657979b4d95, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1001 &808402419
 Prefab:
   m_ObjectHideFlags: 0
@@ -1011,7 +1006,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 808402419}
   m_Script: {fileID: 11500000, guid: 6b11b4b93581f454984094f1e23c050c, type: 3}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!114 &846577785 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11479868, guid: 1eea0627e5cc4164abe39065f5e013d4,
@@ -1355,13 +1349,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 101210, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-=======
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 409c7e5699597974ea5c8810afd25fe3, type: 2}
   m_IsPrefabParent: 0
@@ -1448,14 +1435,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 666540976}
-<<<<<<< HEAD
-    - target: {fileID: 11418088, guid: 2b6408a0b6078ee498a0fb1e592000c7, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9af38b7b534923841a0466f6e69a2d77,
-        type: 3}
-=======
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     - target: {fileID: 115558, guid: 2b6408a0b6078ee498a0fb1e592000c7, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -1733,8 +1712,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 103520, guid: 8ace28c49391c674ba592873fbace356, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -1743,7 +1720,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ace28c49391c674ba592873fbace356, type: 2}
   m_IsPrefabParent: 0
@@ -1795,13 +1771,10 @@ Prefab:
       value: 
       objectReference: {fileID: 846577785}
     - target: {fileID: 11430806, guid: a8d606ca1cadc604db5309637119eb2d, type: 2}
-<<<<<<< HEAD
-=======
       propertyPath: canvasRanking
       value: 
       objectReference: {fileID: 2130980758}
     - target: {fileID: 11430806, guid: a8d606ca1cadc604db5309637119eb2d, type: 2}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       propertyPath: canvasKaihou
       value: 
       objectReference: {fileID: 382834244}
@@ -1814,15 +1787,9 @@ Prefab:
       value: 
       objectReference: {fileID: 1297936091}
     - target: {fileID: 11430806, guid: a8d606ca1cadc604db5309637119eb2d, type: 2}
-<<<<<<< HEAD
-      propertyPath: canvasRanking
-      value: 
-      objectReference: {fileID: 2130980758}
-=======
       propertyPath: selectingChara
       value: 
       objectReference: {fileID: 808402420}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8d606ca1cadc604db5309637119eb2d, type: 2}
   m_IsPrefabParent: 0

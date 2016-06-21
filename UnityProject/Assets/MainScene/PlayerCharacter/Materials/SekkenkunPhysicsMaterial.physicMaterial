@@ -7,11 +7,7 @@ PhysicMaterial:
   m_PrefabInternal: {fileID: 0}
   m_Name: SekkenkunPhysicsMaterial
   dynamicFriction: 0
-<<<<<<< HEAD
-  staticFriction: 0
-=======
   staticFriction: .5
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   bounciness: 0
   frictionCombine: 0
   bounceCombine: 0

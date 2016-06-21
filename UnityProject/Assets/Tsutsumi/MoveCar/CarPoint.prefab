@@ -37,11 +37,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145738}
-<<<<<<< HEAD
-  m_Enabled: 1
-=======
   m_Enabled: 0
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -124,11 +120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-<<<<<<< HEAD
-      value: 1
-=======
       value: 0
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger

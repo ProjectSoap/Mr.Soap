@@ -16,10 +16,7 @@ public class Menu : MonoBehaviour {
         {
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
             {
-<<<<<<< HEAD
-=======
                 BGMManager.Instance.PlaySE("Cursor_Decision");
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
                 switch (menu.SelectNow)
                 {
                     case 0:
@@ -59,11 +56,7 @@ public class Menu : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape) && Fade.FadeEnd())
         {
-<<<<<<< HEAD
-
-=======
             BGMManager.Instance.PlaySE("Cursor_Cancel");
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
             Fade.ChangeScene("sekTitle");
         }
 	}

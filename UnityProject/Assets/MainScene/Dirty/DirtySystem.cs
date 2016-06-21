@@ -721,14 +721,10 @@ public class DirtySystem : MonoBehaviour
                 break;
         }
 
-<<<<<<< HEAD
-    }
-=======
 		if (destroyedParent.IsAdhereCar)
 		{
 			ActionRecordManager.sActionRecord.WashCarCount++;
 		}
 
 	}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 }

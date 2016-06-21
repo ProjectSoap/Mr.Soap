@@ -12,11 +12,7 @@ GameObject:
   - 23: {fileID: 2397404}
   - 135: {fileID: 13508522}
   - 114: {fileID: 11430770}
-<<<<<<< HEAD
-  m_Layer: 0
-=======
   m_Layer: 11
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Name: DirtyObject 1
   m_TagString: Dirty
   m_Icon: {fileID: 0}
@@ -130,13 +126,10 @@ Prefab:
       propertyPath: m_effect1
       value: 
       objectReference: {fileID: 141062, guid: 6a52b16c50bf7ec45849ab82ff063242, type: 2}
-<<<<<<< HEAD
-=======
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112820}

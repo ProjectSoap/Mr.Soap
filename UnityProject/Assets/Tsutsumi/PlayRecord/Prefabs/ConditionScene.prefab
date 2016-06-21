@@ -10,10 +10,7 @@ GameObject:
   - 224: {fileID: 22442590}
   - 222: {fileID: 22236654}
   - 114: {fileID: 11457922}
-<<<<<<< HEAD
-=======
   - 114: {fileID: 11489830}
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
   m_Layer: 5
   m_Name: Modoru
   m_TagString: Untagged
@@ -1205,8 +1202,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-<<<<<<< HEAD
-=======
 --- !u!114 &11489830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1219,7 +1214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoopTime: 2
->>>>>>> 5e03151d84bbdbae28a1986085c13fbe5f72fb80
 --- !u!124 &12401698
 Behaviour:
   m_ObjectHideFlags: 1
