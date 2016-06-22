@@ -89,8 +89,8 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 					RecoverySoapCreater script;
 
 					// 区画1
-					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
-					 script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
+					script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
 					if (script)
 					{
 						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
@@ -100,10 +100,15 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 						}
 
 					}
-
-					// 区画2
-					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
-
+				}
+				// 区画2		
+				elemMax = (uint)RecoverySoapCreaters2.Length;
+				if (elemMax > 0)
+				{
+					uint randElem;
+					RecoverySoapCreater script;
+					
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
 					script = RecoverySoapCreaters2[randElem].GetComponent<RecoverySoapCreater>();
 					if (script)
 					{
@@ -114,10 +119,16 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 						}
 
 					}
-					// 区画3
-					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+				}
+				// 区画3
+				elemMax = (uint)RecoverySoapCreaters3.Length;
+				if (elemMax > 0)
+				{
+					uint randElem;
+					RecoverySoapCreater script;
 
-					 script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
+					script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
 					if (script)
 					{
 						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
@@ -127,9 +138,15 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 						}
 
 					}
-					// 区画4
-					randElem = (uint)Random.Range(0.0f, (float)elemMax - 1);
+				}
+				// 区画4
+				elemMax = (uint)RecoverySoapCreaters4.Length;
+				if (elemMax > 0)
+				{
+					uint randElem;
+					RecoverySoapCreater script;
 
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
 					script = RecoverySoapCreaters4[randElem].GetComponent<RecoverySoapCreater>();
 					if (script)
 					{
@@ -140,8 +157,8 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 						}
 
 					}
-
 				}
+
 			}
 		}
 		if (maxTimeForInstance < countSecond)
