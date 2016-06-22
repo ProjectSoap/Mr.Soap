@@ -36,7 +36,7 @@ public class SelectingCharactor : MonoBehaviour {
 	void Update () {
 	    if(loaded)
         {
-         //   Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
 	}
 
