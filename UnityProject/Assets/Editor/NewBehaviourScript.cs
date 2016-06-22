@@ -99,7 +99,7 @@ public class Test : Editor
         foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
         {
             // シーン上に存在するオブジェクトならば処理.
-            if (obj.activeInHierarchy && obj.tag == "Building")
+            if (obj != null && obj.activeInHierarchy && obj.layer == LayerMask.NameToLayer( "Building"))
             {
                 // オブジェクト生成
    
@@ -194,9 +194,9 @@ public class Test : Editor
         foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
         {
             // シーン上に存在するオブジェクトならば処理.
-            if (obj.activeInHierarchy && obj.tag == "Building")
+            if ( obj != null && obj.layer == LayerMask.NameToLayer("Building"))
             {
-                // オブジェクト生成
+                // オブジェクト検索
 
                 if (obj.transform.FindChild("MiniMapQuad") != null)
                 {
