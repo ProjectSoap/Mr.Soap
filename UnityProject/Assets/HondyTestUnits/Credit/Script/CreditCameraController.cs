@@ -19,7 +19,7 @@ public class CreditCameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += new Vector3(0, 0, CamraVelocity);
+		transform.position += new Vector3(0, 0, CamraVelocity * Time.deltaTime);
         if (m_camraVelocity == 0.0f)
         {
             stopTime += Time.deltaTime;

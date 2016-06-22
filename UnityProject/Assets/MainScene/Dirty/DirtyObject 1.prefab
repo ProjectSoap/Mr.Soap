@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_effect0: {fileID: 101830, guid: 5ec10e8acaf7daf4d8ce14ae07b3abfe, type: 2}
   m_effect1: {fileID: 141062, guid: 6a52b16c50bf7ec45849ab82ff063242, type: 2}
+  m_realityEffect: {fileID: 122666, guid: a37d7a52ed4753147a1639f0ff8eb398, type: 2}
   dirtyMaterials:
   - {fileID: 2100000, guid: 7397da03a9cc52d4c91f220dd386ce90, type: 2}
   - {fileID: 2100000, guid: 91db8ff475d66ac43a6a42e59a5bede6, type: 2}
@@ -130,6 +131,10 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_realityEffect
+      value: 
+      objectReference: {fileID: 122666, guid: a37d7a52ed4753147a1639f0ff8eb398, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112820}

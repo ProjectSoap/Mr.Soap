@@ -10,9 +10,7 @@ GameObject:
   - 4: {fileID: 495678}
   - 33: {fileID: 3341886}
   - 135: {fileID: 13528784}
-  - 23: {fileID: 2300306}
   - 54: {fileID: 5407940}
-  - 114: {fileID: 11406910}
   - 114: {fileID: 11443098}
   m_Layer: 15
   m_Name: DirtyWashEffect
@@ -63,32 +61,6 @@ Transform:
   - {fileID: 452900}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2300306
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101830}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!33 &3341886
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -111,23 +83,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11406910
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101830}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70b4f408d0dc7d459576214d5cd6494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_goalObject: {fileID: 0}
-  m_velocity: 10
-  m_velocityMax: 8
-  m_addVelocity: .00499999989
-  s: 0
-  add: .0799999982
 --- !u!114 &11443098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,7 +132,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -192,7 +147,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .5
+          value: .600000024
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1317,6 +1272,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startLifetime.minCurve.m_Curve.Array.data[0].value
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startLifetime.maxCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
