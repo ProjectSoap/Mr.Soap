@@ -50,7 +50,7 @@ public class PlayRecordSystem : MonoBehaviour {
         int noX = selectLecordNo % 10;
         int noY = selectLecordNo / 10;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Fade.FadeEnd())
         {
             noX++;
             if (noX >= 10)
@@ -60,7 +60,7 @@ public class PlayRecordSystem : MonoBehaviour {
             selectLecordNo = noY * 10 + noX;
             ChangeRecord(SelectPointer.EMoveMode.NORMAL);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Fade.FadeEnd())
         {
             noX--;
             if (noX < 0)
@@ -70,7 +70,7 @@ public class PlayRecordSystem : MonoBehaviour {
             selectLecordNo = noY * 10 + noX;
             ChangeRecord(SelectPointer.EMoveMode.NORMAL);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && Fade.FadeEnd())
         {
             noY--;
             if (noY < 0)
@@ -80,7 +80,7 @@ public class PlayRecordSystem : MonoBehaviour {
             selectLecordNo = noY * 10 + noX;
             ChangeRecord(SelectPointer.EMoveMode.NORMAL);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && Fade.FadeEnd())
         {
             noY++;
             if (noY >= recordListNum / 10)

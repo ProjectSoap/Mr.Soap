@@ -72,7 +72,7 @@ public class AsobikataSceneManager : MonoBehaviour {
             arrowActiveSwitch = 0;
 
             //左右入力を確認
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) && Fade.FadeEnd())
             {
                 if (selectPicNo < PicObjList.Count-1)
                 {
@@ -95,7 +95,7 @@ public class AsobikataSceneManager : MonoBehaviour {
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && Fade.FadeEnd())
             {
                 if (selectPicNo > 0)
                 {
@@ -120,7 +120,7 @@ public class AsobikataSceneManager : MonoBehaviour {
             }
 
             //戻るボタン
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && Fade.FadeEnd())
             {
                 //SE再生
                 if (BGMManager.Instance != null)
