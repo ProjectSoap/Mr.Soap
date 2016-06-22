@@ -20,6 +20,7 @@ public class FogGenerator : MonoBehaviour {
         RenderSettings.fogStartDistance = fognear;
         RenderSettings.fogEndDistance = fogfar;
         RenderSettings.fog = true;
+        create = false;
 	}
 	
 	// Update is called once per frame

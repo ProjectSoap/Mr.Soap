@@ -329,6 +329,7 @@ public class DirtySystem : MonoBehaviour
 			m_commonDirtyCreatersOfArea1[i].AffiliationArea = 1;
 			m_commonDirtyCreatersOfArea1[i].Player = player;
 
+
 		}
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
@@ -454,6 +455,7 @@ public class DirtySystem : MonoBehaviour
 			RealityPoint1.IsReality = true;
 			RealityPoint1.AffiliationArea = 1;
 			RealityPoint1.Player = player;
+			RealityPoint1.RealitySettting();
 
 		}
 
@@ -464,6 +466,7 @@ public class DirtySystem : MonoBehaviour
 			RealityPoint2.IsReality = true;
 			RealityPoint2.AffiliationArea = 2;
 			RealityPoint2.Player = player;
+			RealityPoint2.RealitySettting();
 		}
         if (RealityPoint3)
         {
@@ -471,6 +474,7 @@ public class DirtySystem : MonoBehaviour
             RealityPoint3.IsReality = true;
 			RealityPoint3.AffiliationArea = 3;
 			RealityPoint3.Player = player;
+			RealityPoint3.RealitySettting();
 		}
         if (RealityPoint4)
         {
@@ -479,6 +483,7 @@ public class DirtySystem : MonoBehaviour
             RealityPoint4.IsReality = true;
 			RealityPoint4.AffiliationArea = 4;
 			RealityPoint4.Player = player;
+			RealityPoint4.RealitySettting();
 		}
 
     }
@@ -508,108 +513,108 @@ public class DirtySystem : MonoBehaviour
 
 		for (int i = 0; i < m_commonDirtyCreatersOfArea1.Length; i++)
 		{
-			DirtyCreater creater = m_commonDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_commonDirtyCreatersOfArea1[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
 		{
-			DirtyCreater creater = m_commonDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_commonDirtyCreatersOfArea2[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
 		{
-			DirtyCreater creater = m_commonDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_commonDirtyCreatersOfArea3[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 		for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
 		{
-			DirtyCreater creater = m_commonDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_commonDirtyCreatersOfArea4[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 		// 着地
 		for (int i = 0; i < m_landingDirtyCreatersOfArea1.Length; i++)
 		{
-			DirtyCreater creater = m_landingDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_landingDirtyCreatersOfArea1[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea2.Length; i++)
 		{
-			DirtyCreater creater = m_landingDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_landingDirtyCreatersOfArea2[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea3.Length; i++)
 		{
-			DirtyCreater creater = m_landingDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_landingDirtyCreatersOfArea3[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea4.Length; i++)
 		{
-			DirtyCreater creater = m_landingDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_landingDirtyCreatersOfArea4[i];
 			creater.CheckDistance(player.transform.position);
 		}
 		// 壁
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea1.Length; i++)
 		{
-			DirtyCreater creater = m_wallDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_wallDirtyCreatersOfArea1[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea2.Length; i++)
 		{
-			DirtyCreater creater = m_wallDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_wallDirtyCreatersOfArea2[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea3.Length; i++)
 		{
-			DirtyCreater creater = m_wallDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_wallDirtyCreatersOfArea3[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea4.Length; i++)
 		{
-			DirtyCreater creater = m_wallDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_wallDirtyCreatersOfArea4[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 		// 車
 		for (int i = 0; i < m_carDirtyCreatersOfArea1.Length; i++)
 		{
-			DirtyCreater creater = m_carDirtyCreatersOfArea1[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_carDirtyCreatersOfArea1[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea2.Length; i++)
 		{
-			DirtyCreater creater = m_carDirtyCreatersOfArea2[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_carDirtyCreatersOfArea2[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea3.Length; i++)
 		{
-			DirtyCreater creater = m_carDirtyCreatersOfArea3[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_carDirtyCreatersOfArea3[i];
 			creater.CheckDistance(player.transform.position);
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea4.Length; i++)
 		{
-			DirtyCreater creater = m_carDirtyCreatersOfArea4[i].GetComponent<DirtyCreater>();
+			DirtyCreater creater = m_carDirtyCreatersOfArea4[i];
 			creater.CheckDistance(player.transform.position);
 		}
 

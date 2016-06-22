@@ -49,7 +49,7 @@ public class DirtyCreater : MonoBehaviour {
 		set { affiliationArea = value; }
 	}
 
-	PlayerCharacterController m_player;
+	public PlayerCharacterController m_player;
 	public PlayerCharacterController Player
 	{
 		get { return m_player; }
@@ -88,13 +88,22 @@ public class DirtyCreater : MonoBehaviour {
 		}
 #endif
 	}
-
-
-	void Awake()
-	{
-	}
 	
-
+	public void RealitySettting()
+	{
+		for (int i = 0; i < appearancePoints.Length; i++)
+		{
+			if (IsReality)
+			{
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
+			}
+			else
+			{
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
+			}
+		}
+	}
 	public void NoticeDestroy()
 	{
 		ParntDirtySystem.NoticeDestroyToSystem(this);
@@ -143,46 +152,7 @@ public class DirtyCreater : MonoBehaviour {
 		if (isCountPar10Seconds)
 		{
 			bool isCreate = false;
-			// 毎10秒経過回数で確率アップ
-			//switch (rangeOutCountPar10Seconds)
-			//{
-			//	case (char)1:
-			//		if (Random.Range(0, 100) <= 20)
-			//		{
-			//			isCreate = true;
-			//			deltaTime = 0;
-			//			rangeOutCountPar10Seconds = (char)0;
-			//		}
-			//		break;
-			//	case (char)2:
-			//		if (Random.Range(0, 100) <= 30)
-			//		{
-			//			isCreate = true;
-			//			deltaTime = 0;
-			//			rangeOutCountPar10Seconds = (char)0;
-			//		}
-			//		break;
-			//	case (char)3:
-			//		if (Random.Range(0, 100) <= 60)
-			//		{
-			//			isCreate = true;
-			//			deltaTime = 0;
-			//			rangeOutCountPar10Seconds = (char)0;
-			//		}
-			//		break;
-			//	case (char)4:
-			//		if (true)
-			//		{
-			//			isCreate = true;
-			//			deltaTime = 0;
-			//			rangeOutCountPar10Seconds = (char)0;
-			//		}
-			//		break;
-			//	default:
-			//		isCreate = false;
-			//		break;
-			//}
-
+			// 毎十秒毎のカウントで確率判定
 			if (rangeOutCountPar10Seconds < m_probabilityPar10Seconds.Length)
 			{
 

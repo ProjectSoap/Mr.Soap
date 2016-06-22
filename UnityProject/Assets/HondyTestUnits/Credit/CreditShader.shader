@@ -7,7 +7,6 @@
 	}
 		SubShader{
 			Pass{
-			Blend SrcAlpha OneMinusSrcAlpha
 
 				CGPROGRAM
 #pragma vertex vert
@@ -42,17 +41,15 @@
 
 			half4 frag(v2f i) : COLOR
 			{
-				half4 base = tex2D(_MainTex, i.uv1)*0.5;
+				half4 base = tex2D(_MainTex, i.uv1);
 				half4 mask = tex2D(_MaskTex, i.uv2);
-				if (mask.r <= _MaskAlpha) 
+				half alphaRef = (tex2D(_MaskTex, i.uv2).r -(1- _MaskAlpha *2)) * (base.w );			
+				clip(alphaRef -1 );
+				half4 color = (base * (_Color ));
+				if (color.w < 0.1)
 				{
-					base.w = -mask.r + 2 * _MaskAlpha;
+					color.w = 0;
 				}
-				else 
-				{
-					base.w = -mask.r + 2 * _MaskAlpha;
-				}
-				half4 color = saturate(base * (_Color * 2.0f));
 				return color;
 			}
 			ENDCG
