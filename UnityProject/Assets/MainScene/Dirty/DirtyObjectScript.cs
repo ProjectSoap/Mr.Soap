@@ -23,7 +23,7 @@ public class DirtyObjectScript : MonoBehaviour
 		get { return m_isReality; }
 		set { m_isReality = value; }
 	}
-	PlayerCharacterController m_player;
+	public PlayerCharacterController m_player;
 	public PlayerCharacterController Player
 	{
 		get { return m_player; }

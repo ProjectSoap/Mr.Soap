@@ -57,7 +57,7 @@ public class DirtyApparancePosition : MonoBehaviour {
 	float countStartTime;
 	bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
 	uint affiliationArea;
-	PlayerCharacterController m_player;
+	public PlayerCharacterController m_player;
 	public PlayerCharacterController Player
 	{
 		get { return m_player; }

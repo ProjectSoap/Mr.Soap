@@ -17,8 +17,8 @@ public class DirtyWashEffect : TrackingObject {
 	public float m_riseTime = 0.5f;
 	public float m_riseVelocity = 1;
 	/**
-     * <summary>The wash chain.</summary>
-     */
+	 * <summary>The wash chain.</summary>
+	 */
 
 	WashChain washChain;
 

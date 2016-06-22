@@ -49,7 +49,7 @@ public class DirtyCreater : MonoBehaviour {
 		set { affiliationArea = value; }
 	}
 
-	PlayerCharacterController m_player;
+	public PlayerCharacterController m_player;
 	public PlayerCharacterController Player
 	{
 		get { return m_player; }
@@ -66,14 +66,6 @@ public class DirtyCreater : MonoBehaviour {
 
 			appearancePoints[i].GetComponent<DirtyApparancePosition>().MyCreater = this;
 			appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
-			if (IsReality)
-			{
-				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
-			}
-			else
-			{
-				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
-			}
 		}
 		if (0 < appearancePoints.Length)
 		{
@@ -97,7 +89,21 @@ public class DirtyCreater : MonoBehaviour {
 #endif
 	}
 	
-
+	public void RealitySettting()
+	{
+		for (int i = 0; i < appearancePoints.Length; i++)
+		{
+			if (IsReality)
+			{
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
+			}
+			else
+			{
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
+			}
+		}
+	}
 	public void NoticeDestroy()
 	{
 		ParntDirtySystem.NoticeDestroyToSystem(this);
