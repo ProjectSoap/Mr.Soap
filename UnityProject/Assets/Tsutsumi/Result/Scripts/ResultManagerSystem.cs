@@ -195,7 +195,7 @@ public class ResultManagerSystem : MonoBehaviour {
             canvasSceneSelect.gameObject.SetActive(true);
 
             //画面を選択する
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && Fade.FadeEnd())
             {
                 sceneMenuFlg = true;
                 //SE
@@ -204,7 +204,7 @@ public class ResultManagerSystem : MonoBehaviour {
                     BGMManager.Instance.PlaySE("Cursor_Move");
                 }
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) && Fade.FadeEnd())
             {
                 sceneMenuFlg = false;
                 //SE

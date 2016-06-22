@@ -11,6 +11,9 @@ using System.Collections;
 
 public class SaveDataManager : MonoBehaviour {
 
+    [SerializeField]
+    private bool DEBUG_saveDataDeleteSwitch = false;
+
     private PlayerPrefs prefs;
 
     public enum ESaveDataNo{
@@ -129,6 +132,12 @@ public class SaveDataManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         int _playCount = LoadData(ESaveDataNo.PlayCount);
+
+        //データ消去フラグが有効なら
+        if (DEBUG_saveDataDeleteSwitch == true)
+        {
+            Reset();
+        }
 
         //初回起動ならランキングを初期化
         if (_playCount <= 0)

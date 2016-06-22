@@ -42,7 +42,7 @@ public class EndStateSystem : MonoBehaviour {
 
         //エフェクト位置調整
         Vector3 pos = Sekkenkun.transform.position;
-        pos.y += 1.0f;
+        pos.y += 0.5f;
         obj.transform.position = pos;
         obj.transform.rotation = Sekkenkun.transform.rotation;
 
