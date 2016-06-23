@@ -31,7 +31,7 @@ public class BubbleDriftShooter : MonoBehaviour
             m_shotCount++;
 
             Debug.Log(transform.rotation.eulerAngles.ToString());
-            var obj = Instantiate(m_bubble, transform.parent.position, transform.parent.rotation) as GameObject;
+            var obj = Instantiate(m_bubble, transform.parent.position, transform.rotation) as GameObject;
             var bubbleBullet = obj.GetComponent<BubbleBullet>();
 
             bubbleBullet.MoveWidth  += m_playerCharacterConntroller.weatherAddBubbleWidth;
