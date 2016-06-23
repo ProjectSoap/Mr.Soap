@@ -1,74 +1,58 @@
 ﻿Shader "Custom/Dirty" {
 	Properties{
-		_MainTex("Base (RGB)", 2D) = "white" {}
-		_NormalTex("Normal map", 2D) = "white" {}
+		_MainTex("Base", 2D) = "white" {}
+		_MaskTex("Mask",2D) = "white"{}
+		_MaskAlpha("MaskAlpha", Range(-0.01,1)) = 0.5
+		_Color("Color", Color) = (1,1,1,1)
 	}
 		SubShader{
-		Tags{
-		"RenderType" = "Opaque"
-		"LightMode" = "ForwardBase"
-	}
-		LOD 200
+			Pass{
 
-		Pass{
-		CGPROGRAM
-
+				CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
+#include "UnityCG.cginc"
 
-		struct vertInput {
-		float4 vertex   : SV_POSITION;
-		float4 normal   : NORMAL;
-		float2 texcoord : TEXCOORD0;
-	};
+			// Use shader model 3.0 target, to get nicer looking lighting
+			#pragma target 3.0
 
-	struct vert2frag {
-		float4 position : POSITION;
-		float2 uv       : TEXCOORD0;
-		float4 color    : COLOR0;
-		float3 lightDirection : COLOR1;
-	};
+			sampler2D _MainTex;
+			sampler2D _MaskTex;
 
-	uniform sampler2D _MainTex;
-	uniform sampler2D _NormalTex;
-	uniform fixed4 _LightColor0;
+			struct v2f {
+				float4 pos : SV_POSITION;
+				float2 uv1 : TEXCOORD0;
+				float2 uv2 : TEXCOORD1;
+			};
 
-	vert2frag vert(vertInput v) {
-		vert2frag o;
+			half _MaskAlpha;
+			fixed4 _Color;
 
-		float4 wpos = mul(UNITY_MATRIX_MVP, v.vertex);
-		float4 wnormal = normalize(mul(v.normal, _World2Object));
-		float  diffuse = max(0, dot(_WorldSpaceLightPos0, wnormal));
+			float4 _MainTex_ST;
+			float4 _MaskTex_ST;
+			v2f vert(appdata_base v)
+			{
+				v2f o;
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.uv1 = TRANSFORM_TEX(v.texcoord, _MainTex);
+				o.uv2 = TRANSFORM_TEX(v.texcoord, _MaskTex);
+				return o;
+			}
 
-		float3 n = normalize(wnormal).xyz;
-		float3 t = normalize(cross(n, float3(0, 1, 0)));
-		float3 b = cross(n, t);
-
-		o.position = wpos;
-		o.color = _LightColor0 * diffuse;
-		o.uv = v.texcoord;
-
-		float4 light = _WorldSpaceLightPos0;
-		o.lightDirection.x = dot(t, light);
-		o.lightDirection.y = dot(b, light);
-		o.lightDirection.z = dot(n, light);
-		o.lightDirection = normalize(o.lightDirection);
-
-		return o;
-	}
-
-	float4 frag(vert2frag i) : COLOR{
-		float4 color = tex2D(_MainTex, i.uv);
-		float3 mNormal = (tex2D(_NormalTex, i.uv) * 2.0 - 1.0).rgb;
-		float3 light = normalize(i.lightDirection).xyz;
-		float  diffuse = max(0, dot(mNormal, light));
-		float4 last = i.color * (color * diffuse);
-		return last;
-	}
-
-		ENDCG
-	}
-	}
-
-		FallBack "Diffuse"
+			half4 frag(v2f i) : COLOR
+			{
+				half4 base = tex2D(_MainTex, i.uv1);
+				half alphaRef = ( (1- _MaskAlpha )) * (base.w );			
+				clip(alphaRef -0.1 );
+				half4 color = (base * (_Color ));
+				if (color.w < 0.1)
+				{
+					color.w = 0;
+				}
+				return color;
+			}
+			ENDCG
+		}
+		}
+			FallBack Off
 }
