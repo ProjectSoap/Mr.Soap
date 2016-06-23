@@ -32,6 +32,28 @@ public class PlayerCharacterCreator : MonoBehaviour
                 break;
         }
 
+        //GameObject obj = GameObject.Find("CharNo");
+
+        //if (obj == null)
+        //    Debug.LogError("CharNo not found");
+
+        //SelectingCharactor selectingCharacter = obj.GetComponent<SelectingCharactor>();
+
+        //switch (selectingCharacter.GetCharNo())
+        //{   
+        //    case SelectingCharactorNo.SOAP:
+        //        gameObject = Instantiate(m_sekkenKun, transform.position, transform.rotation) as GameObject;
+        //        break;
+        //    case SelectingCharactorNo.SOAP0:
+        //        gameObject = Instantiate(m_sekkenChan, transform.position, transform.rotation) as GameObject;
+        //        break;
+        //    case SelectingCharactorNo.SOAPTYAN:
+        //        gameObject = Instantiate(m_sekkenHero, transform.position, transform.rotation) as GameObject;
+        //        break;
+        //    default:
+        //        break;
+        //}
+
         if(gameObject != null)
         {
             gameObject.transform.parent = parent;
