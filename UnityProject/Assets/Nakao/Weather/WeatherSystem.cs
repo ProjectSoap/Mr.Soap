@@ -34,13 +34,15 @@ public class WeatherSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        numWeather = 3;
+        numWeather = 0;
         NowWeather = Weather.SUN;
+        NowWeather = Weather.FOG;
+        
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         ActiveWeather();
         minute = 0;
-        weatherflg[0] = true;
-        weatherflg[1] = true;
+        //weatherflg[0] = true;
+        //weatherflg[1] = true;
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 
 		LoadSave();

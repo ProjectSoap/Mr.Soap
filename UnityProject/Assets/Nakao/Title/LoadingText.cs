@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LoadingText : MonoBehaviour
 {
-    [SerializeField]
-    Text size;
     [SerializeField]
     float waittime;
     [SerializeField]
     float waittimelimit;
     [SerializeField]
     int count;
-
+    [SerializeField]
+    List<Image> dot;
 
     bool scale = false;
     // Use this for initialization
     void Start()
     {
-        size = this.GetComponent<Text>();
         count = 0;
     }
 
@@ -33,36 +32,23 @@ public class LoadingText : MonoBehaviour
             {
                 //delay=0;
                 waittime = 0;
+                dot[count].enabled = true;
                 count++;
-                if (count > 3)
+                if (count > 2)
                 {
                     count = 0;
                 }
             }
         }
 
-        switch (count)
+        
+    }
+
+    void Reset()
+    {
+        for(int i = 0 ; i < dot.Count ; ++i)
         {
-            case 0:
-                {
-                    size.text = "Now      Loading";
-                    break;
-                }
-            case 1:
-                {
-                    size.text = "Now      Loading .";
-                    break;
-                }
-            case 2:
-                {
-                    size.text = "Now      Loading ..";
-                    break;
-                }
-            case 3:
-                {
-                    size.text = "Now      Loading ...";
-                    break;
-                }
+            dot[count].enabled = false;
         }
     }
 }
