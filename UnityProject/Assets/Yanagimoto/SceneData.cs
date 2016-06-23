@@ -14,5 +14,4 @@ public class SceneData : MonoBehaviour {
 
     [SerializeField, Tooltip("どのキャラクターを選択したか")]
     public static CharacterSelect characterSelect = CharacterSelect.SekkenKun;
-
 }
