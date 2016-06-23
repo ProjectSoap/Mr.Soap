@@ -312,8 +312,10 @@ public class PlayerCharacterController : MonoBehaviour
         m_rigidbody                 = GetComponent<Rigidbody>();
         m_animator                  = GetComponent<Animator>();
         m_bubbleDriftShooter        = GetComponentInChildren<BubbleDriftShooter>();
-        m_driftParticleSystemRight  = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
-        m_driftParticleSystemLeft   = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
+        //m_driftParticleSystemRight  = m_driftParticleEmitterRight.GetComponent<ParticleSystem>();
+        //m_driftParticleSystemLeft   = m_driftParticleEmitterLeft.GetComponent<ParticleSystem>();
+        m_driftParticleSystemRight  = transform.FindChild("DriftParticleEmitterRight").GetComponent<ParticleSystem>();
+        m_driftParticleSystemLeft   = transform.FindChild("DriftParticleEmitterLeft").GetComponent<ParticleSystem>();
         m_endStateSystem            = GameObject.Find("EndStateSystem").GetComponent<EndStateSystem>();
         m_meshObject                = transform.FindChild("Mesh").gameObject;
         m_moveBubbleSystem          = transform.FindChild("MoveBubble").GetComponent<ParticleSystem>();
@@ -782,6 +784,7 @@ public class PlayerCharacterController : MonoBehaviour
             if (m_isGround)      // 地形と接触していた
             {
                 m_rigidbody.AddForce(Vector3.up * m_jumpPower);       // 上に飛ばす
+                //m_rigidbody.velocity = new Vector3(m_rigidbody.velocity.x, m_jumpPower, m_rigidbody.velocity.z);
                 m_animator.Play("Jump");
 
                 //m_driftParticleSystemRight.Clear();

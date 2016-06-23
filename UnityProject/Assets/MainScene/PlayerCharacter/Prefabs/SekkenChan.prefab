@@ -1485,7 +1485,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .25, y: .25, z: 3.5}
   m_Children: []
   m_Father: {fileID: 453356}
@@ -2393,49 +2393,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32bc5c8ec8f10249a8e0b1e935fa327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxVelocity: 10
-  m_acceleration: 6
+  m_maxVelocity: 7
+  m_acceleration: 2.5
   m_rotationDecrementionRate: .899999976
   m_rotationPowerNormal: 180
   m_rotationPowerDrift: 360
   m_maxRotationNormal: 90
-  m_maxRotationDrift: 180
-  m_driftStartInputTime: 1
+  m_maxRotationDrift: 270
+  m_driftStartInputTime: .699999988
   m_driftCancelHorizontal: 0
-  m_breakeStartInputTime: 1
-  m_breakePower: .980000019
+  m_breakeStartInputTime: .800000012
+  m_breakePower: .899999976
   m_breakeStartVelocity: 5
   m_breakeStopVelocity: 1
-  m_breakeAfterEndTime: 1
-  m_jumpPower: 300
+  m_breakeAfterEndTime: .800000012
+  m_jumpPower: 800
   m_jumpAfterEndTime: 1
-  m_groundCheckLayLength: .400000006
-  m_sizeDecrementionRate: 2.5
-  m_damageSize: 10
-  m_healSizeWashChain: 40
+  m_groundCheckLayLength: .600000024
+  m_sizeDecrementionRate: 0
+  m_damageSize: 0
+  m_healSizeWashChain: 30
   m_healSizeItem: 40
   m_maxSize: 100
-  m_damageVelocity: 7
+  m_damageVelocity: 4
   m_damageAngle: 15
   m_stayBuildingVelocityRate: .5
-  m_stayBuildingMaxVelocity: 7
+  m_stayBuildingMaxVelocity: 3
   m_damageAfterStopTime: 1
   m_driftBubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_breakeBubble: {fileID: 110968, guid: d271803280e156840b9f1d52922638fa, type: 2}
   m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
-  m_rainAddMaxVelocity: 1
+  m_rainAddMaxVelocity: 1.5
   m_rainAddAcceleration: .200000003
-  m_windAddBubbleWidth: 0
-  m_windAddBubbleHeight: 0
-  m_driftParticleEmitterRight: {fileID: 142662}
-  m_driftParticleEmitterLeft: {fileID: 138200}
+  m_windAddBubbleWidth: 1.5
+  m_windAddBubbleHeight: .5
+  m_driftParticleEmitterRight: {fileID: 0}
+  m_driftParticleEmitterLeft: {fileID: 0}
   m_moveBubbleEmissionVelocity: 5
   m_damageParticleEmitter: {fileID: 120068, guid: 5607ed4e2cdcc934ea55e4fb39e4f328,
     type: 2}
   m_healParticleEmitter: {fileID: 183698, guid: ff2d08a90cef3474aab706bc75bec757,
     type: 2}
   m_driveState: 1
-  m_velocity: 0
+  m_velocity: 1.5
   m_rotation: 0
   m_pushRotationKeyTime: 0
   m_pushProgressBreakeKeyTime: 0
@@ -2498,7 +2498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_shotBullet: 3
-  m_shotIntervelTime: .5
+  m_shotIntervelTime: .100000001
   m_shotAngle: 90
 --- !u!124 &12491974
 Behaviour:
@@ -6126,7 +6126,7 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2c425e9c36b16b47ab939a5c9bc04f6, type: 2}
+  - {fileID: 2100000, guid: e5a0b877f6c8c6e40bd98836e8eb2b1d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -6251,7 +6251,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d74555dc44799746bc1190ff8bde4e9, type: 2}
+      objectReference: {fileID: 2100000, guid: e5a0b877f6c8c6e40bd98836e8eb2b1d, type: 2}
     - target: {fileID: 0}
       propertyPath: InitialModule.startColor.maxGradient.key0.rgba
       value: 4294967295
@@ -6271,6 +6271,94 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_maxVelocity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_acceleration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_maxRotationDrift
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_driftStartInputTime
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_breakeStartInputTime
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_breakePower
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_breakeAfterEndTime
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_jumpPower
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_groundCheckLayLength
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_sizeDecrementionRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_damageSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_healSizeWashChain
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_damageVelocity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_stayBuildingMaxVelocity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_rainAddMaxVelocity
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_windAddBubbleWidth
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_windAddBubbleHeight
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_driftParticleEmitterRight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_driftParticleEmitterLeft
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_velocity
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_shotIntervelTime
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

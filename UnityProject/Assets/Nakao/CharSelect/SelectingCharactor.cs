@@ -43,6 +43,21 @@ public class SelectingCharactor : MonoBehaviour {
     public void SetCharNo(int _no)
     {
         no = (SelectingCharactorNo)_no;
+
+        switch (no)
+        {
+            case SelectingCharactorNo.SOAP:
+                SceneData.characterSelect = SceneData.CharacterSelect.SekkenKun;
+                break;
+            case SelectingCharactorNo.SOAP0:
+                SceneData.characterSelect = SceneData.CharacterSelect.SekkenHero;
+                break;
+            case SelectingCharactorNo.SOAPTYAN:
+                SceneData.characterSelect = SceneData.CharacterSelect.SekkenChan;
+                break;
+            default:
+                break;
+        }
     }
 
     public SelectingCharactorNo GetCharNo()
