@@ -12,8 +12,13 @@ public class GameStartMgr : MonoBehaviour {
 
 		Application.targetFrameRate = 60;
 
-        StartCoroutine(Load());
+        
 	}
+
+    void Awake ()
+    {
+        StartCoroutine(Load());
+    }
 	
 	// Update is called once per frame
 	void Update () {
