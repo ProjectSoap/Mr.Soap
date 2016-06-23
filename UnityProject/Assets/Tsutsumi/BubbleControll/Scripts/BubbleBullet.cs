@@ -49,8 +49,8 @@ public class BubbleBullet : MonoBehaviour {
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            rigid = GetComponent<Rigidbody>();
-            Vector3 vec = new Vector3( rigid.velocity.x, 0,rigid.velocity.z);
+            Vector3 vec = rigid.velocity;
+            vec = vec *= 0.8f;
 
             rigid.velocity = vec;
         }

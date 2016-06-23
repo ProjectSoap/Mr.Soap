@@ -88,6 +88,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a3af61e98ae1809499ad28434310748c, type: 2}
   - {fileID: 2100000, guid: 1188b9c285c14534482fa86cf52bd50e, type: 2}
   dirtyIcon: {fileID: 181874, guid: 98e054d4d2b001549b96104ff61403fc, type: 2}
+  m_isReality: 0
+  m_player: {fileID: 0}
+  areaColor:
+  - {r: .903448105, g: 0, b: 1, a: 0}
+  - {r: 0, g: 1, b: .875862181, a: 0}
+  - {r: 0, g: 1, b: .0482759476, a: 0}
+  - {r: 1, g: .682758629, b: 0, a: 0}
 --- !u!135 &13508522
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -107,6 +114,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -135,6 +146,54 @@ Prefab:
       propertyPath: m_realityEffect
       value: 
       objectReference: {fileID: 122666, guid: a37d7a52ed4753147a1639f0ff8eb398, type: 2}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[0].r
+      value: .903448105
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[0].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[1].r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[1].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[1].b
+      value: .875862181
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[2].r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[2].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[2].b
+      value: .0482759476
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[3].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[3].g
+      value: .682758629
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: areaColor.Array.data[3].b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112820}
