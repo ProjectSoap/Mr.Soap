@@ -105,6 +105,7 @@ public class DirtyCreater : MonoBehaviour {
 				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
 				appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
 			}
+			appearancePoints[i].GetComponent<DirtyApparancePosition>().affiliationArea = affiliationArea;
 		}
 	} 
 	public void NoticeDestroy()

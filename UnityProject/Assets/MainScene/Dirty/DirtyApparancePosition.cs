@@ -42,8 +42,8 @@ public class DirtyApparancePosition : MonoBehaviour {
 	///
 	/// <summary>   レア判定.   </summary>
 	///
-
-	bool m_isReality;
+	[SerializeField]
+	public bool m_isReality;
 	public bool Reality
 	{
 		get { return m_isReality; }
@@ -56,7 +56,7 @@ public class DirtyApparancePosition : MonoBehaviour {
 
 	float countStartTime;
 	bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
-	uint affiliationArea;
+	public uint affiliationArea;
 	public PlayerCharacterController m_player;
 	public PlayerCharacterController Player
 	{
@@ -123,13 +123,13 @@ public class DirtyApparancePosition : MonoBehaviour {
 					DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
 					dirtyObjectInstance[i].transform.parent = this.transform;
 					obj.MyPoint = this;   // 汚れスクリプトに自分を伝える
-					obj.SwitchMaterial((int)Random.Range(0,7));
 					isMyDityDestroy[i] = false;
 					obj.Player = Player;
 					if (m_isReality)
 					{
 						obj.Reality = true;
 					}
+					obj.SwitchMaterial((int)Random.Range(0,7), affiliationArea);
 				}
 
 			}

@@ -17,7 +17,8 @@ public class DirtyObjectScript : MonoBehaviour
 	[SerializeField]
 	GameObject dirtyIcon;
 	bool isDestory = false;
-	bool m_isReality = false;
+	[SerializeField]
+	public bool m_isReality;
 	public bool Reality
 	{
 		get { return m_isReality; }
@@ -42,7 +43,8 @@ public class DirtyObjectScript : MonoBehaviour
 		DEAD
 
 	}
-
+	[SerializeField]
+	UnityEngine.Color[] areaColor;	// 区画ごとの色
 	State m_state = State.ALIVE;
 
 	GameObject m_shibukiEffect;
@@ -55,17 +57,22 @@ public class DirtyObjectScript : MonoBehaviour
 	}
 
 
-	public void SwitchMaterial(int num)
+	public void SwitchMaterial(int num,uint area)
 	{
+		MeshRenderer mesh = GetComponent<MeshRenderer>();
 		if (0 <= num && num < dirtyMaterials.Length)
 		{
-			GetComponent<MeshRenderer>().material = dirtyMaterials[num];
+			mesh.material = dirtyMaterials[num];
+			mesh.material.SetColor("_Color", areaColor[area]);
+			//MeshRenderer iconMesh = transform.FindChild("MiniMapDirtyIcon(Clone)").GetComponent<MeshRenderer>();
+			//iconMesh.sharedMaterial.SetColor("Tint", areaColor[area]);
 		}
 		if (m_isReality)
 		{
 			GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation) as GameObject;
 			particle.transform.parent = this.transform;
 		}
+
 	}
 
 	// Update is called once per frame
