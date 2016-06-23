@@ -55,7 +55,7 @@ public class WashChain : MonoBehaviour {
                     player = GameObject.Find("PlayerCharacter");
                     player.GetComponent<PlayerCharacterController>().WashChain();
                     heal = false;
-
+                    ActionRecordManager.sActionRecord.WashChainCount++;
                 }
                 needle.rectTransform.rotation = Quaternion.Lerp(needle.rectTransform.rotation, now_rotation, (now_time / limit));
                 if(now_time > 1.3f)
@@ -85,6 +85,10 @@ public class WashChain : MonoBehaviour {
             if (now_time < limit)
             {
                 needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
+            }
+            else
+            {
+                needle.rectTransform.rotation = Quaternion.Euler(0, 0, 25.0f - rotate_angle * (0));
             }
         }
 	       //needle.rectTransform.rotation =

@@ -809,13 +809,16 @@ public class PlayerCharacterController : MonoBehaviour
 
             float angle = Vector3.Angle(forward, vector);
 
-            if( !m_isStayBuilding &&
+            if (!m_isStayBuilding &&
                 angle <= m_damageAngle &&
-                m_velocity >= m_damageVelocity)
+                m_velocity >= m_damageVelocity &&
+                m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
             {
                 Damage();
 
                 Debug.Log("HIIIIIITTTT!!!!!!!!!");
+
+                ActionRecordManager.sActionRecord.CrashCount++;
             }
 
             Debug.Log(angle.ToString() + " On Hit");
@@ -832,8 +835,10 @@ public class PlayerCharacterController : MonoBehaviour
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
-            if(m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
+            if (m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
+            {
                 Damage();
+            }
         }
     }
 
