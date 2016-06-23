@@ -9,6 +9,8 @@ public class SelectPlayMode : MonoBehaviour
     // カーソル
     public GameObject SelectCur;
     private Vector3 OffsetScale;
+    [SerializeField]
+    AwaFrameTranslate frametranslate;
 
     // ボタン
     public List<GameObject> Button;
@@ -29,6 +31,9 @@ public class SelectPlayMode : MonoBehaviour
     {
         OffsetScale = SelectCur.GetComponent<Transform>().transform.localScale;
         SelectCur.transform.position = Button[0].GetComponent<Transform>().transform.position;
+        frametranslate.size = Button[0].GetComponent<Image>().rectTransform.sizeDelta/2;
+        frametranslate.size.x *= 0.9f;
+        frametranslate.size.y *= 0.7f;
     }
 
     // Update is called once per frame
@@ -85,6 +90,7 @@ public class SelectPlayMode : MonoBehaviour
                         SelectNow--;
                     }
                     //                BGMManager.Instance.PlaySE("se_key_move");
+                    frametranslate.ResetAnimation();
                     BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = true;
                     controllerFlagD = false;
@@ -97,6 +103,7 @@ public class SelectPlayMode : MonoBehaviour
                     {
                         SelectNow++;
                     }
+                    frametranslate.ResetAnimation();
                     BGMManager.Instance.PlaySE("Cursor_Move");
                     controllerFlagU = false;
                     controllerFlagD = true;
@@ -105,6 +112,7 @@ public class SelectPlayMode : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     controllerWait = 0;
+                    
                 }
 
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -218,7 +226,7 @@ public class SelectPlayMode : MonoBehaviour
         var rate = diff / MoveCurTime;
 
         // 移動
-        SelectCur.GetComponent<Transform>().transform.localPosition = Vector3.Lerp(FromTrans.localPosition, ToTrans.localPosition, 1.0f);
+        SelectCur.GetComponent<Transform>().transform.localPosition = ToTrans.transform.localPosition;
 
        
     }
@@ -238,7 +246,7 @@ public class SelectPlayMode : MonoBehaviour
             ToTrans = Button[i].GetComponent<Transform>().transform;
             Vector2 scale = new Vector2(10, 10);
             ButtonScale = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta + scale;
-            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, 1.0f);
+         //   Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, 1.0f);
         }
     }
 
@@ -255,20 +263,20 @@ public class SelectPlayMode : MonoBehaviour
 
         var diff = Time.timeSinceLevelLoad - startTime;
         var rate = diff / MoveColorTime;
-        Color NowColor = Key[0].GetComponent<Image>().color;
+     //   Color NowColor;// = Key[0].GetComponent<Image>().color;
         //Key[0].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
         for (int i = 0; i < Button.Count; i++)
         {
-            NowColor = Button[i].GetComponent<Image>().color;
+       //     NowColor = Button[i].GetComponent<Image>().color;
 
 
             if (i == SelectNow)
             {
-                Button[i].GetComponent<Image>().color = Color.Lerp(NowColor, SelectColor, rate);
+         //       Button[i].GetComponent<Image>().color = Color.Lerp(NowColor, SelectColor, rate);
             }
             else
             {
-                Button[i].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
+           //     Button[i].GetComponent<Image>().color = Color.Lerp(NowColor, NoneColor, rate);
             }
         }
     }

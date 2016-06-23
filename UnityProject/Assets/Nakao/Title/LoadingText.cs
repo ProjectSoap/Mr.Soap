@@ -13,7 +13,6 @@ public class LoadingText : MonoBehaviour
     int count;
     [SerializeField]
     List<Image> dot;
-
     bool scale = false;
     // Use this for initialization
     void Start()

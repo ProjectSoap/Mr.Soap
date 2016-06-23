@@ -592,6 +592,26 @@ Prefab:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 22408826, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1263.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492064, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1263.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 22468320, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1263.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 22444050, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1263.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 22486138, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1263.69995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4718728bb0580124f99ddbf5cf3ac157, type: 2}
   m_IsPrefabParent: 0

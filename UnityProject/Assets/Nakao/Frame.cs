@@ -7,8 +7,8 @@ public class Frame : MonoBehaviour {
 
     // カーソル
     public GameObject SelectCur;
-    private Vector3 OffsetScale;
-
+    [SerializeField]
+    AwaFrameTranslate frametranslate;
     // ボタン
     public List<GameObject> Button;
     public List<Image> Key;
@@ -27,8 +27,8 @@ public class Frame : MonoBehaviour {
 	// Use this for initialization
     */
 	void Start () {
-        OffsetScale = SelectCur.GetComponent<Transform>().transform.localScale;
         SelectCur.transform.position = Button[0].GetComponent<Transform>().transform.position;
+        SelectJump();
 	}
 	
 	// Update is called once per frame
@@ -38,9 +38,9 @@ public class Frame : MonoBehaviour {
     void Update()
     {
         UpdateInput();
-        SelectJump();
+        
         // ボタンの色が変わる
-        ChangeMoveColor();
+        //ChangeMoveColor();
 
         // カーソルの移動
         ChangeMoveCur();
@@ -81,29 +81,35 @@ public class Frame : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     ChangeLongi(0);
-                    BGMManager.Instance.PlaySE("Cursor_Move");
+                    
                     controllerFlagU = true;
                     controllerFlagD = false;
                     controllerWait = 0;
+                    SelectJump();
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     ChangeLongi(1);
-                    BGMManager.Instance.PlaySE("Cursor_Move");
+                    
                     controllerFlagU = false;
                     controllerFlagD = true;
                     controllerWait = 0;
+                    SelectJump();
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     ChangeSide(0);
                     controllerWait = 0;
+                    SelectJump();
                 }
 
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     ChangeSide(1);
                     controllerWait = 0;
+                    SelectJump();
                 }
 
                 if (Input.GetAxisRaw("Horizontal") > 0.9f && controllerFlagL == false)
@@ -312,7 +318,22 @@ public class Frame : MonoBehaviour {
                     break;
                 }
         }
-
+        if (SelectNow > 0)
+        {
+            frametranslate.size = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta / 2;
+            frametranslate.size.x *= 0.9f;
+            frametranslate.size.y *= 0.7f;
+        }
+        else
+        {
+            frametranslate.size = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta / 2 * 0.9f;
+        }
+        frametranslate.scale = Button[SelectNow].GetComponent<Image>().rectTransform.localScale;
+        if (SelectNow > 2)
+        {
+            frametranslate.scale.y *= 0.6f;
+        }
+        frametranslate.ResetAnimation();
         if (SelectOld != SelectNow)
         {
             startTime = Time.timeSinceLevelLoad;
@@ -376,7 +397,7 @@ public class Frame : MonoBehaviour {
         var rate = diff / MoveCurTime;
 
         // 移動
-        SelectCur.GetComponent<Transform>().transform.localPosition = Vector3.Lerp(FromTrans.localPosition, ToTrans.localPosition, rate);
+        SelectCur.transform.localPosition = ToTrans.transform.localPosition;
 
         // 拡縮
       //  ToTrans = Button[SelectNow].transform.FindChild("Background").transform;
