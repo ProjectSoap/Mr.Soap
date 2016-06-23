@@ -70,6 +70,7 @@ public class DirtyCreater : MonoBehaviour {
 		if (0 < appearancePoints.Length)
 		{
 			appearancePoints[0].GetComponent<DirtyApparancePosition>().IsCreate = true;
+			appearancePoints[0].GetComponent<DirtyApparancePosition>().Player = m_player;
 		}
 
 #if DEBUG
@@ -89,8 +90,9 @@ public class DirtyCreater : MonoBehaviour {
 #endif
 	}
 	
-	public void RealitySettting()
+	public void Init(PlayerCharacterController player)
 	{
+		m_player = player;
 		for (int i = 0; i < appearancePoints.Length; i++)
 		{
 			if (IsReality)
@@ -101,9 +103,10 @@ public class DirtyCreater : MonoBehaviour {
 			else
 			{
 				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
 			}
 		}
-	}
+	} 
 	public void NoticeDestroy()
 	{
 		ParntDirtySystem.NoticeDestroyToSystem(this);

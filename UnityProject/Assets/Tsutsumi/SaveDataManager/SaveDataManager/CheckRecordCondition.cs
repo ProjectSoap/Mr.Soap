@@ -28,9 +28,11 @@ public class CheckRecordCondition : MonoBehaviour {
     //セーブデータマネージャを外部からセットしてください。
     public SaveDataManager saveDataCon;
 
+    [SerializeField]
+    private bool DEBUG_allClearSwitch = false;
+
     private const int RECORD_NUM = 30;      //複製数
     private SCondition[] sConditionList;    //実績の条件をデータ化したもの
-
 
     //============================以下関数定義=============================
 	// Use this for initialization
@@ -81,46 +83,6 @@ public class CheckRecordCondition : MonoBehaviour {
             new SCondition(SaveDataManager.ESaveDataNo.C4HideWash, 1),
         };
         
-        /*
-        sConditionList = new SCondition[RECORD_NUM]{
-            new SCondition(SaveDataManager.ESaveDataNo.PlayCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C1WashCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C2WashCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C3WashCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C4WashCount, 0),
-
-            //いくつかのデータを参照する必要がある実績になるので個別処理を
-            new SCondition(SaveDataManager.ESaveDataNo.SAVE_DATA_NUM, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.PlayCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.PlayCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.PlayCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.WashChainCount, 0),
-
-            new SCondition(SaveDataManager.ESaveDataNo.WashChainCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.WashChainCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.ChachSopeCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.ChachSopeCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.CrashCount, 0),
-
-            new SCondition(SaveDataManager.ESaveDataNo.CrashCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.WashCarCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.WashCarCount, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.RainPlayFlg, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.FogPlayFlg, 0),
-
-            new SCondition(SaveDataManager.ESaveDataNo.WindPlayFlg, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint3, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint2, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.RankingPoint1, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.SekkenChanPlayFlg, 0),
-
-            new SCondition(SaveDataManager.ESaveDataNo.SekkenKun0PlayFlg, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C1HideWash, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C2HideWash, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C3HideWash, 0),
-            new SCondition(SaveDataManager.ESaveDataNo.C4HideWash, 0),
-        };
-        */
 	}
 
     // Update is called once per frame
@@ -149,6 +111,11 @@ public class CheckRecordCondition : MonoBehaviour {
             data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C2WashCount);
             data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C3WashCount);
             data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C4WashCount);
+        }
+        //debug
+        if (DEBUG_allClearSwitch == true)
+        {
+            return true;
         }
 
         //クリア判定
