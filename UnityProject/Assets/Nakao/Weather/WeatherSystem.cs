@@ -36,16 +36,23 @@ public class WeatherSystem : MonoBehaviour {
 	void Start () {
         numWeather = 0;
         NowWeather = Weather.SUN;
-        NowWeather = Weather.FOG;
         
+
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
+        LoadSave();
+
+        numWeather = 3;
+        weatherflg[0] = true;
+        weatherflg[1] = true;
+        weatherflg[2] = true;
+
+        ChangeWeather();
         ActiveWeather();
         minute = 0;
-        //weatherflg[0] = true;
-        //weatherflg[1] = true;
+        
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 
-		LoadSave();
+		
 	}
 
     void LoadSave()
@@ -62,8 +69,8 @@ public class WeatherSystem : MonoBehaviour {
 		}
         if(PlayerPrefs.GetInt("WindPlayFlg", -1) == 1)
         {
-			//weatherflg[3] = true;
-			// numWeather++;
+			weatherflg[3] = true;
+			numWeather++;
 		}
 
 
