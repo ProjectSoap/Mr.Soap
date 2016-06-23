@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LIVE_TIME: 2.5
-  MoveHeight: 6.5
-  MoveWidth: 5
+  MoveHeight: 6.30000019
+  MoveWidth: 4.5
 --- !u!135 &13525204
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -5651,11 +5651,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveHeight
-      value: 6.5
+      value: 6.30000019
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveWidth
-      value: 5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: LIVE_TIME

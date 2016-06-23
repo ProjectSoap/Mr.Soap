@@ -276,7 +276,9 @@ public class MainSceneStateHolder : MonoBehaviour
 		
 		m_playRecordAsPauseObject.pausing = true;
 		m_endUI = GameObject.Find("EndUI").GetComponent<PauseObject>();
-		m_dirtys = GameObject.Find("Dirtys").GetComponent<PauseObject>();
+		m_dirtys = GameObject.Find("StartVisualizeSystems").GetComponent<PauseObject>();
+		m_pauseSystems = GameObject.Find("StartStopSystems").GetComponent<PauseObject>();
+
 		ActionRecordManager.sActionRecord.Reset();
 
 		//モード確認
