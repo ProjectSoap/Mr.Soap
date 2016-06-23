@@ -133,11 +133,16 @@ public class DirtySystem : MonoBehaviour
     [SerializeField, Tooltip("区画4のレア汚れ生成ポイント")]
 	DirtyCreater RealityPoint4;
 
-    /**
+	/**
      * <summary>Number of total destroy dirties.</summary>
      */
 
-    [Header("以下確認用内部変数")]
+
+	/**
+     * <summary>Number of total destroy dirties.</summary>
+     */
+
+	[Header("以下確認用内部変数")]
     [SerializeField]
     int totalDestroyDirtyCount;
 
