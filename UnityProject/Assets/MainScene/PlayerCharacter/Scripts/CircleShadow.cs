@@ -27,26 +27,22 @@ public class CircleShadow : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_playerCharacterController.state == PlayerCharacterController.DriveState.Start)
-            transform.localPosition = new Vector3(0, 0, 0);
-        else
-            transform.localPosition = new Vector3(0, 0, 0);
+        transform.rotation = Quaternion.Euler(90, 0, 0);
+        transform.localPosition = Vector3.zero;
 
         RaycastHit[] raycastHits = Physics.RaycastAll(       // せっけんくんの真下にレイを飛ばして地形と接触チェック
             transform.position,
             Vector3.down,
-            100.0f,
+            30.0f,
             m_layerMask);
 
-        if(raycastHits.Length > 0)
+        if (raycastHits.Length > 0)
         {
             transform.position = new Vector3(transform.position.x, raycastHits[0].point.y + 0.1f, transform.position.z);
-
-            transform.rotation = Quaternion.Euler(90, 0, 0);
-
-            float height = m_playerCharacter.transform.position.y;
-
-            transform.localScale = m_defaultScale * (1 + (1 - Mathf.Clamp((1.0f / height), 0.25f, 1.0f)));
         }
-	}
+
+        float height = m_playerCharacter.transform.position.y;
+
+        transform.localScale = m_defaultScale * (1 + (1 - Mathf.Clamp((1.0f / height), 0.25f, 1.0f)));  // ここ計算適当
+    }
 }
