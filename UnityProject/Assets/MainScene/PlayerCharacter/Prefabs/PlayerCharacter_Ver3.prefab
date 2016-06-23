@@ -154,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &120000
 GameObject:
   m_ObjectHideFlags: 1
@@ -1304,7 +1304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161408}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: -19.5099945, y: -1.35998642, z: -10.3099976}
+  m_LocalPosition: {x: -19.5099945, y: -537, z: -10.3099976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 424612}
@@ -1317,7 +1317,7 @@ Transform:
   m_GameObject: {fileID: 173174}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
   m_LocalPosition: {x: 0, y: -.150000006, z: 5.34000015}
-  m_LocalScale: {x: .100000001, y: 5.53200006, z: .5}
+  m_LocalScale: {x: .310376048, y: 5.53200006, z: .519000471}
   m_Children: []
   m_Father: {fileID: 424612}
   m_RootOrder: 6
@@ -1353,7 +1353,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90.5, y: .0960000008, z: 113.489998}
+  m_LocalPosition: {x: 84.3000031, y: .0960000008, z: 145.5}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
   - {fileID: 435942}
@@ -1917,8 +1917,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123574}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: -40, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 0}
+  m_LocalPosition: {x: 0, y: -600, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 0}
   m_Children: []
   m_Father: {fileID: 424612}
   m_RootOrder: 7
@@ -2092,7 +2092,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 40
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2235,7 +2235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_shotBullet: 3
-  m_shotIntervelTime: .5
+  m_shotIntervelTime: .100000001
   m_shotAngle: 90
 --- !u!114 &11468530
 MonoBehaviour:
@@ -2277,47 +2277,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32bc5c8ec8f10249a8e0b1e935fa327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxVelocity: 10
-  m_acceleration: 6
+  m_maxVelocity: 7
+  m_acceleration: 2.5
   m_rotationDecrementionRate: .899999976
   m_rotationPowerNormal: 180
   m_rotationPowerDrift: 360
   m_maxRotationNormal: 90
-  m_maxRotationDrift: 180
-  m_driftStartInputTime: 1
+  m_maxRotationDrift: 270
+  m_driftStartInputTime: .699999988
   m_driftCancelHorizontal: 0
-  m_breakeStartInputTime: 1
-  m_breakePower: .980000019
+  m_breakeStartInputTime: .800000012
+  m_breakePower: .899999976
   m_breakeStartVelocity: 5
   m_breakeStopVelocity: 1
-  m_breakeAfterEndTime: 1
-  m_jumpPower: 300
+  m_breakeAfterEndTime: .800000012
+  m_jumpPower: 800
   m_jumpAfterEndTime: 1
-  m_groundCheckLayLength: .400000006
-  m_sizeDecrementionRate: 2.5
-  m_damageSize: 10
-  m_healSizeWashChain: 40
+  m_groundCheckLayLength: .600000024
+  m_sizeDecrementionRate: 0
+  m_damageSize: 0
+  m_healSizeWashChain: 30
   m_healSizeItem: 40
   m_maxSize: 100
-  m_damageVelocity: 7
+  m_damageVelocity: 4
   m_damageAngle: 15
   m_stayBuildingVelocityRate: .5
-  m_stayBuildingMaxVelocity: 7
+  m_stayBuildingMaxVelocity: 3
   m_damageAfterStopTime: 1
   m_driftBubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_breakeBubble: {fileID: 110968, guid: d271803280e156840b9f1d52922638fa, type: 2}
   m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
-  m_rainAddMaxVelocity: 1
+  m_rainAddMaxVelocity: 1.5
   m_rainAddAcceleration: .200000003
-  m_windSideAngle: 0
-  m_windHeadAngle: 0
-  m_windHeadMaxVelocity: 0
-  m_windHeadAcceleration: 0
-  m_windTailMaxVelocity: 0
-  m_windTailAcceleration: 0
-  m_windSideAddRotationPower: 0
-  m_windSideAddMaxRotation: 0
-  m_windSideAddDriftStartTime: 0
+  m_windAddBubbleWidth: 1.5
+  m_windAddBubbleHeight: .5
   m_driftParticleEmitterRight: {fileID: 185458}
   m_driftParticleEmitterLeft: {fileID: 137330}
   m_moveBubbleEmissionVelocity: 5
@@ -2326,7 +2319,7 @@ MonoBehaviour:
   m_healParticleEmitter: {fileID: 183698, guid: ff2d08a90cef3474aab706bc75bec757,
     type: 2}
   m_driveState: 1
-  m_velocity: 0
+  m_velocity: 1.5
   m_rotation: 0
   m_pushRotationKeyTime: 0
   m_pushProgressBreakeKeyTime: 0
@@ -2334,6 +2327,7 @@ MonoBehaviour:
   m_isStayBuilding: 0
   m_size: 100
   m_horizontal: 0
+  m_weatherState: 0
   v: {x: 0, y: 0, z: 0}
 --- !u!124 &12472854
 Behaviour:
