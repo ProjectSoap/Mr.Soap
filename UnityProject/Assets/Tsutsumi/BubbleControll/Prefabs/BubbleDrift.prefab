@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fc2b3bcbe22174896970c5362556cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LIVE_TIME: 1
+  LIVE_TIME: 1.5
   MoveHeight: 5.5
-  MoveWidth: 8
+  MoveWidth: 6
 --- !u!135 &13525204
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -131,7 +131,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.60000002
+  m_Radius: 1.39999998
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19808358
 ParticleSystem:
@@ -3413,11 +3413,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveWidth
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: LIVE_TIME
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -3425,7 +3425,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: 1.29999995
+      value: 1.39999998
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsActive
