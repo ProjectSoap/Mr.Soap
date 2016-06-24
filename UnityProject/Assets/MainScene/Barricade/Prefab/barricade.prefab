@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2317780}
   - 65: {fileID: 6532508}
   - 114: {fileID: 11484324}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: barricade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_lockArea
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

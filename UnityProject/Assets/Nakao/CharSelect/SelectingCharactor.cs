@@ -51,9 +51,11 @@ public class SelectingCharactor : MonoBehaviour {
                 break;
             case SelectingCharactorNo.SOAP0:
                 SceneData.characterSelect = SceneData.CharacterSelect.SekkenHero;
+                ActionRecordManager.sActionRecord.isSekkenKun0Play = true;
                 break;
             case SelectingCharactorNo.SOAPTYAN:
                 SceneData.characterSelect = SceneData.CharacterSelect.SekkenChan;
+                ActionRecordManager.sActionRecord.isSekkenChanPlay = true;
                 break;
             default:
                 break;
