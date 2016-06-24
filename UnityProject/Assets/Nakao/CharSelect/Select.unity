@@ -5178,7 +5178,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479868, guid: 1eea0627e5cc4164abe39065f5e013d4, type: 2}
       propertyPath: DEBUG_allClearSwitch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1eea0627e5cc4164abe39065f5e013d4, type: 2}
