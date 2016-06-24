@@ -15,6 +15,9 @@ public class FPSPresenter : MonoBehaviour
 	float gpuEndTime = 0;
 	float fps = 0;
 
+    [SerializeField]
+    bool isVisible = false;
+
 	/// <summary>
 	/// Update()が初めて呼ばれる1フレーム前に実行される
 	/// </summary>
@@ -34,6 +37,9 @@ public class FPSPresenter : MonoBehaviour
 
 	void OnGUI ()
 	{
+        if (!isVisible)
+            return;
+
 		using (var scope = new GUILayout.VerticalScope ()) {
 			GUILayout.Label (string.Format ("CPU:{0}", cpuTime));
 			GUILayout.Label (string.Format ("GPU:{0}", gpuTime));
@@ -52,5 +58,12 @@ public class FPSPresenter : MonoBehaviour
 
         cpuBeginTime = Time.realtimeSinceStartup;
         
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (isVisible)
+                isVisible = false;
+            else
+                isVisible = true;
+        }
 	}
 }
