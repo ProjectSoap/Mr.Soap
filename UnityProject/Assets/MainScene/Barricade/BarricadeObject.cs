@@ -5,8 +5,17 @@ public class BarricadeObject : MonoBehaviour {
 
 	public uint m_lockArea = 2;
 	public bool m_isUnlock = false;
+    int playerLayer;
+    SekkenSayUI sayUI;
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
+        GameObject obj = GameObject.Find("SekkenSayUI");
+        if (obj)
+        {
+            sayUI = obj.GetComponent<SekkenSayUI>();
+        }
+        playerLayer = LayerMask.NameToLayer("Player");
 #if DEBUG
 		if (m_lockArea < 2 || 4 < m_lockArea)
 		{
@@ -22,4 +31,14 @@ public class BarricadeObject : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+    void OnTriggerEnter(Collider col) 
+    {
+        if (col.gameObject.layer == playerLayer) 
+        {
+            if (sayUI)
+            {
+               sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.BARRICADE);
+            }
+        }
+    }
 }

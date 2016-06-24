@@ -7,21 +7,21 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Nakao/Title/start.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Nakao/Menu/Menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/MainScene/main.unity
   - enabled: 1
     path: Assets/Nakao/Title/sekTitle.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Nakao/CharSelect/Select.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Tsutsumi/Ranking/Ranking.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Tsutsumi/PlayRecord/PlayRecordScene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Tsutsumi/Result/ResultScene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Tsutsumi/Asobikata/Asobikata.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/HondyTestUnits/Credit/Credit.unity
