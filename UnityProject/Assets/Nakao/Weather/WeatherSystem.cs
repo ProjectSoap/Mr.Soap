@@ -364,6 +364,7 @@ public class WeatherSystem : MonoBehaviour {
                     {
                         weathers[i].active = false;
                     }
+                    weathers[2].active = true;
                     ActionRecordManager.sActionRecord.isWind = true;
 
                     break;
