@@ -47,6 +47,7 @@ public class DirtyObjectScript : MonoBehaviour
 	UnityEngine.Color[] areaColor;	// 区画ごとの色
 	State m_state = State.ALIVE;
 
+    MeshRenderer mesh;
 	GameObject m_shibukiEffect;
 	// Use this for initialization
 	void Start()
@@ -59,7 +60,7 @@ public class DirtyObjectScript : MonoBehaviour
 
 	public void SwitchMaterial(int num,uint area)
 	{
-		MeshRenderer mesh = GetComponent<MeshRenderer>();
+		mesh = GetComponent<MeshRenderer>();
 		if (0 <= num && num < dirtyMaterials.Length)
 		{
 			mesh.material = dirtyMaterials[num];
@@ -109,6 +110,7 @@ public class DirtyObjectScript : MonoBehaviour
 		{
 			m_shibukiEffect = Instantiate(m_effect1, this.transform.position, this.transform.rotation * Quaternion.AngleAxis(-90,new Vector3(1,0,0)))as GameObject;
 			m_shibukiEffect.transform.parent = transform.parent;
+            m_shibukiEffect.GetComponent<Shibuki>().SetColor(mesh.material.GetColor("_Color"));
 			if (isDestory == false)
 			{
 				myPoint.NoticeDestroy();

@@ -32,6 +32,14 @@ public class WeatherSystem : MonoBehaviour {
 
 	PlayerCharacterController m_player;
 
+    Skybox m_skybox;
+
+    [SerializeField]
+    Material m_skyboxMaterialSunny;
+
+    [SerializeField]
+    Material m_skyboxMaterialCloudiness;
+
 	// Use this for initialization
 	void Start () {
         numWeather = 0;
@@ -46,13 +54,13 @@ public class WeatherSystem : MonoBehaviour {
         weatherflg[1] = true;
         weatherflg[2] = true;
 
+        m_skybox = GameObject.Find("MainCamera").GetComponent<Skybox>();
+
         ChangeWeather();
         ActiveWeather();
         minute = 0;
         
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
-
-		
 	}
 
     void LoadSave()
@@ -334,6 +342,8 @@ public class WeatherSystem : MonoBehaviour {
                     {
                         weathers[i].active = false;
                     }
+
+                    m_skybox.material = m_skyboxMaterialSunny;
                     
                     break;
                 }
@@ -345,6 +355,8 @@ public class WeatherSystem : MonoBehaviour {
                     }
                     weathers[0].active = true;
                     ActionRecordManager.sActionRecord.isRain = true;
+
+                    m_skybox.material= m_skyboxMaterialCloudiness;
                     break;
                 }
             case Weather.FOG:
@@ -356,6 +368,8 @@ public class WeatherSystem : MonoBehaviour {
                     weathers[1].active =  true;
                     weathers[1].GetComponent<FogGenerator>().ChangeCreateMode();
                     ActionRecordManager.sActionRecord.isFog = true;
+
+                    m_skybox.material = m_skyboxMaterialSunny;
                     break;
                 }
             case Weather.WIND:
@@ -367,6 +381,8 @@ public class WeatherSystem : MonoBehaviour {
                     weathers[2].active = true;
                     ActionRecordManager.sActionRecord.isWind = true;
 
+
+                    m_skybox.material = m_skyboxMaterialSunny;
                     break;
                 }
         }
