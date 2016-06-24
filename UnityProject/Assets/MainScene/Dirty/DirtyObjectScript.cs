@@ -52,8 +52,6 @@ public class DirtyObjectScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		GameObject obj= Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z),dirtyIcon.transform.rotation) as GameObject;
-		obj.transform.parent = transform;
 
 	}
 
@@ -64,9 +62,11 @@ public class DirtyObjectScript : MonoBehaviour
 		if (0 <= num && num < dirtyMaterials.Length)
 		{
 			mesh.material = dirtyMaterials[num];
-			mesh.material.SetColor("_Color", areaColor[area]);
-			//MeshRenderer iconMesh = transform.FindChild("MiniMapDirtyIcon(Clone)").GetComponent<MeshRenderer>();
-			//iconMesh.sharedMaterial.SetColor("Tint", areaColor[area]);
+            mesh.material.SetColor("_Color", areaColor[area]);
+            GameObject obj = Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z), dirtyIcon.transform.rotation) as GameObject;
+            obj.transform.parent = transform;
+            MeshRenderer iconMesh = obj.GetComponent<MeshRenderer>();
+			//iconMesh.sharedMaterial.SetColor("_Color", areaColor[area]);
 		}
 		if (m_isReality)
 		{
