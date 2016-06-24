@@ -191,4 +191,8 @@ public class CheckRecordCondition : MonoBehaviour {
     {
         return CheckRecordConditionClear((int)recordNo, score);
     }
+    public bool CheckRecordConditionClear(ERecordName recordNo)
+    {
+        return CheckRecordConditionClear((int)recordNo);
+    }
 }

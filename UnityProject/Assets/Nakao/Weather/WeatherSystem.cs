@@ -40,11 +40,14 @@ public class WeatherSystem : MonoBehaviour {
     [SerializeField]
     Material m_skyboxMaterialCloudiness;
 
+    SekkenSayUI TSUTSUMISAN;
+
 	// Use this for initialization
 	void Start () {
         numWeather = 0;
         NowWeather = Weather.SUN;
-        
+
+        TSUTSUMISAN = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
 
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         LoadSave();
@@ -414,6 +417,7 @@ public class WeatherSystem : MonoBehaviour {
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
                         we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
+                        TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.RAIN);
                         return true;
                     }
                     else
@@ -430,6 +434,7 @@ public class WeatherSystem : MonoBehaviour {
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
                         we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
+                        TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.FOG);
                         return true;
                     }
                     else
@@ -446,6 +451,7 @@ public class WeatherSystem : MonoBehaviour {
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
                         we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
+                        TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.WIND);
                         return true;
                     }
                     else
