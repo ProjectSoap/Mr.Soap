@@ -45,7 +45,6 @@ public class SekkenSayUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         drawTimeCount = 999.0f;
-        DrawSayTexture(ESayTexName.RECOVERY);
 	}
 	
 	// Update is called once per frame

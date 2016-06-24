@@ -77,7 +77,6 @@ public class DirtyApparancePosition : MonoBehaviour {
 #if DEBUG
 		if (GetComponent<MeshRenderer>() != null)
 		{
-			Debug.Log(this);
 			Destroy(GetComponent<MeshRenderer>());
 		}
 #endif
