@@ -36,20 +36,20 @@ public class CharSelMgr : MonoBehaviour {
 
         if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.no1))
         {
-            soaps[1].active = false;
-        }
-        else
-        {
-            soaps[0].active = false;
-        }
-
-        if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure1) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure2) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure3) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure4))
-        {
             soaps[3].active = false;
         }
         else
         {
             soaps[2].active = false;
+        }
+
+        if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure1) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure2) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure3) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure4))
+        {
+            soaps[1].active = false;
+        }
+        else
+        {
+            soaps[0].active = false;
         }
         BGMManager.Instance.PlayBGM("Character_Choice_BGM", 1.0f);
 	}
@@ -81,7 +81,6 @@ public class CharSelMgr : MonoBehaviour {
                         BGMManager.Instance.PlaySE("Cursor_Decision");
                         Fade.ChangeScene("main");
                         no.SetCharNo(soap.GetCharNo());
-                        
 						no.PlayMode = (PlayModeState) m_playMode.SelectNow;
 
 						break;
