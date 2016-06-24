@@ -21,10 +21,10 @@ public class BackBubbleCol : MonoBehaviour {
             this.gameObject.transform.position = (this.gameObject.transform.position + c.gameObject.transform.position) / 2.0f;
             
             this.gameObject.transform.localScale = this.gameObject.transform.localScale * 1.2f;
-            if(this.gameObject.transform.localScale.x > 2.0f)
+            if(this.gameObject.transform.localScale.x > 1.0f)
             {
                 Vector3 scale = this.gameObject.transform.localScale;
-                scale.x = scale.y = 2.0f + Random.Range(-0.1f,0.1f);
+                scale.x = scale.y = 1.0f + Random.Range(-0.1f,0.1f);
                 this.gameObject.transform.localScale = scale;
                 
             }
