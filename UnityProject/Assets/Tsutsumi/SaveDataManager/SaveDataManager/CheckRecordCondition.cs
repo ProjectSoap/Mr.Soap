@@ -10,6 +10,46 @@ using System.Collections;
 
 
 public class CheckRecordCondition : MonoBehaviour {
+    //=============================定数定義=============================
+    public enum ERecordName
+    {
+        Kaisi,
+        OtosiMinarai,
+        OtosiItininnmae,
+        OtosiMeizin,
+        OtosiTatuzin,
+
+        OtosiKami,
+        PlayMinarai,
+        PlayMeizin,
+        PlayTatuzin,
+        ComboMinarai,
+
+        ComboMeizin,
+        ComboTatuzin,
+        Hukkatu,
+        Muteki,
+        Shoutotu,
+
+        Atariya,
+        Sensha,
+        SenshaKIWAMI,
+        ame,
+        kiri,
+
+        kaze,
+        no3,
+        no2,
+        no1,
+        onnnanoko,
+
+        seisakusha,
+        kakure1,
+        kakure2,
+        kakure3,
+        kakure4
+    };
+
     //=============================構造体定義=============================
     public struct SCondition
     {
@@ -146,5 +186,9 @@ public class CheckRecordCondition : MonoBehaviour {
         {
             return false;
         }
+    }
+    public bool CheckRecordConditionClear(ERecordName recordNo, int score)
+    {
+        return CheckRecordConditionClear((int)recordNo, score);
     }
 }
