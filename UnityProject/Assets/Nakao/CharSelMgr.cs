@@ -23,14 +23,18 @@ public class CharSelMgr : MonoBehaviour {
 
     Charselect state;
 
+    [SerializeField]
+    SaveDataManager save;
+    
+    
+
 	[SerializeField]
 	SelectPlayMode m_playMode;
 	// Use this for initialization
 	void Start () {
-
-		
 		state = Charselect.SELECT;
-        if (PlayerPrefs.GetInt("SekkenChanPlayFlg", -1) > 0)
+
+        if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.no1))
         {
             soaps[1].active = false;
         }
@@ -39,7 +43,7 @@ public class CharSelMgr : MonoBehaviour {
             soaps[0].active = false;
         }
 
-        if (PlayerPrefs.GetInt("SekkenKun0PlayFlg", -1) > 0)
+        if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure1) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure2) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure3) && save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.kakure4))
         {
             soaps[3].active = false;
         }
@@ -77,6 +81,7 @@ public class CharSelMgr : MonoBehaviour {
                         BGMManager.Instance.PlaySE("Cursor_Decision");
                         Fade.ChangeScene("main");
                         no.SetCharNo(soap.GetCharNo());
+                        
 						no.PlayMode = (PlayModeState) m_playMode.SelectNow;
 
 						break;
