@@ -8,7 +8,8 @@ public class BarricadeManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		if (PlayerPrefs.GetInt("C1WashCount", 0) >= 100)
+		if (
+        GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(2))
 		{
 			for (int i= 0;i < m_barricade.Length;i++)
 			{
@@ -19,7 +20,7 @@ public class BarricadeManager : MonoBehaviour {
 			}
 		}
 
-		if (PlayerPrefs.GetInt("C2WashCount", 0) >= 150)
+        if (GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(3))
 		{
 			for (int i = 0; i < m_barricade.Length; i++)
 			{
@@ -30,7 +31,7 @@ public class BarricadeManager : MonoBehaviour {
 			}
 		}
 
-		if (PlayerPrefs.GetInt("C2WashCount", 0) >= 150)
+        if (GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(4))
 		{
 			for (int i = 0; i < m_barricade.Length; i++)
 			{
