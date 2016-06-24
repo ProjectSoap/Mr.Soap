@@ -221,6 +221,10 @@ MonoBehaviour:
   - {fileID: 172344}
   - {fileID: 163082}
   - {fileID: 171158}
+  m_skyboxMaterialSunny: {fileID: 2100000, guid: b2ca99e4a1cb6fd4bbe962fe7ac08ed1,
+    type: 2}
+  m_skyboxMaterialCloudiness: {fileID: 2100000, guid: 3cfb2a9f006f08b4284c83d7b2c217ef,
+    type: 2}
 --- !u!114 &11480134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3534,7 +3538,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_skyboxMaterialSunny
+      value: 
+      objectReference: {fileID: 2100000, guid: b2ca99e4a1cb6fd4bbe962fe7ac08ed1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_skyboxMaterialCloudiness
+      value: 
+      objectReference: {fileID: 2100000, guid: 3cfb2a9f006f08b4284c83d7b2c217ef, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131258}
