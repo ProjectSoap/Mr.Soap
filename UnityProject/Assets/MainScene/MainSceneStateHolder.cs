@@ -279,7 +279,7 @@ public class MainSceneStateHolder : MonoBehaviour
 		m_dirtys = GameObject.Find("StartVisualizeSystems").GetComponent<PauseObject>();
 		m_pauseSystems = GameObject.Find("StartStopSystems").GetComponent<PauseObject>();
 
-		ActionRecordManager.sActionRecord.Reset();
+		//ActionRecordManager.sActionRecord.Reset();
 
 		//モード確認
 		SelectingCharactor no = GameObject.Find("CharNo").GetComponent<SelectingCharactor>();
