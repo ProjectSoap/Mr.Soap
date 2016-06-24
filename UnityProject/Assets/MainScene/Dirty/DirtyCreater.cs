@@ -84,7 +84,7 @@ public class DirtyCreater : MonoBehaviour {
 #if DEBUG
 		if (GetComponent<MeshRenderer>() != null)
 		{
-			Debug.Log(this);
+			//Debug.Log(this);
 			Destroy(GetComponent<MeshRenderer>());
 		}
 #endif
@@ -95,17 +95,25 @@ public class DirtyCreater : MonoBehaviour {
 		m_player = player;
 		for (int i = 0; i < appearancePoints.Length; i++)
 		{
-			if (IsReality)
-			{
-				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
-				appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
-			}
-			else
-			{
-				appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
-				appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
-			}
-			appearancePoints[i].GetComponent<DirtyApparancePosition>().affiliationArea = affiliationArea;
+            if (appearancePoints[i])
+            {
+                if (IsReality)
+                {
+                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
+                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
+                }
+                else
+                {
+                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
+                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
+                }
+                appearancePoints[i].GetComponent<DirtyApparancePosition>().affiliationArea = affiliationArea;
+
+            }
+            else
+            {
+                Debug.Log(appearancePoints[i] + " = null");
+            }
 		}
 	} 
 	public void NoticeDestroy()

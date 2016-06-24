@@ -330,6 +330,10 @@ public class DirtySystem : MonoBehaviour
         ///// ふつーの汚れ
         for (int i = 0; i < m_commonDirtyCreatersOfArea1.Length; i++)
         {
+            if (m_commonDirtyCreatersOfArea1[i] == null) 
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_commonDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_commonDirtyCreatersOfArea1[i].Player = player;
@@ -340,6 +344,10 @@ public class DirtySystem : MonoBehaviour
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
         {
+            if (m_commonDirtyCreatersOfArea2[i] == null)
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_commonDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_commonDirtyCreatersOfArea2[i].Player = player;
@@ -348,6 +356,10 @@ public class DirtySystem : MonoBehaviour
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
         {
+            if (m_commonDirtyCreatersOfArea3[i] == null)
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_commonDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_commonDirtyCreatersOfArea3[i].Player = player;
@@ -356,6 +368,10 @@ public class DirtySystem : MonoBehaviour
 
         for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
         {
+            if (m_commonDirtyCreatersOfArea4[i] == null)
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_commonDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_commonDirtyCreatersOfArea4[i].Player = player;
@@ -366,7 +382,11 @@ public class DirtySystem : MonoBehaviour
 
 		///// 着地で落として欲しい汚れ
 		for (int i = 0; i < m_landingDirtyCreatersOfArea1.Length; i++)
-		{
+        {
+            if (m_landingDirtyCreatersOfArea1[i] == null)
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_landingDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_landingDirtyCreatersOfArea1[i].Player = player;
@@ -374,7 +394,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea2.Length; i++)
-		{
+        {
+            if (m_landingDirtyCreatersOfArea2[i] == null)
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_landingDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_landingDirtyCreatersOfArea2[i].Player = player;
@@ -382,7 +406,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea3.Length; i++)
-		{
+        {
+            if (m_landingDirtyCreatersOfArea3[i] == null)
+            {
+                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_landingDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_landingDirtyCreatersOfArea3[i].Player = player;
@@ -390,7 +418,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea4.Length; i++)
-		{
+        {
+            if (m_landingDirtyCreatersOfArea4[i] == null)
+            {
+                Debug.Log(m_landingDirtyCreatersOfArea4[i] + "= null");
+            }
 			m_landingDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_landingDirtyCreatersOfArea4[i].Player = player;
@@ -399,7 +431,11 @@ public class DirtySystem : MonoBehaviour
 
 		///// 壁についた汚れ
 		for (int i = 0; i < m_wallDirtyCreatersOfArea1.Length; i++)
-		{
+        {
+            if (m_wallDirtyCreatersOfArea1[i] == null)
+            {
+                Debug.Log(m_wallDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_wallDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_wallDirtyCreatersOfArea1[i].Player = player;
@@ -407,7 +443,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea2.Length; i++)
-		{
+        {
+            if (m_wallDirtyCreatersOfArea2[i] == null)
+            {
+                Debug.Log(m_wallDirtyCreatersOfArea2[i] + "= null");
+            }
 			m_wallDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_wallDirtyCreatersOfArea2[i].Player = player;
@@ -415,7 +455,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea3.Length; i++)
-		{
+        {
+            if (m_wallDirtyCreatersOfArea3[i] == null)
+            {
+                Debug.Log(m_wallDirtyCreatersOfArea3[i] + "= null");
+            }
 			m_wallDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_wallDirtyCreatersOfArea3[i].Player = player;
@@ -423,7 +467,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea4.Length; i++)
-		{
+        {
+            if (m_wallDirtyCreatersOfArea4[i] == null)
+            {
+                Debug.Log(m_wallDirtyCreatersOfArea4[i] + "= null");
+            }
 			m_wallDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_wallDirtyCreatersOfArea4[i].Player = player;
@@ -432,7 +480,11 @@ public class DirtySystem : MonoBehaviour
 
 		///// 車についた汚れ
 		for (int i = 0; i < m_carDirtyCreatersOfArea1.Length; i++)
-		{
+        {
+            if (m_carDirtyCreatersOfArea1[i] == null)
+            {
+                Debug.Log(m_carDirtyCreatersOfArea1[i] + "= null");
+            }
 			m_carDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_carDirtyCreatersOfArea1[i].IsAdhereCar = true;
@@ -441,7 +493,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea2.Length; i++)
-		{
+        {
+            if (m_carDirtyCreatersOfArea2[i] == null)
+            {
+                Debug.Log(m_carDirtyCreatersOfArea2[i] + "= null");
+            }
 			m_carDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_carDirtyCreatersOfArea2[i].IsAdhereCar = true;
@@ -450,7 +506,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea3.Length; i++)
-		{
+        {
+            if (m_carDirtyCreatersOfArea3[i] == null)
+            {
+                Debug.Log(m_carDirtyCreatersOfArea3[i] + "= null");
+            }
 			m_carDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_carDirtyCreatersOfArea3[i].IsAdhereCar = true;
@@ -459,7 +519,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea4.Length; i++)
-		{
+        {
+            if (m_carDirtyCreatersOfArea4[i] == null)
+            {
+                Debug.Log(m_carDirtyCreatersOfArea4[i] + "= null");
+            }
 			m_carDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_carDirtyCreatersOfArea4[i].IsAdhereCar = true;
