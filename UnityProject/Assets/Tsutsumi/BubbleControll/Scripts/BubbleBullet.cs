@@ -11,7 +11,7 @@ public class BubbleBullet : MonoBehaviour {
     private Rigidbody rigid;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         rigid = GetComponent<Rigidbody>();
 
         Vector3 MoveVec;

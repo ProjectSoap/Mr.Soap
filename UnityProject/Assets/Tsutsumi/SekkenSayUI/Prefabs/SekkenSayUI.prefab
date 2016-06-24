@@ -46,29 +46,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawTime: 3
   sekkenKunSpriteList:
-  - {fileID: 21300000, guid: d3d88d88240b4664e8a24ea27f9a0b9c, type: 3}
-  - {fileID: 21300000, guid: 20447bf74b2b87b44b4b9ac067ffda71, type: 3}
-  - {fileID: 21300000, guid: f3f2f1431ab4f6147ad33f83743465aa, type: 3}
-  - {fileID: 21300000, guid: cec3943f13d96784aaa88a257cae5210, type: 3}
-  - {fileID: 21300000, guid: 105661d488bbb604bbe791e24e83ad2a, type: 3}
-  - {fileID: 21300000, guid: 6837e721c7b0c344aae5c0a97c4a746b, type: 3}
-  - {fileID: 21300000, guid: bef8bd59bef9bb042872ddedc9975dee, type: 3}
+  - {fileID: 21300000, guid: 3b128eefe458410409eb215a60d17b5c, type: 3}
+  - {fileID: 21300000, guid: af91841494f851446b03e962747eb52f, type: 3}
+  - {fileID: 21300000, guid: 3a24374574a0dda49a4460213f9ddf1c, type: 3}
+  - {fileID: 21300000, guid: 8a98c92417ecfd148907ad851ad9002c, type: 3}
+  - {fileID: 21300000, guid: d6ecce24175f3a64dbce6d770bc171a9, type: 3}
+  - {fileID: 21300000, guid: f3ee58c19dcfe984494769567d4eec2a, type: 3}
+  - {fileID: 21300000, guid: 70022a04f85f05a46925c67589533d2b, type: 3}
   sekkenChanSpriteList:
-  - {fileID: 21300000, guid: 21f04212a73b161488c96681b7263d3d, type: 3}
-  - {fileID: 21300000, guid: 2999375cf0f95b3488819fed4367878b, type: 3}
-  - {fileID: 21300000, guid: 76ff9cd915ba4e747a697c0c5a327232, type: 3}
-  - {fileID: 21300000, guid: c18be57e48b666e4d87c56fd4ff0e9c5, type: 3}
-  - {fileID: 21300000, guid: ec9afd4344ee16140b77bbfb7580f040, type: 3}
-  - {fileID: 21300000, guid: 13b0a24675434bb47a3da76e8a4ce8f7, type: 3}
-  - {fileID: 21300000, guid: ba803122bc9a9b041a2c33a9c020a4ab, type: 3}
+  - {fileID: 21300000, guid: e69651cf6631b5d4b81d0e8c9aae9fda, type: 3}
+  - {fileID: 21300000, guid: dafb5463b3216f1479981c89b8e7cba1, type: 3}
+  - {fileID: 21300000, guid: a14a3d769d058eb4989eec3122dc27c3, type: 3}
+  - {fileID: 21300000, guid: 1e25706fcd9dfc64f8adc1240969da14, type: 3}
+  - {fileID: 21300000, guid: 0586a88e22792d7478e9313c715c667e, type: 3}
+  - {fileID: 21300000, guid: d970d52872f9b6746b4428a395904bcb, type: 3}
+  - {fileID: 21300000, guid: 9980a45cbd2054041bd053f0e3044d94, type: 3}
   sekkenHeroSpriteList:
-  - {fileID: 21300000, guid: 99303f6634996454f9ec453940aee4c3, type: 3}
-  - {fileID: 21300000, guid: 776dc6545cdcb174b9c837f1ac1e6052, type: 3}
-  - {fileID: 21300000, guid: fe26c74f6f9dfe944a677a3326bf6098, type: 3}
-  - {fileID: 21300000, guid: 7f98736b60a0de443b6f834619e53916, type: 3}
-  - {fileID: 21300000, guid: a0d4afa58161dde4a944776551c89bb9, type: 3}
-  - {fileID: 21300000, guid: 51d3883f6624e9c4786f09e063dd7642, type: 3}
-  - {fileID: 21300000, guid: bac250e60182fdc4e967635fcc5f63c0, type: 3}
+  - {fileID: 21300000, guid: 42b47a7cc71564f45b9cab03748b7854, type: 3}
+  - {fileID: 21300000, guid: b4827540a5c9be740b0f33c632a73034, type: 3}
+  - {fileID: 21300000, guid: 9d011fbcdce4c024b8a2df07abd80eeb, type: 3}
+  - {fileID: 21300000, guid: 196a2903fac1e674aafa302433403947, type: 3}
+  - {fileID: 21300000, guid: 9dc10cfcadcdf874db254b09bf6f7df2, type: 3}
+  - {fileID: 21300000, guid: ddfa38d32bd802342804eaf8f82b54c6, type: 3}
+  - {fileID: 21300000, guid: dbdd0dd291beec743a4f7cc3170f444a, type: 3}
   img: {fileID: 11475388}
 --- !u!114 &11475388
 MonoBehaviour:
@@ -89,7 +89,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f2d852291ca69184ca22681da1cfbd42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b128eefe458410409eb215a60d17b5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,8 +117,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -276, y: -4.9000001}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: -276, y: -20}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22470276
 RectTransform:
