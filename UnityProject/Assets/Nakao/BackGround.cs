@@ -28,6 +28,6 @@ public class BackGround : MonoBehaviour {
 
         // マテリアルにオフセットを設定する
         GetComponent<Renderer>().sharedMaterial.SetTextureOffset ("_MainTex", offset);
-        back.color = Color.Lerp(color, gura_color, Mathf.PingPong(Time.time * speed, 1.0f));
+       // back.color = Color.Lerp(color, gura_color, Mathf.PingPong(Time.time * speed, 1.0f));
     }
 }

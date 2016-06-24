@@ -422,7 +422,7 @@ public class Frame : MonoBehaviour {
             ToTrans = Button[i].GetComponent<Transform>().transform;
             Vector2 scale = new Vector2(0, 0);
             ButtonScale = Button[SelectNow].GetComponent<Image>().rectTransform.sizeDelta + scale;
-            Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, rate);
+       //     Key[0].GetComponent<Image>().rectTransform.sizeDelta = Vector2.Lerp(ToTrans.localScale, ButtonScale, rate);
         }
     }
 
