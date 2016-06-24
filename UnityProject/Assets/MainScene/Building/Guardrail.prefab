@@ -130,7 +130,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464104}
-  - 95: {fileID: 9532358}
   m_Layer: 12
   m_Name: Guardrail
   m_TagString: Building
@@ -178,7 +177,6 @@ GameObject:
   - 4: {fileID: 422118}
   - 33: {fileID: 3351820}
   - 23: {fileID: 2300142}
-  - 95: {fileID: 9529932}
   - 65: {fileID: 6550546}
   m_Layer: 12
   m_Name: concrete
@@ -461,8 +459,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131622}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 164.119995, y: .409999996, z: 246.210007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 24.3374329, y: 10.1074705, z: .400000006}
+  m_LocalScale: {x: .800000012, y: 1, z: 1}
   m_Children:
   - {fileID: 418708}
   - {fileID: 479180}
@@ -614,42 +612,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1288.36511, y: 200, z: 82.8974838}
-  m_Center: {x: 0, y: 75, z: .001953125}
---- !u!95 &9529932
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136994}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c774011aa3597f84c8a3a2da4c176bef, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9532358
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131622}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ba79f4ad4b78d414d95882a6daea1d31, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Size: {x: 1400, y: 500, z: 82.8974838}
+  m_Center: {x: 0, y: 110, z: .001953125}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
