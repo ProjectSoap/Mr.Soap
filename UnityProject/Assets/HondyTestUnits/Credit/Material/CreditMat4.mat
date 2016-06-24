@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: b71ba64ab77e1644385689487901d8ac, type: 3}
+          m_Texture: {fileID: 2800000, guid: aa3a6e409e49c79488e1007314317d09, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -137,7 +137,7 @@ Material:
       data:
         first:
           name: _MaskAlpha
-        second: .907999992
+        second: 1
     m_Colors:
       data:
         first:
