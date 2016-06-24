@@ -35,7 +35,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &118206
 GameObject:
   m_ObjectHideFlags: 1
@@ -481,12 +481,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 566b33b7d9ed7684e90d459766c5e9a7, type: 3}
   - {fileID: 21300000, guid: 67060c3fa75c23c46a82e914b9e8e6b0, type: 3}
   - {fileID: 21300000, guid: 973372262bef39342a33e586db915f85, type: 3}
-  - {fileID: 21300000, guid: 407cec341dabb2f4bb3b1c9891df504a, type: 3}
+  - {fileID: 21300000, guid: fdb2efb3d93860d4d915784be641fe1f, type: 3}
   - {fileID: 21300000, guid: 650fbecc6b193d14c884a74674ef45c8, type: 3}
   - {fileID: 21300000, guid: 304236e0f77709146b7ac07f62a28497, type: 3}
   - {fileID: 21300000, guid: 2f2a0de7fb9e0d74f8ef1479b1b59ed3, type: 3}
   - {fileID: 21300000, guid: d0ab4c585cec6e648a8d56403370af9b, type: 3}
-  - {fileID: 21300000, guid: 79bff304311552b4caff805d69107587, type: 3}
+  - {fileID: 21300000, guid: 4d1024e564b03244fabcada8963fc1f2, type: 3}
   - {fileID: 21300000, guid: ed2003c14e061f2499f0797af0740ec5, type: 3}
   - {fileID: 21300000, guid: 9ab6d67af95d628498a6b42bb2a852ce, type: 3}
   - {fileID: 21300000, guid: 94f6b15a775a0f847a87c7d155e496ce, type: 3}
