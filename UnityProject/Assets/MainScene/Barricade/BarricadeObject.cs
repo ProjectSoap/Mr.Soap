@@ -33,7 +33,7 @@ public class BarricadeObject : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider col) 
     {
-        if (col.gameObject.layer == playerLayer) 
+        //if (col.gameObject.layer == playerLayer) 
         {
             if (sayUI)
             {
