@@ -69,17 +69,17 @@ public class WeatherSystem : MonoBehaviour {
 
         if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.PlayMeizin))
         {
-            weatherflg[1] = true;
+            weatherflg[0] = true;
 			numWeather++;
         }
         if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.PlayTatuzin))
         {
-            weatherflg[2] = true;
+            weatherflg[1] = true;
 			numWeather++;
 		}
         if(save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.Muteki))
         {
-			weatherflg[3] = true;
+			weatherflg[2] = true;
 			numWeather++;
 		}
 
@@ -357,7 +357,7 @@ public class WeatherSystem : MonoBehaviour {
                     }
                     weathers[0].active = true;
                     ActionRecordManager.sActionRecord.isRain = true;
-
+                    TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.RAIN);
                     m_skybox.material= m_skyboxMaterialCloudiness;
                     break;
                 }
@@ -370,7 +370,7 @@ public class WeatherSystem : MonoBehaviour {
                     weathers[1].active =  true;
                     weathers[1].GetComponent<FogGenerator>().ChangeCreateMode();
                     ActionRecordManager.sActionRecord.isFog = true;
-
+                    TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.FOG);
                     m_skybox.material = m_skyboxMaterialSunny;
                     break;
                 }
@@ -383,7 +383,7 @@ public class WeatherSystem : MonoBehaviour {
                     weathers[2].active = true;
                     ActionRecordManager.sActionRecord.isWind = true;
 
-
+                    TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.WIND);
                     m_skybox.material = m_skyboxMaterialSunny;
                     break;
                 }
@@ -416,7 +416,7 @@ public class WeatherSystem : MonoBehaviour {
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
                         we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
-                        TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.RAIN);
+                        
                         return true;
                     }
                     else
@@ -433,7 +433,7 @@ public class WeatherSystem : MonoBehaviour {
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
                         we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
-                        TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.FOG);
+                        
                         return true;
                     }
                     else
@@ -450,7 +450,7 @@ public class WeatherSystem : MonoBehaviour {
                         GameObject we;
                         we = GameObject.Find("PlayerCharacter");
                         we.GetComponent<PlayerCharacterController>().weatherState = nowWeathers;
-                        TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.WIND);
+                        
                         return true;
                     }
                     else
