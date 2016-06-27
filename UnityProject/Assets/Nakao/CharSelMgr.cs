@@ -122,7 +122,7 @@ public class CharSelMgr : MonoBehaviour {
                 }
             case 1:
                 {
-                    if(soaps[2].active)
+                    if(soaps[0].active)
                     {
                         return true;
                     }
@@ -133,7 +133,7 @@ public class CharSelMgr : MonoBehaviour {
                 }
             case 2:
                 {
-                    if (soaps[0].active)
+                    if (soaps[2].active)
                     {
                         return true;
                     }
