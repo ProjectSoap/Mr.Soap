@@ -26,6 +26,8 @@ public class SekkenSayUI : MonoBehaviour {
 
     [SerializeField, Tooltip("セリフを表示する時間")]
     private float drawTime = 3.0f;
+    [SerializeField, Tooltip("セリフが最大サイズに到達するまでの時間")]
+    private float sizeMaxTime = 0.5f;
     
     [SerializeField, Tooltip("せっけんくんのセリフテクスチャのリスト。ESayTexNameの順番にセットしてほしい")]
     private List<Sprite> sekkenKunSpriteList;
@@ -59,6 +61,23 @@ public class SekkenSayUI : MonoBehaviour {
         //タイマを進める
         drawTimeCount += Time.deltaTime;
 
+        //サイズ計算
+        if (drawTimeCount < sizeMaxTime)
+        {
+            float percent;
+            Vector3 scaleTemp;
+            percent = drawTimeCount / sizeMaxTime;
+            scaleTemp.x = 1.0f;
+            scaleTemp.y = percent * 0.9f + 0.1f;
+            scaleTemp.z = 1.0f;
+            transform.localScale = scaleTemp;
+        }
+        else
+        {
+            Vector3 scaleTemp;
+            scaleTemp.x = scaleTemp.y = scaleTemp.z = 1.0f;
+            transform.localScale = scaleTemp;
+        }
         //表示
         img.gameObject.SetActive(true);
 	}
