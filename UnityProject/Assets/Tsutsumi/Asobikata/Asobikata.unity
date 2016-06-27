@@ -716,14 +716,6 @@ Prefab:
       propertyPath: asobikataSekkenObject
       value: 
       objectReference: {fileID: 572130114}
-    - target: {fileID: 485410, guid: 94024313a272df24e9ec762f15871b6b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .899999976
-      objectReference: {fileID: 0}
-    - target: {fileID: 485410, guid: 94024313a272df24e9ec762f15871b6b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .899999976
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94024313a272df24e9ec762f15871b6b, type: 2}
   m_IsPrefabParent: 0
