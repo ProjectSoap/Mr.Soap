@@ -90,7 +90,7 @@ public class SelectCharacter : MonoBehaviour {
             else if (nowrad > selectrad)
             {
                 nowrad -= rotspead;
-                if (nowrad >= selectrad)
+                if (nowrad <= selectrad)
                 {
                     //nowrad = selectrad;
                     rotation = false;
