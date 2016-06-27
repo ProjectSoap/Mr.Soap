@@ -152,6 +152,9 @@ public class PlayerCharacterController : MonoBehaviour
     PlayerCharacterAnimationBehaviour m_stateMachineBehaviour;
     Animator m_animator;
 
+    // SayUI
+    SekkenSayUI m_sayUI;
+
     // States
     [SerializeField, Header("デバッグ用")]
     DriveState m_driveState = DriveState.Normal;
@@ -234,8 +237,6 @@ public class PlayerCharacterController : MonoBehaviour
     Vector3 m_reflect;
 
     Transform m_pauseObjectTransform;
-
-    SekkenSayUI m_sekkenSayUI;
 
     [SerializeField]
     Vector3 v;
@@ -322,7 +323,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_meshObject                = transform.FindChild("Mesh").gameObject;
         m_moveBubbleSystem          = transform.FindChild("MoveBubble").GetComponent<ParticleSystem>();
         m_pauseObjectTransform      = transform.parent;
-        m_sekkenSayUI               = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+        m_sayUI                     = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
 
         m_driftParticleSystemRight.enableEmission   = false;
         m_driftParticleSystemLeft.enableEmission    = false;
@@ -898,14 +899,15 @@ public class PlayerCharacterController : MonoBehaviour
     void Damage()
     {
         m_animator.Play("Damage");
-        m_sekkenSayUI.DrawSayTexture(SekkenSayUI.ESayTexName.CRASH);
 
         m_driveState        = DriveState.Damage;
         m_rotation          = 0.0f;
         m_velocity          = 0.0f;
         m_damageAfterTime   = 0.0f;
 
-        m_size              -= m_damageSize;
+        m_size -= m_damageSize;
+
+        m_sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.CRASH);
 
         var particleEmitter = Instantiate(m_damageParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
@@ -922,8 +924,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
-
-        m_sekkenSayUI.DrawSayTexture(SekkenSayUI.ESayTexName.RECOVERY);
+        m_sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.RECOVERY);
 
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
@@ -940,14 +941,12 @@ public class PlayerCharacterController : MonoBehaviour
         if (m_driveState == DriveState.End)
             return;
 
-        m_sekkenSayUI.DrawSayTexture(SekkenSayUI.ESayTexName.RECOVERY);
-
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
+        m_sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.RECOVERY);
 
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
-
         particleEmitter.transform.parent = transform;
 
         Destroy(particleEmitter, particleSystem.duration);

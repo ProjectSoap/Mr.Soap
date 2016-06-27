@@ -130,14 +130,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: da054f9c759d8e842a2a51cf1d970e30, type: 3}
   - {fileID: 21300000, guid: 4802c6a9106ad8943b4035d36b43f3b0, type: 3}
+  - {fileID: 21300000, guid: cdd8287894b20804dbba436b3ec1dc8d, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: d434e7b8b9364484781e2a08da917d18, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 5fe9d8cbdd1bcfb4796b60c13c487270, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &11411170
@@ -153,13 +153,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteList:
   - {fileID: 21300000, guid: d434e7b8b9364484781e2a08da917d18, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: da054f9c759d8e842a2a51cf1d970e30, type: 3}
   - {fileID: 21300000, guid: 815ab0aaf51aad14a96de08fb37ec57a, type: 3}
+  - {fileID: 21300000, guid: d434e7b8b9364484781e2a08da917d18, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &11430700
@@ -190,13 +190,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteList:
   - {fileID: 21300000, guid: 27b673e9dc0b33144af93262ec6b53c4, type: 3}
+  - {fileID: 21300000, guid: 5fe9d8cbdd1bcfb4796b60c13c487270, type: 3}
   - {fileID: 21300000, guid: da054f9c759d8e842a2a51cf1d970e30, type: 3}
-  - {fileID: 21300000, guid: cdd8287894b20804dbba436b3ec1dc8d, type: 3}
   - {fileID: 21300000, guid: 5fe9d8cbdd1bcfb4796b60c13c487270, type: 3}
   - {fileID: 21300000, guid: 815ab0aaf51aad14a96de08fb37ec57a, type: 3}
+  - {fileID: 21300000, guid: cdd8287894b20804dbba436b3ec1dc8d, type: 3}
   - {fileID: 21300000, guid: 4802c6a9106ad8943b4035d36b43f3b0, type: 3}
-  - {fileID: 21300000, guid: d434e7b8b9364484781e2a08da917d18, type: 3}
-  - {fileID: 21300000, guid: 5fe9d8cbdd1bcfb4796b60c13c487270, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!212 &21202828

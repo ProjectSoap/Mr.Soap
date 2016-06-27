@@ -248,7 +248,7 @@ public class MainSceneStateHolder : MonoBehaviour
 	public PauseObject m_pushKeyUI;
 
 
-
+    SekkenSayUI m_sayUI;
 
 	public PauseObject m_dirtys;
 
@@ -267,6 +267,27 @@ public class MainSceneStateHolder : MonoBehaviour
 	{
 		
 		m_mainState = MainState.START;//スタートから開始
+        m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+        if (m_sayUI)
+        {
+            switch (GameObject.Find("CharNo").GetComponent<SelectingCharactor>().GetCharNo())
+            {
+                case SelectingCharactorNo.SOAP:
+
+                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenKun);
+                    break;
+
+                case SelectingCharactorNo.SOAP0:
+
+                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenHero);
+                    break;
+
+                case SelectingCharactorNo.SOAPTYAN:
+
+                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenChan);
+                    break;
+            }
+        }
 		player = GameObject.Find("PlayerCharacter");
 		m_dirtySystemObject = GameObject.Find("DirtySystem");
 		dirtySystem = m_dirtySystemObject.GetComponent<DirtySystem>();

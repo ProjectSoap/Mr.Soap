@@ -41,6 +41,8 @@ public class WeatherSystem : MonoBehaviour {
     Material m_skyboxMaterialCloudiness;
 
     SekkenSayUI TSUTSUMISAN;
+    public SaveDataManager save;
+
 
 	// Use this for initialization
 	void Start () {
@@ -48,14 +50,10 @@ public class WeatherSystem : MonoBehaviour {
         NowWeather = Weather.SUN;
 
         TSUTSUMISAN = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
-
+        save = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         LoadSave();
 
-        numWeather = 3;
-        weatherflg[0] = true;
-        weatherflg[1] = true;
-        weatherflg[2] = true;
 
         m_skybox = GameObject.Find("MainCamera").GetComponent<Skybox>();
 
@@ -68,17 +66,18 @@ public class WeatherSystem : MonoBehaviour {
 
     void LoadSave()
     {
-        if(PlayerPrefs.GetInt("RainPlayFlg", -1) == 1)
+
+        if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.PlayMeizin))
         {
             weatherflg[1] = true;
 			numWeather++;
         }
-        if(PlayerPrefs.GetInt("FogPlayFlg", -1) == 1)
+        if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.PlayTatuzin))
         {
             weatherflg[2] = true;
 			numWeather++;
 		}
-        if(PlayerPrefs.GetInt("WindPlayFlg", -1) == 1)
+        if(save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.Muteki))
         {
 			weatherflg[3] = true;
 			numWeather++;
