@@ -65,6 +65,7 @@ public class DirtyObjectScript : MonoBehaviour
             mesh.material.SetColor("_Color", areaColor[area]);
             GameObject obj = Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z), dirtyIcon.transform.rotation) as GameObject;
             obj.transform.parent = transform;
+            obj.GetComponent<MaterialSwitcher>().SwitchMaterial((int)area+1);
             MeshRenderer iconMesh = obj.GetComponent<MeshRenderer>();
 			//iconMesh.sharedMaterial.SetColor("_Color", areaColor[area]);
 		}
@@ -73,7 +74,7 @@ public class DirtyObjectScript : MonoBehaviour
 			GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation) as GameObject;
 			particle.transform.parent = this.transform;
 		}
-
+        
 	}
 
 	// Update is called once per frame

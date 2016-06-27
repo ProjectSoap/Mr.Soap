@@ -187,7 +187,7 @@ void CheckDistanceFromPlayer()
         arrow.Near = 1000;
         arrow.IsAppearance = false;
         // 区画1のせっけん出現候補地とプレイヤーの距離を検証
-        if (isUnlockArea1)
+        
         {
             for (uint i = 0; i < RecoverySoapCreaters1.Length; i++)
             {
