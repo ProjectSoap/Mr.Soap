@@ -9,7 +9,7 @@ public class BarricadeManager : MonoBehaviour {
 	void Start () {
 		
 		if (
-        GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(2))
+        GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiMinarai))
 		{
 			for (int i= 0;i < m_barricade.Length;i++)
 			{
@@ -20,7 +20,7 @@ public class BarricadeManager : MonoBehaviour {
 			}
 		}
 
-        if (GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(3))
+        if (GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiItininnmae))
 		{
 			for (int i = 0; i < m_barricade.Length; i++)
 			{
@@ -31,7 +31,7 @@ public class BarricadeManager : MonoBehaviour {
 			}
 		}
 
-        if (GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(4))
+        if (GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiMeizin))
 		{
 			for (int i = 0; i < m_barricade.Length; i++)
 			{
