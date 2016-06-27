@@ -13,6 +13,8 @@ public class SelectCharacter : MonoBehaviour {
     [SerializeField]
     List<Animator> soapsAnimation;
 
+    public bool rotation;
+
     [SerializeField]
     int charno;
     [SerializeField]
@@ -35,7 +37,7 @@ public class SelectCharacter : MonoBehaviour {
         Quaternion qt = new Quaternion(0,0,0,0);
         if (Fade.FadeEnd())
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && nowrad == selectrad)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !rotation)
             {
                 BGMManager.Instance.PlaySE("Character_Change");
                 charno--;
@@ -52,8 +54,9 @@ public class SelectCharacter : MonoBehaviour {
                     charno = 0;
                 }
                 selectrad = charno * 360.0f / charMax;
+                rotation = true;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && nowrad == selectrad)
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && !rotation)
             {
                 BGMManager.Instance.PlaySE("Character_Change");
                 charno++;
@@ -71,6 +74,7 @@ public class SelectCharacter : MonoBehaviour {
                 {
                     charno = 0;
                 }
+                rotation = true;
             }
 
             if (nowrad < selectrad)
@@ -79,6 +83,7 @@ public class SelectCharacter : MonoBehaviour {
                 if (nowrad >= selectrad)
                 {
                     // nowrad = selectrad;
+                    rotation = false;
                 }
                 //       Axis.transform.rotation = rot;
             }
@@ -88,6 +93,7 @@ public class SelectCharacter : MonoBehaviour {
                 if (nowrad >= selectrad)
                 {
                     //nowrad = selectrad;
+                    rotation = false;
                 }
                 //          Axis.transform.rotation = rot;
             }
@@ -124,6 +130,10 @@ public class SelectCharacter : MonoBehaviour {
             }
         }
             
+        if(nowrad == selectrad)
+        {
+            rotation = false;
+        }
 	}
 
     public int GetCharNo()
@@ -133,7 +143,7 @@ public class SelectCharacter : MonoBehaviour {
 
     public bool EndRotation()
     {
-        if(selectrad == nowrad)
+        if(!rotation)
         {
             return true;
         }
@@ -141,6 +151,11 @@ public class SelectCharacter : MonoBehaviour {
         {
             return false;
         }
+    }
+
+    public void  SetEnter()
+    {
+        rotation = true;
     }
 
 }

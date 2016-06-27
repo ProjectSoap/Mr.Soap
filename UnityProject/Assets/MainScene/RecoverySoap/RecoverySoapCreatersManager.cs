@@ -52,15 +52,15 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
         player = GameObject.Find("PlayerCharacter");
 
 		CheckRecordCondition saveData = GameObject.Find("CheckRecordCondition").GetComponent<CheckRecordCondition>();
-		if (saveData.CheckRecordConditionClear(2))
+		if (saveData.CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiMinarai))
 		{
 			isUnlockArea2 = true;
 		}
-		if (saveData.CheckRecordConditionClear(3))
+        if (saveData.CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiItininnmae))
 		{
 			isUnlockArea2 = true;
 		}
-		if (saveData.CheckRecordConditionClear(4))
+        if (saveData.CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiMeizin))
 		{
 			isUnlockArea2 = true;
 		}
@@ -101,63 +101,76 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 
 					}
 				}
-				// 区画2		
-				elemMax = (uint)RecoverySoapCreaters2.Length;
-				if (elemMax > 0)
-				{
-					uint randElem;
-					RecoverySoapCreater script;
-					
-					randElem = (uint)Random.Range(0.0f, (float)elemMax);
-					script = RecoverySoapCreaters2[randElem].GetComponent<RecoverySoapCreater>();
-					if (script)
-					{
-						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-						{
-							script.IsInstance = true;
-							sprite.IsAppearance = true;
-						}
 
-					}
-				}
-				// 区画3
-				elemMax = (uint)RecoverySoapCreaters3.Length;
-				if (elemMax > 0)
-				{
-					uint randElem;
-					RecoverySoapCreater script;
+                if (isUnlockArea2) 
+                {
 
-					randElem = (uint)Random.Range(0.0f, (float)elemMax);
-					script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
-					if (script)
-					{
-						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-						{
-							script.IsInstance = true;
-							sprite.IsAppearance = true;
-						}
+                    // 区画2		
+                    elemMax = (uint)RecoverySoapCreaters2.Length;
+                    if (elemMax > 0)
+                    {
+                        uint randElem;
+                        RecoverySoapCreater script;
 
-					}
-				}
-				// 区画4
-				elemMax = (uint)RecoverySoapCreaters4.Length;
-				if (elemMax > 0)
-				{
-					uint randElem;
-					RecoverySoapCreater script;
+                        randElem = (uint)Random.Range(0.0f, (float)elemMax);
+                        script = RecoverySoapCreaters2[randElem].GetComponent<RecoverySoapCreater>();
+                        if (script)
+                        {
+                            if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                            {
+                                script.IsInstance = true;
+                                sprite.IsAppearance = true;
+                            }
 
-					randElem = (uint)Random.Range(0.0f, (float)elemMax);
-					script = RecoverySoapCreaters4[randElem].GetComponent<RecoverySoapCreater>();
-					if (script)
-					{
-						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-						{
-							script.IsInstance = true;
-							sprite.IsAppearance = true;
-						}
+                        }
+                    }
+                }
+                if (isUnlockArea3)
+                {
 
-					}
-				}
+                    // 区画3
+                    elemMax = (uint)RecoverySoapCreaters3.Length;
+                    if (elemMax > 0)
+                    {
+                        uint randElem;
+                        RecoverySoapCreater script;
+
+                        randElem = (uint)Random.Range(0.0f, (float)elemMax);
+                        script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
+                        if (script)
+                        {
+                            if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                            {
+                                script.IsInstance = true;
+                                sprite.IsAppearance = true;
+                            }
+
+                        }
+                    }
+                }
+                if (isUnlockArea4)
+                {
+
+                    // 区画4
+                    elemMax = (uint)RecoverySoapCreaters4.Length;
+                    if (elemMax > 0)
+                    {
+                        uint randElem;
+                        RecoverySoapCreater script;
+
+                        randElem = (uint)Random.Range(0.0f, (float)elemMax);
+                        script = RecoverySoapCreaters4[randElem].GetComponent<RecoverySoapCreater>();
+                        if (script)
+                        {
+                            if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+                            {
+                                script.IsInstance = true;
+                                sprite.IsAppearance = true;
+                            }
+
+                        }
+                    }
+                }
 
 			}
 		}

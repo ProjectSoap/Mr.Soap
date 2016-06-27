@@ -65,6 +65,7 @@ public class CharSelMgr : MonoBehaviour {
                         if (CheckOpenChar(soap.GetCharNo()) && soap.EndRotation())
                         {
                             state = Charselect.PLAY;
+                            soap.SetEnter();
                             charUI.ChangePause();
                             BGMManager.Instance.PlaySE("Character_Decision");
                         }
@@ -76,6 +77,11 @@ public class CharSelMgr : MonoBehaviour {
                     }
                 case Charselect.PLAY:
                     {
+                        if(!CheckOpenChar(soap.GetCharNo()))
+                        {
+                            state = Charselect.SELECT;
+                            charUI.ChangePause();
+                        }
 //                        Application.LoadLevel("Main");
                         state = Charselect.FADE;
                         BGMManager.Instance.PlaySE("Cursor_Decision");
@@ -108,6 +114,15 @@ public class CharSelMgr : MonoBehaviour {
                         charUI.ChangePause();
                         break;
                     }
+            }
+        }
+
+        if(state == Charselect.PLAY)
+        {
+            if(!CheckOpenChar(soap.GetCharNo()))
+            {
+                state = Charselect.SELECT;
+                charUI.ChangePause();
             }
         }
 	}
