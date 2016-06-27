@@ -591,6 +591,7 @@ MonoBehaviour:
   - {fileID: 1536858208}
   - {fileID: 546320001}
   - {fileID: 1815562621}
+  rotation: 0
   charno: 0
   charMax: 3
   nowrad: 0
@@ -33134,6 +33135,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688612474}
   m_Mesh: {fileID: 4300000, guid: 752e0368e1e393c45a9faa98c3dadd07, type: 3}
+--- !u!1001 &1689029502
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 312
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 176.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493016, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8fa2695c433a85e4cb007da7d4d9c25e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1689965405
 GameObject:
   m_ObjectHideFlags: 0
