@@ -4,7 +4,7 @@ using System.Collections;
 public class MaterialSwitcher : MonoBehaviour {
 
     [SerializeField]
-    Material[] m_materials;
+    Material[] m_materials = new Material[4];
 
     MeshRenderer m_mr;
     // Use this for initialization

@@ -9,7 +9,9 @@ public class TitleMgr : MonoBehaviour {
 
     private int wait;
     private int def;
-    
+
+    public float m_triggerTime = 10;
+
     /*
     // デバッグ
     void DebugInput()
@@ -51,6 +53,22 @@ public class TitleMgr : MonoBehaviour {
         else
         {
             timer += Time.deltaTime;
+        }
+
+        // セーブリセット
+        if (Input.GetKey(KeyCode.F12))
+        {
+            m_triggerTime -= Time.deltaTime;
+        }
+        else 
+        {
+            m_triggerTime = 10;
+        }
+        if (m_triggerTime <= 0)
+        {
+            SaveDataManager manager = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
+            manager.Reset();
+            Debug.Log("Save data reset!");
         }
 
     }
