@@ -10,6 +10,10 @@ public class BubbleBullet : MonoBehaviour {
     private float timeCount;
     private Rigidbody rigid;
 
+    private bool collisionFlg;
+    ParticleSystem particleSystem;
+    ParticleSystem particleSystem2;
+    ParticleSystem particleSystem3;
 	// Use this for initialization
 	void Awake () {
         rigid = GetComponent<Rigidbody>();
@@ -21,6 +25,12 @@ public class BubbleBullet : MonoBehaviour {
         rigid.velocity = MoveVec;
 
         timeCount = 0.0f;
+
+        collisionFlg = false;
+        particleSystem = GetComponent<ParticleSystem>();
+        particleSystem2 = transform.FindChild("Particle System 2").GetComponent<ParticleSystem>();
+        particleSystem3 = transform.FindChild("Particle System 3").GetComponent<ParticleSystem>();
+
         if (BGMManager.Instance != null)
         {
             BGMManager.Instance.PlaySE("Wash_Fly");
@@ -31,8 +41,19 @@ public class BubbleBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //時間がたったら消す
         timeCount += Time.deltaTime;
+
+        if (collisionFlg == true)
+        {
+            if (timeCount > 0.2f)
+            {
+                particleSystem.enableEmission = false;
+                particleSystem2.enableEmission = false;
+                particleSystem3.enableEmission = false;
+            }
+        }
+
+        //時間がたったら消す
         if (timeCount > LIVE_TIME)
         {
             Destroy(gameObject);
@@ -47,12 +68,11 @@ public class BubbleBullet : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Building"))
-        {
-            Vector3 vec = rigid.velocity;
-            vec = vec *= 0.8f;
+        Vector3 vec = rigid.velocity;
+        vec = vec *= 0.8f;
 
-            rigid.velocity = vec;
-        }
+        rigid.velocity = vec;
+
+        collisionFlg = true;
     }
 }
