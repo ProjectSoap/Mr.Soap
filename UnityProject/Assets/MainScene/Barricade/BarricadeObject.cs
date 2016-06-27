@@ -31,9 +31,9 @@ public class BarricadeObject : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-    void OnTriggerEnter(Collider col) 
+    void OnCollisionEnter(Collision col) 
     {
-        //if (col.gameObject.layer == playerLayer) 
+        if (col.gameObject.layer == playerLayer) 
         {
             if (sayUI)
             {
