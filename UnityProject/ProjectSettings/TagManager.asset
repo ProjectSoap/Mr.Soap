@@ -11,6 +11,7 @@ TagManager:
   - RecoverySoap
   - DummyBubble
   - RecoverySoapAppearancePoint
+  - StaticCar
   layers:
   - Default
   - TransparentFX
