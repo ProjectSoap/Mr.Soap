@@ -35,6 +35,7 @@ public class SelectCharacter : MonoBehaviour {
 	void Update () {
         Vector3 trans;
         Quaternion qt = new Quaternion(0,0,0,0);
+        //回転
         if (Fade.FadeEnd())
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) && !rotation)
@@ -136,11 +137,13 @@ public class SelectCharacter : MonoBehaviour {
         }
 	}
 
+    //選択したきゃらばんごうしゅとく
     public int GetCharNo()
     {
         return charno;
     }
 
+    //停止しているかチェック
     public bool EndRotation()
     {
         if(!rotation)
@@ -152,6 +155,8 @@ public class SelectCharacter : MonoBehaviour {
             return false;
         }
     }
+
+    //決定時停止
 
     public void  SetEnter()
     {
