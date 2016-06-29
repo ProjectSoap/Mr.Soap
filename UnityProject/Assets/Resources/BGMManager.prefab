@@ -78,6 +78,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 70f32cf0a14806b49b9f6da44d6c437e, type: 3}
   - {fileID: 8300000, guid: f57062bba13a2444997bbf7a75220b80, type: 3}
   - {fileID: 8300000, guid: 9f7e8444c524e4f48a7f43991353c981, type: 3}
+  - {fileID: 8300000, guid: cbaeafc9a4a6c5c45ae31356c0ac3992, type: 3}
   MaxSE: 10
   mixer: {fileID: 24100000, guid: 703e9d67a2a073343adc2db60280043d, type: 2}
   keisuu: 0
