@@ -219,7 +219,7 @@ public class SaveDataManager : MonoBehaviour {
     }
 
     //セーブデータ全削除。
-    private void Reset()
+    public void Reset()
     {
         //全てのデータに０代入
         for (int i = 0; i < (int)ESaveDataNo.SAVE_DATA_NUM; ++i)

@@ -4,21 +4,16 @@ using System.Collections;
 public class MaterialSwitcher : MonoBehaviour {
 
     [SerializeField]
-    Material[] m_materials;
+    Material[] m_materials = new Material[4];
 
     MeshRenderer m_mr;
     // Use this for initialization
 	void Start () {
-        m_mr = GetComponent<MeshRenderer>();
 	}
 
     public bool SwitchMaterial(int select)
     {
-        if (
-            0 < m_materials.Length &&
-            0 < select &&
-            select < m_materials.Length
-            ) 
+        m_mr = GetComponent<MeshRenderer>();
         {
             m_mr.material = m_materials[select];
 
