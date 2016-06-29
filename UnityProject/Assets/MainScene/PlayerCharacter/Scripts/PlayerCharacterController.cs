@@ -498,6 +498,12 @@ public class PlayerCharacterController : MonoBehaviour
         else
             m_moveBubbleSystem.enableEmission = false;
 
+        // 音
+        if(m_driveState == DriveState.Normal || m_driveState == DriveState.Drift || m_driveState == DriveState.JumpAfter)
+        {
+            BGMManager.Instance.PlaySE("Soap_Move");
+        }
+        
         // 天候チェック
         switch (m_weatherState)
         {
