@@ -20,6 +20,8 @@ public class SelectingCharactor : MonoBehaviour {
     public bool loaded;
     SelectingCharactorNo no;
 
+    float loadWaitTime;
+    
 	PlayModeState m_playMode;
 	public PlayModeState PlayMode
 	{
@@ -29,6 +31,7 @@ public class SelectingCharactor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         loaded = false;
+        loadWaitTime = 0.0f;
         DontDestroyOnLoad(this);
 	}
 	
@@ -36,7 +39,11 @@ public class SelectingCharactor : MonoBehaviour {
 	void Update () {
 	    if(loaded)
         {
-            Destroy(this.gameObject);
+            loadWaitTime += Time.deltaTime;
+            if (loadWaitTime > 5.0f)
+            {
+                Destroy(this);
+            }
         }
 	}
 
