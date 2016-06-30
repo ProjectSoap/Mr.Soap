@@ -195,8 +195,11 @@ public class PlayerCharacterController : MonoBehaviour
     // Scale
     [SerializeField]
     float m_size = 100;
-    //float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
-    Vector3 m_defaultScale = new Vector3(1, 1, 1);
+
+
+	uint m_inSection;	// 現在のプレイヤーのいる区画
+	//float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
+	Vector3 m_defaultScale = new Vector3(1, 1, 1);
 
     // Input
     bool m_isPushJump = false;
@@ -313,7 +316,13 @@ public class PlayerCharacterController : MonoBehaviour
         set { m_isNotJump = value; }
     }
 
-    void Awake()
+	public uint inSection
+	{
+		get { return m_inSection; }
+		set { m_inSection = value; }
+	}
+
+	void Awake()
     {
         gameObject.name = "PlayerCharacter";
     }
