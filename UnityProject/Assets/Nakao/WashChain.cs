@@ -40,9 +40,10 @@ public class WashChain : MonoBehaviour {
             {
                 minus = true;
                 now_chain--;
-                if(now_chain<0)
+                if(now_chain<=0)
                 {
                     now_chain = 0;
+                    
                 }
                 SetLimit();
                 SetAgree();
@@ -85,15 +86,20 @@ public class WashChain : MonoBehaviour {
             if (now_time < limit)
             {
                 needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
-            }
-            else
-            {
-                needle.rectTransform.rotation = Quaternion.Euler(0, 0, 25.0f - rotate_angle * (0));
+                if(minus)
+                {
+                    Reset();
+                }
             }
         }
 	       //needle.rectTransform.rotation =
         
 	}
+
+    void Reset()
+    {
+        needle.rectTransform.rotation = Quaternion.Euler(0, 0, 25.0f - rotate_angle * (0));
+    }
 
     void SetLimit()
     {
@@ -112,7 +118,7 @@ public class WashChain : MonoBehaviour {
 
         if(now_chain == 0)
         {
-            limit = 0.2f;
+            limit = 0.4f;
         }
     }
 

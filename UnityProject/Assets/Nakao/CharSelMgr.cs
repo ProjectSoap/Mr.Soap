@@ -33,7 +33,10 @@ public class CharSelMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		state = Charselect.SELECT;
+        //ゲーム中の選択状態をリセット
+        ActionRecordManager.sActionRecord.Reset();
 
+        //実績解放によって表示を変更
         if (save.GetComponentInChildren<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.no1))
         {
             soaps[3].active = false;
@@ -62,12 +65,17 @@ public class CharSelMgr : MonoBehaviour {
             {
                 case Charselect.SELECT:
                     {
+                        //回転が終わっているかキャラが解放されているかチェック
                         if (CheckOpenChar(soap.GetCharNo()) && soap.EndRotation())
                         {
                             state = Charselect.PLAY;
+                            //キャラセレクトからモードセレクトへ移行準備
                             soap.SetEnter();
+                            no.SetCharNo(soap.GetCharNo());
+                            //表示切替
                             charUI.ChangePause();
                             BGMManager.Instance.PlaySE("Character_Decision");
+                            
                         }
                         else
                         {
@@ -77,16 +85,12 @@ public class CharSelMgr : MonoBehaviour {
                     }
                 case Charselect.PLAY:
                     {
-                        if(!CheckOpenChar(soap.GetCharNo()))
-                        {
-                            state = Charselect.SELECT;
-                            charUI.ChangePause();
-                        }
+                      
 //                        Application.LoadLevel("Main");
                         state = Charselect.FADE;
                         BGMManager.Instance.PlaySE("Cursor_Decision");
                         Fade.ChangeScene("main");
-                        no.SetCharNo(soap.GetCharNo());
+                        //プレイモードセット
 						no.PlayMode = (PlayModeState) m_playMode.SelectNow;
 
 						break;
@@ -119,6 +123,7 @@ public class CharSelMgr : MonoBehaviour {
 
         if(state == Charselect.PLAY)
         {
+            //1ｆ対応
             if(!CheckOpenChar(soap.GetCharNo()))
             {
                 state = Charselect.SELECT;
@@ -127,6 +132,7 @@ public class CharSelMgr : MonoBehaviour {
         }
 	}
 
+    //キャラ解放チェック
     bool CheckOpenChar(int no)
     {
         switch(no)

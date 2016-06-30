@@ -238,6 +238,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     Transform m_pauseObjectTransform;
 
+    bool m_isNotJump;    
+
     [SerializeField]
     Vector3 v;
 
@@ -303,6 +305,12 @@ public class PlayerCharacterController : MonoBehaviour
     {
         get { return m_velocity; }
         set { m_velocity = value; }
+    }
+
+    public bool isNotJump
+    {
+        get { return m_isNotJump; }
+        set { m_isNotJump = value; }
     }
 
     void Awake()
@@ -490,6 +498,12 @@ public class PlayerCharacterController : MonoBehaviour
         else
             m_moveBubbleSystem.enableEmission = false;
 
+        // 音
+        if(m_driveState == DriveState.Normal || m_driveState == DriveState.Drift || m_driveState == DriveState.JumpAfter)
+        {
+            BGMManager.Instance.PlaySE("Soap_Move");
+        }
+        
         // 天候チェック
         switch (m_weatherState)
         {
@@ -785,21 +799,26 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (m_isPushJump)
         {
-            if (m_isGround)      // 地形と接触していた
+            if (!m_isNotJump)
             {
-                m_rigidbody.AddForce(Vector3.up * m_jumpPower);       // 上に飛ばす
-                //m_rigidbody.velocity = new Vector3(m_rigidbody.velocity.x, m_jumpPower, m_rigidbody.velocity.z);
-                m_animator.Play("Jump");
+                if (m_isGround)      // 地形と接触していた
+                {
+                    m_rigidbody.AddForce(Vector3.up * m_jumpPower);       // 上に飛ばす
+                    //m_rigidbody.velocity = new Vector3(m_rigidbody.velocity.x, m_jumpPower, m_rigidbody.velocity.z);
+                    m_animator.Play("Jump");
 
-                //m_driftParticleSystemRight.Clear();
-                //m_driftParticleSystemLeft.Clear();
+                    //m_driftParticleSystemRight.Clear();
+                    //m_driftParticleSystemLeft.Clear();
 
-                //m_velocity      = 0.0f;
-                m_rotation      = 0.0f;
-                m_driveState    = DriveState.Jump;
+                    //m_velocity      = 0.0f;
+                    m_rotation = 0.0f;
+                    m_driveState = DriveState.Jump;
 
-                BGMManager.Instance.PlaySE("Soap_Jump");
+                    BGMManager.Instance.PlaySE("Soap_Jump");
+                }
             }
+            else
+                m_isNotJump = false;
 
             m_isPushJump = false;
         }
