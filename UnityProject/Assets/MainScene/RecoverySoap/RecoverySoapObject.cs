@@ -11,20 +11,20 @@ public class RecoverySoapObject : MonoBehaviour {
         set { parent = value; }
     }
 
-    [SerializeField]
-    float m_lifeTime;
-	float m_lifeTimeMax;
+    //[SerializeField]
+    //float m_lifeTime;
+	//float m_lifeTimeMax;
 
-	[SerializeField,Header("点滅始める時間")]
-	float m_flashStartTime = 10;
-	[SerializeField, Header("最小点滅間隔")]
-	float m_flashingIntervalMinTime = 0.1f;
+	//[SerializeField,Header("点滅始める時間")]
+	//float m_flashStartTime = 10;
+	//[SerializeField, Header("最小点滅間隔")]
+	//float m_flashingIntervalMinTime = 0.1f;
 
-	[SerializeField, Header("最大点滅間隔")]
-	float m_flashingIntervalMaxTime = 0.5f;
+	//[SerializeField, Header("最大点滅間隔")]
+	//float m_flashingIntervalMaxTime = 0.5f;
 
 	// フラッシュ中の計測時間
-	float m_flashTime;
+	//float m_flashTime;
 	[SerializeField, Header("回転角")]
     float m_rotation = 60.0f;
 
@@ -47,13 +47,14 @@ public class RecoverySoapObject : MonoBehaviour {
 	FlashState m_flashState;
     // Use this for initialization
     void Start () {
-		m_lifeTimeMax = m_lifeTime;
-		m_flashTime = m_flashingIntervalMaxTime;
+	//	m_lifeTimeMax = m_lifeTime;
+	//	m_flashTime = m_flashingIntervalMaxTime;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        /*
         m_lifeTime -= Time.deltaTime;
 		FlashProcesss();
 
@@ -62,6 +63,7 @@ public class RecoverySoapObject : MonoBehaviour {
             parent.IsHaveRevoverySoap = false;
             Destroy(gameObject);
         }
+         * */
         transform.localRotation *= Quaternion.AngleAxis(60 * Time.deltaTime, new Vector3(0,0,1));
         if (isUpMove)
         {
@@ -82,7 +84,7 @@ public class RecoverySoapObject : MonoBehaviour {
             isUpMove = true;
         }
     }
-
+    /*
 	void FlashProcesss()
 	{
 		if (m_lifeTime <= m_flashStartTime)
@@ -113,6 +115,7 @@ public class RecoverySoapObject : MonoBehaviour {
 
 		}
 	}
+     */
 
     void OnTriggerEnter(Collider collisionObject)
     {

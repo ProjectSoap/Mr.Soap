@@ -42,12 +42,14 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	NorticeDirectionRecaverySoap arrow;
 	NorticeUIOfAppearanceRecoverySoap sprite;
 
-    public float m_decisionSecond = 2;  // 発生時間内での判定時間(秒)
-    public float m_decisionSecondNow;
+	public float m_decisionSecond = 2;  // 発生時間内での判定時間(秒)
+	public float m_decisionSecondNow;
+
+    bool m_isApparance;
 	// Use this for initialization
 	void Start ()
 	{
-        m_decisionSecondNow = m_decisionSecond;
+		m_decisionSecondNow = m_decisionSecond;
 		isRunning = false;
 
 		arrow = GameObject.Find("NorticeRecoveryDirection").GetComponent<NorticeDirectionRecaverySoap>();
@@ -72,129 +74,129 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-			countSecond += Time.deltaTime;
+		countSecond += Time.deltaTime;
 
 
 		CheckDistanceFromPlayer();
 		// 指定した秒数内
 		if (minTimeForInstance <= countSecond && countSecond <= maxTimeForInstance)
 		{
-            //判定時間であるか
-            m_decisionSecondNow -= Time.deltaTime;
-            if (m_decisionSecondNow <= 0) 
-            {
-                m_decisionSecondNow = m_decisionSecond - m_decisionSecondNow;
+			//判定時間であるか
+			m_decisionSecondNow -= Time.deltaTime;
+			if (m_decisionSecondNow <= 0) 
+			{
+				m_decisionSecondNow = m_decisionSecond - m_decisionSecondNow;
 
-                DecisionCreate();
+				DecisionCreate();
 			}
 		}
 		if (maxTimeForInstance < countSecond)
 		{
 			countSecond = 0; // 最大時間を超えたらリセット
-            DecisionCreate();
+			DecisionCreate();
 
 		}
 }
 
-    void DecisionCreate()
-    {
-        float difference = maxTimeForInstance - minTimeForInstance;	// 最大と最小の差分
-        float d = ((float)maxTimeForInstance - countSecond) / (float)difference;
-        if (d < Random.value)
-        {
-            countSecond = 0;    // カウントリセット
-            uint elemMax;
-            elemMax = (uint)RecoverySoapCreaters1.Length;
-            if (elemMax > 0)
-            {
-                uint randElem;
-                RecoverySoapCreater script;
+	void DecisionCreate()
+	{
+		float difference = maxTimeForInstance - minTimeForInstance;	// 最大と最小の差分
+		float d = ((float)maxTimeForInstance - countSecond) / (float)difference;
+		if (d < Random.value)
+		{
+			countSecond = 0;    // カウントリセット
+			uint elemMax;
+			elemMax = (uint)RecoverySoapCreaters1.Length;
+			if (elemMax > 0)
+			{
+				uint randElem;
+				RecoverySoapCreater script;
 
-                // 区画1
-                randElem = (uint)Random.Range(0.0f, (float)elemMax);
-                script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
-                if (script)
-                {
-                    if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-                    {
-                        script.IsInstance = true;
-                        sprite.IsAppearance = true;
-                    }
+				// 区画1
+				randElem = (uint)Random.Range(0.0f, (float)elemMax);
+				script = RecoverySoapCreaters1[randElem].GetComponent<RecoverySoapCreater>();
+				if (script)
+				{
+					if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+					{
+						script.IsInstance = true;
+						sprite.IsAppearance = true;
+					}
 
-                }
-            }
+				}
+			}
 
-            if (isUnlockArea2)
-            {
+			if (isUnlockArea2)
+			{
 
-                // 区画2		
-                elemMax = (uint)RecoverySoapCreaters2.Length;
-                if (elemMax > 0)
-                {
-                    uint randElem;
-                    RecoverySoapCreater script;
+				// 区画2		
+				elemMax = (uint)RecoverySoapCreaters2.Length;
+				if (elemMax > 0)
+				{
+					uint randElem;
+					RecoverySoapCreater script;
 
-                    randElem = (uint)Random.Range(0.0f, (float)elemMax);
-                    script = RecoverySoapCreaters2[randElem].GetComponent<RecoverySoapCreater>();
-                    if (script)
-                    {
-                        if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-                        {
-                            script.IsInstance = true;
-                            sprite.IsAppearance = true;
-                        }
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
+					script = RecoverySoapCreaters2[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
+							sprite.IsAppearance = true;
+						}
 
-                    }
-                }
-            }
-            if (isUnlockArea3)
-            {
+					}
+				}
+			}
+			if (isUnlockArea3)
+			{
 
-                // 区画3
-                elemMax = (uint)RecoverySoapCreaters3.Length;
-                if (elemMax > 0)
-                {
-                    uint randElem;
-                    RecoverySoapCreater script;
+				// 区画3
+				elemMax = (uint)RecoverySoapCreaters3.Length;
+				if (elemMax > 0)
+				{
+					uint randElem;
+					RecoverySoapCreater script;
 
-                    randElem = (uint)Random.Range(0.0f, (float)elemMax);
-                    script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
-                    if (script)
-                    {
-                        if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-                        {
-                            script.IsInstance = true;
-                            sprite.IsAppearance = true;
-                        }
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
+					script = RecoverySoapCreaters3[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
+							sprite.IsAppearance = true;
+						}
 
-                    }
-                }
-            }
-            if (isUnlockArea4)
-            {
+					}
+				}
+			}
+			if (isUnlockArea4)
+			{
 
-                // 区画4
-                elemMax = (uint)RecoverySoapCreaters4.Length;
-                if (elemMax > 0)
-                {
-                    uint randElem;
-                    RecoverySoapCreater script;
+				// 区画4
+				elemMax = (uint)RecoverySoapCreaters4.Length;
+				if (elemMax > 0)
+				{
+					uint randElem;
+					RecoverySoapCreater script;
 
-                    randElem = (uint)Random.Range(0.0f, (float)elemMax);
-                    script = RecoverySoapCreaters4[randElem].GetComponent<RecoverySoapCreater>();
-                    if (script)
-                    {
-                        if (!script.IsHaveRevoverySoap && script.IsRangeOut)
-                        {
-                            script.IsInstance = true;
-                            sprite.IsAppearance = true;
-                        }
+					randElem = (uint)Random.Range(0.0f, (float)elemMax);
+					script = RecoverySoapCreaters4[randElem].GetComponent<RecoverySoapCreater>();
+					if (script)
+					{
+						if (!script.IsHaveRevoverySoap && script.IsRangeOut)
+						{
+							script.IsInstance = true;
+							sprite.IsAppearance = true;
+						}
 
-                    }
-                }
-            }
-        }
-    }
+					}
+				}
+			}
+		}
+	}
 
 
 void CheckDistanceFromPlayer()
