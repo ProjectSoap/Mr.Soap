@@ -196,7 +196,7 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField]
     float m_size = 100;
 
-
+	[SerializeField]
 	uint m_inSection;	// 現在のプレイヤーのいる区画
 	//float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
 	Vector3 m_defaultScale = new Vector3(1, 1, 1);

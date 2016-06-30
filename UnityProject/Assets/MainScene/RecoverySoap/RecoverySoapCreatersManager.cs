@@ -45,7 +45,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	public float m_decisionSecond = 2;  // 発生時間内での判定時間(秒)
 	public float m_decisionSecondNow;
 
-    bool m_isApparance;
+	bool m_isApparance;
 	// Use this for initialization
 	void Start ()
 	{
