@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 484538}
   - 33: {fileID: 3316570}
   - 23: {fileID: 2348474}
-  - 114: {fileID: 11489166}
   - 114: {fileID: 11401740}
   m_Layer: 0
   m_Name: MiniMapDirtyIcon
@@ -80,18 +79,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 95b67ebc9c0f89e4cb670a063310e29d, type: 2}
   - {fileID: 2100000, guid: 194f8c2c5eefdf840a34df6b43e2c731, type: 2}
   - {fileID: 2100000, guid: 0ef0a21aef9000c41ba6214d5f27425d, type: 2}
---- !u!114 &11489166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a52706317da6e424b9d9355bff101507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_materials: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
