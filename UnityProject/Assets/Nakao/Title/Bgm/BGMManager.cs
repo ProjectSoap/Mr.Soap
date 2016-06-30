@@ -125,6 +125,35 @@ public class BGMManager : SingletonMonoBehaviour<BGMManager>
         source.Play();
     }
 
+    public void PlaySELoop(string seName)
+    {
+        if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
+
+        AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
+        if (source == null)
+        {
+            if (this.seSources.Count >= this.MaxSE)
+            {
+                Debug.Log("SE AudioSource is full");
+                return;
+            }
+            for(int i = 0; i < this.seSources.Count ; ++i)
+            {
+                if(this.seSources[i].name == seName)
+                {
+                    Debug.Log("LoopSE AudioSource is Playing");
+                    return;
+                }
+            }
+            source = this.gameObject.AddComponent<AudioSource>();
+            this.seSources.Add(source);
+        }
+
+        source.clip = this.seDict[seName];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
+        source.Play();
+    }
+
     public void StopSE()
     {
         this.seSources.ForEach(s => s.Stop());

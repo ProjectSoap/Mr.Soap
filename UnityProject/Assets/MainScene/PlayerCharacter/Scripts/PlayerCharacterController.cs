@@ -195,8 +195,11 @@ public class PlayerCharacterController : MonoBehaviour
     // Scale
     [SerializeField]
     float m_size = 100;
-    //float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
-    Vector3 m_defaultScale = new Vector3(1, 1, 1);
+
+	[SerializeField]
+	uint m_inSection;	// 現在のプレイヤーのいる区画
+	//float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
+	Vector3 m_defaultScale = new Vector3(1, 1, 1);
 
     // Input
     bool m_isPushJump = false;
@@ -237,6 +240,8 @@ public class PlayerCharacterController : MonoBehaviour
     Vector3 m_reflect;
 
     Transform m_pauseObjectTransform;
+
+    bool m_isNotJump;    
 
     [SerializeField]
     Vector3 v;
@@ -305,7 +310,19 @@ public class PlayerCharacterController : MonoBehaviour
         set { m_velocity = value; }
     }
 
-    void Awake()
+    public bool isNotJump
+    {
+        get { return m_isNotJump; }
+        set { m_isNotJump = value; }
+    }
+
+	public uint inSection
+	{
+		get { return m_inSection; }
+		set { m_inSection = value; }
+	}
+
+	void Awake()
     {
         gameObject.name = "PlayerCharacter";
     }
@@ -490,6 +507,12 @@ public class PlayerCharacterController : MonoBehaviour
         else
             m_moveBubbleSystem.enableEmission = false;
 
+        // 音
+        if(m_driveState == DriveState.Normal || m_driveState == DriveState.Drift || m_driveState == DriveState.JumpAfter)
+        {
+            BGMManager.Instance.PlaySE("Soap_Move");
+        }
+        
         // 天候チェック
         switch (m_weatherState)
         {
@@ -785,21 +808,26 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (m_isPushJump)
         {
-            if (m_isGround)      // 地形と接触していた
+            if (!m_isNotJump)
             {
-                m_rigidbody.AddForce(Vector3.up * m_jumpPower);       // 上に飛ばす
-                //m_rigidbody.velocity = new Vector3(m_rigidbody.velocity.x, m_jumpPower, m_rigidbody.velocity.z);
-                m_animator.Play("Jump");
+                if (m_isGround)      // 地形と接触していた
+                {
+                    m_rigidbody.AddForce(Vector3.up * m_jumpPower);       // 上に飛ばす
+                    //m_rigidbody.velocity = new Vector3(m_rigidbody.velocity.x, m_jumpPower, m_rigidbody.velocity.z);
+                    m_animator.Play("Jump");
 
-                //m_driftParticleSystemRight.Clear();
-                //m_driftParticleSystemLeft.Clear();
+                    //m_driftParticleSystemRight.Clear();
+                    //m_driftParticleSystemLeft.Clear();
 
-                //m_velocity      = 0.0f;
-                m_rotation      = 0.0f;
-                m_driveState    = DriveState.Jump;
+                    //m_velocity      = 0.0f;
+                    m_rotation = 0.0f;
+                    m_driveState = DriveState.Jump;
 
-                BGMManager.Instance.PlaySE("Soap_Jump");
+                    BGMManager.Instance.PlaySE("Soap_Jump");
+                }
             }
+            else
+                m_isNotJump = false;
 
             m_isPushJump = false;
         }
