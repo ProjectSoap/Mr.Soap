@@ -89,18 +89,32 @@ public class BGMManager : SingletonMonoBehaviour<BGMManager>
 
             source = this.gameObject.AddComponent<AudioSource>();
             this.seSources.Add(source);
+
         }
+        source.loop = false;
+        source.spatialize = false;
+        source.spatialBlend = 0.0f;
 
         source.clip = this.seDict[seName];
         source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
         source.Play();
     }
 
-    public void PlaySE(string seName , int power)
+    ///
+    /// <summary>   SEを3Dサウンドで再生 spatialを true で3D   </summary>
+    ///
+
+    public void PlaySE(string seName, bool spatial)
     {
         if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
 
         AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
+        if (spatial)
+        {
+            source.spatialize = spatial;
+            source.spatialBlend = 1.0f;
+            source.rolloffMode = AudioRolloffMode.Linear;
+        }
         if (source == null)
         {
             if (this.seSources.Count >= this.MaxSE)
@@ -114,37 +128,38 @@ public class BGMManager : SingletonMonoBehaviour<BGMManager>
         }
 
         source.clip = this.seDict[seName];
-        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
-        float volpow = +(float)power * keisuu;
-        if(volpow > 20.0f)
-        {
-            //volpow = 20.0f;
-        }
-        mixer.SetFloat("SEVolume", Mathf.Lerp(-80, 0, 0.0f + volpow));
-        
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];  
         source.Play();
     }
+
+    ///
+    /// <summary>   ループするSEを再生   </summary>
+    ///
 
     public void PlaySELoop(string seName)
     {
         if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
 
+        for (int i = 0; i < this.seSources.Count; ++i)
+        {
+            if (this.seSources[i].clip.name == seName && this.seSources[i].isPlaying)
+            {
+                Debug.Log("LoopSE AudioSource is Playing");
+                return;
+            }
+        }
+
         AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
         if (source == null)
         {
+            
+
             if (this.seSources.Count >= this.MaxSE)
             {
                 Debug.Log("SE AudioSource is full");
                 return;
             }
-            for(int i = 0; i < this.seSources.Count ; ++i)
-            {
-                if(this.seSources[i].name == seName)
-                {
-                    Debug.Log("LoopSE AudioSource is Playing");
-                    return;
-                }
-            }
+            
             source = this.gameObject.AddComponent<AudioSource>();
             this.seSources.Add(source);
         }
@@ -153,6 +168,209 @@ public class BGMManager : SingletonMonoBehaviour<BGMManager>
         source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
         source.Play();
     }
+
+    ///
+    /// <summary>   ループするSEを3Dサウンドで再生   </summary>
+    ///
+
+    public void PlaySELoopSpatialSum(string seName , GameObject createObject)
+    {
+        if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
+
+        for (int i = 0; i < this.seSources.Count; ++i)
+        {
+            if (this.seSources[i].clip.name == seName && this.seSources[i].isPlaying)
+            {
+             //   Debug.Log("LoopSE AudioSource is Playing");
+              //  return;
+            }
+        }
+        AudioSource source = null;
+        Debug.Log("Car is Playing");
+        
+        if (source == null)
+        {
+            
+                 //   source = this.seSources[i];
+                    //   Debug.Log("LoopSE AudioSource is Playing");
+                    //  return;
+           
+        }
+        source = createObject.AddComponent<AudioSource>();
+//        source = AudioSource.;
+        source.loop = true;
+        source.spatialize = true;
+        source.spatialBlend = 1.0f;
+        source.rolloffMode = AudioRolloffMode.Linear;
+        source.maxDistance = 10.0f;
+        source.clip = AudioClip.Instantiate(this.seDict[seName]);
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
+        source.Play();
+    }
+
+    ///
+    /// <summary>   ループするSEを3Dサウンドで再生   </summary>
+    ///
+
+    public void PlaySELoopSpatial(string seName)
+    {
+        if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
+
+        for (int i = 0; i < this.seSources.Count; ++i)
+        {
+            if (this.seSources[i].clip.name == seName && this.seSources[i].isPlaying)
+            {
+                Debug.Log("LoopSE AudioSource is Playing");
+                return;
+            }
+        }
+        AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
+        source.spatialize = true;
+        source.spatialBlend = 1.0f;
+        source.rolloffMode = AudioRolloffMode.Linear;
+        if (source == null)
+        {
+
+
+            if (this.seSources.Count >= this.MaxSE)
+            {
+                Debug.Log("SE AudioSource is full");
+                return;
+            }
+
+            source = this.gameObject.AddComponent<AudioSource>();
+            this.seSources.Add(source);
+        }
+        source.clip = this.seDict[seName];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
+        source.Play();
+    }
+
+    ///
+    /// <summary>   ループするSEにドップラー効果を設定して3Dサウンドで再生 dopplerLevelは0～5(5が最大)   </summary>
+    ///
+    public void PlaySELoopSpatial(string seName, float dopplerLevel)
+    {
+        if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
+
+        for (int i = 0; i < this.seSources.Count; ++i)
+        {
+            if (this.seSources[i].clip.name == seName && this.seSources[i].isPlaying)
+            {
+                Debug.Log("LoopSE AudioSource is Playing");
+                return;
+            }
+        }
+
+        AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
+        source.spatialize = true;
+        source.spatialBlend = 1.0f;
+        source.dopplerLevel = dopplerLevel;
+        source.rolloffMode = AudioRolloffMode.Linear;
+        if (source == null)
+        {
+
+
+            if (this.seSources.Count >= this.MaxSE)
+            {
+                Debug.Log("SE AudioSource is full");
+                return;
+            }
+
+            source = this.gameObject.AddComponent<AudioSource>();
+            this.seSources.Add(source);
+        }
+
+        source.clip = this.seDict[seName];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
+        source.Play();
+    }
+
+    ///
+    /// <summary>   ループするSEに聞こえる範囲を設定して3Dサウンドで再生    </summary>
+    ///
+
+    public void PlaySELoopSpatial(string seName, float minDistance , float maxDistance)
+    {
+        if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
+
+        for (int i = 0; i < this.seSources.Count; ++i)
+        {
+            if (this.seSources[i].clip.name == seName && this.seSources[i].isPlaying)
+            {
+                Debug.Log("LoopSE AudioSource is Playing");
+                return;
+            }
+        }
+
+        AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
+        source.spatialize = true;
+        source.spatialBlend = 1.0f;
+        source.minDistance = minDistance;
+        source.maxDistance = maxDistance;
+        source.rolloffMode = AudioRolloffMode.Linear;
+        if (source == null)
+        {
+
+
+            if (this.seSources.Count >= this.MaxSE)
+            {
+                Debug.Log("SE AudioSource is full");
+                return;
+            }
+
+            source = this.gameObject.AddComponent<AudioSource>();
+            this.seSources.Add(source);
+        }
+
+        source.clip = this.seDict[seName];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
+        source.Play();
+    }
+
+    ///
+    /// <summary>   ループするSEに聞こえる範囲とドップラー効果を設定して3Dサウンドで再生 dopplerLevelは0～5(5が最大)   </summary>
+    ///
+
+    public void PlaySELoopSpatial(string seName, float dopplerLevel, float minDistance, float maxDistance)
+    {
+        if (!this.seDict.ContainsKey(seName)) throw new ArgumentException(seName + " not found", "seName");
+
+        for (int i = 0; i < this.seSources.Count; ++i)
+        {
+            if (this.seSources[i].clip.name == seName && this.seSources[i].isPlaying)
+            {
+                Debug.Log("LoopSE AudioSource is Playing");
+                return;
+            }
+        }
+
+        AudioSource source = this.seSources.FirstOrDefault(s => !s.isPlaying);
+        source.spatialize = true;
+        source.spatialBlend = 1.0f;
+        source.dopplerLevel = dopplerLevel;
+        source.minDistance = minDistance;
+        source.maxDistance = maxDistance;
+        source.rolloffMode = AudioRolloffMode.Linear;
+        if (source == null)
+        {
+
+
+            if (this.seSources.Count >= this.MaxSE)
+            {
+                Debug.Log("SE AudioSource is full");
+                return;
+            }
+
+            source = this.gameObject.AddComponent<AudioSource>();
+            this.seSources.Add(source);
+        }
+
+        source.clip = this.seDict[seName];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
+        source.Play();
+    }
+
 
     public void StopSE()
     {

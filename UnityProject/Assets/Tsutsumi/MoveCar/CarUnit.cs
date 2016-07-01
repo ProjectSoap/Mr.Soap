@@ -68,7 +68,7 @@ public class CarUnit : MonoBehaviour {
         //衝突したオブジェクトの入れ物初期化
         collisionObject = null;
         moveStartDistance = 10.0f;
-
+        BGMManager.Instance.PlaySELoopSpatialSum("Car_Move", this.gameObject);
 	}
 	
 	// Update is called once per frame
@@ -100,7 +100,7 @@ public class CarUnit : MonoBehaviour {
 
         //移動
         transform.position += directionVec.normalized * moveTime * moveSpeed;
-
+        
         //回転
         Vector3 yTopVec;
         Vector3 sideVec;
@@ -149,7 +149,7 @@ public class CarUnit : MonoBehaviour {
             }
         }
 
-
+        
 	}
 
     void OnCollisionEnter(Collision col)
