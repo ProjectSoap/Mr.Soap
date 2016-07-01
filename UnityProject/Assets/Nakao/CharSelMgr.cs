@@ -91,7 +91,7 @@ public class CharSelMgr : MonoBehaviour {
                         BGMManager.Instance.PlaySE("Cursor_Decision");
                         Fade.ChangeScene("main");
                         //プレイモードセット
-						no.PlayMode = (PlayModeState) m_playMode.SelectNow;
+						SceneData.modeSelect = (PlayModeState) m_playMode.SelectNow;
 
 						break;
                     }

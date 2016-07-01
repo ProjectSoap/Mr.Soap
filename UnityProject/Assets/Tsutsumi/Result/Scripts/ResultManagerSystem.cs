@@ -58,7 +58,7 @@ public class ResultManagerSystem : MonoBehaviour {
         pointDrawEndFlg = false;
         rankingDrawEndFlg = false;
         sceneMoveDisplayFlg = false;
-        sceneMenuFlg = true;
+        sceneMenuFlg = false;
         inputEndFlg = false;
 
         for (int i = 0; i < 30; ++i)
@@ -197,7 +197,7 @@ public class ResultManagerSystem : MonoBehaviour {
             //画面を選択する
             if (Input.GetKeyDown(KeyCode.LeftArrow) && Fade.FadeEnd())
             {
-                sceneMenuFlg = true;
+                sceneMenuFlg = false;
                 //SE
                 if (BGMManager.Instance != null)
                 {
@@ -206,7 +206,7 @@ public class ResultManagerSystem : MonoBehaviour {
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) && Fade.FadeEnd())
             {
-                sceneMenuFlg = false;
+                sceneMenuFlg = true;
                 //SE
                 if (BGMManager.Instance != null)
                 {
@@ -219,7 +219,7 @@ public class ResultManagerSystem : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 sceneMoveDisplayFlg = false;
-                sceneMenuFlg = true;
+                sceneMenuFlg = false;
                 canvasSceneSelect.gameObject.SetActive(false);
                 //SE
                 if (BGMManager.Instance != null)
@@ -264,7 +264,7 @@ public class ResultManagerSystem : MonoBehaviour {
         else
         {
             canvasSceneSelect.gameObject.SetActive(false);
-            sceneMenuFlg = true;
+            sceneMenuFlg = false;
 
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
