@@ -122,6 +122,7 @@ public class RecoverySoapObject : MonoBehaviour {
         if (collisionObject.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Parent.IsHaveRevoverySoap = false;
+			parent.NorticeDestroy();
             PlayerCharacterController player = collisionObject.gameObject.GetComponent<PlayerCharacterController>();
 			player.Heal();
 			ActionRecordManager.sActionRecord.ChachSopeCount++;

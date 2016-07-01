@@ -6,6 +6,9 @@ public class SectionJudge : MonoBehaviour {
 	PlayerCharacterController m_player;
 	[SerializeField]
 	uint m_manageSection;
+	
+	[SerializeField]
+	uint m_manageMiniArea;
 	// Use this for initialization
 	void Start () {
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
@@ -19,8 +22,7 @@ public class SectionJudge : MonoBehaviour {
 	{
 		if(col != null)
 		{ 
-			m_player.inSectionNow = m_manageSection;
-
+			m_player.inSectionNow = m_manageMiniArea;
 		}
 	}
 
@@ -28,8 +30,7 @@ public class SectionJudge : MonoBehaviour {
 	{
 		if (col != null)
 		{
-			m_player.inSectionOld = m_manageSection;
-
+			m_player.inSectionOld = m_manageMiniArea;
 		}
 	}
 }
