@@ -197,8 +197,11 @@ public class PlayerCharacterController : MonoBehaviour
     float m_size = 100;
 
 	[SerializeField]
-	uint m_inSection;	// 現在のプレイヤーのいる区画
-	//float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
+	uint m_inSectionNow;   // 現在のプレイヤーのいる区画
+
+	[SerializeField]
+	uint m_inSectionOld;   //	プレイヤーが前いた区画
+						//float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
 	Vector3 m_defaultScale = new Vector3(1, 1, 1);
 
     // Input
@@ -316,10 +319,16 @@ public class PlayerCharacterController : MonoBehaviour
         set { m_isNotJump = value; }
     }
 
-	public uint inSection
+	public uint inSectionNow
 	{
-		get { return m_inSection; }
-		set { m_inSection = value; }
+		get { return m_inSectionNow; }
+		set { m_inSectionNow = value; }
+	}
+
+	public uint inSectionOld
+	{
+		get { return m_inSectionOld; }
+		set { m_inSectionOld = value; }
 	}
 
 	void Awake()
@@ -510,7 +519,7 @@ public class PlayerCharacterController : MonoBehaviour
         // 音
         if(m_driveState == DriveState.Normal || m_driveState == DriveState.Drift || m_driveState == DriveState.JumpAfter)
         {
-            BGMManager.Instance.PlaySE("Soap_Move");
+            BGMManager.Instance.PlaySELoop("Soap_Move");
         }
         
         // 天候チェック

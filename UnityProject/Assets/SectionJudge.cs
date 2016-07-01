@@ -18,8 +18,17 @@ public class SectionJudge : MonoBehaviour {
 	void OnTriggerStay(Collider col) 
 	{
 		if(col != null)
+		{ 
+			m_player.inSectionNow = m_manageSection;
+
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if (col != null)
 		{
-			m_player.inSection = m_manageSection;
+			m_player.inSectionOld = m_manageSection;
 
 		}
 	}
