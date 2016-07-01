@@ -6,11 +6,18 @@ public class BarricadeManager : MonoBehaviour {
 #if DEBUG
     public bool m_isDubug = false;
 #endif
+	public bool m_isInited = false;
+
 	public BarricadeObject[] m_barricade;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+		Init();
+	}
 
+	void Init()
+	{
 
 
         if (m_isDubug)
@@ -56,6 +63,7 @@ public class BarricadeManager : MonoBehaviour {
 				}
 			}
 		}
+		m_isInited = true;
 	}
 
 	// Update is called once per frame

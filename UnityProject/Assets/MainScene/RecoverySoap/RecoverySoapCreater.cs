@@ -11,8 +11,9 @@ public class RecoverySoapCreater : MonoBehaviour {
     {
         get { return soapInstance; }
     }
-    [SerializeField]
-    bool isInstance;    // 生成するかのフラグ
+
+
+	RecoverySoapCreatersManager m_myManager;
 
     [SerializeField]
     bool isHaveRevoverySoap; // 生成したものを所持しているかのフラグ
@@ -29,11 +30,6 @@ public class RecoverySoapCreater : MonoBehaviour {
         get { return isRangeOut; }
         set { isRangeOut = value; }
     }
-    public bool IsInstance
-    {
-        get { return isInstance; }
-        set { isInstance = value; }
-    }
 
     public bool IsHaveRevoverySoap
     {
@@ -45,35 +41,28 @@ public class RecoverySoapCreater : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        IsHaveRevoverySoap = false;
-        isInstance = false;
+		m_myManager = GameObject.Find("RecoverySoapCreatersManager").GetComponent<RecoverySoapCreatersManager>();
+		IsHaveRevoverySoap = false;
         sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    if (isInstance)
-	    {
-             soapInstance =  (GameObject)Instantiate(recoverySoap, transform.position,recoverySoap.transform.rotation) as GameObject;
-            RecoverySoapObject script = soapInstance.GetComponent<RecoverySoapObject>();
-            script.Parent = this;
-            isInstance = false;
-            IsHaveRevoverySoap = true;
-            sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.SEKKEN_POP);
-        }
+	}
+	
+
+	public void CreateSoap()
+	{
+		soapInstance = (GameObject)Instantiate(recoverySoap, transform.position, recoverySoap.transform.rotation) as GameObject;
+		RecoverySoapObject script = soapInstance.GetComponent<RecoverySoapObject>();
+		script.Parent = this;
+		IsHaveRevoverySoap = true;
+		sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.SEKKEN_POP);
 	}
 
-    public void CheckDistance(Vector3 playerPosition)
-    {
-        float distance = Vector3.Distance(playerPosition, transform.position);
-        if (distance >= 15.0f)
-        {
-            IsRangeOut = true;
-        }
-        else
-        {
-            IsRangeOut = false;
-        }
-    }
+	public void NorticeDestroy()
+	{
+		m_myManager.NorticeDestroy();
+	}
 }
