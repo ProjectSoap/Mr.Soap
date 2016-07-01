@@ -202,7 +202,8 @@ public class BGMManager : SingletonMonoBehaviour<BGMManager>
         source.spatialize = true;
         source.spatialBlend = 1.0f;
         source.rolloffMode = AudioRolloffMode.Linear;
-        source.maxDistance = 10.0f;
+        source.minDistance = 8.0f;
+        source.maxDistance = 20.0f;
         source.clip = AudioClip.Instantiate(this.seDict[seName]);
         source.outputAudioMixerGroup = mixer.FindMatchingGroups("Master")[2];
         source.Play();

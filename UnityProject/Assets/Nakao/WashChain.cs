@@ -91,6 +91,10 @@ public class WashChain : MonoBehaviour {
                     Reset();
                 }
             }
+            else
+            {
+                needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
+            }
         }
 	       //needle.rectTransform.rotation =
         
@@ -98,7 +102,7 @@ public class WashChain : MonoBehaviour {
 
     void Reset()
     {
-        needle.rectTransform.rotation = Quaternion.Euler(0, 0, 25.0f - rotate_angle * (0));
+        needle.rectTransform.rotation = before_rotation = now_rotation =   Quaternion.Euler(0, 0, 25.0f - rotate_angle * (0));
     }
 
     void SetLimit()

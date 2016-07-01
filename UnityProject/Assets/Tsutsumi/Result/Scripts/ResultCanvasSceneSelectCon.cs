@@ -21,7 +21,7 @@ public class ResultCanvasSceneSelectCon : MonoBehaviour {
 	void Start () {
         selectNo = 0;
         rotTimeCount = 0;
-        WakuSelect(true);
+        WakuSelect(false);
 	}
 	
 	// Update is called once per frame
@@ -49,15 +49,15 @@ public class ResultCanvasSceneSelectCon : MonoBehaviour {
         WakuMove.transform.rotation = Quaternion.Euler(0, 0, 90 - RotSize * 0.5f + RotSize * percent);
 	}
 
-    public void WakuSelect(bool waku1Flg)
+    public void WakuSelect(bool menuFlg)
     {
-        if (waku1Flg == true)
+        if (menuFlg == true)
         {
-            selectNo = 0;
+            selectNo = 1;
         }
         else
         {
-            selectNo = 1;
+            selectNo = 0;
         }
     }
 }
