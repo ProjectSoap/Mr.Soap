@@ -54,6 +54,21 @@ public class SaveDataManager : MonoBehaviour {
         SAVE_DATA_NUM   //セーブデータの個数
     };
 
+    public enum ESaveDataStringNo
+    {
+        RankingName1,
+        RankingName2,
+        RankingName3,
+        RankingName4,
+        RankingName5,
+
+        RankingName6,
+        RankingName7,
+        RankingName8,
+        RankingName9,
+        RankingName10
+    };
+
     private string[] SaveDataName = 
     {
         "PlayCount",
@@ -90,6 +105,21 @@ public class SaveDataManager : MonoBehaviour {
         "RankingPoint9",
         "RankingPoint10",
         "none"
+    };
+
+    private string[] SaveDataStringName =
+    {
+        "RankingName1",
+        "RankingName2",
+        "RankingName3",
+        "RankingName4",
+        "RankingName5",
+
+        "RankingName6",
+        "RankingName7",
+        "RankingName8",
+        "RankingName9",
+        "RankingName10"
     };
 
     private int[] SaveDataMaxCount = {
@@ -190,7 +220,29 @@ public class SaveDataManager : MonoBehaviour {
                 return -1;
             }
         }
-        
+    }
+
+    //セーブデータ読み込み。
+    public string LoadData(ESaveDataStringNo no)
+    {
+        //セーブされているかどうか
+        if (PlayerPrefs.HasKey(SaveDataStringName[(int)no]) == true)
+        {
+            string name = PlayerPrefs.GetString(SaveDataName[(int)no]);
+            return name;
+        }
+        else//データがない
+        {
+            //セーブしてデータ作成。
+            if (this.SaveData(no, "") == true)
+            {
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 
     //セーブデータ書き込み。falseが帰ってきたら失敗。引数は書き込みデータの種類と書き込む値
@@ -215,6 +267,12 @@ public class SaveDataManager : MonoBehaviour {
         //セーブする
         PlayerPrefs.SetInt(SaveDataName[(int)no], data);
 
+        return true;
+    }
+    public bool SaveData(ESaveDataStringNo no, string data)
+    {
+        //セーブする
+        PlayerPrefs.SetString(SaveDataStringName[(int)no], data);
         return true;
     }
 
