@@ -71,7 +71,7 @@ public class DirtyObjectScript : MonoBehaviour
 		}
 		if (m_isReality)
 		{
-			GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation) as GameObject;
+            GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation * m_realityEffect.transform.rotation) as GameObject;
 			particle.transform.parent = this.transform;
 		}
         
