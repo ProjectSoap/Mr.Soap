@@ -56,7 +56,7 @@ public class ResultUISwitch : MonoBehaviour {
         timeCount += Time.deltaTime;
 
 	    //汚れ消した数文字UIと汚れUIを有効化
-        if(timeCount > 1.5f){
+        if(timeCount > 2.0f){
             
             if (YogoreKesitaKazuUI.activeInHierarchy == false)
             {
@@ -70,7 +70,7 @@ public class ResultUISwitch : MonoBehaviour {
             }
         }
         //桁を順番に有効化
-        if (timeCount > 2.0f)
+        if (timeCount > 3.0f)
         {
             if (PointKeta1UI.activeInHierarchy == false)
             {
@@ -88,11 +88,11 @@ public class ResultUISwitch : MonoBehaviour {
                 }
                 if (point < 10)
                 {
-                    timeCount += 1.5f;
+                    timeCount += 3.0f;
                 }
             }
         }
-        if (timeCount > 2.5f)
+        if (timeCount > 4.0f)
         {
             if (point >= 10)
             {
@@ -107,12 +107,12 @@ public class ResultUISwitch : MonoBehaviour {
                     }
                     if (point < 100)
                     {
-                        timeCount += 1.0f;
+                        timeCount += 2.0f;
                     }
                 }
             }
         }
-        if (timeCount > 3.0f)
+        if (timeCount > 5.0f)
         {
             if (point >= 100)
             {
@@ -127,12 +127,12 @@ public class ResultUISwitch : MonoBehaviour {
                     }
                     if (point < 1000)
                     {
-                        timeCount += 0.5f;
+                        timeCount += 1.0f;
                     }
                 }
             }
         }
-        if (timeCount > 3.5f)
+        if (timeCount > 6.0f)
         {
             if (point >= 1000)
             {
@@ -149,7 +149,7 @@ public class ResultUISwitch : MonoBehaviour {
             }
         }
 
-        if (timeCount > 4.0f)
+        if (timeCount > 7.0f)
         {
             resultManagerSystem.SetPointDrawEndFlg(true);
         }

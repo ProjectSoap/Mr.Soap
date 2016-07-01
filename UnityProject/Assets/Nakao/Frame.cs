@@ -103,6 +103,7 @@ public class Frame : MonoBehaviour {
                     ChangeSide(0);
                     controllerWait = 0;
                     SelectJump();
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                 }
 
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -110,6 +111,7 @@ public class Frame : MonoBehaviour {
                     ChangeSide(1);
                     controllerWait = 0;
                     SelectJump();
+                    BGMManager.Instance.PlaySE("Cursor_Move");
                 }
 
                 if (Input.GetAxisRaw("Horizontal") > 0.9f && controllerFlagL == false)
