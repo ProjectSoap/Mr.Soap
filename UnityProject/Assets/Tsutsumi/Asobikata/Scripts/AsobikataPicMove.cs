@@ -81,8 +81,8 @@ public class AsobikataPicMove : MonoBehaviour {
         //移動完了済みなら
         if (moveTime > ParamObject.moveTime)
         {
-            nowPos.x = nextParam.PosX;
-            nowPos.y = nextParam.PosY;
+            nowPos.x = nextParam.PosX + transform.parent.position.x;
+            nowPos.y = nextParam.PosY + transform.parent.position.y;
             nowScale.x = nextParam.ScaleX;
             nowScale.y = nextParam.ScaleY;
             return;
@@ -131,23 +131,7 @@ public class AsobikataPicMove : MonoBehaviour {
             //選択されていないので位置計算
             nextParam.PosX = ParamObject.NotSelectDistanceX;
             nextParam.PosY = ParamObject.NotSelectDistanceY;
-            /*
-            //選択を過ぎたのかまだ来てないのか
-            if(noDistance < 0)
-            {
-                noDistance++;
-                nextParam.PosX *= -1.0f;
-                nextParam.PosY *= -1.0f;
-            }
-            else
-            {
-                noDistance--;
-            }
 
-            //選択番号との距離で追加計算
-            nextParam.PosX += ParamObject.MoveParamX * noDistance;
-            nextParam.PosY += ParamObject.MoveParamY * noDistance;
-            */
             //選択を過ぎたのかまだ来てないのか
             if (noDistance < 0)
             {
@@ -166,7 +150,11 @@ public class AsobikataPicMove : MonoBehaviour {
                 nextParam.PosX += ParamObject.MoveParamX * noDistance;
                 nextParam.PosY -= ParamObject.MoveParamY * noDistance;
             }
-            
+
         }
+
+        //親との相対位置に修正
+        //nextParam.PosX += transform.parent.transform.position.x;
+        //nextParam.PosY += transform.parent.transform.position.y;
     }
 }
