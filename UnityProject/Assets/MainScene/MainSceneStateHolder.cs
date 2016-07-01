@@ -610,7 +610,7 @@ public class MainSceneStateHolder : MonoBehaviour
 
 						m_pauseScreenUI.pausing = true;
 						m_dirtys.pausing = false;
-
+                        player.GetComponent<PlayerCharacterController>().isNotJump = true;
 						//フリープレイ時オフ
 						if (m_modeState == ModeState.FREE_PLAY)
 						{
