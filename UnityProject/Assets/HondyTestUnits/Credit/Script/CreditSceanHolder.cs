@@ -18,5 +18,13 @@ public class CreditSceanHolder : MonoBehaviour
         {
             Fade.ChangeScene("Menu");
         }
+		if (Input.GetKey(KeyCode.Space))
+		{
+			Time.timeScale = 3.0f;
+		}
+		else
+		{
+			Time.timeScale = 1.0f;
+		}
 	}
 }
