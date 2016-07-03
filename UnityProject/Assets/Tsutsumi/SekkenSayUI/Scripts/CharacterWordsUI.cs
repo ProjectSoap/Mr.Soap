@@ -65,6 +65,7 @@ public class CharacterWordsUI
 			m_gameObjectArray[i] = GameObject.Instantiate(m_wordsSprite,transform.position,transform.rotation) as GameObject;
 			m_unactiveList.Enqueue(m_gameObjectArray[i].GetComponent<CharacterWords>());
 			m_gameObjectArray[i].transform.parent = transform;
+			
 		}
 		m_activArray = m_activeList.ToArray();
 	}
@@ -111,6 +112,9 @@ public class CharacterWordsUI
 		}
 		m_activeList.Enqueue(words);
 		m_activArray = m_activeList.ToArray();
+		words.gameObject.transform.parent = null;
+		words.gameObject.transform.parent = transform;
+
 	}
 
 	//セリフをせっけん毎に切り替える処理
