@@ -50,7 +50,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	[SerializeField]
 	PlayerCharacterController m_player;
 
-	NorticeDirectionRecaverySoap arrow;
+	Marker m_marker;
 	
 
 	public float m_decisionSecond = 2;  // 発生時間内での判定時間(秒)
@@ -82,7 +82,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 		//次のタイム引き延ばし
 		m_timeForInstance = Mathf.Lerp(minTimeForInstance, maxTimeForInstance, s);
 
-		arrow = GameObject.Find("NorticeRecoveryDirection").GetComponent<NorticeDirectionRecaverySoap>();
+		m_marker = GameObject.Find("MarkerUI").GetComponent<Marker>();
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 
 		CheckRecordCondition saveData = GameObject.Find("CheckRecordCondition").GetComponent<CheckRecordCondition>();
@@ -99,8 +99,9 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 		{
 			isUnlockArea4 = true;
 		}
+		m_marker.EnableUI = false;
+		m_marker.Player = m_player.gameObject;
 
-		
 	}
 
 	// Update is called once per frame
@@ -124,7 +125,20 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 		area[0] = (int)m_player.inSectionNow - 4;	// 現在から上の位置にある小区画
 		area[1] = (int)m_player.inSectionNow - 1;	// 現在から左の位置にある小区画
 		area[2] = (int)m_player.inSectionNow + 1;	// 現在から右の位置にある小区画
-		area[3] = (int)m_player.inSectionNow + 4;	// 現在から下の位置にある小区画
+		area[3] = (int)m_player.inSectionNow + 4;   // 現在から下の位置にある小区画
+
+
+		if (m_player.inSectionNow % 4 == 0)
+		{
+			//4x4の配列で左端の場合は存在しない扱いにする
+			area[1] = -1;   // 現在から左の位置にある小区画	
+		}
+
+		if (m_player.inSectionNow % 4 == 3)
+		{
+			//4x4の配列で右端の場合は存在しない扱いにする
+			area[2] = -1;   // 現在から右の位置にある小区画
+		}
 
 		// 候補地の同区画の数
 		int currentCount = 0;
@@ -139,6 +153,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 			}
 			else
 			{
+
 				// 区画が同じだったらカウント
 				if (CheckSection(area[i]) == CheckSection((int)m_player.inSectionNow))
 				{
@@ -256,9 +271,13 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 			countSecond = 0;    // カウントリセット
 			//次のタイム引き延ばし
 			m_timeForInstance = Mathf.Lerp(minTimeForInstance,maxTimeForInstance,s);
-			RecoverySoapCreaters[DecisionCreateSection()].CreateSoap();
+			uint createPoint = DecisionCreateSection();
+			RecoverySoapCreaters[createPoint].CreateSoap();
 			m_isApparance = true;
-
+			m_marker.EnableUI = true;
+			m_marker.MarkPoint = RecoverySoapCreaters[createPoint].gameObject;
+			m_marker.DistanceTargetA = m_player.gameObject;
+			m_marker.DistanceTargetB = RecoverySoapCreaters[createPoint].gameObject;
 
 		}
 	}
@@ -266,6 +285,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	public void NorticeDestroy()
 	{
 		m_isApparance = false;
+		m_marker.EnableUI = false;
 	}
 	
 }

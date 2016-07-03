@@ -246,10 +246,11 @@ public class MainSceneStateHolder : MonoBehaviour
 
 	public PauseObject m_norticeRecoveryUI;
 	public PauseObject m_pushKeyUI;
+	public PauseObject m_sayUI;
+	public PauseObject m_markerUI;
 
 
-    SekkenSayUI m_sayUI;
-
+	
 	public PauseObject m_dirtys;
 
 
@@ -267,24 +268,26 @@ public class MainSceneStateHolder : MonoBehaviour
 	{
 		
 		m_mainState = MainState.START;//スタートから開始
-        m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
-        if (m_sayUI)
+		// セリフUI設定
+        SekkenSayUI sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+		m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<PauseObject>();
+		if (sayUI)
         {
             switch (SceneData.characterSelect)
             {
                 case SceneData.CharacterSelect.SekkenKun:
 
-                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenKun);
+					sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenKun);
                     break;
 
                 case SceneData.CharacterSelect.SekkenHero:
 
-                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenHero);
+					sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenHero);
                     break;
 
                 case SceneData.CharacterSelect.SekkenChan:
 
-                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenChan);
+					sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenChan);
                     break;
             }
         }

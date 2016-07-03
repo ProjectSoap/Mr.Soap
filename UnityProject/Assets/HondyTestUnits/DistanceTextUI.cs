@@ -7,10 +7,18 @@ public class DistanceTextUI : MonoBehaviour {
 
 	[SerializeField]
 	GameObject m_targetA;
-
+	public UnityEngine.GameObject TargetA
+	{
+		get { return m_targetA; }
+		set { m_targetA = value; }
+	}
 	[SerializeField]
 	GameObject m_targetB;
-
+	public UnityEngine.GameObject TargetB
+	{
+		get { return m_targetB; }
+		set { m_targetB = value; }
+	}
 	float m_distance;
 	// Use this for initialization
 	void Start () {
@@ -20,7 +28,11 @@ public class DistanceTextUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		m_distance = (int)Vector3.Distance(m_targetA.transform.localPosition, m_targetB.transform.localPosition); 
-		m_myText.text = m_distance.ToString() + "メートル";
+		if (TargetA && TargetB)
+		{
+			m_distance = (int)Vector3.Distance(TargetA.transform.position, TargetB.transform.position);
+			m_myText.text = m_distance.ToString() + "メートル";
+
+		}
 	}
 }
