@@ -14,8 +14,16 @@ public class PlayerCharacterCreator : MonoBehaviour
 
     void Awake()
     {
-        GameObject gameObject = null;
-        Transform parent = GameObject.Find("PauseObject").transform;
+        GameObject  gameObject  = null;
+        Transform   parent      = GameObject.Find("PauseObject").transform;
+
+        //if(ActionRecordManager.sActionRecord.isSekkenChanPlay)
+        //    gameObject = Instantiate(m_sekkenChan, transform.position, transform.rotation) as GameObject;
+        //else if(ActionRecordManager.sActionRecord.isSekkenKun0Play)
+        //    gameObject = Instantiate(m_sekkenHero, transform.position, transform.rotation) as GameObject;
+        //else
+        //    gameObject = Instantiate(m_sekkenKun, transform.position, transform.rotation) as GameObject;
+
 
         switch (SceneData.characterSelect)
         {
@@ -54,7 +62,7 @@ public class PlayerCharacterCreator : MonoBehaviour
         //        break;
         //}
 
-        if(gameObject != null)
+        if (gameObject != null)
         {
             gameObject.transform.parent = parent;
             gameObject.name = "PlayerCharacter";

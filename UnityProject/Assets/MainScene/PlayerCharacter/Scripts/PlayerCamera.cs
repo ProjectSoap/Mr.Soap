@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerCamera : MonoBehaviour
 {
@@ -49,8 +50,15 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField]
     Transform target;
 
+    [SerializeField]
+    Material m_alphaMaterial;
+
+    Dictionary<int, Material> m_origineMaterials;
+
     void Start()
     {
+        m_origineMaterials = new Dictionary<int, Material>();
+
         if(target == null)
         {
             target = GameObject.Find("PlayerCharacter").transform;
@@ -70,5 +78,93 @@ public class PlayerCamera : MonoBehaviour
         transform.position = target.position - toTarget;
         transform.LookAt(target, Vector3.up);
         transform.Rotate(m_lookDown);
+    }
+
+    struct LerpMaterialArgs
+    {
+        public MeshRenderer meshRenderer;
+        public Material origineMaterial;
+        public Material targetMaterial;
+
+        public LerpMaterialArgs(MeshRenderer _meshRenderer, Material _origineMaterial, Material _targetMaterial)
+        {
+            meshRenderer    = _meshRenderer;
+            origineMaterial = _origineMaterial;
+            targetMaterial  = _targetMaterial;
+        }
+    }
+
+    IEnumerator LerpMaterial(LerpMaterialArgs args)
+    {
+        float durationTime = 0.0f;
+
+        while(durationTime < 1.0f)
+        {
+            args.meshRenderer.material.Lerp(args.origineMaterial, args.targetMaterial, durationTime);
+
+            durationTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return null;
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Building"))
+        {
+            MeshRenderer meshRenderer = collider.gameObject.GetComponent<MeshRenderer>();
+
+            if(meshRenderer != null)
+            {
+                Material material = meshRenderer.material;
+
+                if (material != null)
+                {
+                    m_origineMaterials.Add(collider.gameObject.GetInstanceID(), meshRenderer.material);
+
+                    Texture mainTexture = meshRenderer.material.mainTexture;
+
+                    meshRenderer.material = m_alphaMaterial;
+
+                    if(mainTexture != null)
+                        meshRenderer.material.mainTexture = mainTexture;
+
+                    //StartCoroutine("LerpMaterial", new LerpMaterialArgs(meshRenderer, meshRenderer.material, m_alphaMaterial));
+
+                    //MaterialLerp materialLerp = collider.gameObject.AddComponent(typeof(MaterialLerp)) as MaterialLerp;
+
+                    //materialLerp.endTime                    = 5.0f;
+                    //materialLerp.targetMaterial             = m_alphaMaterial;
+                    //materialLerp.targetMaterial.mainTexture = mainTexture;
+                }
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Building"))
+        {
+            MeshRenderer meshRenderer = collider.gameObject.GetComponent<MeshRenderer>();
+
+            if (meshRenderer != null)
+            {
+                Material material = meshRenderer.material;
+
+                if (material != null)
+                {
+                    int         instanceID      = collider.gameObject.GetInstanceID();
+                    Material    origineMaterial = m_origineMaterials[instanceID];
+
+                    if (origineMaterial != null)
+                    {
+                        meshRenderer.material = origineMaterial;
+
+                        m_origineMaterials.Remove(instanceID);
+                    }
+                }
+            }
+        }
     }
 }

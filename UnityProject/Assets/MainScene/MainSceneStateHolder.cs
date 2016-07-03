@@ -270,19 +270,19 @@ public class MainSceneStateHolder : MonoBehaviour
         m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
         if (m_sayUI)
         {
-            switch (GameObject.Find("CharNo").GetComponent<SelectingCharactor>().GetCharNo())
+            switch (SceneData.characterSelect)
             {
-                case SelectingCharactorNo.SOAP:
+                case SceneData.CharacterSelect.SekkenKun:
 
                     m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenKun);
                     break;
 
-                case SelectingCharactorNo.SOAP0:
+                case SceneData.CharacterSelect.SekkenHero:
 
                     m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenHero);
                     break;
 
-                case SelectingCharactorNo.SOAPTYAN:
+                case SceneData.CharacterSelect.SekkenChan:
 
                     m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenChan);
                     break;
