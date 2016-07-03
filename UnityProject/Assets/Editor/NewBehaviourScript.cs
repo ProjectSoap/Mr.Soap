@@ -102,7 +102,12 @@ public class Test : Editor
 			if (obj != null && obj.activeInHierarchy && obj.layer == LayerMask.NameToLayer( "Building"))
 			{
 				// オブジェクト生成
-   
+				BoxCollider collider = obj.GetComponent<BoxCollider>();
+
+				if (obj.tag == "StaticCar" || collider == null)
+				{
+					continue;
+				}
 				if (obj.transform.FindChild("MiniMapQuad") == null)
 				{
 					GameObject newObject = new GameObject("MiniMapQuad"); ;
@@ -131,29 +136,57 @@ public class Test : Editor
 					new Vector3( 0.5f, 0.0f, -0.5f ),
 					new Vector3( 0.5f, 0.0f, 0.5f ),
 					  };
-					BoxCollider collider =  obj.GetComponent<BoxCollider>();
 					if (collider)
 					{
-						newObject.transform.localScale =
-							new Vector3
-							(
-								 newObject.transform.localScale.x * obj.transform.localScale.x * collider.size.x,
-								 newObject.transform.localScale.y * obj.transform.localScale.y * collider.size.y,
-								 newObject.transform.localScale.z * obj.transform.localScale.z * collider.size.z);
+
+							if (obj.tag == "Barricade")
+							{
+
+								newObject.transform.localScale =
+									new Vector3
+									(
+										50,
+										 newObject.transform.localScale.y * obj.transform.localScale.y * collider.size.y,
+										 newObject.transform.localScale.z * obj.transform.localScale.z * collider.size.z);
+							}
+							else
+							{
+								newObject.transform.localScale =
+								new Vector3
+								(
+									 newObject.transform.localScale.x * obj.transform.localScale.x * collider.size.x,
+									 newObject.transform.localScale.y * obj.transform.localScale.y * collider.size.y,
+									 newObject.transform.localScale.z * obj.transform.localScale.z * collider.size.z);
+							}
+
 
 							
 
 							if (obj.transform.parent)
 							{
+
 								Transform pearent = obj.transform.parent;
-								newObject.transform.localScale =
+
+								if (obj.tag == "Barricade")
+								{
+
+									newObject.transform.localScale =
+										new Vector3
+										(
+										pearent.lossyScale.x / pearent.localScale.x * 150,
+										pearent.lossyScale.y / pearent.localScale.y * collider.size.y,
+										pearent.lossyScale.z / pearent.localScale.z * collider.size.z);
+								}
+								else
+								{
+									newObject.transform.localScale =
 									new Vector3
 									(
 										pearent.lossyScale.x / pearent.localScale.x * collider.size.x,
 										pearent.lossyScale.y / pearent.localScale.y * collider.size.y,
 										pearent.lossyScale.z / pearent.localScale.z * collider.size.z);
-
-							newObject.transform.Translate(new Vector3
+								}
+								newObject.transform.Translate(new Vector3
 									(
 										pearent.lossyScale.x * obj.transform.localScale.x * collider.center.x,
 										pearent.lossyScale.y * obj.transform.localScale.y * collider.center.y,
@@ -380,26 +413,26 @@ public class Test : Editor
 		}
 	}
 
-    [MenuItem("Project Soap/ミニマップ用車アイコン削除")]
-    public static void DeleteMiniMapQuadForCar()
-    {
+	[MenuItem("Project Soap/ミニマップ用車アイコン削除")]
+	public static void DeleteMiniMapQuadForCar()
+	{
 
-        // typeで指定した型の全てのオブジェクトを配列で取得し,その要素数分繰り返す.
-        foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
-        {
-            // シーン上に存在するオブジェクトならば処理.
-            if (obj != null && obj.activeInHierarchy && (obj.tag == "StaticCar" || obj.tag == "MoveCar"))
-            {
-                // オブジェクト検索
+		// typeで指定した型の全てのオブジェクトを配列で取得し,その要素数分繰り返す.
+		foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
+		{
+			// シーン上に存在するオブジェクトならば処理.
+			if (obj != null && obj.activeInHierarchy && (obj.tag == "StaticCar" || obj.tag == "MoveCar"))
+			{
+				// オブジェクト検索
 
-                if (obj.transform.FindChild("CarMiniMapIcon") != null)
-                {
-                    GameObject quad = obj.transform.FindChild("CarMiniMapIcon").gameObject;
-                    DestroyImmediate(quad);
-                }
-                // GameObjectの名前を表示.
-                Debug.Log(obj.name);
-            }
-        }
-    }
+				if (obj.transform.FindChild("CarMiniMapIcon") != null)
+				{
+					GameObject quad = obj.transform.FindChild("CarMiniMapIcon").gameObject;
+					DestroyImmediate(quad);
+				}
+				// GameObjectの名前を表示.
+				Debug.Log(obj.name);
+			}
+		}
+	}
 }

@@ -269,7 +269,7 @@ public class MainSceneStateHolder : MonoBehaviour
 		
 		m_mainState = MainState.START;//スタートから開始
 		// セリフUI設定
-        SekkenSayUI sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+        CharacterWordsUI sayUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
 		m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<PauseObject>();
 		if (sayUI)
         {
@@ -277,17 +277,17 @@ public class MainSceneStateHolder : MonoBehaviour
             {
                 case SceneData.CharacterSelect.SekkenKun:
 
-					sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenKun);
+					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenKun);
                     break;
 
                 case SceneData.CharacterSelect.SekkenHero:
 
-					sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenHero);
+					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenHero);
                     break;
 
                 case SceneData.CharacterSelect.SekkenChan:
 
-					sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenChan);
+					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenChan);
                     break;
             }
         }
@@ -536,6 +536,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = false;
@@ -575,6 +576,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -605,6 +608,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -629,6 +634,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -657,6 +664,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -702,6 +711,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = true;
 						m_washChainUI.pausing = true;
 						m_miniMapUI.pausing = true;
+						m_sayUI.pausing = true;
+						m_markerUI.pausing = true;
 
 						m_norticeRecoveryUI.pausing = true;
 						m_pushKeyUI.pausing = true;
@@ -721,6 +732,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = true;
 						m_washChainUI.pausing = true;
 						m_miniMapUI.pausing = true;
+						m_sayUI.pausing = true;
+						m_markerUI.pausing = true;
 
 						m_norticeRecoveryUI.pausing = true;
 						m_pushKeyUI.pausing = true;
@@ -753,6 +766,8 @@ public class MainSceneStateHolder : MonoBehaviour
 					m_dirtyCounterUI.pausing = true;
 					m_washChainUI.pausing = true;
 					m_miniMapUI.pausing = true;
+					m_sayUI.pausing = true;
+					m_markerUI.pausing = true;
 
 					m_norticeRecoveryUI.pausing = true;
 					m_pushKeyUI.pausing = true;

@@ -6,14 +6,15 @@ public class BarricadeObject : MonoBehaviour {
 	public uint m_lockArea = 2;
 	public bool m_isUnlock = false;
     int playerLayer;
-    SekkenSayUI sayUI;
+
+	CharacterWordsUI sayUI;
 	// Use this for initialization
 	void Start () 
     {
         GameObject obj = GameObject.Find("SekkenSayUI");
         if (obj)
         {
-            sayUI = obj.GetComponent<SekkenSayUI>();
+            sayUI = obj.GetComponent<CharacterWordsUI>();
         }
         playerLayer = LayerMask.NameToLayer("Player");
 #if DEBUG
@@ -37,7 +38,7 @@ public class BarricadeObject : MonoBehaviour {
         {
             if (sayUI)
             {
-               sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.BARRICADE);
+               sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.BARRICADE);
             }
         }
     }

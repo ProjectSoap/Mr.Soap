@@ -153,7 +153,7 @@ public class PlayerCharacterController : MonoBehaviour
     Animator m_animator;
 
     // SayUI
-    SekkenSayUI m_sayUI;
+    CharacterWordsUI m_sayUI;
 
     // States
     [SerializeField, Header("デバッグ用")]
@@ -349,7 +349,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_meshObject                = transform.FindChild("Mesh").gameObject;
         m_moveBubbleSystem          = transform.FindChild("MoveBubble").GetComponent<ParticleSystem>();
         m_pauseObjectTransform      = transform.parent;
-        m_sayUI                     = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+        m_sayUI                     = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
 
         m_driftParticleSystemRight.enableEmission   = false;
         m_driftParticleSystemLeft.enableEmission    = false;
@@ -944,7 +944,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size -= m_damageSize;
 
-        m_sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.CRASH);
+        m_sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.CRASH);
 
         var particleEmitter = Instantiate(m_damageParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
@@ -961,7 +961,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
-        m_sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.RECOVERY);
+        m_sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.RECOVERY);
 
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
@@ -980,7 +980,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size += m_healSizeItem;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
-        m_sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.RECOVERY);
+        m_sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.RECOVERY);
 
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
