@@ -128,10 +128,10 @@ public class CharacterWordsUI
 	{
 		Vector3 CenterPosition = transform.position;
 		CenterPosition.y = m_characterIconUIImage.rectTransform.position.y;
-		CenterPosition.y -= m_characterIconUIImage.rectTransform.rect.height * m_characterIconUIImage.rectTransform.localScale.y * 0.5f;	// 下端を求める
+		//CenterPosition.y -= m_characterIconUIImage.rectTransform.rect.height * m_characterIconUIImage.rectTransform.localScale.y ;	// 下端を求める
 		for (int i = 0; i < m_activArray.Length; i++)
 		{
-			CenterPosition.y -= m_activArray[i].ImageTransform.rect.height * m_activArray[i].ImageTransform.localScale.y * 0.5f;
+			CenterPosition.y -= m_activArray[i].ImageTransform.rect.height * m_activArray[i].ImageTransform.localScale.y;
 			m_activArray[i].ImageTransform.position = CenterPosition;
 		}
 	}
