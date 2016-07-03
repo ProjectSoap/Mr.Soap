@@ -20,7 +20,8 @@ public class BarricadeManager : MonoBehaviour {
 	{
 
 
-        if (m_isDubug)
+#if DEBUG
+		if (m_isDubug)
         {
             for (int i = 0; i < m_barricade.Length; i++)
             {
@@ -29,7 +30,8 @@ public class BarricadeManager : MonoBehaviour {
                     m_barricade[i].m_isUnlock = true;
                 }
             }
-        }
+		}
+#endif
 		if (
         GameObject.Find("SaveDataManager").transform.FindChild("CheckRecordCondition").GetComponent<CheckRecordCondition>().CheckRecordConditionClear(CheckRecordCondition.ERecordName.OtosiMinarai))
 		{

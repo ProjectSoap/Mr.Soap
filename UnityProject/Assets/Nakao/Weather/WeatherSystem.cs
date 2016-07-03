@@ -40,7 +40,7 @@ public class WeatherSystem : MonoBehaviour {
     [SerializeField]
     Material m_skyboxMaterialCloudiness;
 
-    SekkenSayUI TSUTSUMISAN;
+    CharacterWordsUI TSUTSUMISAN;
     public SaveDataManager save;
 
 
@@ -49,7 +49,7 @@ public class WeatherSystem : MonoBehaviour {
         numWeather = 0;
         NowWeather = Weather.SUN;
 
-        TSUTSUMISAN = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+        TSUTSUMISAN = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
         save = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         LoadSave();
@@ -357,7 +357,7 @@ public class WeatherSystem : MonoBehaviour {
                     }
                     weathers[0].active = true;
                     ActionRecordManager.sActionRecord.isRain = true;
-                    TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.RAIN);
+                    TSUTSUMISAN.DrawSayTexture(CharacterWordsUI.ESayTexName.RAIN);
                     m_skybox.material= m_skyboxMaterialCloudiness;
                     break;
                 }
@@ -370,7 +370,7 @@ public class WeatherSystem : MonoBehaviour {
                     weathers[1].active =  true;
                     weathers[1].GetComponent<FogGenerator>().ChangeCreateMode();
                     ActionRecordManager.sActionRecord.isFog = true;
-                    TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.FOG);
+                    TSUTSUMISAN.DrawSayTexture(CharacterWordsUI.ESayTexName.FOG);
                     m_skybox.material = m_skyboxMaterialSunny;
                     break;
                 }
@@ -383,7 +383,7 @@ public class WeatherSystem : MonoBehaviour {
                     weathers[2].active = true;
                     ActionRecordManager.sActionRecord.isWind = true;
 
-                    TSUTSUMISAN.DrawSayTexture(SekkenSayUI.ESayTexName.WIND);
+                    TSUTSUMISAN.DrawSayTexture(CharacterWordsUI.ESayTexName.WIND);
                     m_skybox.material = m_skyboxMaterialSunny;
                     break;
                 }

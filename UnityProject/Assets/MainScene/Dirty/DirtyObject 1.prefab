@@ -92,8 +92,8 @@ MonoBehaviour:
   m_player: {fileID: 0}
   areaColor:
   - {r: .903448105, g: 0, b: 1, a: 1}
-  - {r: 0, g: 1, b: .875862181, a: 1}
-  - {r: 0, g: 1, b: .0482759476, a: 1}
+  - {r: 0, g: 1, b: .0470588244, a: 1}
+  - {r: 0, g: 1, b: .874509811, a: 1}
   - {r: 1, g: .682758629, b: 0, a: 1}
 --- !u!135 &13508522
 SphereCollider:
@@ -168,7 +168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: areaColor.Array.data[1].b
-      value: .875862181
+      value: .0470588244
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: areaColor.Array.data[2].r
@@ -180,7 +180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: areaColor.Array.data[2].b
-      value: .0482759476
+      value: .874509811
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: areaColor.Array.data[3].r

@@ -12,6 +12,7 @@ GameObject:
   - 124: {fileID: 12423972}
   - 92: {fileID: 9218608}
   - 81: {fileID: 8167580}
+  - 45: {fileID: 4503146}
   m_Layer: 8
   m_Name: MiniMapCamera
   m_TagString: Untagged
@@ -65,6 +66,14 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
   m_StereoMirrorMode: 0
+--- !u!45 &4503146
+Skybox:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172060}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 3cfb2a9f006f08b4284c83d7b2c217ef, type: 2}
 --- !u!81 &8167580
 AudioListener:
   m_ObjectHideFlags: 1
@@ -92,7 +101,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_CustomSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 3cfb2a9f006f08b4284c83d7b2c217ef, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 172060}
