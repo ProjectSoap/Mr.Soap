@@ -248,9 +248,10 @@ public class MainSceneStateHolder : MonoBehaviour
 	public PauseObject m_pushKeyUI;
 	public PauseObject m_sayUI;
 	public PauseObject m_markerUI;
+	public PauseObject m_pinchFrame;
 
 
-	
+
 	public PauseObject m_dirtys;
 
 
@@ -537,6 +538,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
 						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = false;
@@ -578,6 +581,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_miniMapUI.pausing = false;
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -610,6 +614,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_miniMapUI.pausing = false;
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -636,6 +641,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_miniMapUI.pausing = false;
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -666,6 +672,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_miniMapUI.pausing = false;
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -713,6 +720,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_miniMapUI.pausing = true;
 						m_sayUI.pausing = true;
 						m_markerUI.pausing = true;
+						m_pinchFrame.pausing = true;
 
 						m_norticeRecoveryUI.pausing = true;
 						m_pushKeyUI.pausing = true;
@@ -734,6 +742,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_miniMapUI.pausing = true;
 						m_sayUI.pausing = true;
 						m_markerUI.pausing = true;
+						m_pinchFrame.pausing = true;
 
 						m_norticeRecoveryUI.pausing = true;
 						m_pushKeyUI.pausing = true;
@@ -768,6 +777,7 @@ public class MainSceneStateHolder : MonoBehaviour
 					m_miniMapUI.pausing = true;
 					m_sayUI.pausing = true;
 					m_markerUI.pausing = true;
+					m_pinchFrame.pausing = true;
 
 					m_norticeRecoveryUI.pausing = true;
 					m_pushKeyUI.pausing = true;
