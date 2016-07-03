@@ -178,8 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fc2b3bcbe22174896970c5362556cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LIVE_TIME: 3
-  MoveHeight: 6.30000019
+  LIVE_TIME: 2
+  MoveHeight: 6
   MoveWidth: 6
 --- !u!135 &13562970
 SphereCollider:
@@ -191,8 +191,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.39999998
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: .899999976
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!198 &19801210
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -5651,7 +5651,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveHeight
-      value: 6.30000019
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: MoveWidth
@@ -5659,7 +5659,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: LIVE_TIME
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -5667,7 +5667,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: 1.39999998
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: AddDownForce
@@ -5712,6 +5712,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: CollisionModule.energyLossOnCollision
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Center.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
