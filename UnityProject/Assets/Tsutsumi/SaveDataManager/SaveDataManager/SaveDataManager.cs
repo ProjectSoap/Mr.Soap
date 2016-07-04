@@ -184,17 +184,17 @@ public class SaveDataManager : MonoBehaviour {
             SaveData(ESaveDataNo.RankingPoint9, 20);
             SaveData(ESaveDataNo.RankingPoint10, 10);
 
-            SaveData(ESaveDataStringNo.RankingName1, "ひーろー");
-            SaveData(ESaveDataStringNo.RankingName2, "ぱぱ");
-            SaveData(ESaveDataStringNo.RankingName3, "まま");
-            SaveData(ESaveDataStringNo.RankingName4, "ぼく");
-            SaveData(ESaveDataStringNo.RankingName5, "わたし");
+            SaveData(ESaveDataStringNo.RankingName1, "ヒーロー");
+            SaveData(ESaveDataStringNo.RankingName2, "パパ");
+            SaveData(ESaveDataStringNo.RankingName3, "ママ");
+            SaveData(ESaveDataStringNo.RankingName4, "ボク");
+            SaveData(ESaveDataStringNo.RankingName5, "ワタシ");
 
-            SaveData(ESaveDataStringNo.RankingName6, "しんじ");
-            SaveData(ESaveDataStringNo.RankingName7, "たけし");
-            SaveData(ESaveDataStringNo.RankingName8, "ぴーす");
-            SaveData(ESaveDataStringNo.RankingName9, "しゃむ");
-            SaveData(ESaveDataStringNo.RankingName10, "ほえー");
+            SaveData(ESaveDataStringNo.RankingName6, "シンジ");
+            SaveData(ESaveDataStringNo.RankingName7, "タケシ");
+            SaveData(ESaveDataStringNo.RankingName8, "ピース");
+            SaveData(ESaveDataStringNo.RankingName9, "シャム");
+            SaveData(ESaveDataStringNo.RankingName10, "ホエー");
         }
 	}
 	
@@ -309,16 +309,16 @@ public class SaveDataManager : MonoBehaviour {
         SaveData(ESaveDataNo.RankingPoint9, 20);
         SaveData(ESaveDataNo.RankingPoint10, 10);
 
-        SaveData(ESaveDataStringNo.RankingName1, "ひーろー");
-        SaveData(ESaveDataStringNo.RankingName2, "ぱぱ");
-        SaveData(ESaveDataStringNo.RankingName3, "まま");
-        SaveData(ESaveDataStringNo.RankingName4, "ぼく");
-        SaveData(ESaveDataStringNo.RankingName5, "わたし");
+        SaveData(ESaveDataStringNo.RankingName1, "ヒーロー");
+        SaveData(ESaveDataStringNo.RankingName2, "パパ");
+        SaveData(ESaveDataStringNo.RankingName3, "ママ");
+        SaveData(ESaveDataStringNo.RankingName4, "ボク");
+        SaveData(ESaveDataStringNo.RankingName5, "ワタシ");
 
-        SaveData(ESaveDataStringNo.RankingName6, "しんじ");
-        SaveData(ESaveDataStringNo.RankingName7, "たけし");
-        SaveData(ESaveDataStringNo.RankingName8, "ぴーす");
-        SaveData(ESaveDataStringNo.RankingName9, "しゃむ");
-        SaveData(ESaveDataStringNo.RankingName10, "ほえー");
+        SaveData(ESaveDataStringNo.RankingName6, "シンジ");
+        SaveData(ESaveDataStringNo.RankingName7, "タケシ");
+        SaveData(ESaveDataStringNo.RankingName8, "ピース");
+        SaveData(ESaveDataStringNo.RankingName9, "シャム");
+        SaveData(ESaveDataStringNo.RankingName10, "ホエー");
     }
 }
