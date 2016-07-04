@@ -308,9 +308,9 @@ public class MainSceneStateHolder : MonoBehaviour
 
 		//モード確認
 		SelectingCharactor no = GameObject.Find("CharNo").GetComponent<SelectingCharactor>();
-		if (no != null)
+	//	if (no != null)
 		{
-			if (no.PlayMode == PlayModeState.NORMAL)
+			if (SceneData.modeSelect == PlayModeState.NORMAL)
 			{
 				m_modeState = ModeState.NORMAL_PLAY;
 				m_pauseSystems.pausing = true;
