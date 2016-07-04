@@ -95,8 +95,7 @@ public class Marker : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-
-		if (m_isEnableUI)
+		
 		{
 			Vector3 rate, tempPosition;
 			Vector3 direction;
