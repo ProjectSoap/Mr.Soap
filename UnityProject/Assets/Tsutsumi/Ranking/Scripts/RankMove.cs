@@ -11,6 +11,8 @@ public class RankMove : MonoBehaviour {
     public int RANK;
     public TexNum pointTexNum;
     public SaveDataManager dataCon;
+    public Text nameTextBack;
+    public Text nameText;
 
     //使用変数
     private Vector3 firstPosition;
@@ -40,12 +42,15 @@ public class RankMove : MonoBehaviour {
             if (point >= 0)
             {
                 pointTexNum.SetNum(point);
+                nameTextBack.text = dataCon.LoadData((SaveDataManager.ESaveDataStringNo)RANK-1);
+                nameText.text = dataCon.LoadData((SaveDataManager.ESaveDataStringNo)RANK - 1);
             }
             else
             {
                 //エラーなら０点をとりあえず表示。
                 point = 0;
                 pointTexNum.SetNum(point);
+                nameTextBack.text = nameText.text = "";
             }
         }
 
