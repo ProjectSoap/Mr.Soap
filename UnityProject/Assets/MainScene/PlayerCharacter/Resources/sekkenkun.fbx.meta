@@ -149,6 +149,7 @@ ModelImporter:
     7400020: jump
     7400022: left_curve
     7400024: right_curve
+    7400026: traveling
     9500000: //RootNode
     13700000: polySurface42
     13700002: polySurface43
@@ -170,7 +171,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -1988,6 +1989,156 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group5
+        weight: 1
+      - path: group5/pasted__group1
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder5
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder5/transform5
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder6
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder6/transform4
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder7
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder7/transform3
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder8
+        weight: 1
+      - path: group5/pasted__group1/pasted__pCylinder8/transform2
+        weight: 1
+      - path: group5/pasted__group1/pasted__polySurface5
+        weight: 1
+      - path: group5/pasted__group1/pasted__polySurface5/transform6
+        weight: 1
+      - path: group5/pasted__pCube5
+        weight: 1
+      - path: group5/pasted__pCube5/pasted__transform6
+        weight: 1
+      - path: group5/pasted__pCube6
+        weight: 1
+      - path: group5/pasted__pCube6/pasted__transform5
+        weight: 1
+      - path: group5/pasted__polySurface1
+        weight: 1
+      - path: group5/pasted__polySurface1/pasted__transform7
+        weight: 1
+      - path: group5/pasted__polySurface2
+        weight: 1
+      - path: group5/pasted__polySurface2/pasted__transform8
+        weight: 1
+      - path: group5/pasted__polySurface3
+        weight: 1
+      - path: group5/pasted__polySurface3/pasted__transform10
+        weight: 1
+      - path: group5/pasted__polySurface4
+        weight: 1
+      - path: group5/pasted__polySurface4/pasted__transform9
+        weight: 1
+      - path: motionTrail1Handle
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      - path: polySurface1/polySurface2
+        weight: 1
+      - path: polySurface1/polySurface2/transform8
+        weight: 1
+      - path: polySurface1/polySurface3
+        weight: 1
+      - path: polySurface1/polySurface3/transform12
+        weight: 1
+      - path: polySurface1/polySurface4
+        weight: 1
+      - path: polySurface1/polySurface4/transform10
+        weight: 1
+      - path: polySurface1/polySurface5
+        weight: 1
+      - path: polySurface1/polySurface6
+        weight: 1
+      - path: polySurface1/polySurface6/transform9
+        weight: 1
+      - path: polySurface1/transform7
+        weight: 1
+      - path: polySurface41
+        weight: 1
+      - path: polySurface41/polySurface42
+        weight: 1
+      - path: polySurface41/polySurface43
+        weight: 1
+      - path: polySurface41/polySurface44
+        weight: 1
+      - path: polySurface41/polySurface45
+        weight: 1
+      - path: polySurface41/polySurface46
+        weight: 1
+      - path: polySurface41/polySurface47
+        weight: 1
+      - path: polySurface41/polySurface48
+        weight: 1
+      - path: polySurface41/transform11
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg
+        weight: 1
+      - path: root/L_leg/L_hiza
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato
+        weight: 1
+      - path: root/L_leg/L_hiza/L_kakato/L_tumasaki
+        weight: 1
+      - path: root/R_leg
+        weight: 1
+      - path: root/R_leg/R_hiza
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato
+        weight: 1
+      - path: root/R_leg/R_hiza/R_kakato/R_tumasaki
+        weight: 1
+      - path: root/up_body
+        weight: 1
+      - path: root/up_body/L_arm
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi
+        weight: 1
+      - path: root/up_body/L_arm/L_hizi/L_hand
+        weight: 1
+      - path: root/up_body/R_arm
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi
+        weight: 1
+      - path: root/up_body/R_arm/R_hizi/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: traveling
+      takeName: traveling
+      firstFrame: 1
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
