@@ -285,6 +285,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	public void NorticeDestroy()
 	{
 		m_isApparance = false;
+		m_marker.MarkPoint = null;
 		m_marker.EnableUI = false;
 	}
 	
