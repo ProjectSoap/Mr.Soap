@@ -244,7 +244,9 @@ public class PlayerCharacterController : MonoBehaviour
 
     Transform m_pauseObjectTransform;
 
-    bool m_isNotJump;    
+    bool m_isNotJump = false;
+
+    float m_rotateAnimation = 0.0f;
 
     [SerializeField]
     Vector3 v;
@@ -493,8 +495,10 @@ public class PlayerCharacterController : MonoBehaviour
         transform.localScale = m_defaultScale * scaleRate;
 
         // アニメーション更新
+        m_rotateAnimation = Mathf.Lerp(m_rotateAnimation, m_rotation, 0.25f);
+
         m_animator.SetBool("isGround",  m_isGround);
-        m_animator.SetFloat("rotation", m_rotation);
+        m_animator.SetFloat("rotation", m_rotateAnimation);
 
         //if (m_driveState == DriveState.Breake ||
         //    m_driveState == DriveState.BreakeAfter)
