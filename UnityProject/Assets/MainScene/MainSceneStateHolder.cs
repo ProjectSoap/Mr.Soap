@@ -246,9 +246,11 @@ public class MainSceneStateHolder : MonoBehaviour
 
 	public PauseObject m_norticeRecoveryUI;
 	public PauseObject m_pushKeyUI;
+	public PauseObject m_sayUI;
+	public PauseObject m_markerUI;
+	public PauseObject m_pinchFrame;
 
 
-    SekkenSayUI m_sayUI;
 
 	public PauseObject m_dirtys;
 
@@ -267,24 +269,26 @@ public class MainSceneStateHolder : MonoBehaviour
 	{
 		
 		m_mainState = MainState.START;//スタートから開始
-        m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
-        if (m_sayUI)
+		// セリフUI設定
+        CharacterWordsUI sayUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
+		m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<PauseObject>();
+		if (sayUI)
         {
             switch (SceneData.characterSelect)
             {
                 case SceneData.CharacterSelect.SekkenKun:
 
-                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenKun);
+					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenKun);
                     break;
 
                 case SceneData.CharacterSelect.SekkenHero:
 
-                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenHero);
+					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenHero);
                     break;
 
                 case SceneData.CharacterSelect.SekkenChan:
 
-                    m_sayUI.ChangeSekken(SekkenSayUI.ESekkenNo.SekkenChan);
+					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenChan);
                     break;
             }
         }
@@ -304,9 +308,9 @@ public class MainSceneStateHolder : MonoBehaviour
 
 		//モード確認
 		SelectingCharactor no = GameObject.Find("CharNo").GetComponent<SelectingCharactor>();
-		if (no != null)
+	//	if (no != null)
 		{
-			if (no.PlayMode == PlayModeState.NORMAL)
+			if (SceneData.modeSelect == PlayModeState.NORMAL)
 			{
 				m_modeState = ModeState.NORMAL_PLAY;
 				m_pauseSystems.pausing = true;
@@ -533,6 +537,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = false;
@@ -572,6 +579,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -602,6 +612,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -626,6 +639,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -654,6 +670,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = false;
 						m_washChainUI.pausing = false;
 						m_miniMapUI.pausing = false;
+						m_sayUI.pausing = false;
+						m_markerUI.pausing = false;
+						m_pinchFrame.pausing = false;
 
 						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
@@ -699,6 +718,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = true;
 						m_washChainUI.pausing = true;
 						m_miniMapUI.pausing = true;
+						m_sayUI.pausing = true;
+						m_markerUI.pausing = true;
+						m_pinchFrame.pausing = true;
 
 						m_norticeRecoveryUI.pausing = true;
 						m_pushKeyUI.pausing = true;
@@ -718,6 +740,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_dirtyCounterUI.pausing = true;
 						m_washChainUI.pausing = true;
 						m_miniMapUI.pausing = true;
+						m_sayUI.pausing = true;
+						m_markerUI.pausing = true;
+						m_pinchFrame.pausing = true;
 
 						m_norticeRecoveryUI.pausing = true;
 						m_pushKeyUI.pausing = true;
@@ -750,6 +775,9 @@ public class MainSceneStateHolder : MonoBehaviour
 					m_dirtyCounterUI.pausing = true;
 					m_washChainUI.pausing = true;
 					m_miniMapUI.pausing = true;
+					m_sayUI.pausing = true;
+					m_markerUI.pausing = true;
+					m_pinchFrame.pausing = true;
 
 					m_norticeRecoveryUI.pausing = true;
 					m_pushKeyUI.pausing = true;

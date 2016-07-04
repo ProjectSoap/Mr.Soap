@@ -21,7 +21,7 @@ public class RecoverySoapCreater : MonoBehaviour {
     [SerializeField,TooltipAttribute("生成を許可するプレイヤーとの距離")]
     float distanceForParmitTheCreate;
 
-    SekkenSayUI sayUI;
+    CharacterWordsUI sayUI;
 
     [SerializeField]
     bool isRangeOut;
@@ -43,7 +43,7 @@ public class RecoverySoapCreater : MonoBehaviour {
     {
 		m_myManager = GameObject.Find("RecoverySoapCreatersManager").GetComponent<RecoverySoapCreatersManager>();
 		IsHaveRevoverySoap = false;
-        sayUI = GameObject.Find("SekkenSayUI").GetComponent<SekkenSayUI>();
+        sayUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
     }
 	
 	// Update is called once per frame
@@ -58,7 +58,7 @@ public class RecoverySoapCreater : MonoBehaviour {
 		RecoverySoapObject script = soapInstance.GetComponent<RecoverySoapObject>();
 		script.Parent = this;
 		IsHaveRevoverySoap = true;
-		sayUI.DrawSayTexture(SekkenSayUI.ESayTexName.SEKKEN_POP);
+		sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.SEKKEN_POP);
 	}
 
 	public void NorticeDestroy()

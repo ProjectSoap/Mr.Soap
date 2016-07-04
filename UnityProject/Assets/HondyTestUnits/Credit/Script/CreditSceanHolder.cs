@@ -13,10 +13,25 @@ public class CreditSceanHolder : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape) || m_camera.isEnd)
-        {
-            Fade.ChangeScene("Menu");
+	void Update ()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape) || m_camera.isEnd)
+		{
+			m_camera.isEnd = true;
+			Time.timeScale = 1.0f;
+			Fade.ChangeScene("Menu");
         }
+		else
+		{
+
+			if (Input.GetKey(KeyCode.Space))
+			{
+				Time.timeScale = 3.0f;
+			}
+			else
+			{
+				Time.timeScale = 1.0f;
+			}
+		}
 	}
 }

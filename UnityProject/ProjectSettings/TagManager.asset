@@ -12,6 +12,8 @@ TagManager:
   - DummyBubble
   - RecoverySoapAppearancePoint
   - StaticCar
+  - MoveCar
+  - Barricade
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - Effect
   - RecoverySoap
   - SectionJudge
-  - 
+  - Camera
   - 
   - 
   - 
