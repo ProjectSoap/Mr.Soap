@@ -42,6 +42,7 @@ MonoBehaviour:
   saveDataManager: {fileID: 0}
   checkRecord: {fileID: 0}
   canvasRanking: {fileID: 0}
+  canvasRankingName: {fileID: 0}
   canvasKaihou: {fileID: 0}
   canvasSceneSelect: {fileID: 0}
   sekkenControll: {fileID: 0}

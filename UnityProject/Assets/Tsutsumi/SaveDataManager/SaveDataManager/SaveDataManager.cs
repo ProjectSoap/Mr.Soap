@@ -183,6 +183,18 @@ public class SaveDataManager : MonoBehaviour {
             SaveData(ESaveDataNo.RankingPoint8, 30);
             SaveData(ESaveDataNo.RankingPoint9, 20);
             SaveData(ESaveDataNo.RankingPoint10, 10);
+
+            SaveData(ESaveDataStringNo.RankingName1, "ひーろー");
+            SaveData(ESaveDataStringNo.RankingName2, "ぱぱ");
+            SaveData(ESaveDataStringNo.RankingName3, "まま");
+            SaveData(ESaveDataStringNo.RankingName4, "ぼく");
+            SaveData(ESaveDataStringNo.RankingName5, "わたし");
+
+            SaveData(ESaveDataStringNo.RankingName6, "しんじ");
+            SaveData(ESaveDataStringNo.RankingName7, "たけし");
+            SaveData(ESaveDataStringNo.RankingName8, "ぴーす");
+            SaveData(ESaveDataStringNo.RankingName9, "しゃむ");
+            SaveData(ESaveDataStringNo.RankingName10, "ほえー");
         }
 	}
 	
@@ -228,7 +240,7 @@ public class SaveDataManager : MonoBehaviour {
         //セーブされているかどうか
         if (PlayerPrefs.HasKey(SaveDataStringName[(int)no]) == true)
         {
-            string name = PlayerPrefs.GetString(SaveDataName[(int)no]);
+            string name = PlayerPrefs.GetString(SaveDataStringName[(int)no]);
             return name;
         }
         else//データがない
@@ -296,5 +308,17 @@ public class SaveDataManager : MonoBehaviour {
         SaveData(ESaveDataNo.RankingPoint8, 30);
         SaveData(ESaveDataNo.RankingPoint9, 20);
         SaveData(ESaveDataNo.RankingPoint10, 10);
+
+        SaveData(ESaveDataStringNo.RankingName1, "ひーろー");
+        SaveData(ESaveDataStringNo.RankingName2, "ぱぱ");
+        SaveData(ESaveDataStringNo.RankingName3, "まま");
+        SaveData(ESaveDataStringNo.RankingName4, "ぼく");
+        SaveData(ESaveDataStringNo.RankingName5, "わたし");
+
+        SaveData(ESaveDataStringNo.RankingName6, "しんじ");
+        SaveData(ESaveDataStringNo.RankingName7, "たけし");
+        SaveData(ESaveDataStringNo.RankingName8, "ぴーす");
+        SaveData(ESaveDataStringNo.RankingName9, "しゃむ");
+        SaveData(ESaveDataStringNo.RankingName10, "ほえー");
     }
 }

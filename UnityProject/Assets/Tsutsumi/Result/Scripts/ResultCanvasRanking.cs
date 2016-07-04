@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 /************************************************
  * 
@@ -14,6 +15,9 @@ using System.Collections.Generic;
 public class ResultCanvasRanking : MonoBehaviour {
 
     public List<TexNum> rankingList;
+    public List<Text> rankingName;
+    public List<Text> rankingNameBack;
+
     public float colorChangeTime = 1.0f;
     public Color changeColor;
 
@@ -66,6 +70,16 @@ public class ResultCanvasRanking : MonoBehaviour {
 
         rankingList[rankIndexNo].SetNum(point4keta);
     }
+    public void SetRankName(string _name, int rankIndexNo)
+    {
+        //範囲チェック
+        if (rankIndexNo < 0) return;
+        if (rankIndexNo > rankingName.Count - 1) return;
+
+        rankingName[rankIndexNo].text = _name;
+        rankingNameBack[rankIndexNo].text = _name;
+    }
+
     public void ChangeColor(Color color, int rankIndexNo)
     {
         //範囲チェック
