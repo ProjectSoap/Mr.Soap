@@ -326,7 +326,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				m_dirtys.gameObject.SetActive(false);
 
 			}
-	//	}
+		}
 		no.loaded = true;
 
 		m_pauseSystems.pausing = true;
