@@ -13,6 +13,7 @@ public class ResultManagerSystem : MonoBehaviour {
     public SaveDataManager saveDataManager;     //セーブデータ管理
     public CheckRecordCondition checkRecord;    //実績条件判定
     public ResultCanvasRanking canvasRanking;   //ランキング画面表示
+    public ResultRankingNameSystem canvasRankingName;   //ランキングの名前入力画面表示
     public ResultCanvasKaihouCon canvasKaihou;  //実績を取得した場合有効に
     public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
     public ResultSekkenControll sekkenControll;             //せっけんくんの制御
@@ -25,6 +26,8 @@ public class ResultManagerSystem : MonoBehaviour {
 
     //ランキングを先頭１位から順番に保持。ソート関数がこれを並び替える。
     private int[] rankingPoint = new int[11];
+    //ランキング取った人の名前の配列を1位から順番に保持。ソートする
+    private string[] rankingName = new string[11];
 
     //プレイ回数
     private int playCount;
@@ -45,6 +48,9 @@ public class ResultManagerSystem : MonoBehaviour {
     //ランキング表示完了フラグ
     private bool rankingDrawEndFlg;
 
+    //ランキング文字入力完了フラグ
+    private bool rankingNameEndFlg;
+
     //画面遷移表示フラグ
     private bool sceneMoveDisplayFlg;
     private bool sceneMenuFlg;
@@ -57,6 +63,7 @@ public class ResultManagerSystem : MonoBehaviour {
         rank = 0;
         pointDrawEndFlg = false;
         rankingDrawEndFlg = false;
+        rankingNameEndFlg = true;
         sceneMoveDisplayFlg = false;
         sceneMenuFlg = false;
         inputEndFlg = false;
@@ -74,6 +81,7 @@ public class ResultManagerSystem : MonoBehaviour {
 	    //ゲームの結果を確認
         gameScore = ActionRecordManager.sActionRecord;
         rankingPoint[10] = gameScore.C1WashCount + gameScore.C2WashCount + gameScore.C3WashCount + gameScore.C4WashCount;
+        rankingName[10] = "";
 
         //取得ポイントを元にせっけんキャラクターとアニメーション切り替え
         ResultSekkenControll.ESekkenNo sekkenNo = ResultSekkenControll.ESekkenNo.No_Sekkenkun;
@@ -107,6 +115,7 @@ public class ResultManagerSystem : MonoBehaviour {
         for (int i = 0; i < 9; ++i)
         {
             canvasRanking.SetPoint(rankingPoint[i], i);
+            canvasRanking.SetRankName(saveDataManager.LoadData((SaveDataManager.ESaveDataStringNo)i), i);
         }
         //10位以下だった
         if (rank >= 9)
@@ -120,6 +129,7 @@ public class ResultManagerSystem : MonoBehaviour {
             //１～９位にランクイン
             canvasRanking.SetScoreRank(rank);
             canvasRanking.ChangeActive(false, 9);
+            rankingNameEndFlg = false;
         }
         
 
@@ -152,6 +162,25 @@ public class ResultManagerSystem : MonoBehaviour {
         else
         {
             canvasRanking.gameObject.SetActive(false);
+        }
+
+        //ランクイン時なら名前入力へ
+        if (rankingNameEndFlg == false)
+        {
+            //ランキングセット
+            canvasRankingName.SetRank(rank);
+
+            //有効化
+            canvasRankingName.gameObject.SetActive(true);
+
+            //名前選択処理
+            if (canvasRankingName.Select() == true)
+            {
+                //名前選択終了処理
+                canvasRankingName.gameObject.SetActive(false);
+                rankingNameEndFlg = true;
+            }
+            return;
         }
 
 	    //実績が今回で解放されていれば表示へ
@@ -332,6 +361,21 @@ public class ResultManagerSystem : MonoBehaviour {
 
         //今回のスコアを入れる予定
         rankingPoint[10] = 0;
+
+        //ランキングの名前読み込み
+        rankingName[0] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName1);
+        rankingName[1] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName2);
+        rankingName[2] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName3);
+        rankingName[3] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName4);
+        rankingName[4] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName5);
+
+        rankingName[5] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName6);
+        rankingName[6] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName7);
+        rankingName[7] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName8);
+        rankingName[8] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName9);
+        rankingName[9] = saveDataManager.LoadData(SaveDataManager.ESaveDataStringNo.RankingName10);
+
+        rankingName[10] = "";
     }
 
     //セーブする
@@ -398,6 +442,19 @@ public class ResultManagerSystem : MonoBehaviour {
         saveDataManager.SaveData(SaveDataManager.ESaveDataNo.RankingPoint9, rankingPoint[8]);
         saveDataManager.SaveData(SaveDataManager.ESaveDataNo.RankingPoint10, rankingPoint[9]);
 
+        //ランキングの名前をセーブ
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName1, rankingName[0]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName2, rankingName[1]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName3, rankingName[2]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName4, rankingName[3]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName5, rankingName[4]);
+
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName6, rankingName[5]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName7, rankingName[6]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName8, rankingName[7]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName9, rankingName[8]);
+        saveDataManager.SaveData(SaveDataManager.ESaveDataStringNo.RankingName10, rankingName[9]);
+
     }
 
     //読み込んだセーブデータに今回のスコアを反映して新しいセーブデータを作成
@@ -433,16 +490,19 @@ public class ResultManagerSystem : MonoBehaviour {
     //ランキングポイントをソートする。
     private void RankingSort()
     {
-        int[] tempPointList = new int[11];
-        bool[] selectFlg = new bool[11];
-        int highPoint = 0;
-        int highPointListNo = 0;
+        int[] _tempPointList = new int[11];
+        string[] _tempStringList = new string[11];
+        bool[] _selectFlg = new bool[11];
+        int _highPoint = 0;
+        string _highPointString;
+        int _highPointListNo = 0;
 
         //一時作業領域へコピー
         for (int i = 0; i < 11; ++i)
         {
-            tempPointList[i] = rankingPoint[i];
-            selectFlg[i] = false;
+            _tempPointList[i] = rankingPoint[i];
+            _tempStringList[i] = rankingName[i];
+            _selectFlg[i] = false;
         }
 
         //高いの選んでいくソート。
@@ -450,38 +510,41 @@ public class ResultManagerSystem : MonoBehaviour {
         //０番配列（１位）から順番に決定
         for(int count = 0; count < 11; ++count)
         {
-            highPoint = 0;
-            highPointListNo = 0;
+            _highPoint = 0;
+            _highPointString = "";
+            _highPointListNo = 0;
             
             //選ばれてない中で一番高い数字を取得
             for (int i = 0; i < 11; ++i)
             {
                 //もう選択済み
-                if (selectFlg[i] == true)
+                if (_selectFlg[i] == true)
                 {
                     continue;
                 }
 
                 //選択されておらず今までで一番高いポイントだった
-                if (tempPointList[i] > highPoint)
+                if (_tempPointList[i] > _highPoint)
                 {
-                    highPoint = tempPointList[i];
-                    highPointListNo = i;
+                    _highPoint = _tempPointList[i];
+                    _highPointString = _tempStringList[i];
+                    _highPointListNo = i;
                 }
             }
 
             //一番高いポイントが決定
-            selectFlg[highPointListNo] = true;
+            _selectFlg[_highPointListNo] = true;
 
             //今回のスコアだった
-            if (highPointListNo == 10)
+            if (_highPointListNo == 10)
             {
                 //index番号を入れる
                 rank = count;
             }
 
             //答え格納先へ代入
-            rankingPoint[count] = highPoint;
+            rankingPoint[count] = _highPoint;
+            rankingName[count] = _highPointString;
         }
     }
 
