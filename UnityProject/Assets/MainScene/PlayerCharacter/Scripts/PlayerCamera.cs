@@ -48,35 +48,65 @@ public class PlayerCamera : MonoBehaviour
     private Vector3 m_lookDown = new Vector3(-5.0f, 0f, 0f);
 
     [SerializeField]
-    Transform target;
+    Transform m_target;
 
     [SerializeField]
     Material m_alphaMaterial;
 
     Dictionary<int, Material> m_origineMaterials;
 
+    public float distance
+    {
+        get { return m_distance; }
+        set { m_distance = value; }
+    }
+
+    public float followRate
+    {
+        get { return m_followRate; }
+        set { m_followRate = value; }
+    }
+
+    public Vector3 offset
+    {
+        get { return m_offset; }
+        set { m_offset = value; }
+    }
+
+    public Vector3 lookDown
+    {
+        get { return m_lookDown; }
+        set { m_lookDown = value; }
+    }
+
+    public Transform target
+    {
+        get { return m_target; }
+        set { m_target = value; }
+    }
+
     void Start()
     {
         m_origineMaterials = new Dictionary<int, Material>();
 
-        if(target == null)
+        if(m_target == null)
         {
-            target = GameObject.Find("PlayerCharacter").transform;
+            m_target = GameObject.Find("PlayerCharacter").transform;
         }
 
-        transform.position = target.TransformPoint(m_offset);
-        transform.LookAt(target, Vector3.up);
+        transform.position = m_target.TransformPoint(m_offset);
+        transform.LookAt(m_target, Vector3.up);
     }
 
     void FixedUpdate()
     {
-        Vector3 desiredPosition = target.TransformPoint(m_offset);
+        Vector3 desiredPosition = m_target.TransformPoint(m_offset);
         Vector3 lerp = Vector3.Lerp(transform.position, desiredPosition, m_followRate);
-        Vector3 toTarget = target.position - lerp;
+        Vector3 toTarget = m_target.position - lerp;
         toTarget.Normalize();
         toTarget *= m_distance;
-        transform.position = target.position - toTarget;
-        transform.LookAt(target, Vector3.up);
+        transform.position = m_target.position - toTarget;
+        transform.LookAt(m_target, Vector3.up);
         transform.Rotate(m_lookDown);
     }
 
