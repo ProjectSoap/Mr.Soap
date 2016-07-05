@@ -1932,6 +1932,10 @@ Prefab:
       propertyPath: saveDataManager
       value: 
       objectReference: {fileID: 1576502929}
+    - target: {fileID: 161552, guid: 554430416c17ff840b7cecdc23533f1b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 554430416c17ff840b7cecdc23533f1b, type: 2}
   m_IsPrefabParent: 0
