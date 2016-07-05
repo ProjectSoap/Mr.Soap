@@ -102,8 +102,7 @@ public class Marker : MonoBehaviour {
 			float distance = Vector3.Distance(m_mainCamera.transform.position, m_markPoint.transform.position);
 			rate = m_mainCamera.WorldToViewportPoint(m_markPoint.transform.position);
 			direction = m_markPoint.transform.position - m_mainCamera.transform.position;
-
-
+			
 			if (rate.z < 0)
 			{
 				//一旦0が中心にする
@@ -146,8 +145,7 @@ public class Marker : MonoBehaviour {
 					rate.y = 1;
 				}
 			}
-
-
+			
 			// Xがビューポート内より外
 			if (rate.z < 0)
 			{
@@ -178,11 +176,7 @@ public class Marker : MonoBehaviour {
 					rate.x = 1;
 				}
 			}
-
-
-
-
-
+			
 			if (0 < rate.x && rate.x < 1 && 0 < rate.y && rate.y < 1)
 			{
 
