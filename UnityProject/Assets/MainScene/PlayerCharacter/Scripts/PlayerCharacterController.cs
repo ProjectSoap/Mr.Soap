@@ -972,7 +972,15 @@ public class PlayerCharacterController : MonoBehaviour
         {
             if (m_driveState != DriveState.Damage && m_driveState != DriveState.DamageAfter && m_driveState != DriveState.End)
             {
-                Damage();
+                CarUnit carUnit = collision.gameObject.GetComponent<CarUnit>();
+
+                if(carUnit != null)
+                {
+                    if(!carUnit.isStop())
+                    {
+                        Damage();
+                    }
+                }                    
             }
         }
     }
