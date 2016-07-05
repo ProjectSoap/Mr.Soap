@@ -154,7 +154,8 @@ public class CarUnit : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.transform.tag == "Player"){
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
             collisionObject = col.gameObject;
         }
     }
