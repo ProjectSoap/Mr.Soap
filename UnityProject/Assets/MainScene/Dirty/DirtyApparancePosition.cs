@@ -49,13 +49,6 @@ public class DirtyApparancePosition : MonoBehaviour {
 		get { return m_isReality; }
 		set { m_isReality = value; }
 	}
-	char rangeOutCountPar10Seconds; // ミニマップ範囲外に出て何毎10秒いたか
-
-	float deltaTime;    // 消されてからの経過時間
-	float oldDeltaTime;    // 前の経過時間
-
-	float countStartTime;
-	bool isCountPar10Seconds; // 毎10秒経過したかのフラグ
 	public uint affiliationArea;
 	public PlayerCharacterController m_player;
 	public PlayerCharacterController Player
@@ -136,9 +129,9 @@ public class DirtyApparancePosition : MonoBehaviour {
 		}
 	}
 
-	public void NoticeDestroy()
+	public void NoticeDestroy(DirtyObjectScript dirty)
 	{
-		MyCreater.NoticeDestroy();
+		MyCreater.NoticeDestroy(dirty);
 	}
 
 }

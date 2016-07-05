@@ -28,7 +28,8 @@ public class CharacterWordsUI
 		WIND,       //かぜがふいてきた
 		FOG,        //まえがみえない
 		CRASH,      //いてて
-		BARRICADE   //これいじょうすすめないよ
+		BARRICADE,   //これいじょうすすめないよ
+		WASH_REALITY	// レアやぞ
 	};
 	//選択したセッケンキャラ
 	public enum ESekkenNo
