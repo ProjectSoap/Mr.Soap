@@ -3,13 +3,13 @@ using System.Collections;
 
 public class CreditSceanHolder : MonoBehaviour
 {
-    CreditCameraController m_camera;
+	CreditCameraController m_camera;
 
 	// Use this for initialization
 	void Start ()
-    {
-        m_camera = GameObject.Find("Main Camera").GetComponent<CreditCameraController>();
-        BGMManager.Instance.PlayBGM("Credit",0);
+	{
+		m_camera = GameObject.Find("Main Camera").GetComponent<CreditCameraController>();
+		BGMManager.Instance.PlayBGM("Credit",0);
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class CreditSceanHolder : MonoBehaviour
 			m_camera.isEnd = true;
 			Time.timeScale = 1.0f;
 			Fade.ChangeScene("Menu");
-        }
+		}
 		else
 		{
 

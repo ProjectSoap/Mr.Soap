@@ -20,38 +20,38 @@ using System.Collections;
 
 public class DirtySystem : MonoBehaviour
 {
-    /**
-     * <summary>稼働してるか.</summary>
-     */
+	/**
+	 * <summary>稼働してるか.</summary>
+	 */
 
-    bool isRunning;
+	bool isRunning;
 
-    /**
-     * <summary>Gets or sets a value indicating whether this object is running.</summary>
-     *
-     * <value>true if this object is running, false if not.</value>
-     */
+	/**
+	 * <summary>Gets or sets a value indicating whether this object is running.</summary>
+	 *
+	 * <value>true if this object is running, false if not.</value>
+	 */
 
-    public bool IsRunning
-    {
-        get { return isRunning; }
-        set { isRunning = value; }
-    }
+	public bool IsRunning
+	{
+		get { return isRunning; }
+		set { isRunning = value; }
+	}
 
-    /**
-     * <summary>プレイヤー位置を知るためのもの.</summary>
-     */
+	/**
+	 * <summary>プレイヤー位置を知るためのもの.</summary>
+	 */
 
-    PlayerCharacterController player;
+	PlayerCharacterController player;
 
-    [Header("DirtyCreaterPointオブジェクトを入れる場所")]
+	[Header("DirtyCreaterPointオブジェクトを入れる場所")]
 
-    /**
-     * <summary>区画1の汚れ場所.</summary>
-     */
+	/**
+	 * <summary>区画1の汚れ場所.</summary>
+	 */
 
-    [SerializeField,Tooltip("区画1のふつうの汚れ生成場所")]
-    DirtyCreater[] m_commonDirtyCreatersOfArea1;
+	[SerializeField,Tooltip("区画1のふつうの汚れ生成場所")]
+	DirtyCreater[] m_commonDirtyCreatersOfArea1;
 
 	[SerializeField, Tooltip("区画1の着地汚れ生成場所")]
 	DirtyCreater[] m_landingDirtyCreatersOfArea1;
@@ -63,8 +63,8 @@ public class DirtySystem : MonoBehaviour
 	DirtyCreater[] m_carDirtyCreatersOfArea1;
 	/**
 	/**
-     * <summary>区画2の汚れ場所.</summary>
-     */
+	 * <summary>区画2の汚れ場所.</summary>
+	 */
 
 	[SerializeField, Tooltip("区画2のふつうの汚れ生成場所")]
 	DirtyCreater[] m_commonDirtyCreatersOfArea2;
@@ -78,8 +78,8 @@ public class DirtySystem : MonoBehaviour
 	DirtyCreater[] m_carDirtyCreatersOfArea2;
 	/**
 	/**
-     * <summary>区画3の汚れ場所.</summary>
-     */
+	 * <summary>区画3の汚れ場所.</summary>
+	 */
 
 	[SerializeField, Tooltip("区画3のふつうの汚れ生成場所")]
 	DirtyCreater[] m_commonDirtyCreatersOfArea3;
@@ -92,8 +92,8 @@ public class DirtySystem : MonoBehaviour
 	DirtyCreater[] m_carDirtyCreatersOfArea3;
 	/**
 	/**
-     * <summary>区画4の汚れ場所.</summary>
-     */
+	 * <summary>区画4の汚れ場所.</summary>
+	 */
 
 	[SerializeField, Tooltip("区画4のふつうの汚れ生成場所")]
 	DirtyCreater[] m_commonDirtyCreatersOfArea4;
@@ -106,234 +106,238 @@ public class DirtySystem : MonoBehaviour
 	[SerializeField, Tooltip("区画4の車についた汚れ生成場所")]
 	DirtyCreater[] m_carDirtyCreatersOfArea4;
 	/**
-     * <summary>区画1のレア汚れ.</summary>
-     */
+	 * <summary>区画1のレア汚れ.</summary>
+	 */
 
 	[SerializeField, Tooltip("区画1のレア汚れ生成ポイント")]
 	DirtyCreater RealityPoint1;
 
-    /**
-     * <summary>区画2のレア汚れ.</summary>
-     */
+	/**
+	 * <summary>区画2のレア汚れ.</summary>
+	 */
 
-    [SerializeField, Tooltip("区画2のレア汚れ生成ポイント")]
+	[SerializeField, Tooltip("区画2のレア汚れ生成ポイント")]
 	DirtyCreater RealityPoint2;
 
-    /**
-     * <summary>区画3のレア汚れ.</summary>
-     */
+	/**
+	 * <summary>区画3のレア汚れ.</summary>
+	 */
 
-    [SerializeField, Tooltip("区画3のレア汚れ生成ポイント")]
+	[SerializeField, Tooltip("区画3のレア汚れ生成ポイント")]
 	DirtyCreater RealityPoint3;
 
-    /**
-     * <summary>区画4のレア汚れ.</summary>
-     */
+	/**
+	 * <summary>区画4のレア汚れ.</summary>
+	 */
 
-    [SerializeField, Tooltip("区画4のレア汚れ生成ポイント")]
+	[SerializeField, Tooltip("区画4のレア汚れ生成ポイント")]
 	DirtyCreater RealityPoint4;
 
 	/**
-     * <summary>Number of total destroy dirties.</summary>
-     */
+	 * <summary>Number of total destroy dirties.</summary>
+	 */
 
 
 	/**
-     * <summary>Number of total destroy dirties.</summary>
-     */
+	 * <summary>Number of total destroy dirties.</summary>
+	 */
 
 	[Header("以下確認用内部変数")]
-    [SerializeField]
-    int totalDestroyDirtyCount;
+	[SerializeField]
+	int totalDestroyDirtyCount;
 
-    /**
-     * <summary>区画1で汚れを落とした数.</summary>
-     */
+	/**
+	 * <summary>区画1で汚れを落とした数.</summary>
+	 */
 
-    [SerializeField]
-    int destroyDirtyCount1;
+	[SerializeField]
+	int destroyDirtyCount1;
 
 
-    /**
-     * <summary>Gets or sets the destroy dirty count 1.</summary>
-     *
-     * <value>The destroy dirty count 1.</value>
-     */
+	/**
+	 * <summary>Gets or sets the destroy dirty count 1.</summary>
+	 *
+	 * <value>The destroy dirty count 1.</value>
+	 */
 
-    public int DestroyDirtyCount1
-    {
-        get { return destroyDirtyCount1; }
-        set { destroyDirtyCount1 = value; }
-    }
+	public int DestroyDirtyCount1
+	{
+		get { return destroyDirtyCount1; }
+		set { destroyDirtyCount1 = value; }
+	}
 
-    /**
-     * <summary>区画2で汚れを落とした数.</summary>
-     */
+	/**
+	 * <summary>区画2で汚れを落とした数.</summary>
+	 */
 
-    [SerializeField]
-    int destroyDirtyCount2;
+	[SerializeField]
+	int destroyDirtyCount2;
 
-    /**
-     * <summary>Gets or sets the destroy dirty count 2.</summary>
-     *
-     * <value>The destroy dirty count 2.</value>
-     */
+	/**
+	 * <summary>Gets or sets the destroy dirty count 2.</summary>
+	 *
+	 * <value>The destroy dirty count 2.</value>
+	 */
 
-    public int DestroyDirtyCount2
-    {
-        get { return destroyDirtyCount2; }
-        set { destroyDirtyCount2 = value; }
-    }
+	public int DestroyDirtyCount2
+	{
+		get { return destroyDirtyCount2; }
+		set { destroyDirtyCount2 = value; }
+	}
 
-    /**
-     * <summary>区画3で汚れを落とした数.</summary>
-     */
+	/**
+	 * <summary>区画3で汚れを落とした数.</summary>
+	 */
 
-    [SerializeField]
-    int destroyDirtyCount3;
+	[SerializeField]
+	int destroyDirtyCount3;
 
-    /**
-     * <summary>Gets or sets the destroy dirty count 3.</summary>
-     *
-     * <value>The destroy dirty count 3.</value>
-     */
+	/**
+	 * <summary>Gets or sets the destroy dirty count 3.</summary>
+	 *
+	 * <value>The destroy dirty count 3.</value>
+	 */
 
-    public int DestroyDirtyCount3
-    {
-        get { return destroyDirtyCount3; }
-        set { destroyDirtyCount3 = value; }
-    }
+	public int DestroyDirtyCount3
+	{
+		get { return destroyDirtyCount3; }
+		set { destroyDirtyCount3 = value; }
+	}
 
-    /**
-     * <summary>区画4で汚れを落とした数.</summary>
-     */
+	/**
+	 * <summary>区画4で汚れを落とした数.</summary>
+	 */
 
-    [SerializeField]
-    int destroyDirtyCount4;
+	[SerializeField]
+	int destroyDirtyCount4;
 
-    /**
-     * <summary>Gets or sets the destroy dirty count 4.</summary>
-     *
-     * <value>The destroy dirty count 4.</value>
-     */
+	/**
+	 * <summary>Gets or sets the destroy dirty count 4.</summary>
+	 *
+	 * <value>The destroy dirty count 4.</value>
+	 */
 
-    public int DestroyDirtyCount4
-    {
-        get { return destroyDirtyCount4; }
-        set { destroyDirtyCount4 = value; }
-    }
+	public int DestroyDirtyCount4
+	{
+		get { return destroyDirtyCount4; }
+		set { destroyDirtyCount4 = value; }
+	}
 
-    /**
-     * <summary>今回のプレイで区画1レア汚れを落としたか.</summary>
-     */
+	/**
+	 * <summary>今回のプレイで区画1レア汚れを落としたか.</summary>
+	 */
 
-    [SerializeField]
-    bool isDestroyRealityDirty1;
+	[SerializeField]
+	bool isDestroyRealityDirty1;
 
-    /**
-     * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
-     *  1.</summary>
-     *
-     * <value>true if this object is destroy reality dirty 1, false if not.</value>
-     */
+	/**
+	 * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
+	 *  1.</summary>
+	 *
+	 * <value>true if this object is destroy reality dirty 1, false if not.</value>
+	 */
 
-    public bool IsDestroyRealityDirty1
-    {
-        get { return isDestroyRealityDirty1; }
-        set { isDestroyRealityDirty1 = value; }
-    }
+	public bool IsDestroyRealityDirty1
+	{
+		get { return isDestroyRealityDirty1; }
+		set { isDestroyRealityDirty1 = value; }
+	}
 
-    /**
-     * <summary>今回のプレイで区画2レア汚れを落としたか.</summary>
-     */
+	/**
+	 * <summary>今回のプレイで区画2レア汚れを落としたか.</summary>
+	 */
 
-    [SerializeField]
-    bool isDestroyRealityDirty2;
+	[SerializeField]
+	bool isDestroyRealityDirty2;
 
-    /**
-     * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
-     *  2.</summary>
-     *
-     * <value>true if this object is destroy reality dirty 2, false if not.</value>
-     */
+	/**
+	 * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
+	 *  2.</summary>
+	 *
+	 * <value>true if this object is destroy reality dirty 2, false if not.</value>
+	 */
 
-    public bool IsDestroyRealityDirty2
-    {
-        get { return isDestroyRealityDirty2; }
-        set { isDestroyRealityDirty2 = value; }
-    }
+	public bool IsDestroyRealityDirty2
+	{
+		get { return isDestroyRealityDirty2; }
+		set { isDestroyRealityDirty2 = value; }
+	}
 
-    /**
-     * <summary>今回のプレイで区画3レア汚れを落としたか.</summary>
-     */
+	/**
+	 * <summary>今回のプレイで区画3レア汚れを落としたか.</summary>
+	 */
 
-    [SerializeField]
-    bool isDestroyRealityDirty3;
+	[SerializeField]
+	bool isDestroyRealityDirty3;
 
-    /**
-     * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
-     *  3.</summary>
-     *
-     * <value>true if this object is destroy reality dirty 3, false if not.</value>
-     */
+	/**
+	 * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
+	 *  3.</summary>
+	 *
+	 * <value>true if this object is destroy reality dirty 3, false if not.</value>
+	 */
 
-    public bool IsDestroyRealityDirty3
-    {
-        get { return isDestroyRealityDirty3; }
-        set { isDestroyRealityDirty3 = value; }
-    }
+	public bool IsDestroyRealityDirty3
+	{
+		get { return isDestroyRealityDirty3; }
+		set { isDestroyRealityDirty3 = value; }
+	}
 
-    /**
-     * <summary>今回のプレイで区画4レア汚れを落としたか.</summary>
-     */
+	/**
+	 * <summary>今回のプレイで区画4レア汚れを落としたか.</summary>
+	 */
 
-    [SerializeField]
-    bool isDestroyRealityDirty4;
+	[SerializeField]
+	bool isDestroyRealityDirty4;
 
-    /**
-     * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
-     *  4.</summary>
-     *
-     * <value>true if this object is destroy reality dirty 4, false if not.</value>
-     */
+	/**
+	 * <summary>    Gets or sets a value indicating whether this object is destroy reality dirty
+	 *  4.</summary>
+	 *
+	 * <value>true if this object is destroy reality dirty 4, false if not.</value>
+	 */
 
-    public bool IsDestroyRealityDirty4
-    {
-        get { return isDestroyRealityDirty4; }
-        set { isDestroyRealityDirty4 = value; }
-    }
+	public bool IsDestroyRealityDirty4
+	{
+		get { return isDestroyRealityDirty4; }
+		set { isDestroyRealityDirty4 = value; }
+	}
 
-    /**
-     * <summary>カウンタースクリプトを持つオブジェクト.</summary>
-     */
+	/**
+	 * <summary>カウンタースクリプトを持つオブジェクト.</summary>
+	 */
 
-    GameObject dirtyCounterObject;
+	GameObject dirtyCounterObject;
 
-    /**
-     * <summary>Use this for initialization.</summary>
-     *
-     * <remarks>Kazuyuki,.</remarks>
-     */
+	CharacterWordsUI wordsUI;
 
-    void Start ()
-    {
+	/**
+	 * <summary>Use this for initialization.</summary>
+	 *
+	 * <remarks>Kazuyuki,.</remarks>
+	 */
 
-        isRunning = true;
-        // プレイヤーの取得
-        if (player == null)
-        {
-            player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
-        }
-        dirtyCounterObject = GameObject.Find("DirtyCounter");
+	void Start ()
+	{
+
+		wordsUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
+
+		isRunning = true;
+		// プレイヤーの取得
+		if (player == null)
+		{
+			player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
+		}
+		dirtyCounterObject = GameObject.Find("DirtyCounter");
 		
 
-        ///// ふつーの汚れ
-        for (int i = 0; i < m_commonDirtyCreatersOfArea1.Length; i++)
-        {
-            if (m_commonDirtyCreatersOfArea1[i] == null) 
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		///// ふつーの汚れ
+		for (int i = 0; i < m_commonDirtyCreatersOfArea1.Length; i++)
+		{
+			if (m_commonDirtyCreatersOfArea1[i] == null) 
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_commonDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_commonDirtyCreatersOfArea1[i].Player = player;
@@ -342,36 +346,36 @@ public class DirtySystem : MonoBehaviour
 
 		}
 
-        for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
-        {
-            if (m_commonDirtyCreatersOfArea2[i] == null)
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		for (int i = 0; i < m_commonDirtyCreatersOfArea2.Length; i++)
+		{
+			if (m_commonDirtyCreatersOfArea2[i] == null)
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_commonDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_commonDirtyCreatersOfArea2[i].Player = player;
 			m_commonDirtyCreatersOfArea2[i].Init(player);
 		}
 
-        for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
-        {
-            if (m_commonDirtyCreatersOfArea3[i] == null)
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		for (int i = 0; i < m_commonDirtyCreatersOfArea3.Length; i++)
+		{
+			if (m_commonDirtyCreatersOfArea3[i] == null)
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_commonDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_commonDirtyCreatersOfArea3[i].Player = player;
 			m_commonDirtyCreatersOfArea3[i].Init(player);
 		}
 
-        for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
-        {
-            if (m_commonDirtyCreatersOfArea4[i] == null)
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		for (int i = 0; i < m_commonDirtyCreatersOfArea4.Length; i++)
+		{
+			if (m_commonDirtyCreatersOfArea4[i] == null)
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_commonDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_commonDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_commonDirtyCreatersOfArea4[i].Player = player;
@@ -382,11 +386,11 @@ public class DirtySystem : MonoBehaviour
 
 		///// 着地で落として欲しい汚れ
 		for (int i = 0; i < m_landingDirtyCreatersOfArea1.Length; i++)
-        {
-            if (m_landingDirtyCreatersOfArea1[i] == null)
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		{
+			if (m_landingDirtyCreatersOfArea1[i] == null)
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_landingDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_landingDirtyCreatersOfArea1[i].Player = player;
@@ -394,11 +398,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea2.Length; i++)
-        {
-            if (m_landingDirtyCreatersOfArea2[i] == null)
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		{
+			if (m_landingDirtyCreatersOfArea2[i] == null)
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_landingDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_landingDirtyCreatersOfArea2[i].Player = player;
@@ -406,11 +410,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea3.Length; i++)
-        {
-            if (m_landingDirtyCreatersOfArea3[i] == null)
-            {
-                Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
-            }
+		{
+			if (m_landingDirtyCreatersOfArea3[i] == null)
+			{
+				Debug.Log(m_commonDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_landingDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_landingDirtyCreatersOfArea3[i].Player = player;
@@ -418,11 +422,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_landingDirtyCreatersOfArea4.Length; i++)
-        {
-            if (m_landingDirtyCreatersOfArea4[i] == null)
-            {
-                Debug.Log(m_landingDirtyCreatersOfArea4[i] + "= null");
-            }
+		{
+			if (m_landingDirtyCreatersOfArea4[i] == null)
+			{
+				Debug.Log(m_landingDirtyCreatersOfArea4[i] + "= null");
+			}
 			m_landingDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_landingDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_landingDirtyCreatersOfArea4[i].Player = player;
@@ -431,11 +435,11 @@ public class DirtySystem : MonoBehaviour
 
 		///// 壁についた汚れ
 		for (int i = 0; i < m_wallDirtyCreatersOfArea1.Length; i++)
-        {
-            if (m_wallDirtyCreatersOfArea1[i] == null)
-            {
-                Debug.Log(m_wallDirtyCreatersOfArea1[i] + "= null");
-            }
+		{
+			if (m_wallDirtyCreatersOfArea1[i] == null)
+			{
+				Debug.Log(m_wallDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_wallDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_wallDirtyCreatersOfArea1[i].Player = player;
@@ -443,11 +447,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea2.Length; i++)
-        {
-            if (m_wallDirtyCreatersOfArea2[i] == null)
-            {
-                Debug.Log(m_wallDirtyCreatersOfArea2[i] + "= null");
-            }
+		{
+			if (m_wallDirtyCreatersOfArea2[i] == null)
+			{
+				Debug.Log(m_wallDirtyCreatersOfArea2[i] + "= null");
+			}
 			m_wallDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_wallDirtyCreatersOfArea2[i].Player = player;
@@ -455,11 +459,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea3.Length; i++)
-        {
-            if (m_wallDirtyCreatersOfArea3[i] == null)
-            {
-                Debug.Log(m_wallDirtyCreatersOfArea3[i] + "= null");
-            }
+		{
+			if (m_wallDirtyCreatersOfArea3[i] == null)
+			{
+				Debug.Log(m_wallDirtyCreatersOfArea3[i] + "= null");
+			}
 			m_wallDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_wallDirtyCreatersOfArea3[i].Player = player;
@@ -467,11 +471,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_wallDirtyCreatersOfArea4.Length; i++)
-        {
-            if (m_wallDirtyCreatersOfArea4[i] == null)
-            {
-                Debug.Log(m_wallDirtyCreatersOfArea4[i] + "= null");
-            }
+		{
+			if (m_wallDirtyCreatersOfArea4[i] == null)
+			{
+				Debug.Log(m_wallDirtyCreatersOfArea4[i] + "= null");
+			}
 			m_wallDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_wallDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_wallDirtyCreatersOfArea4[i].Player = player;
@@ -480,11 +484,11 @@ public class DirtySystem : MonoBehaviour
 
 		///// 車についた汚れ
 		for (int i = 0; i < m_carDirtyCreatersOfArea1.Length; i++)
-        {
-            if (m_carDirtyCreatersOfArea1[i] == null)
-            {
-                Debug.Log(m_carDirtyCreatersOfArea1[i] + "= null");
-            }
+		{
+			if (m_carDirtyCreatersOfArea1[i] == null)
+			{
+				Debug.Log(m_carDirtyCreatersOfArea1[i] + "= null");
+			}
 			m_carDirtyCreatersOfArea1[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea1[i].AffiliationArea = 0;
 			m_carDirtyCreatersOfArea1[i].IsAdhereCar = true;
@@ -493,11 +497,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea2.Length; i++)
-        {
-            if (m_carDirtyCreatersOfArea2[i] == null)
-            {
-                Debug.Log(m_carDirtyCreatersOfArea2[i] + "= null");
-            }
+		{
+			if (m_carDirtyCreatersOfArea2[i] == null)
+			{
+				Debug.Log(m_carDirtyCreatersOfArea2[i] + "= null");
+			}
 			m_carDirtyCreatersOfArea2[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea2[i].AffiliationArea = 1;
 			m_carDirtyCreatersOfArea2[i].IsAdhereCar = true;
@@ -506,11 +510,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea3.Length; i++)
-        {
-            if (m_carDirtyCreatersOfArea3[i] == null)
-            {
-                Debug.Log(m_carDirtyCreatersOfArea3[i] + "= null");
-            }
+		{
+			if (m_carDirtyCreatersOfArea3[i] == null)
+			{
+				Debug.Log(m_carDirtyCreatersOfArea3[i] + "= null");
+			}
 			m_carDirtyCreatersOfArea3[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea3[i].AffiliationArea = 2;
 			m_carDirtyCreatersOfArea3[i].IsAdhereCar = true;
@@ -519,11 +523,11 @@ public class DirtySystem : MonoBehaviour
 		}
 
 		for (int i = 0; i < m_carDirtyCreatersOfArea4.Length; i++)
-        {
-            if (m_carDirtyCreatersOfArea4[i] == null)
-            {
-                Debug.Log(m_carDirtyCreatersOfArea4[i] + "= null");
-            }
+		{
+			if (m_carDirtyCreatersOfArea4[i] == null)
+			{
+				Debug.Log(m_carDirtyCreatersOfArea4[i] + "= null");
+			}
 			m_carDirtyCreatersOfArea4[i].ParntDirtySystem = this;
 			m_carDirtyCreatersOfArea4[i].AffiliationArea = 3;
 			m_carDirtyCreatersOfArea4[i].IsAdhereCar = true;
@@ -535,7 +539,7 @@ public class DirtySystem : MonoBehaviour
 
 
 		if (RealityPoint1)
-        {
+		{
 			RealityPoint1.ParntDirtySystem = this;
 			RealityPoint1.IsReality = true;
 			RealityPoint1.AffiliationArea = 0;
@@ -545,52 +549,52 @@ public class DirtySystem : MonoBehaviour
 		}
 
 
-        if (RealityPoint2)
-        {
+		if (RealityPoint2)
+		{
 			RealityPoint2.ParntDirtySystem = this;
 			RealityPoint2.IsReality = true;
 			RealityPoint2.AffiliationArea = 1;
 			RealityPoint2.Player = player;
 			RealityPoint2.Init(player);
 		}
-        if (RealityPoint3)
-        {
-            RealityPoint3.ParntDirtySystem = this;
-            RealityPoint3.IsReality = true;
+		if (RealityPoint3)
+		{
+			RealityPoint3.ParntDirtySystem = this;
+			RealityPoint3.IsReality = true;
 			RealityPoint3.AffiliationArea = 2;
 			RealityPoint3.Player = player;
 			RealityPoint3.Init(player);
 		}
-        if (RealityPoint4)
-        {
+		if (RealityPoint4)
+		{
 			
-            RealityPoint4.ParntDirtySystem = this;
-            RealityPoint4.IsReality = true;
+			RealityPoint4.ParntDirtySystem = this;
+			RealityPoint4.IsReality = true;
 			RealityPoint4.AffiliationArea = 3;
 			RealityPoint4.Player = player;
 			RealityPoint4.Init(player);
 		}
 
-    }
+	}
 
-    /**
-     * <summary>Awakes this object.</summary>
-     *
-     * <remarks>Kazuyuki,.</remarks>
-     */
+	/**
+	 * <summary>Awakes this object.</summary>
+	 *
+	 * <remarks>Kazuyuki,.</remarks>
+	 */
 
-    void Awake()
-    {
-      
+	void Awake()
+	{
+	  
 
 
 }
 
 	/**
-     * <summary>Update is called once per frame.</summary>
-     *
-     * <remarks>Kazuyuki,.</remarks>
-     */
+	 * <summary>Update is called once per frame.</summary>
+	 *
+	 * <remarks>Kazuyuki,.</remarks>
+	 */
 
 	void Update()
 	{
@@ -715,105 +719,109 @@ public class DirtySystem : MonoBehaviour
 
 	}
 
-    /**********************************************************************************************//**
-     * @fn  public void NoticeDestroyToSystem(uint areaNum ,bool isReality)
-     *
-     * @brief   外部からの汚れ消し窓口
-     *
-     * @author  Kazuyuki
-     *
-     * @param   areaNum     The area number.
-     * @param   isReality   true if this object is reality.
-     **************************************************************************************************/
+	/**********************************************************************************************//**
+	 * @fn  public void NoticeDestroyToSystem(uint areaNum ,bool isReality)
+	 *
+	 * @brief   外部からの汚れ消し窓口
+	 *
+	 * @author  Kazuyuki
+	 *
+	 * @param   areaNum     The area number.
+	 * @param   isReality   true if this object is reality.
+	 **************************************************************************************************/
 
-    /**
-     * <summary>Notice destroy to system.</summary>
-     *
-     * <remarks>Kazuyuki,.</remarks>
-     *
-     * <param name="areaNum">  The area number.</param>
-     * <param name="isReality">true if this object is reality.</param>
-     */
+	/**
+	 * <summary>Notice destroy to system.</summary>
+	 *
+	 * <remarks>Kazuyuki,.</remarks>
+	 *
+	 * <param name="areaNum">  The area number.</param>
+	 * <param name="isReality">true if this object is reality.</param>
+	 */
 
-    public void NoticeDestroyToSystem(DirtyCreater destroyedParent)
-    {
-        switch (destroyedParent.AffiliationArea)
-        {
-            case 0:
+	public void NoticeDestroyToSystem(DirtyCreater destroyedParent)
+	{
+		switch (destroyedParent.AffiliationArea)
+		{
+			case 0:
 
-                DestroyDirtyCount1++;
+				DestroyDirtyCount1++;
 				ActionRecordManager.sActionRecord.C1WashCount = destroyDirtyCount1;
-                if (10000 < DestroyDirtyCount1)
-                {
-                    DestroyDirtyCount1 = 9999;
-                }
-                else if (DestroyDirtyCount1 < 0)
-                {
-                    DestroyDirtyCount1 = 0;
-                }
-                if (destroyedParent.IsReality)
-                {
-                    IsDestroyRealityDirty1 = true;
-					ActionRecordManager.sActionRecord.C1HideWashFlg = true;
+				if (10000 < DestroyDirtyCount1)
+				{
+					DestroyDirtyCount1 = 9999;
 				}
-                
-                break;
+				else if (DestroyDirtyCount1 < 0)
+				{
+					DestroyDirtyCount1 = 0;
+				}
+				if (IsDestroyRealityDirty1 == false && destroyedParent.IsReality)
+				{
+					IsDestroyRealityDirty1 = true;
+					ActionRecordManager.sActionRecord.C1HideWashFlg = true;
+					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+				}
+				
+				break;
 
-            case 1:
+			case 1:
 
-                DestroyDirtyCount2++;
+				DestroyDirtyCount2++;
 				ActionRecordManager.sActionRecord.C2WashCount = destroyDirtyCount2;
 				if (10000 < DestroyDirtyCount2)
-                {
-                    DestroyDirtyCount2 = 9999;
-                }
-                else if (DestroyDirtyCount2 < 0)
-                {
-                    DestroyDirtyCount2 = 0;
-				}
-				if (destroyedParent.IsReality)
 				{
-                    IsDestroyRealityDirty2 = true;
-					ActionRecordManager.sActionRecord.C2HideWashFlg = true;
+					DestroyDirtyCount2 = 9999;
 				}
-                break;
-            case 2:
+				else if (DestroyDirtyCount2 < 0)
+				{
+					DestroyDirtyCount2 = 0;
+				}
+				if (IsDestroyRealityDirty2 == false && destroyedParent.IsReality)
+				{
+					IsDestroyRealityDirty2 = true;
+					ActionRecordManager.sActionRecord.C2HideWashFlg = true;
+					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+				}
+				break;
+			case 2:
 
-                DestroyDirtyCount3++;
+				DestroyDirtyCount3++;
 				ActionRecordManager.sActionRecord.C3WashCount = destroyDirtyCount3;
 				if (10000 < DestroyDirtyCount3)
-                {
-                    DestroyDirtyCount3 = 9999;
-                }
-                else if (DestroyDirtyCount3 < 0)
-                {
-                    DestroyDirtyCount3 = 0;
-				}
-				if (destroyedParent.IsReality)
 				{
-                    IsDestroyRealityDirty3 = true;
-					ActionRecordManager.sActionRecord.C3HideWashFlg = true;
+					DestroyDirtyCount3 = 9999;
 				}
-                break;
-            case 3:
+				else if (DestroyDirtyCount3 < 0)
+				{
+					DestroyDirtyCount3 = 0;
+				}
+				if (IsDestroyRealityDirty3 == false && destroyedParent.IsReality)
+				{
+					IsDestroyRealityDirty3 = true;
+					ActionRecordManager.sActionRecord.C3HideWashFlg = true;
+					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+				}
+				break;
+			case 3:
 
-                DestroyDirtyCount4++;
+				DestroyDirtyCount4++;
 				ActionRecordManager.sActionRecord.C4WashCount = destroyDirtyCount4;
 				if (10000 < DestroyDirtyCount4)
-                {
-                    DestroyDirtyCount4 = 9999;
-                }
-                else if (DestroyDirtyCount4 < 0)
-                {
-                    DestroyDirtyCount4 = 0;
-				}
-				if (destroyedParent.IsReality)
 				{
-                    IsDestroyRealityDirty4 = true;
-					ActionRecordManager.sActionRecord.C4HideWashFlg = true;
+					DestroyDirtyCount4 = 9999;
 				}
-                break;
-        }
+				else if (DestroyDirtyCount4 < 0)
+				{
+					DestroyDirtyCount4 = 0;
+				}
+				if (IsDestroyRealityDirty4 == false && destroyedParent.IsReality)
+				{
+					IsDestroyRealityDirty4 = true;
+					ActionRecordManager.sActionRecord.C4HideWashFlg = true;
+					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+				}
+				break;
+		}
 
 		if (destroyedParent.IsAdhereCar)
 		{

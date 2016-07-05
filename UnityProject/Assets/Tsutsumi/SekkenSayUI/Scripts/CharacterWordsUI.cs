@@ -28,7 +28,8 @@ public class CharacterWordsUI
 		WIND,       //かぜがふいてきた
 		FOG,        //まえがみえない
 		CRASH,      //いてて
-		BARRICADE   //これいじょうすすめないよ
+		BARRICADE,   //これいじょうすすめないよ
+		WASH_REALITY	// レアやぞ
 	};
 	//選択したセッケンキャラ
 	public enum ESekkenNo
@@ -95,25 +96,32 @@ public class CharacterWordsUI
 	public void DrawSayTexture(ESayTexName eSayTexNo){
 		//表示カウント初期化
 		drawTimeCount = 0.0f;
+		if (m_unactiveList.Count > 0)
+		{
 
-		CharacterWords words = m_unactiveList.Dequeue();
+			CharacterWords words = m_unactiveList.Dequeue();
+			if (words)
+			{
+				//表示テクスチャの切り替え
+				switch (sekkenNo)
+				{
+					case ESekkenNo.SekkenKun:
+						words.SetWordsTexture(sekkenKunSpriteList[(int)eSayTexNo]);
+						break;
+					case ESekkenNo.SekkenChan:
+						words.SetWordsTexture(sekkenChanSpriteList[(int)eSayTexNo]);
+						break;
+					case ESekkenNo.SekkenHero:
+						words.SetWordsTexture(sekkenHeroSpriteList[(int)eSayTexNo]);
+						break;
+				}
+				m_activeList.Enqueue(words);
+				m_activArray = m_activeList.ToArray();
+				words.gameObject.transform.parent = null;
+				words.gameObject.transform.parent = transform;
 
-		//表示テクスチャの切り替え
-		switch(sekkenNo){
-			case ESekkenNo.SekkenKun:
-				words.SetWordsTexture(sekkenKunSpriteList[(int)eSayTexNo]);
-				break;
-			case ESekkenNo.SekkenChan:
-				words.SetWordsTexture(sekkenChanSpriteList[(int)eSayTexNo]);
-				break;
-			case ESekkenNo.SekkenHero:
-				words.SetWordsTexture(sekkenHeroSpriteList[(int)eSayTexNo]);
-				break;
+			}
 		}
-		m_activeList.Enqueue(words);
-		m_activArray = m_activeList.ToArray();
-		words.gameObject.transform.parent = null;
-		words.gameObject.transform.parent = transform;
 
 	}
 
