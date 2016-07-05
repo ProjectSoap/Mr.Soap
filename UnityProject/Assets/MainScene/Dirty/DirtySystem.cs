@@ -760,6 +760,7 @@ public class DirtySystem : MonoBehaviour
 					IsDestroyRealityDirty1 = true;
 					ActionRecordManager.sActionRecord.C1HideWashFlg = true;
 					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+					BGMManager.Instance.PlaySE("Wash_RareDirty");
 				}
 				
 				break;
@@ -781,6 +782,7 @@ public class DirtySystem : MonoBehaviour
 					IsDestroyRealityDirty2 = true;
 					ActionRecordManager.sActionRecord.C2HideWashFlg = true;
 					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+					BGMManager.Instance.PlaySE("Wash_RareDirty");
 				}
 				break;
 			case 2:
@@ -800,6 +802,7 @@ public class DirtySystem : MonoBehaviour
 					IsDestroyRealityDirty3 = true;
 					ActionRecordManager.sActionRecord.C3HideWashFlg = true;
 					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+					BGMManager.Instance.PlaySE("Wash_RareDirty");
 				}
 				break;
 			case 3:
@@ -819,6 +822,7 @@ public class DirtySystem : MonoBehaviour
 					IsDestroyRealityDirty4 = true;
 					ActionRecordManager.sActionRecord.C4HideWashFlg = true;
 					wordsUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_REALITY);
+					BGMManager.Instance.PlaySE("Wash_RareDirty");
 				}
 				break;
 		}
