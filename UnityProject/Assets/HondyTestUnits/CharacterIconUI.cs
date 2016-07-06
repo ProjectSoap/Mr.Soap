@@ -2,13 +2,32 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SizeIcon : MonoBehaviour {
+public class CharacterIconUI : MonoBehaviour {
     
     PlayerCharacterController player;
     NumberSwitcher switcher;
     Image iconOverFrame;
 	public int m_characterNum;
 	public int m_characterMax = 3;
+
+	// キャラの状態その1 こっち最優先に切り替え
+	enum ECharacterState
+	{
+		NORMAL,
+		DAMAGE,
+		HEAL,
+		DEAD
+	}
+
+	// キャラの状態その2 基本こっち
+	enum EHealthState
+	{
+		COMPLETE_RECOVERY,	// だいたい全快
+		MINOR_INJURY,		// 軽傷
+		SERIOUS_INJURY		// 重傷
+
+	}
+
 	// Use this for initialization
 	void Start ()
     {
