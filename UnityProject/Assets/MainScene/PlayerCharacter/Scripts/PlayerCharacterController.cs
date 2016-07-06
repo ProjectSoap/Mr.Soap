@@ -619,6 +619,37 @@ public class PlayerCharacterController : MonoBehaviour
         {
             BGMManager.Instance.PlaySELoop("Soap_Move");
         }
+
+        // パラメータ更新
+        switch (m_driveState)
+        {
+            case DriveState.Start:
+                break;
+            case DriveState.Normal:
+                m_maxRotation   = m_maxRotationNormal;
+                m_rotationPower = m_rotationPowerNormal;
+                break;
+            case DriveState.Drift:
+                m_maxRotation   = m_maxRotationDrift;
+                m_rotationPower = m_rotationPowerDrift;
+                break;
+            case DriveState.Breake:
+                break;
+            case DriveState.BreakeAfter:
+                break;
+            case DriveState.Jump:
+                break;
+            case DriveState.JumpAfter:
+                break;
+            case DriveState.Damage:
+                break;
+            case DriveState.DamageAfter:
+                break;
+            case DriveState.End:
+                break;
+            default:
+                break;
+        }
         
         // 天候チェック
         switch (m_weatherState)
@@ -796,7 +827,7 @@ public class PlayerCharacterController : MonoBehaviour
                 {
                     m_driveState = DriveState.Normal;
 
-                    m_maxRotation = m_maxRotationNormal;
+                    m_maxRotation   = m_maxRotationNormal;
                     m_rotationPower = m_rotationPowerNormal;
 
                     //m_playerCamera.followRate = m_followRateNormal;
@@ -922,6 +953,9 @@ public class PlayerCharacterController : MonoBehaviour
                     //m_velocity      = 0.0f;
                     m_rotation = 0.0f;
                     m_driveState = DriveState.Jump;
+
+                    m_maxRotation   = m_maxRotationNormal;
+                    m_rotationPower = m_rotationPowerNormal;
 
                     BGMManager.Instance.PlaySE("Soap_Jump");
                 }
