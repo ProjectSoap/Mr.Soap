@@ -65,7 +65,7 @@ public class SizeCounter : MonoBehaviour {
             {
                 rect.localPosition = new Vector3(centerPosition + rect.sizeDelta.x * 0.9f, rect.localPosition.y, rect.localPosition.z);
             }
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
         obj = transform.FindChild("Ten").gameObject;
         if (obj)
@@ -96,7 +96,7 @@ public class SizeCounter : MonoBehaviour {
 
 
             temp /= 10;
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
         obj = transform.FindChild("Hundred").gameObject;
         if (obj)
@@ -123,7 +123,7 @@ public class SizeCounter : MonoBehaviour {
             }
 
             temp /= 10;
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
     }
 }

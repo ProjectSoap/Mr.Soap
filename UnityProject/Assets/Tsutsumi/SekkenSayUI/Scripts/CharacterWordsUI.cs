@@ -29,7 +29,9 @@ public class CharacterWordsUI
 		FOG,        //まえがみえない
 		CRASH,      //いてて
 		BARRICADE,   //これいじょうすすめないよ
-		WASH_REALITY	// レアやぞ
+		WASH_REALITY,	// レアやぞ
+		WASH_CHAIN,		// ウォッシュチェイン
+		DEAD			// ゲーム終了時
 	};
 	//選択したセッケンキャラ
 	public enum ESekkenNo

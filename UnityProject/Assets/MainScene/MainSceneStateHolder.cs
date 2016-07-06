@@ -792,6 +792,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				break;
 			case MainState.END:
 				m_endUI.pausing = false;
+				BGMManager.Instance.StopBGM(0);
 				break;
 			default:
 				break;
