@@ -57,7 +57,7 @@ public class WeatherSystem : MonoBehaviour {
 
         m_skybox = GameObject.Find("MainCamera").GetComponent<Skybox>();
 
-        ChangeWeather();
+      //  ChangeWeather();
         ActiveWeather();
         minute = 0;
         
