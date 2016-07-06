@@ -5,14 +5,14 @@ public class GameMainResolutionSet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        int width = 960;
-        int height = 540;
+		int width = 960;
+		int height = 540;
 
-        bool fullscreen = false;
+		bool fullscreen = false;
 
-        int preferredRefreshRate = 60;
+		int preferredRefreshRate = 60;
 
-        Screen.SetResolution(width, height, fullscreen, preferredRefreshRate);
+		Screen.SetResolution(width, height, fullscreen, preferredRefreshRate);
 	}
 	
 	// Update is called once per frame

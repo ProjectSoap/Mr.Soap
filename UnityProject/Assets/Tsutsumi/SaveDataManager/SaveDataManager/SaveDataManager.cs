@@ -183,6 +183,18 @@ public class SaveDataManager : MonoBehaviour {
             SaveData(ESaveDataNo.RankingPoint8, 30);
             SaveData(ESaveDataNo.RankingPoint9, 20);
             SaveData(ESaveDataNo.RankingPoint10, 10);
+
+            SaveData(ESaveDataStringNo.RankingName1, "ヒーロー");
+            SaveData(ESaveDataStringNo.RankingName2, "パパ");
+            SaveData(ESaveDataStringNo.RankingName3, "ママ");
+            SaveData(ESaveDataStringNo.RankingName4, "ボク");
+            SaveData(ESaveDataStringNo.RankingName5, "ワタシ");
+
+            SaveData(ESaveDataStringNo.RankingName6, "シンジ");
+            SaveData(ESaveDataStringNo.RankingName7, "タケシ");
+            SaveData(ESaveDataStringNo.RankingName8, "ピース");
+            SaveData(ESaveDataStringNo.RankingName9, "シャム");
+            SaveData(ESaveDataStringNo.RankingName10, "ホエー");
         }
 	}
 	
@@ -228,7 +240,7 @@ public class SaveDataManager : MonoBehaviour {
         //セーブされているかどうか
         if (PlayerPrefs.HasKey(SaveDataStringName[(int)no]) == true)
         {
-            string name = PlayerPrefs.GetString(SaveDataName[(int)no]);
+            string name = PlayerPrefs.GetString(SaveDataStringName[(int)no]);
             return name;
         }
         else//データがない
@@ -296,5 +308,17 @@ public class SaveDataManager : MonoBehaviour {
         SaveData(ESaveDataNo.RankingPoint8, 30);
         SaveData(ESaveDataNo.RankingPoint9, 20);
         SaveData(ESaveDataNo.RankingPoint10, 10);
+
+        SaveData(ESaveDataStringNo.RankingName1, "ヒーロー");
+        SaveData(ESaveDataStringNo.RankingName2, "パパ");
+        SaveData(ESaveDataStringNo.RankingName3, "ママ");
+        SaveData(ESaveDataStringNo.RankingName4, "ボク");
+        SaveData(ESaveDataStringNo.RankingName5, "ワタシ");
+
+        SaveData(ESaveDataStringNo.RankingName6, "シンジ");
+        SaveData(ESaveDataStringNo.RankingName7, "タケシ");
+        SaveData(ESaveDataStringNo.RankingName8, "ピース");
+        SaveData(ESaveDataStringNo.RankingName9, "シャム");
+        SaveData(ESaveDataStringNo.RankingName10, "ホエー");
     }
 }

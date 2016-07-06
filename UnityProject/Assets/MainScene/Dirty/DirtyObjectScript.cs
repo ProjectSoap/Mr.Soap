@@ -47,7 +47,7 @@ public class DirtyObjectScript : MonoBehaviour
 	UnityEngine.Color[] areaColor;	// 区画ごとの色
 	State m_state = State.ALIVE;
 
-    MeshRenderer mesh;
+	MeshRenderer mesh;
 	GameObject m_shibukiEffect;
 	// Use this for initialization
 	void Start()
@@ -62,19 +62,19 @@ public class DirtyObjectScript : MonoBehaviour
 		if (0 <= num && num < dirtyMaterials.Length)
 		{
 			mesh.material = dirtyMaterials[num];
-            mesh.material.SetColor("_Color", areaColor[area]);
-            GameObject obj = Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z), dirtyIcon.transform.rotation) as GameObject;
-            obj.transform.parent = transform;
-            obj.GetComponent<MaterialSwitcher>().SwitchMaterial((int)area);
-            MeshRenderer iconMesh = obj.GetComponent<MeshRenderer>();
+			mesh.material.SetColor("_Color", areaColor[area]);
+			GameObject obj = Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z), dirtyIcon.transform.rotation) as GameObject;
+			obj.transform.parent = transform;
+			obj.GetComponent<MaterialSwitcher>().SwitchMaterial((int)area);
+			MeshRenderer iconMesh = obj.GetComponent<MeshRenderer>();
 			//iconMesh.sharedMaterial.SetColor("_Color", areaColor[area]);
 		}
 		if (m_isReality)
 		{
-            GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation * m_realityEffect.transform.rotation) as GameObject;
+			GameObject particle = Instantiate(m_realityEffect, this.transform.position, this.transform.rotation * m_realityEffect.transform.rotation) as GameObject;
 			particle.transform.parent = this.transform;
 		}
-        
+		
 	}
 
 	// Update is called once per frame
@@ -111,14 +111,11 @@ public class DirtyObjectScript : MonoBehaviour
 		{
 			m_shibukiEffect = Instantiate(m_effect1, this.transform.position, this.transform.rotation * Quaternion.AngleAxis(-90,new Vector3(1,0,0)))as GameObject;
 			m_shibukiEffect.transform.parent = transform.parent;
-            m_shibukiEffect.GetComponent<Shibuki>().SetColor(mesh.material.GetColor("_Color"));
+			m_shibukiEffect.GetComponent<Shibuki>().SetColor(mesh.material.GetColor("_Color"));
 			if (isDestory == false)
 			{
-				myPoint.NoticeDestroy();
+				myPoint.NoticeDestroy(this);
 				isDestory = true;
-				DirtyWashEffect effect = (Instantiate(m_effect0, this.transform.position, this.transform.rotation)as GameObject).GetComponent<DirtyWashEffect>();
-				effect.m_goalObject = Player.gameObject;
-				effect.transform.parent = transform.parent;
 				BGMManager.Instance.PlaySE("Wash_Out");
 			}
 		}

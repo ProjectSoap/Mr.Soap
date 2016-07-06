@@ -23,7 +23,7 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   m_ActiveColorSpace: 0
   m_MTRendering: 1
-  m_MobileMTRendering: 0
+  m_MobileMTRendering: 1
   m_Stereoscopic3D: 0
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
@@ -85,7 +85,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: "com.unity3d.\u305B\u3063\u3051\u3093\u304F\u3093"
+  bundleIdentifier: com.unity3d.Sekken_kun
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0

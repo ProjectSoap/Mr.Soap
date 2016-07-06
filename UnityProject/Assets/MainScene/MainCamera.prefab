@@ -14,7 +14,10 @@ GameObject:
   - 81: {fileID: 8128928}
   - 114: {fileID: 11406264}
   - 45: {fileID: 4526366}
-  m_Layer: 8
+  - 114: {fileID: 11430044}
+  - 65: {fileID: 6516460}
+  - 54: {fileID: 5436744}
+  m_Layer: 18
   m_Name: MainCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +53,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .300000012
-  far clip plane: 100
+  far clip plane: 80
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -75,6 +78,33 @@ Skybox:
   m_GameObject: {fileID: 125976}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: b2ca99e4a1cb6fd4bbe962fe7ac08ed1, type: 2}
+--- !u!54 &5436744
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125976}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &6516460
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 12}
+  m_Center: {x: 0, y: 0, z: 6}
 --- !u!81 &8128928
 AudioListener:
   m_ObjectHideFlags: 1
@@ -100,11 +130,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdc88df88d19a443a77c9c458610e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_distance: 5
+  m_distance: 3.20000005
   m_followRate: .100000001
-  m_offset: {x: 0, y: 3.5, z: -5}
+  m_offset: {x: 0, y: 4, z: -5}
   m_lookDown: {x: -5, y: 0, z: 0}
   target: {fileID: 0}
+  m_alphaMaterial: {fileID: 2100000, guid: 5bb97986183ee7c449d2b4831f7f0957, type: 2}
+--- !u!114 &11430044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c1670c7fe675846b322e73d4009fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!124 &12433274
 Behaviour:
   m_ObjectHideFlags: 1

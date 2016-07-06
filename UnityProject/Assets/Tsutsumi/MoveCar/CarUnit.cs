@@ -154,7 +154,8 @@ public class CarUnit : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.transform.tag == "Player"){
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
             collisionObject = col.gameObject;
         }
     }
@@ -162,7 +163,7 @@ public class CarUnit : MonoBehaviour {
     //念のため停止中かどうかチェックできる。
     public bool isStop()
     {
-        if (stopTime > 0.0f)
+        if (stopTime > 0.0f || collisionObject != null)
         {
             return true;
         }

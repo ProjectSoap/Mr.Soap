@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class Marker : MonoBehaviour {
 
+	enum EState
+	{
+		
+	}
+
 	static Camera m_mainCamera;
 	[SerializeField]
 	GameObject m_markPoint;
@@ -33,6 +38,7 @@ public class Marker : MonoBehaviour {
 			}
 		}
 	}
+	float m_distance;	// 対象との位置
 
 	GameObject m_player;
 	public UnityEngine.GameObject Player
@@ -95,14 +101,22 @@ public class Marker : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		
+		if (m_markPoint)
 		{
-			Vector3 rate, tempPosition;
-			Vector3 direction;
-			float distance = Vector3.Distance(m_mainCamera.transform.position, m_markPoint.transform.position);
-			rate = m_mainCamera.WorldToViewportPoint(m_markPoint.transform.position);
-			direction = m_markPoint.transform.position - m_mainCamera.transform.position;
+			m_distance = Vector3.Distance(m_mainCamera.transform.position, m_markPoint.transform.position);
 
+			m_myImage.rectTransform.position = TransVewportPosition(m_markPoint.transform.position);
+		}
+	}
+
+	Vector3 TransVewportPosition(Vector3 worldPosition)
+	{
+		Vector3 rate, tempPosition = new Vector3(0,0,0);
+		Vector3 direction;
+		if (m_markPoint)
+		{
+			rate = m_mainCamera.WorldToViewportPoint(worldPosition);
+			direction = m_markPoint.transform.position - m_mainCamera.transform.position;
 
 			if (rate.z < 0)
 			{
@@ -147,7 +161,6 @@ public class Marker : MonoBehaviour {
 				}
 			}
 
-
 			// Xがビューポート内より外
 			if (rate.z < 0)
 			{
@@ -179,21 +192,17 @@ public class Marker : MonoBehaviour {
 				}
 			}
 
-
-
-
-
 			if (0 < rate.x && rate.x < 1 && 0 < rate.y && rate.y < 1)
 			{
 
 				RaycastHit[] raycastHits = Physics.RaycastAll(       // せっけんくんの真下にレイを飛ばして地形と接触チェック
 					m_mainCamera.transform.position,
 					direction,
-					distance,
+					m_distance,
 					m_layerMask);
 				if (raycastHits.Length < 1)
 				{
-					EnableUI= false;
+					EnableUI = false;
 				}
 				else
 				{
@@ -223,7 +232,23 @@ public class Marker : MonoBehaviour {
 				tempPosition = new Vector3(tempPosition.x, Screen.height - m_myImage.rectTransform.sizeDelta.y * 0.5f - m_offset.y, 0);
 			}
 
-			m_myImage.rectTransform.position = tempPosition;
 		}
+		return tempPosition;
+	}
+	// 画面外チェック
+	bool IsOutScreen(Vector3 worldPosition)
+	{
+		Vector3 viewportRate = m_mainCamera.WorldToViewportPoint(worldPosition);
+		if (0 < viewportRate.x && viewportRate.x <= 1)
+		{
+			if (0 < viewportRate.y && viewportRate.y <= 1)
+			{
+				if (viewportRate.z > 0)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
