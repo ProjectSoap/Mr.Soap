@@ -14,7 +14,12 @@ public class CharacterWords : MonoBehaviour
 		STAY,       // 表示し続けとく
 		DIMINISH   // 縮小しつつ消す
 	}
-
+	CharacterWordsUI.ESayTexName m_words;
+	public CharacterWordsUI.ESayTexName Words
+	{
+		get { return m_words; }
+		set { m_words = value; }
+	}
 	[SerializeField, Tooltip("セリフを表示する時間")]
 	private float m_stayTime = 3.0f;
 	[SerializeField, Tooltip("セリフが最大サイズに到達するまでの時間")]

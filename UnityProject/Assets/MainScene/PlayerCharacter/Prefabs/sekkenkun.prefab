@@ -2230,13 +2230,14 @@ MonoBehaviour:
   m_maxRotationNormal: 90
   m_maxRotationDrift: 270
   m_driftStartInputTime: .699999988
+  m_driftBobbleCooldownTime: .5
   m_driftCancelHorizontal: .0939999968
   m_breakeStartInputTime: .800000012
   m_breakePower: .899999976
   m_breakeStartVelocity: 5
   m_breakeStopVelocity: 1
   m_breakeAfterEndTime: .800000012
-  m_jumpPower: 900
+  m_jumpPower: 850
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .5
   m_sizeDecrementionRate: 1.5
@@ -2263,9 +2264,12 @@ MonoBehaviour:
     type: 2}
   m_healParticleEmitter: {fileID: 183698, guid: ff2d08a90cef3474aab706bc75bec757,
     type: 2}
+  m_followRateNormal: 0
+  m_followRateDrift: 0
   m_driveState: 1
   m_velocity: 3
   m_rotation: 0
+  m_pushProgressDriftKeyTime: 0
   m_pushRotationKeyTime: 0
   m_pushProgressBreakeKeyTime: 0
   m_isGround: 1
@@ -6175,7 +6179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_jumpPower
-      value: 900
+      value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_groundCheckLayLength

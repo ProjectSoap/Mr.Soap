@@ -14,7 +14,7 @@ public class CharacterWordsUI
 	GameObject[] m_gameObjectArray;
 
 	Queue<CharacterWords> m_activeList = new Queue<CharacterWords>(); // 表示中のセリフクラス
-	CharacterWords[] m_activArray; // 表示中のセリフクラス配列
+	CharacterWords[] m_activeArray; // 表示中のセリフクラス配列
 	Queue<CharacterWords> m_unactiveList = new Queue<CharacterWords>();    // 使っていないセリフクラス
 	Queue<ESayTexName> m_waitWordsList = new Queue<ESayTexName>(); // 表示限界で表示待ちのセリフ
 
@@ -68,16 +68,16 @@ public class CharacterWordsUI
 			m_gameObjectArray[i].transform.parent = transform;
 			
 		}
-		m_activArray = m_activeList.ToArray();
+		m_activeArray = m_activeList.ToArray();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		bool isUpdateArray = false;
-		for (int i = 0; i < m_activArray.Length; i++)
+		for (int i = 0; i < m_activeArray.Length; i++)
 		{
-			if (m_activArray[i].WordsState == CharacterWords.EWordsState.VANISH)
+			if (m_activeArray[i].WordsState == CharacterWords.EWordsState.VANISH)
 			{
 
 				CharacterWords words = m_activeList.Dequeue();
@@ -87,7 +87,7 @@ public class CharacterWordsUI
 		}
 		if (isUpdateArray)
 		{
-			m_activArray = m_activeList.ToArray();
+			m_activeArray = m_activeList.ToArray();
 		}
 		OptimizePosition();
 	}
@@ -98,6 +98,14 @@ public class CharacterWordsUI
 		drawTimeCount = 0.0f;
 		if (m_unactiveList.Count > 0)
 		{
+			for (int i = 0; i < m_activeArray.Length; i++)
+			{
+				if (m_activeArray[i].Words == eSayTexNo)
+				{
+					// 既に表示済みなら実行中止
+					return;
+				}
+			}
 
 			CharacterWords words = m_unactiveList.Dequeue();
 			if (words)
@@ -115,8 +123,9 @@ public class CharacterWordsUI
 						words.SetWordsTexture(sekkenHeroSpriteList[(int)eSayTexNo]);
 						break;
 				}
+				words.Words = (eSayTexNo);
 				m_activeList.Enqueue(words);
-				m_activArray = m_activeList.ToArray();
+				m_activeArray = m_activeList.ToArray();
 				words.gameObject.transform.parent = null;
 				words.gameObject.transform.parent = transform;
 
@@ -137,10 +146,10 @@ public class CharacterWordsUI
 		Vector3 CenterPosition = transform.position;
 		CenterPosition.y = m_characterIconUIImage.rectTransform.position.y;
 		//CenterPosition.y -= m_characterIconUIImage.rectTransform.rect.height * m_characterIconUIImage.rectTransform.localScale.y ;	// 下端を求める
-		for (int i = 0; i < m_activArray.Length; i++)
+		for (int i = 0; i < m_activeArray.Length; i++)
 		{
-			CenterPosition.y -= m_activArray[i].ImageTransform.rect.height * m_activArray[i].ImageTransform.localScale.y;
-			m_activArray[i].ImageTransform.position = CenterPosition;
+			CenterPosition.y -= m_activeArray[i].ImageTransform.rect.height * m_activeArray[i].ImageTransform.localScale.y;
+			m_activeArray[i].ImageTransform.position = CenterPosition;
 		}
 	}
 }

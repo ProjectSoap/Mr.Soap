@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class Marker : MonoBehaviour {
 
+	enum EState
+	{
+		
+	}
+
 	static Camera m_mainCamera;
 	[SerializeField]
 	GameObject m_markPoint;

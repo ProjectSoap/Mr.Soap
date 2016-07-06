@@ -116,9 +116,6 @@ public class DirtyObjectScript : MonoBehaviour
 			{
 				myPoint.NoticeDestroy(this);
 				isDestory = true;
-				DirtyWashEffect effect = (Instantiate(m_effect0, this.transform.position, this.transform.rotation)as GameObject).GetComponent<DirtyWashEffect>();
-				effect.m_goalObject = Player.gameObject;
-				effect.transform.parent = transform.parent;
 				BGMManager.Instance.PlaySE("Wash_Out");
 			}
 		}
