@@ -28,8 +28,6 @@ public class WashChain : MonoBehaviour {
         rotate_angle = 18.0f;
         now_rotation = new Quaternion(0,0,25,1);
         shine = GameObject.Find("Shine").GetComponent<Shine>();
-        SetLimit();
-        SetAgree();
 	}
 	
 	// Update is called once per frame
