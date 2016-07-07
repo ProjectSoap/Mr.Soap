@@ -155,6 +155,8 @@ public class CharSelMgr : MonoBehaviour {
             case 0:
                 name.text = "せっけんくん";
                 name.color = new Color(0.0f,0.8f,1.0f);
+                selifu[0].Sleep();
+                selifu[1].Sleep();
                 break;
             case 1:
                 if(soaps[0].active)
