@@ -177,6 +177,12 @@ public class CheckRecordCondition : MonoBehaviour {
             return false;
         }
 
+        //debug
+        if (DEBUG_allClearSwitch == true)
+        {
+            return true;
+        }
+
         //クリア判定
         if (score >= sConditionList[recordNo].conditionClearCount)
         {

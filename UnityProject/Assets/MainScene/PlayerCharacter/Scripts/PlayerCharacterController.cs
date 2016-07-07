@@ -455,56 +455,56 @@ public class PlayerCharacterController : MonoBehaviour
         // ドリフト入力チェック
         m_pushProgressDriftKeyTime += Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            KeyCode pushDriftKey = KeyCode.RightArrow;
+        //if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    KeyCode pushDriftKey = KeyCode.RightArrow;
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-                pushDriftKey = KeyCode.LeftArrow;
+        //    if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //        pushDriftKey = KeyCode.LeftArrow;
 
-            if (m_pushProgressDriftKeyTime <= m_driftStartInputTime &&
-                pushDriftKey == m_prevPushDriftKey)
-            {
-                // In Drift
-                if (m_driveState == DriveState.Normal)
-                {
-                    m_driveState = DriveState.Drift;
+        //    if (m_pushProgressDriftKeyTime <= m_driftStartInputTime &&
+        //        pushDriftKey == m_prevPushDriftKey)
+        //    {
+        //        // In Drift
+        //        if (m_driveState == DriveState.Normal)
+        //        {
+        //            m_driveState = DriveState.Drift;
 
-                    m_maxRotation = m_maxRotationDrift;
-                    m_rotationPower = m_rotationPowerDrift;
+        //            m_maxRotation = m_maxRotationDrift;
+        //            m_rotationPower = m_rotationPowerDrift;
 
-                    //m_playerCamera.followRate = m_followRateDrift;
+        //            //m_playerCamera.followRate = m_followRateDrift;
 
-                    if (m_horizontal > 0.0f)
-                    {
-                        if(m_driftBobbleShotProgressTime >= m_driftBobbleCooldownTime)
-                        { 
-                            m_bubbleDriftShooter.ShotRight();
-                            m_driftBobbleShotProgressTime = 0.0f;
-                        }
+        //            if (m_horizontal > 0.0f)
+        //            {
+        //                if(m_driftBobbleShotProgressTime >= m_driftBobbleCooldownTime)
+        //                { 
+        //                    m_bubbleDriftShooter.ShotRight();
+        //                    m_driftBobbleShotProgressTime = 0.0f;
+        //                }
 
-                        m_driftParticleSystemRight.enableEmission = true;
-                        m_driftParticleSystemLeft.enableEmission = false;
-                    }
-                    else
-                    {
-                        if (m_driftBobbleShotProgressTime >= m_driftBobbleCooldownTime)
-                        {
-                            m_bubbleDriftShooter.ShotLeft();
-                            m_driftBobbleShotProgressTime = 0.0f;
-                        }
+        //                m_driftParticleSystemRight.enableEmission = true;
+        //                m_driftParticleSystemLeft.enableEmission = false;
+        //            }
+        //            else
+        //            {
+        //                if (m_driftBobbleShotProgressTime >= m_driftBobbleCooldownTime)
+        //                {
+        //                    m_bubbleDriftShooter.ShotLeft();
+        //                    m_driftBobbleShotProgressTime = 0.0f;
+        //                }
 
-                        m_driftParticleSystemRight.enableEmission = false;
-                        m_driftParticleSystemLeft.enableEmission = true;
-                    }
+        //                m_driftParticleSystemRight.enableEmission = false;
+        //                m_driftParticleSystemLeft.enableEmission = true;
+        //            }
 
-                    BGMManager.Instance.PlaySE("Soap_Drift");
-                }
-            }
+        //            BGMManager.Instance.PlaySE("Soap_Drift");
+        //        }
+        //    }
 
-            m_pushProgressDriftKeyTime = 0.0f;
-            m_prevPushDriftKey = pushDriftKey;
-        }
+        //    m_pushProgressDriftKeyTime = 0.0f;
+        //    m_prevPushDriftKey = pushDriftKey;
+        //}
 
         m_driftBobbleShotProgressTime += Time.deltaTime;
 
@@ -618,6 +618,37 @@ public class PlayerCharacterController : MonoBehaviour
         if(m_driveState == DriveState.Normal || m_driveState == DriveState.Drift || m_driveState == DriveState.JumpAfter)
         {
             BGMManager.Instance.PlaySELoop("Soap_Move");
+        }
+
+        // パラメータ更新
+        switch (m_driveState)
+        {
+            case DriveState.Start:
+                break;
+            case DriveState.Normal:
+                m_maxRotation   = m_maxRotationNormal;
+                m_rotationPower = m_rotationPowerNormal;
+                break;
+            case DriveState.Drift:
+                m_maxRotation   = m_maxRotationDrift;
+                m_rotationPower = m_rotationPowerDrift;
+                break;
+            case DriveState.Breake:
+                break;
+            case DriveState.BreakeAfter:
+                break;
+            case DriveState.Jump:
+                break;
+            case DriveState.JumpAfter:
+                break;
+            case DriveState.Damage:
+                break;
+            case DriveState.DamageAfter:
+                break;
+            case DriveState.End:
+                break;
+            default:
+                break;
         }
         
         // 天候チェック
@@ -796,7 +827,7 @@ public class PlayerCharacterController : MonoBehaviour
                 {
                     m_driveState = DriveState.Normal;
 
-                    m_maxRotation = m_maxRotationNormal;
+                    m_maxRotation   = m_maxRotationNormal;
                     m_rotationPower = m_rotationPowerNormal;
 
                     //m_playerCamera.followRate = m_followRateNormal;
@@ -858,35 +889,35 @@ public class PlayerCharacterController : MonoBehaviour
             }
         }
 
-        //if (m_pushRotationKeyTime >= m_driftStartInputTime)
-        //{
-        //    if (m_driveState == DriveState.Normal)
-        //    {
-        //        m_driveState = DriveState.Drift;
+        if (m_pushRotationKeyTime >= m_driftStartInputTime)
+        {
+            if (m_driveState == DriveState.Normal)
+            {
+                m_driveState = DriveState.Drift;
 
-        //        m_maxRotation   = m_maxRotationDrift;
-        //        m_rotationPower = m_rotationPowerDrift;
+                m_maxRotation   = m_maxRotationDrift;
+                m_rotationPower = m_rotationPowerDrift;
 
-        //        //m_playerCamera.followRate = m_followRateDrift;
+                //m_playerCamera.followRate = m_followRateDrift;
 
-        //        if (m_horizontal > 0.0f)
-        //        {
-        //            m_bubbleDriftShooter.ShotRight();
+                if (m_horizontal > 0.0f)
+                {
+                    m_bubbleDriftShooter.ShotRight();
 
-        //            m_driftParticleSystemRight.enableEmission   = true;
-        //            m_driftParticleSystemLeft.enableEmission    = false;
-        //        }
-        //        else
-        //        {
-        //            m_bubbleDriftShooter.ShotLeft();
+                    m_driftParticleSystemRight.enableEmission   = true;
+                    m_driftParticleSystemLeft.enableEmission    = false;
+                }
+                else
+                {
+                    m_bubbleDriftShooter.ShotLeft();
 
-        //            m_driftParticleSystemRight.enableEmission = false;
-        //            m_driftParticleSystemLeft.enableEmission = true;
-        //        }
+                    m_driftParticleSystemRight.enableEmission = false;
+                    m_driftParticleSystemLeft.enableEmission = true;
+                }
 
-        //        BGMManager.Instance.PlaySE("Soap_Drift");
-        //    }
-        //}
+                BGMManager.Instance.PlaySE("Soap_Drift");
+            }
+        }
 
         m_rotation = Mathf.Clamp(m_rotation, -m_maxRotation, m_maxRotation);
 
@@ -922,6 +953,9 @@ public class PlayerCharacterController : MonoBehaviour
                     //m_velocity      = 0.0f;
                     m_rotation = 0.0f;
                     m_driveState = DriveState.Jump;
+
+                    m_maxRotation   = m_maxRotationNormal;
+                    m_rotationPower = m_rotationPowerNormal;
 
                     BGMManager.Instance.PlaySE("Soap_Jump");
                 }
