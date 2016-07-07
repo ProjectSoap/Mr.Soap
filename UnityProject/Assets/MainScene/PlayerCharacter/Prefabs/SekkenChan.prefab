@@ -2400,24 +2400,24 @@ MonoBehaviour:
   m_rotationPowerDrift: 360
   m_maxRotationNormal: 90
   m_maxRotationDrift: 270
-  m_driftStartInputTime: .699999988
+  m_driftStartInputTime: .600000024
   m_driftBobbleCooldownTime: .5
   m_driftCancelHorizontal: 0
-  m_breakeStartInputTime: .800000012
-  m_breakePower: .899999976
+  m_breakeStartInputTime: .699999988
+  m_breakePower: .850000024
   m_breakeStartVelocity: 5
   m_breakeStopVelocity: 1
-  m_breakeAfterEndTime: .800000012
+  m_breakeAfterEndTime: .699999988
   m_jumpPower: 700
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .600000024
   m_sizeDecrementionRate: 1.5
-  m_damageSize: 15
-  m_healSizeWashChain: 30
-  m_healSizeItem: 40
+  m_damageSize: 25
+  m_healSizeWashChain: 25
+  m_healSizeItem: 60
   m_maxSize: 100
   m_damageVelocity: 4
-  m_damageAngle: 15
+  m_damageAngle: 25
   m_stayBuildingVelocityRate: .5
   m_stayBuildingMaxVelocity: 3
   m_damageAfterStopTime: 1
@@ -2451,6 +2451,7 @@ MonoBehaviour:
   m_horizontal: 0
   m_weatherState: 0
   v: {x: 0, y: 0, z: 0}
+  m_fuck: 0
 --- !u!114 &11418952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6296,19 +6297,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_driftStartInputTime
-      value: .699999988
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeStartInputTime
-      value: .800000012
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakePower
-      value: .899999976
+      value: .850000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeAfterEndTime
-      value: .800000012
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_jumpPower
@@ -6324,11 +6325,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageSize
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_healSizeWashChain
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageVelocity
@@ -6365,6 +6366,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_shotIntervelTime
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_healSizeItem
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_damageAngle
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
