@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /************************************************
  * 
@@ -18,6 +19,7 @@ public class ResultManagerSystem : MonoBehaviour {
     public ResultCanvasSceneSelectCon canvasSceneSelect;    //シーン選択キャンバス
     public ResultSekkenControll sekkenControll;             //せっけんくんの制御
     public SelectingCharactor selectingChara;               //もう一度遊ぶ押したときにメインへ引き継ぐ
+    public List<GameObject> rank3EffectList;                //３位以上とれた時のエフェクトリスト
 
     //スコア関連を保持する
     private ActionRecordManager.SActionRecord gameScore;    //今回のスコアなどのデータ
@@ -32,7 +34,7 @@ public class ResultManagerSystem : MonoBehaviour {
     //プレイ回数
     private int playCount;
 
-    //今回のランキング1~11（一応
+    //今回のランキング0~10
     private int rank;
 
     //実績を新たに開放した場合のフラグ
@@ -131,7 +133,16 @@ public class ResultManagerSystem : MonoBehaviour {
             canvasRanking.ChangeActive(false, 9);
             rankingNameEndFlg = false;
         }
-        
+        //３位以上だったらエフェクト有効化
+        bool effectSwitch = false;
+        if (rank <= 2)
+        {
+            effectSwitch = true;
+        }
+        for (int i = 0; i < rank3EffectList.Count; ++i)
+        {
+            rank3EffectList[i].SetActive(effectSwitch);
+        }
 
         //BGM再生
         if (BGMManager.Instance != null)
