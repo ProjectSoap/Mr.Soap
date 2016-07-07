@@ -16,8 +16,10 @@ public class DirtyWashUIImage
 
 	EState m_state;
 	float m_controlTime;
-	float m_appearanceTime = 1;
-	float m_vanishTime = 1;
+	[SerializeField]
+	float m_appearanceTime = 0.5f;
+	[SerializeField]
+	float m_vanishTime = 5;
 
 	Image m_image;
 
@@ -101,9 +103,11 @@ public class DirtyWashUIImage
 		switch (m_state)
 		{
 			case EState.APPEARANCE:
+				m_image.material.SetFloat("_MaskAlpha", m_controlTime / m_appearanceTime);
 				break;
 			case EState.VANISH:
-				
+				m_image.color  = new Color(m_image.color.r, m_image.color.g, m_image.color.b,1 - ( m_controlTime / m_appearanceTime));
+
 				break;
 			case EState.DESTROY:
 				Destroy(gameObject);

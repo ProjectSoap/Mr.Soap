@@ -1,34 +1,62 @@
 ﻿Shader "Custom/Dirty" {
 	Properties{
-		_Color("_Color", Color) = (1,1,1,1)
-		_Cutoff("Alpha cutoff", Range(0,1)) = 0.5
-		_MainTex("Base (RGB)", 2D) = "white" {}
+		_MainTex("Base", 2D) = "white" {}
+	_MaskTex("Mask",2D) = "white"{}
+	_MaskAlpha("MaskAlpha", Range(0.0,1)) = 0.5
+		_Color("Color", Color) = (1,1,1,1)
 	}
-
 		SubShader{
-		Tags{ "Queue" = "AlphaTest" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
-
-		Lighting Off
-		LOD 100
+		Pass{
 
 		CGPROGRAM
-#pragma surface surf Lambert
+#pragma vertex vert
+#pragma fragment frag
+#pragma multi_compile_fog
+#include "UnityCG.cginc"
+
+		// Use shader model 3.0 target, to get nicer looking lighting
+#pragma target 3.0
 
 		sampler2D _MainTex;
-		fixed4 _Color;
-		float _Cutoff;
-		struct Input {
-			float2 uv_MainTex;
-		};
+	sampler2D _MaskTex;
 
-	void surf(Input IN, inout SurfaceOutput o) {
-		fixed4 c = tex2D(_MainTex, IN.uv_MainTex) ;
+	struct v2f {
+		float4 pos : SV_POSITION;
+		float2 uv1 : TEXCOORD0;
+		float2 uv2 : TEXCOORD1;
+		UNITY_FOG_COORDS(2)
+	};
 
-			o.Albedo = _Color * c.rgb;
-			clip(_Cutoff * c.a-0.1);
+	half _MaskAlpha;
+	fixed4 _Color;
+
+	float4 _MainTex_ST;
+	float4 _MaskTex_ST;
+	v2f vert(appdata_base v)
+	{
+		v2f o;
+		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.uv1 = TRANSFORM_TEX(v.texcoord, _MainTex);
+		o.uv2 = TRANSFORM_TEX(v.texcoord, _MaskTex);
+		UNITY_TRANSFER_FOG(o, o.pos);
+		return o;
 	}
-	ENDCG
-	}
 
-		Fallback "VertexLit"
+	half4 frag(v2f i) : COLOR
+	{
+		half4 base = tex2D(_MainTex, i.uv1);
+		half alphaRef = ((1 - _MaskAlpha)) * (base.w);
+		clip(alphaRef - 0.1);
+		half4 color = (base * (_Color));
+		if (color.w < 0.1)
+		{
+			color.w = 0;
+		}
+		UNITY_APPLY_FOG(i.fogCoord, color);
+		return color;
+	}
+		ENDCG
+	}
+	}
+		FallBack Off
 }

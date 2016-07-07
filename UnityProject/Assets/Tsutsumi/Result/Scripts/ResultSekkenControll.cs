@@ -7,6 +7,9 @@ public class ResultSekkenControll : MonoBehaviour {
     public GameObject Sekkenchan;
     public GameObject Sekkenkun0;
 
+    public MaterialChanger SekkenKunChanger;
+    public MaterialChanger SekkenChanChanger;
+
     public int motion2Point = 50;
     public int motion3Point = 100;
 
@@ -30,6 +33,7 @@ public class ResultSekkenControll : MonoBehaviour {
     //スコアと使用キャラクターを元にせっけんくんを制御する。
     public void SelectSekkenAndAnimation(ESekkenNo no, int scorePoint)
     {
+        MaterialChanger.ESekkenMaterial materialNo;
         string TriggerName;
         Sekkenkun.SetActive(false);
         Sekkenchan.SetActive(false);
@@ -39,16 +43,19 @@ public class ResultSekkenControll : MonoBehaviour {
         if (scorePoint < motion2Point)
         {
             TriggerName = "KanasimiTrig";
+            materialNo = MaterialChanger.ESekkenMaterial.Sad;
         }
         else
         {
             if (scorePoint < motion3Point)
             {
                 TriggerName = "TereTrig";
+                materialNo = MaterialChanger.ESekkenMaterial.Shy;
             }
             else
             {
                 TriggerName = "YorokobiTrig";
+                materialNo = MaterialChanger.ESekkenMaterial.Joy;
             }
         }
 
@@ -58,10 +65,12 @@ public class ResultSekkenControll : MonoBehaviour {
             case ESekkenNo.No_Sekkenkun:
                 Sekkenkun.SetActive(true);
                 Sekkenkun.GetComponent<Animator>().SetTrigger(TriggerName);
+                SekkenKunChanger.ChangeMaterial(materialNo);
                 break;
             case ESekkenNo.No_Sekkenchan:
                 Sekkenchan.SetActive(true);
                 Sekkenchan.GetComponent<Animator>().SetTrigger(TriggerName);
+                SekkenChanChanger.ChangeMaterial(materialNo);
                 break;
             case ESekkenNo.No_Sekkenkun0:
                 Sekkenkun0.SetActive(true);

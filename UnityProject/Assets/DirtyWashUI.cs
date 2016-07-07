@@ -32,7 +32,11 @@ public class DirtyWashUI
 		if (IsOutScreen(dirty.transform.position))
 		{
 			Vector3 screenPosition = TransVewportPosition(dirty.transform.position);
-			GameObject newImage = Instantiate(m_imageSample, screenPosition, Quaternion.identity) as GameObject;
+			float x = Random.Range(0.0f, 2.0f);
+			float y = Random.Range(0.0f, 2.0f);
+			float z = Random.Range(0.0f, 2.0f);
+			m_image.color = dirty.MyColor;
+			GameObject newImage = Instantiate(m_imageSample, screenPosition, new Quaternion(0,0,z,1)) as GameObject;
 			newImage.transform.parent = this.transform;
 
 		}
@@ -125,19 +129,19 @@ public class DirtyWashUI
 		
 		if (tempPosition.x < m_image.rectTransform.sizeDelta.x * 0.5f)
 		{
-			tempPosition = new Vector3(m_image.rectTransform.sizeDelta.x * 0.5f, tempPosition.y, 0);
+			tempPosition = new Vector3(0, tempPosition.y, 0);
 		}
 		if (tempPosition.y < m_image.rectTransform.sizeDelta.y * 0.5f)
 		{
-			tempPosition = new Vector3(tempPosition.x, m_image.rectTransform.sizeDelta.y * 0.5f , 0);
+			tempPosition = new Vector3(tempPosition.x,0, 0);
 		}
 		if (tempPosition.x > Screen.width - m_image.rectTransform.sizeDelta.x * 0.5f)
 		{
-			tempPosition = new Vector3(Screen.width - m_image.rectTransform.sizeDelta.x * 0.5f , tempPosition.y, 0);
+			tempPosition = new Vector3(Screen.width , tempPosition.y, 0);
 		}
 		if (tempPosition.y > Screen.height - m_image.rectTransform.sizeDelta.y * 0.5f)
 		{
-			tempPosition = new Vector3(tempPosition.x, Screen.height - m_image.rectTransform.sizeDelta.y * 0.5f, 0);
+			tempPosition = new Vector3(tempPosition.x, Screen.height, 0);
 		}
 
 

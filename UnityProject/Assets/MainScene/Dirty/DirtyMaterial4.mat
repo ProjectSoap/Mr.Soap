@@ -87,6 +87,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _MaskTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 282ec5dc7557dbe44b5b4f0f973cdc82, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _MainBump
         second:
           m_Texture: {fileID: 0}
@@ -184,6 +191,10 @@ Material:
         first:
           name: _Strength
         second: .200000003
+      data:
+        first:
+          name: _MaskAlpha
+        second: .5
     m_Colors:
       data:
         first:

@@ -46,7 +46,12 @@ public class DirtyObjectScript : MonoBehaviour
 	[SerializeField]
 	UnityEngine.Color[] areaColor;	// 区画ごとの色
 	State m_state = State.ALIVE;
-
+	Color m_myColor;
+	public UnityEngine.Color MyColor
+	{
+		get { return m_myColor; }
+		set { m_myColor = value; }
+	}
 	MeshRenderer mesh;
 	GameObject m_shibukiEffect;
 	// Use this for initialization
@@ -63,6 +68,7 @@ public class DirtyObjectScript : MonoBehaviour
 		{
 			mesh.material = dirtyMaterials[num];
 			mesh.material.SetColor("_Color", areaColor[area]);
+			MyColor = areaColor[area];
 			GameObject obj = Instantiate(dirtyIcon, new Vector3(transform.position.x, dirtyIcon.transform.position.y, transform.position.z), dirtyIcon.transform.rotation) as GameObject;
 			obj.transform.parent = transform;
 			obj.GetComponent<MaterialSwitcher>().SwitchMaterial((int)area);

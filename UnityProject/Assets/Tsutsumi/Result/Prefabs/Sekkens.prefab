@@ -1442,13 +1442,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 422724}
   - 95: {fileID: 9553222}
+  - 114: {fileID: 11475062}
   m_Layer: 0
   m_Name: sekkenkun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &176924
 GameObject:
   m_ObjectHideFlags: 1
@@ -1804,6 +1805,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414638}
   - 95: {fileID: 9500384}
+  - 114: {fileID: 11431788}
   m_Layer: 0
   m_Name: sekkenchan
   m_TagString: Untagged
@@ -2052,7 +2054,7 @@ Transform:
   - {fileID: 431386}
   - {fileID: 483516}
   m_Father: {fileID: 491194}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &414810
 Transform:
   m_ObjectHideFlags: 1
@@ -2318,7 +2320,7 @@ Transform:
   - {fileID: 453126}
   - {fileID: 489268}
   m_Father: {fileID: 491194}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &429092
 Transform:
   m_ObjectHideFlags: 1
@@ -3227,8 +3229,8 @@ Transform:
   m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children:
   - {fileID: 422724}
-  - {fileID: 427778}
   - {fileID: 414638}
+  - {fileID: 427778}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &491758
@@ -3437,6 +3439,55 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11431788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1885d103d9d84bc4da1f646a31e7d244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialData:
+  - {fileID: 2100000, guid: adcd350d24aca0041adb4fcd2d34826b, type: 2}
+  - {fileID: 2100000, guid: b3409d3d1f4bd484e957586c5e29123b, type: 2}
+  - {fileID: 2100000, guid: 8aab55aac4041124eaba993b5322f242, type: 2}
+  changeMaterialList:
+  - {fileID: 13752914}
+  - {fileID: 13729624}
+  - {fileID: 13790798}
+  - {fileID: 13714162}
+  - {fileID: 13732146}
+  - {fileID: 13715158}
+  - {fileID: 13766752}
+  - {fileID: 13781056}
+  - {fileID: 13702478}
+  - {fileID: 13705588}
+--- !u!114 &11475062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1885d103d9d84bc4da1f646a31e7d244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialData:
+  - {fileID: 2100000, guid: 40ce832da3debf649bf79f3743e05129, type: 2}
+  - {fileID: 2100000, guid: 61f86c6348506dc4685bb5f5f1fdcee9, type: 2}
+  - {fileID: 2100000, guid: fab61b50831987c4c9fba3873445ea0c, type: 2}
+  changeMaterialList:
+  - {fileID: 13721538}
+  - {fileID: 13715212}
+  - {fileID: 13737578}
+  - {fileID: 13753284}
+  - {fileID: 13776970}
+  - {fileID: 13779138}
+  - {fileID: 13705782}
 --- !u!114 &11475916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3451,6 +3502,10 @@ MonoBehaviour:
   Sekkenkun: {fileID: 176396}
   Sekkenchan: {fileID: 196286}
   Sekkenkun0: {fileID: 103520}
+  SekkenKunChanger: {fileID: 11475062}
+  SekkenChanChanger: {fileID: 11431788}
+  motion2Point: 50
+  motion3Point: 100
 --- !u!137 &13702478
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

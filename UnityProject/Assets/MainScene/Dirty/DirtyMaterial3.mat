@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 16b2e3680074b254e982b7da6b13ae8b, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2da3a8ce2bd71ae45ae8b722dd04821b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -83,6 +83,13 @@ Material:
           name: _DetailTex
         second:
           m_Texture: {fileID: 2800000, guid: dbced754835c6124a8da7c74a783dd52, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MaskTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 2da3a8ce2bd71ae45ae8b722dd04821b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -166,6 +173,10 @@ Material:
         first:
           name: _Strength
         second: .200000003
+      data:
+        first:
+          name: _MaskAlpha
+        second: .5
     m_Colors:
       data:
         first:
