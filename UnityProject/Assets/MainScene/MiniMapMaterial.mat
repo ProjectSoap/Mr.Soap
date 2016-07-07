@@ -10,7 +10,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 63327ccc03a7ce5429b471308f02eb77, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -194,6 +194,10 @@ Material:
         first:
           name: _Strength
         second: .200000003
+      data:
+        first:
+          name: _UseUIAlphaClip
+        second: 0
     m_Colors:
       data:
         first:
