@@ -785,14 +785,14 @@ public class MainSceneStateHolder : MonoBehaviour
 				}
 				m_checkTransitionMenuScreeenUI.pausing = false;
 				m_pauseScreenUI.pausing = true;
-				break;
+				break; 
 			case MainState.PLAY_RECORD:
 				m_pauseScreenUI.PushPose();
 				m_playRecordAsPauseObject.PushPose();
 				break;
 			case MainState.END:
 				m_endUI.pausing = false;
-				BGMManager.Instance.StopBGM(0);
+				//BGMManager.Instance.StopBGM(0);
 				break;
 			default:
 				break;
