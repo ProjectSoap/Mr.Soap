@@ -86,18 +86,21 @@ public class CharSelMgr : MonoBehaviour {
                         else
                         {
                             BGMManager.Instance.PlaySE("Not_Character_Decision");
-                            switch(soap.GetCharNo())
+                            if (soap.EndRotation())
                             {
-                                case 1:
-                                    selifu[0].Active();
-                                    selifu[1].Sleep();
-                                    break;
-                                case 2:
-                                    selifu[1].Active();
-                                    selifu[0].Sleep();
-                                    break;
-                                default:
-                                    break;
+                                switch (soap.GetCharNo())
+                                {
+                                    case 1:
+                                        selifu[0].Active();
+                                        selifu[1].Sleep();
+                                        break;
+                                    case 2:
+                                        selifu[1].Active();
+                                        selifu[0].Sleep();
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
                         }
                         break;
