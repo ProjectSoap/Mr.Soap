@@ -32,6 +32,15 @@ public class Wash_Gauge : MonoBehaviour
     [SerializeField]
     Color endcolor;
 
+    [SerializeField]
+    ParticleSystem heal_effect;
+
+    [SerializeField]
+    Camera maincamera;
+
+    [SerializeField]
+    Vector3 camera_offset;
+
     public bool heal;
     public bool minus;
     // Use this for initialization
@@ -43,8 +52,7 @@ public class Wash_Gauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+       /* if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             old_Amount = now_Amount;
             now_Amount += (limitAmount - startAmount) / 10.0f;
@@ -62,16 +70,17 @@ public class Wash_Gauge : MonoBehaviour
             SetLimit();
             SetAgree();
         }
-
+        */
         //GetWash();
         if(heal)
         {
             GameObject player;
-           // player = GameObject.Find("PlayerCharacter");
-          //  player.GetComponent<PlayerCharacterController>().WashChain();
+            player = GameObject.Find("PlayerCharacter");
+            player.GetComponent<PlayerCharacterController>().WashChain();
             heal = false;
             minus = true;
             ActionRecordManager.sActionRecord.WashChainCount++;
+            heal_effect.Play();
         }
         else
         {
@@ -84,10 +93,11 @@ public class Wash_Gauge : MonoBehaviour
                 }
                 else if(gauge_gaintime  < 1.5f)
                 {
-                    gauge.fillAmount = Mathf.Lerp(limitAmount, startAmount, (gauge_gaintime - 1.0f) * 0.5f );
+                    gauge.fillAmount = Mathf.Lerp(limitAmount, startAmount, (gauge_gaintime - 1.0f) * 2.0f );
                 }
                 else
                 {
+                    heal_effect.Stop();
                     gauge.fillAmount = startAmount;
                     now_Amount = startAmount;
                     minus = false;
@@ -114,6 +124,8 @@ public class Wash_Gauge : MonoBehaviour
 
             }
         }
+
+        gauge.color = Color.Lerp(startcolor, endcolor, now_Amount / limitAmount);
     }
 
     void Reset()

@@ -13,6 +13,7 @@ public class DirtyCreater : MonoBehaviour {
 	GameObject[] appearancePoints;   // 出現位置管理
 	DirtyWashUI m_dirtyWashUI;
 	WashChain m_washChainUI;
+    Wash_Gauge m_washGaugeUI;
 	bool isMyDityDestroy;  // 消されたかどうか
 
 	bool isRangeOut;   // マップ範囲外であるか
@@ -63,6 +64,11 @@ public class DirtyCreater : MonoBehaviour {
 		{
 			m_washChainUI = GameObject.Find("WashChain").GetComponent<WashChain>();
 		}
+
+        if (GameObject.Find("WashGauge"))
+        {
+            m_washGaugeUI = GameObject.Find("WashGauge").GetComponent<Wash_Gauge>();
+        }
 
 		if (GameObject.Find("DirtyWashUI"))
 		{
@@ -136,6 +142,11 @@ public class DirtyCreater : MonoBehaviour {
 		{
 			m_washChainUI.GetWash();
 		}
+        if(m_washGaugeUI)
+        {
+            m_washGaugeUI.GetWash();
+        }
+
 		ParntDirtySystem.NoticeDestroyToSystem(this);
 		isMyDityDestroy = true;
 	}
