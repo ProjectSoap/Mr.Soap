@@ -151,7 +151,7 @@ public class Wash_Gauge : MonoBehaviour
             if (now_Amount >= limitAmount)
             {
                 now_Amount = limitAmount;
-                if (!heal)
+                if (!heal && !minus)
                 {
                     heal = true;
                 }
