@@ -50,7 +50,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	[SerializeField]
 	PlayerCharacterController m_player;
 
-	Marker m_marker;
+	RecoverySoapPointMarker m_marker;
 	
 
 	public float m_decisionSecond = 2;  // 発生時間内での判定時間(秒)
@@ -82,7 +82,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 		//次のタイム引き延ばし
 		m_timeForInstance = Mathf.Lerp(minTimeForInstance, maxTimeForInstance, s);
 
-		m_marker = GameObject.Find("MarkerUI").GetComponent<Marker>();
+		m_marker = GameObject.Find("MarkerUI").GetComponent<RecoverySoapPointMarker>();
 		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 
 		CheckRecordCondition saveData = GameObject.Find("CheckRecordCondition").GetComponent<CheckRecordCondition>();
@@ -274,7 +274,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 			uint createPoint = DecisionCreateSection();
 			RecoverySoapCreaters[createPoint].CreateSoap();
 			m_isApparance = true;
-			m_marker.EnableUI = true;
+			m_marker.AppearanceRecaverySoap = true;
 			m_marker.MarkPoint = RecoverySoapCreaters[createPoint].gameObject;
 			m_marker.DistanceTargetA = m_player.gameObject;
 			m_marker.DistanceTargetB = RecoverySoapCreaters[createPoint].gameObject;
@@ -286,7 +286,7 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 	{
 		m_isApparance = false;
 		m_marker.MarkPoint = null;
-		m_marker.EnableUI = false;
+		m_marker.GetRecoverySoap = true;
 	}
 	
 }
