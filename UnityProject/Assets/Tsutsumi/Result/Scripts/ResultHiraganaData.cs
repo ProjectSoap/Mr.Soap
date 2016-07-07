@@ -21,16 +21,6 @@ public class ResultHiraganaData : MonoBehaviour {
     [SerializeField]
     private EHiraganaType type = EHiraganaType.TYPE_TEXT;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     //テキスト情報
     public Text GetText(int no)
     {
