@@ -93,7 +93,7 @@ public class WashChain : MonoBehaviour {
             }
             else
             {
-                needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
+             //   needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
             }
         }
 	       //needle.rectTransform.rotation =
