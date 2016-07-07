@@ -16,8 +16,10 @@ public class DirtyWashUIImage
 
 	EState m_state;
 	float m_controlTime;
+	[SerializeField]
 	float m_appearanceTime = 0.5f;
-	float m_vanishTime = 3;
+	[SerializeField]
+	float m_vanishTime = 5;
 
 	Image m_image;
 
