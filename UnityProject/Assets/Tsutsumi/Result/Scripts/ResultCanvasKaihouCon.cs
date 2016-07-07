@@ -11,9 +11,11 @@ public class ResultCanvasKaihouCon : MonoBehaviour {
     [SerializeField]
     Image recordNameImage;
 
+    [SerializeField]
+    ResultRewardTexCon rewardTexCon;
+
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
@@ -26,6 +28,7 @@ public class ResultCanvasKaihouCon : MonoBehaviour {
         if (recordNo < 0 || recordNo >= 30) return false;
 
         recordNameImage.sprite = sprites[recordNo];
+        rewardTexCon.SetRecordImage(recordNo);
         return true;
     }
 
