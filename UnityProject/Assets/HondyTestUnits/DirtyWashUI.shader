@@ -4,17 +4,15 @@ Shader "Custom/DirtyWashUI"
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_MaskTex("Mask Texture", 2D) = "white" {}
-		_Color ("Tint", Color) = (1,1,1,1)
-		_MaskAlpha("MaskAlpha", Range(0.00,1)) = 0.5
-		_StencilComp ("Stencil Comparison", Float) = 8
-		_Stencil ("Stencil ID", Float) = 0
-		_StencilOp ("Stencil Operation", Float) = 0
-		_StencilWriteMask ("Stencil Write Mask", Float) = 255
-		_StencilReadMask ("Stencil Read Mask", Float) = 255
+		_Color("Tint", Color) = (1,1,1,1)
 
-		_ColorMask ("Color Mask", Float) = 15
+		_StencilComp("Stencil Comparison", Float) = 8
+		_Stencil("Stencil ID", Float) = 0
+		_StencilOp("Stencil Operation", Float) = 0
+		_StencilWriteMask("Stencil Write Mask", Float) = 255
+		_StencilReadMask("Stencil Read Mask", Float) = 255
 
-		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
+		_ColorMask("Color Mask", Float) = 15
 	}
 
 	SubShader
@@ -41,14 +39,15 @@ Shader "Custom/DirtyWashUI"
 			Lighting Off
 			ZWrite Off
 			Fog{ Mode Off }
-			Blend One OneMinusSrcAlpha
+			ZTest[unity_GUIZTestMode]
+			Blend SrcAlpha OneMinusSrcAlpha
+			ColorMask[_ColorMask]
 
 		Pass
 		{
 		CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma multi_compile DUMMY PIXELSNAP_ON
 			#include "UnityCG.cginc"
 			#include "UnityUI.cginc"
 			
@@ -74,19 +73,20 @@ Shader "Custom/DirtyWashUI"
 			fixed4 _TextureSampleAdd;
 			float4 _ClipRect;
 
-			v2f vert(appdata_t IN)
+			v2f vert(appdata_t v)
 			{
 				v2f OUT;
 
-				OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
-				OUT.texcoord1 = IN.texcoord1;
-				OUT.texcoord2 = IN.texcoord2;
-				
+				OUT.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				OUT.texcoord1 = v.texcoord1;
+				OUT.texcoord2 = v.texcoord2;
+				OUT.worldPosition = v.vertex;
+
 				#ifdef UNITY_HALF_TEXEL_OFFSET
 				OUT.vertex.xy += (_ScreenParams.zw-1.0)*float2(-1,1);
 				#endif
 				
-				OUT.color = IN.color * _Color;
+				OUT.color = v.color * _Color;
 				return OUT;
 			}
 
@@ -103,10 +103,6 @@ Shader "Custom/DirtyWashUI"
 
 				clip(alphaRef - 1);
 
-				if (color.w < 0.1)
-				{
-					color.w = 0;
-				}
 				return color;
 			}
 		ENDCG

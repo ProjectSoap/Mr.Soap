@@ -243,12 +243,12 @@ public class MainSceneStateHolder : MonoBehaviour
 	public PauseObject m_miniMapUI;
 	public PauseObject m_washChainUI;
 
-
-	public PauseObject m_norticeRecoveryUI;
+	
 	public PauseObject m_pushKeyUI;
 	public PauseObject m_sayUI;
 	public PauseObject m_markerUI;
 	public PauseObject m_pinchFrame;
+	public PauseObject m_instructPuase;
 
 
 
@@ -270,28 +270,28 @@ public class MainSceneStateHolder : MonoBehaviour
 		
 		m_mainState = MainState.START;//スタートから開始
 		// セリフUI設定
-        CharacterWordsUI sayUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
+		CharacterWordsUI sayUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
 		m_sayUI = GameObject.Find("SekkenSayUI").GetComponent<PauseObject>();
 		if (sayUI)
-        {
-            switch (SceneData.characterSelect)
-            {
-                case SceneData.CharacterSelect.SekkenKun:
+		{
+			switch (SceneData.characterSelect)
+			{
+				case SceneData.CharacterSelect.SekkenKun:
 
 					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenKun);
-                    break;
+					break;
 
-                case SceneData.CharacterSelect.SekkenHero:
+				case SceneData.CharacterSelect.SekkenHero:
 
 					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenHero);
-                    break;
+					break;
 
-                case SceneData.CharacterSelect.SekkenChan:
+				case SceneData.CharacterSelect.SekkenChan:
 
 					sayUI.ChangeSekken(CharacterWordsUI.ESekkenNo.SekkenChan);
-                    break;
-            }
-        }
+					break;
+			}
+		}
 		player = GameObject.Find("PlayerCharacter");
 		m_dirtySystemObject = GameObject.Find("DirtySystem");
 		dirtySystem = m_dirtySystemObject.GetComponent<DirtySystem>();
@@ -314,6 +314,7 @@ public class MainSceneStateHolder : MonoBehaviour
 			{
 				m_modeState = ModeState.NORMAL_PLAY;
 				m_pauseSystems.pausing = true;
+				m_instructPuase.pausing = true;
 			}
 			else
 			{
@@ -374,7 +375,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				// ヘルプ(F12)押したらポーズに遷移
 				if (Input.GetKeyDown(KeyCode.F12) && Fade.FadeEnd())
 				{
-                    BGMManager.Instance.PlaySE("Game_Pause");
+					BGMManager.Instance.PlaySE("Game_Pause");
 					ExecuteStateExitProcesss(m_mainState);
 					if (m_modeState == ModeState.NORMAL_PLAY)
 					{
@@ -398,7 +399,7 @@ public class MainSceneStateHolder : MonoBehaviour
 					m_beforeMainStete = m_mainState;
 					m_mainState = MainState.PLAY;
 					ExecuteStateEnterProcesss(m_mainState);
-                    BGMManager.Instance.PlaySE("Game_Start");
+					BGMManager.Instance.PlaySE("Game_Start");
 				}
 				break;
 			case MainState.PLAY:
@@ -421,7 +422,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_mainState = MainState.CHECK_TRANSITION;
 					}
 					ExecuteStateEnterProcesss(m_mainState);
-                    BGMManager.Instance.PlaySE("Game_Pause");
+					BGMManager.Instance.PlaySE("Game_Pause");
 				}
 				// プレイヤーが死んだらエンド状態
 				else if (player.GetComponent<PlayerCharacterController>().size <= 0.0f)
@@ -436,7 +437,7 @@ public class MainSceneStateHolder : MonoBehaviour
 			case MainState.PAUSE:
 				if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
 				{
-                    
+					
 					if (m_selectIconInPause == SelectMainPauseScene.SELECT_BACK)
 					{
 						ExecuteStateExitProcesss(m_mainState);
@@ -444,7 +445,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_beforeMainStete = m_mainState;
 						m_mainState = temp;
 						ExecuteStateEnterProcesss(m_mainState);
-                        BGMManager.Instance.PlaySE("Cursor_Cancel");
+						BGMManager.Instance.PlaySE("Cursor_Cancel");
 					}
 					else if (m_selectIconInPause == SelectMainPauseScene.SELECT_TRANSITION_MENU)
 					{
@@ -452,7 +453,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_beforeMainStete = m_mainState;
 						m_mainState = MainState.CHECK_TRANSITION;
 						ExecuteStateEnterProcesss(m_mainState);
-                        BGMManager.Instance.PlaySE("Cursor_Decision");
+						BGMManager.Instance.PlaySE("Cursor_Decision");
 					}
 					else if (m_selectIconInPause == SelectMainPauseScene.SELECT_PLAY_RECORD)
 					{
@@ -460,7 +461,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_beforeMainStete = m_mainState;
 						m_mainState = MainState.PLAY_RECORD;
 						ExecuteStateEnterProcesss(m_mainState);
-                        BGMManager.Instance.PlaySE("Cursor_Decision");
+						BGMManager.Instance.PlaySE("Cursor_Decision");
 					}
 				}
 				break;
@@ -470,7 +471,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				{
 					if (m_selectIconInTransitionMenu == SelectMainTransitionMenu.SELECT_NO)
 					{
-                        BGMManager.Instance.PlaySE("Cursor_Cancel");
+						BGMManager.Instance.PlaySE("Cursor_Cancel");
 						ExecuteStateExitProcesss(m_mainState);
 						m_beforeMainStete = m_mainState;
 						m_mainState = MainState.PAUSE;
@@ -485,7 +486,7 @@ public class MainSceneStateHolder : MonoBehaviour
 					}
 					if (m_selectIconInTransitionMenu == SelectMainTransitionMenu.SELECT_YES)
 					{
-                        BGMManager.Instance.PlaySE("Cursor_Decision");
+						BGMManager.Instance.PlaySE("Cursor_Decision");
 						Fade.ChangeScene("Menu");
 					}
 				}
@@ -493,7 +494,7 @@ public class MainSceneStateHolder : MonoBehaviour
 			case MainState.PLAY_RECORD:
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
-                    BGMManager.Instance.PlaySE("Cursor_Cancel");
+					BGMManager.Instance.PlaySE("Cursor_Cancel");
 					ExecuteStateExitProcesss(m_mainState);
 					m_beforeMainStete = m_mainState;
 					m_mainState = MainState.PAUSE;
@@ -541,8 +542,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_markerUI.pausing = false;
 						m_pinchFrame.pausing = false;
 
-						m_norticeRecoveryUI.pausing = false;
-						m_pushKeyUI.pausing = false;
+						m_pushKeyUI.pausing = true;
 
 						//フリープレイ時オフ
 						if (m_modeState == ModeState.FREE_PLAY)
@@ -551,6 +551,12 @@ public class MainSceneStateHolder : MonoBehaviour
 							m_dirtyCounterUI.pausing = true;
 							m_washChainUI.pausing = true;
 							m_pauseSystems.pausing = true;
+							m_instructPuase.pausing = false;
+						}
+						// 通常時非表示
+						else
+						{
+							m_instructPuase.pausing = true;
 						}
 
 						m_pauseObjects.pausing = false;
@@ -583,7 +589,6 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_markerUI.pausing = false;
 						m_pinchFrame.pausing = false;
 
-						m_norticeRecoveryUI.pausing = false;
 						m_pushKeyUI.pausing = true;
 
 
@@ -602,6 +607,12 @@ public class MainSceneStateHolder : MonoBehaviour
 							m_dirtyCounterUI.pausing = true;
 							m_washChainUI.pausing = true;
 							m_pauseSystems.pausing = true;
+							m_instructPuase.pausing = false;
+						}
+						// 通常時
+						else
+						{
+							m_instructPuase.pausing = true;
 						}
 						break;
 					case MainState.PLAY:
@@ -615,15 +626,14 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
 						m_pinchFrame.pausing = false;
-
-						m_norticeRecoveryUI.pausing = false;
+						
 						m_pushKeyUI.pausing = true;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
 
 						m_pauseScreenUI.pausing = true;
 						m_dirtys.pausing = false;
-                        player.GetComponent<PlayerCharacterController>().isNotJump = true;
+						player.GetComponent<PlayerCharacterController>().isNotJump = true;
 						//フリープレイ時オフ
 						if (m_modeState == ModeState.FREE_PLAY)
 						{
@@ -631,6 +641,12 @@ public class MainSceneStateHolder : MonoBehaviour
 							m_dirtyCounterUI.pausing = true;
 							m_washChainUI.pausing = true;
 							m_pauseSystems.pausing = true;
+							m_instructPuase.pausing = false;
+						}
+						// 通常時
+						else
+						{
+							m_instructPuase.pausing = true;
 						}
 						break;
 					case MainState.PLAY_RECORD:
@@ -642,8 +658,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
 						m_pinchFrame.pausing = false;
-
-						m_norticeRecoveryUI.pausing = false;
+						
 						m_pushKeyUI.pausing = true;
 						
 						m_pauseObjects.pausing = false;
@@ -662,6 +677,12 @@ public class MainSceneStateHolder : MonoBehaviour
 							m_dirtyCounterUI.pausing = true;
 							m_washChainUI.pausing = true;
 							m_pauseSystems.pausing = true;
+							m_instructPuase.pausing = false;
+						}
+						// 通常時
+						else
+						{
+							m_instructPuase.pausing = true;
 						}
 						break;
 					case MainState.CHECK_TRANSITION:
@@ -673,8 +694,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_sayUI.pausing = false;
 						m_markerUI.pausing = false;
 						m_pinchFrame.pausing = false;
-
-						m_norticeRecoveryUI.pausing = false;
+						
 						m_pushKeyUI.pausing = true;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
@@ -692,6 +712,12 @@ public class MainSceneStateHolder : MonoBehaviour
 							m_dirtyCounterUI.pausing = true;
 							m_washChainUI.pausing = true;
 							m_pauseSystems.pausing = true;
+							m_instructPuase.pausing = false;
+						}
+						// 通常時
+						else
+						{
+							m_instructPuase.pausing = true;
 						}
 						break;
 					case MainState.END:
@@ -722,7 +748,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_markerUI.pausing = true;
 						m_pinchFrame.pausing = true;
 
-						m_norticeRecoveryUI.pausing = true;
+						m_instructPuase.pausing = true;
 						m_pushKeyUI.pausing = true;
 						
 						m_pauseObjects.pausing = true;
@@ -744,7 +770,7 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_markerUI.pausing = true;
 						m_pinchFrame.pausing = true;
 
-						m_norticeRecoveryUI.pausing = true;
+						m_instructPuase.pausing = true;
 						m_pushKeyUI.pausing = true;
 
 						m_pauseObjects.pausing = true;
@@ -779,7 +805,7 @@ public class MainSceneStateHolder : MonoBehaviour
 					m_markerUI.pausing = true;
 					m_pinchFrame.pausing = true;
 
-					m_norticeRecoveryUI.pausing = true;
+					m_instructPuase.pausing = true;
 					m_pushKeyUI.pausing = true;
 					m_pauseObjects.pausing = true;
 				}
