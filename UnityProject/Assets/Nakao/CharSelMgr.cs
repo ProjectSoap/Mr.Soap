@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,8 +26,12 @@ public class CharSelMgr : MonoBehaviour {
 
     [SerializeField]
     SaveDataManager save;
-    
-    
+
+    [SerializeField]
+    List<NoOpenCharcter> selifu;
+
+    [SerializeField]
+    Text name;
 
 	[SerializeField]
 	SelectPlayMode m_playMode;
@@ -75,11 +80,25 @@ public class CharSelMgr : MonoBehaviour {
                             //表示切替
                             charUI.ChangePause();
                             BGMManager.Instance.PlaySE("Character_Decision");
-                            
+                            selifu[0].Sleep();
+                            selifu[1].Sleep();
                         }
                         else
                         {
                             BGMManager.Instance.PlaySE("Not_Character_Decision");
+                            switch(soap.GetCharNo())
+                            {
+                                case 1:
+                                    selifu[0].Active();
+                                    selifu[1].Sleep();
+                                    break;
+                                case 2:
+                                    selifu[1].Active();
+                                    selifu[0].Sleep();
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                         break;
                     }
@@ -129,6 +148,38 @@ public class CharSelMgr : MonoBehaviour {
                 state = Charselect.SELECT;
                 charUI.ChangePause();
             }
+        }
+
+        switch (soap.GetCharNo())
+        {
+            case 0:
+                name.text = "せっけんくん";
+                name.color = new Color(0.0f,0.8f,1.0f);
+                break;
+            case 1:
+                if(soaps[0].active)
+                {
+                    name.text = "せっけんヒーロー";
+                    name.color = new Color(1.0f,0.6f,0.0f);
+                }
+                else
+                {
+                    name.text = "";
+                }
+                break;
+            case 2:
+                if (soaps[2].active)
+                {
+                    name.text = "せっけんちゃん";
+                    name.color = new Color(1.0f, 0.0f, 0.4f);
+                }
+                else
+                {
+                    name.text = "";
+                }
+                break;
+            default:
+                break;
         }
 	}
 

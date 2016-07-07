@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +10,9 @@ public class SelectCharacter : MonoBehaviour {
 
     [SerializeField]
     List<Sprite> Hatena;
+
+    [SerializeField]
+    List<Image> serifu;
 
     [SerializeField]
     List<Animator> soapsAnimation;

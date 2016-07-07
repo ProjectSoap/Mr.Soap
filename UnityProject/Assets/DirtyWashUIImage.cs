@@ -10,31 +10,22 @@ public class DirtyWashUIImage
 	enum EState
 	{
 		APPEARANCE,
-		MORPH,
-		MOVE,
-		VANISH
+		VANISH,
+		DESTROY
 	}
 
 	EState m_state;
 	float m_controlTime;
-	float m_morphTime = 0.3f;
-	float m_morphScale;
-	Vector3 m_endPosition;
-	[SerializeField]
-	float m_velocity = 1000f;
-	float m_offset = 50;
+	float m_appearanceTime = 1;
+	float m_vanishTime = 1;
 
-	Image m_dirtyImage;
-	Image m_circleImage;
+	Image m_image;
 
 	// Use this for initialization
 	void Start ()
 	{
-		m_endPosition = new Vector3(Screen.width,0);
-		m_circleImage = transform.FindChild("Circle").GetComponent<Image>();
-		m_dirtyImage = transform.FindChild("Dirty").GetComponent<Image>();
-		m_circleImage.rectTransform.localScale = new Vector3(0, 0, 0);
-		m_morphScale = 1.0f / m_morphTime;
+		m_image = GetComponent<Image>();
+		m_image.material.SetColor("Tint",new Color(1,1,1,0));
 	}
 	
 	void UpdateState()
@@ -42,43 +33,27 @@ public class DirtyWashUIImage
 		switch(m_state)
 		{
 			case EState.APPEARANCE:
-				if (m_controlTime > m_morphTime)
+				if (m_appearanceTime < m_controlTime)
 				{
-					StateExitProcesss();
-					m_state = EState.MORPH;
 					StateEnterProcesss();
-				}
-				break;
-			case EState.MORPH:
-				if (m_controlTime > m_morphTime)
-				{
-					StateExitProcesss();
-					m_state = EState.MOVE;
-					StateEnterProcesss();
-				}
-				break;
-			case EState.MOVE:
-				if (
-					m_endPosition.x - m_offset < transform.position.x
-					&&
-					 transform.position.x < m_endPosition.x + m_offset
-					&&
-					m_endPosition.y - m_offset < transform.position.y
-					&&
-					 transform.position.y < m_endPosition.y + m_offset
-					)
-				{
-					StateExitProcesss();
 					m_state = EState.VANISH;
-					StateEnterProcesss();
+					StateExitProcesss();
 				}
+
 				break;
 			case EState.VANISH:
-				StateExitProcesss();
-				StateEnterProcesss();
+				if (m_appearanceTime < m_controlTime)
+				{
+					StateEnterProcesss();
+					m_state = EState.DESTROY;
+					StateExitProcesss();
+				}
+				break;
+			case EState.DESTROY:
 				break;
 			default:
 				break;
+
 		}
 	}
 
@@ -94,11 +69,9 @@ public class DirtyWashUIImage
 		{
 			case EState.APPEARANCE:
 				break;
-			case EState.MORPH:
-				break;
-			case EState.MOVE:
-				break;
 			case EState.VANISH:
+				break;
+			case EState.DESTROY:
 				break;
 			default:
 				break;
@@ -112,15 +85,10 @@ public class DirtyWashUIImage
 			case EState.APPEARANCE:
 				m_controlTime = 0;
 				break;
-			case EState.MORPH:
-				m_circleImage.rectTransform.localScale = new Vector3(1, 1);
-				m_dirtyImage.rectTransform.localScale = new Vector3(0,0);
-
+			case EState.VANISH:
 				m_controlTime = 0;
 				break;
-			case EState.MOVE:
-				break;
-			case EState.VANISH:
+			case EState.DESTROY:
 				break;
 			default:
 				break;
@@ -134,22 +102,11 @@ public class DirtyWashUIImage
 		{
 			case EState.APPEARANCE:
 				break;
-			case EState.MORPH:
-				m_circleImage.rectTransform.localScale += new Vector3( Time.deltaTime * m_morphScale, Time.deltaTime * m_morphScale);
-				m_dirtyImage.rectTransform.localScale -= new Vector3(Time.deltaTime * m_morphScale, Time.deltaTime * m_morphScale);
-
-				break;
-			case EState.MOVE:
-				
-				{
-					Vector3 direction = transform.position - m_endPosition;
-					direction = Vector3.Normalize(direction);
-					transform.position -= direction * m_velocity * Time.deltaTime;
-				}
-				break;
 			case EState.VANISH:
-				Destroy(gameObject);
 				
+				break;
+			case EState.DESTROY:
+				Destroy(gameObject);
 				break;
 			default:
 				break;

@@ -45,7 +45,7 @@ public class DirtyCounter : MonoBehaviour {
             {
                 rect.localPosition = new Vector3( centerPosition + rect.sizeDelta.x * 0.75f,rect.localPosition.y, rect.localPosition.z);
             }
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
         obj = transform.FindChild("Ten").gameObject;
         if (obj)
@@ -76,7 +76,7 @@ public class DirtyCounter : MonoBehaviour {
 
 
             temp /= 10;
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
         obj = transform.FindChild("Hundred").gameObject;
         if (obj)
@@ -103,7 +103,7 @@ public class DirtyCounter : MonoBehaviour {
             }
 
             temp /= 10;
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
         obj = transform.FindChild("Thousand").gameObject;
         if (obj)
@@ -126,7 +126,7 @@ public class DirtyCounter : MonoBehaviour {
             }
 
             temp /= 10;
-            obj.GetComponent<NumberSwitcher>().SetNumber(temp % 10);
+            obj.GetComponent<SpriteSwitcher>().SetNumber(temp % 10);
         }
     }
 }

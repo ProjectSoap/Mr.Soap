@@ -28,8 +28,6 @@ public class WashChain : MonoBehaviour {
         rotate_angle = 18.0f;
         now_rotation = new Quaternion(0,0,25,1);
         shine = GameObject.Find("Shine").GetComponent<Shine>();
-        SetLimit();
-        SetAgree();
 	}
 	
 	// Update is called once per frame
@@ -95,7 +93,7 @@ public class WashChain : MonoBehaviour {
             }
             else
             {
-                needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
+             //   needle.rectTransform.rotation = Quaternion.Lerp(now_rotation, before_rotation, (now_time / limit));
             }
         }
 	       //needle.rectTransform.rotation =
