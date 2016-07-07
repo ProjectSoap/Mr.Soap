@@ -2230,7 +2230,7 @@ MonoBehaviour:
   m_maxRotationNormal: 90
   m_maxRotationDrift: 270
   m_driftStartInputTime: .699999988
-  m_driftBobbleCooldownTime: .5
+  m_driftBobbleCooldownTime: 2
   m_driftCancelHorizontal: .0939999968
   m_breakeStartInputTime: .800000012
   m_breakePower: .899999976
@@ -6236,6 +6236,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_driftCancelHorizontal
       value: .0939999968
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_driftBobbleCooldownTime
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
