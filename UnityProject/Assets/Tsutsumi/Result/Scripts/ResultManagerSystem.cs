@@ -62,6 +62,8 @@ public class ResultManagerSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        canvasRankingName.gameObject.SetActive(false);
+
         rank = 0;
         pointDrawEndFlg = false;
         rankingDrawEndFlg = false;
