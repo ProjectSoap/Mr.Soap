@@ -21,11 +21,13 @@ public class DirtyWashEffect : TrackingObject {
 	 */
 
 	WashChain washChain;
+    Wash_Gauge washgauge;
 
 	// Use this for initialization
 	void Start () {
 
 		washChain = GameObject.Find("WashChain").GetComponent<WashChain>();
+        washgauge = GameObject.Find("WashGauge").GetComponent<Wash_Gauge>();
 	}
 
 
@@ -111,6 +113,7 @@ public class DirtyWashEffect : TrackingObject {
 		if (collisionObject.gameObject.layer == LayerMask.NameToLayer("Player") && m_state == State.TRACK)
 		{
 			washChain.GetWash();
+            washgauge.GetWash();
 			GameObject.Destroy(gameObject);
 		}
 	}
