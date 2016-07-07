@@ -49,12 +49,13 @@ public class WeatherSystem : MonoBehaviour {
         numWeather = 0;
         NowWeather = Weather.SUN;
 
+
         TSUTSUMISAN = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
         save = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
         nowWeathers = PlayerCharacterController.WeatherState.Sunny;
         LoadSave();
 
-
+        
         m_skybox = GameObject.Find("MainCamera").GetComponent<Skybox>();
 
       //  ChangeWeather();
