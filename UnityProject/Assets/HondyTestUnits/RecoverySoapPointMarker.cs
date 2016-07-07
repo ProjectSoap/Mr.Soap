@@ -304,7 +304,7 @@ public class RecoverySoapPointMarker : MonoBehaviour {
 			direction,
 			m_distance,
 			m_layerMask);
-		if (raycastHits.Length < 1)
+		if (raycastHits.Length > 1)
 		{
 			// 一個でもレイが衝突したら隠れてる
 			return true;
@@ -325,7 +325,14 @@ public class RecoverySoapPointMarker : MonoBehaviour {
 				}
 				break;
 			case EState.APPEARANCE:
-				if (m_numberOfEmission <= m_countOfEmission)
+				// 取得した
+				if (GetRecoverySoap)
+				{
+					ExitStateProcess();
+					m_mainState = EState.GET_RECOVERY_SOAP;
+					EnterStateProcess();
+				}
+				else if (m_numberOfEmission <= m_countOfEmission)
 				{
 					if (IsOutScreen(m_markPoint.transform.position) || IsHideObstacle(m_markPoint.transform.position, m_mainCamera.transform.position))
 					{
@@ -340,16 +347,16 @@ public class RecoverySoapPointMarker : MonoBehaviour {
 						EnterStateProcess();
 					}
 				}
-				// 取得した
-				if (GetRecoverySoap)
-				{
-					ExitStateProcess();
-					m_mainState = EState.GET_RECOVERY_SOAP;
-					EnterStateProcess();
-				}
 				break;
 			case EState.HIDE_BUILDING:
-				if (IsOutScreen(m_markPoint.transform.position) || IsHideObstacle(m_markPoint.transform.position, m_mainCamera.transform.position))
+				// 取得した
+				if (GetRecoverySoap)
+				{
+					ExitStateProcess();
+					m_mainState = EState.GET_RECOVERY_SOAP;
+					EnterStateProcess();
+				}
+				else if (IsOutScreen(m_markPoint.transform.position) || IsHideObstacle(m_markPoint.transform.position, m_mainCamera.transform.position))
 				{
 					ExitStateProcess();
 					m_mainState = EState.HIDE_BUILDING;
@@ -362,16 +369,17 @@ public class RecoverySoapPointMarker : MonoBehaviour {
 					EnterStateProcess();
 				}
 
-				// 取得した
-				if (GetRecoverySoap)
-				{
-					ExitStateProcess();
-					m_mainState = EState.GET_RECOVERY_SOAP;
-					EnterStateProcess();
-				}
 				break;
 			case EState.VISIBLE_MAIN_CAMERA:
-				if (IsOutScreen(m_markPoint.transform.position) || IsHideObstacle(m_markPoint.transform.position, m_mainCamera.transform.position))
+
+				// 取得した
+				if (GetRecoverySoap)
+				{
+					ExitStateProcess();
+					m_mainState = EState.GET_RECOVERY_SOAP;
+					EnterStateProcess();
+				}
+				else if (IsOutScreen(m_markPoint.transform.position) || IsHideObstacle(m_markPoint.transform.position, m_mainCamera.transform.position))
 				{
 					ExitStateProcess();
 					m_mainState = EState.HIDE_BUILDING;
@@ -383,14 +391,7 @@ public class RecoverySoapPointMarker : MonoBehaviour {
 					m_mainState = EState.VISIBLE_MAIN_CAMERA;   // メインカメラで見えるはず
 					EnterStateProcess();
 				}
-
-				// 取得した
-				if (GetRecoverySoap)
-				{
-					ExitStateProcess();
-					m_mainState = EState.GET_RECOVERY_SOAP;
-					EnterStateProcess();
-				}
+				
 				break;
 			case EState.GET_RECOVERY_SOAP:
 				ExitStateProcess();
