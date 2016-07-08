@@ -201,7 +201,7 @@ public class SaveDataManager : MonoBehaviour {
             if (upCount > 5.0f)
             {
                 //最大値セーブ
-                for (int i = 0; i < (int)ESaveDataNo.SAVE_DATA_NUM; ++i)
+                for (int i = 0; i < (int)ESaveDataNo.C1HideWash; ++i)
                 {
                     SaveData((ESaveDataNo)i, SaveDataMaxCount[i]);
                 }
