@@ -847,9 +847,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974640014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 550bd4984de2a1245b03b7889fd64a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  back: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  gura_color: {r: 0, g: 0, b: 0, a: 0}
+  speed: .100000001
 --- !u!23 &1974640017
 MeshRenderer:
   m_ObjectHideFlags: 0
