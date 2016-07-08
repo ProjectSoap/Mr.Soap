@@ -164,12 +164,12 @@ Material:
         second: 15
       data:
         first:
-          name: _MaskAlpha
-        second: 1.01442492
-      data:
-        first:
           name: _UseUIAlphaClip
         second: 0
+      data:
+        first:
+          name: _MaskAlpha
+        second: 1.01268673
     m_Colors:
       data:
         first:
