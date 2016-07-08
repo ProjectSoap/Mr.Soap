@@ -10,10 +10,7 @@ using System.Collections;
  *********************************************************/
 
 public class SaveDataManager : MonoBehaviour {
-
-    [SerializeField]
-    private bool DEBUG_saveDataDeleteSwitch = false;
-
+    
     private PlayerPrefs prefs;
 
     public enum ESaveDataNo{
@@ -132,7 +129,7 @@ public class SaveDataManager : MonoBehaviour {
         50,
         50,
         100,
-        50,
+        100,
         1,
 
         1,
@@ -163,11 +160,6 @@ public class SaveDataManager : MonoBehaviour {
 	void Start () {
         int _playCount = LoadData(ESaveDataNo.PlayCount);
 
-        //データ消去フラグが有効なら
-        if (DEBUG_saveDataDeleteSwitch == true)
-        {
-            Reset();
-        }
 
         //初回起動ならランキングを初期化
         if (_playCount <= 0)
@@ -197,10 +189,29 @@ public class SaveDataManager : MonoBehaviour {
             SaveData(ESaveDataStringNo.RankingName10, "ホエー");
         }
 	}
-	
+    private float upCount = 0.0f;
 	// Update is called once per frame
 	void Update () {
-	
+
+        if (Input.GetKey(KeyCode.UpArrow) == true)
+        {
+            upCount += Time.deltaTime;
+
+            //長押しされた
+            if (upCount > 5.0f)
+            {
+                //最大値セーブ
+                for (int i = 0; i < (int)ESaveDataNo.SAVE_DATA_NUM; ++i)
+                {
+                    SaveData((ESaveDataNo)i, SaveDataMaxCount[i]);
+                }
+                upCount = 0.0f;
+            }
+        }
+        else
+        {
+            upCount = 0.0f;
+        }
 	}
 
     //セーブデータ読み込み。-1が帰ってきたら失敗。引数は呼び出しデータの種類

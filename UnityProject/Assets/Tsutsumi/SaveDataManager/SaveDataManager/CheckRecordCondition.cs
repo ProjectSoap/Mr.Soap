@@ -67,10 +67,7 @@ public class CheckRecordCondition : MonoBehaviour {
     //=============================メンバ変数定義=============================
     //セーブデータマネージャを外部からセットしてください。
     public SaveDataManager saveDataCon;
-
-    [SerializeField]
-    private bool DEBUG_allClearSwitch = false;
-
+    
     private const int RECORD_NUM = 30;      //複製数
     private SCondition[] sConditionList;    //実績の条件をデータ化したもの
 
@@ -152,11 +149,6 @@ public class CheckRecordCondition : MonoBehaviour {
             data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C3WashCount);
             data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C4WashCount);
         }
-        //debug
-        if (DEBUG_allClearSwitch == true)
-        {
-            return true;
-        }
 
         //クリア判定
         if (data >= sConditionList[recordNo].conditionClearCount)
@@ -175,12 +167,6 @@ public class CheckRecordCondition : MonoBehaviour {
         if (recordNo < 0 || recordNo >= RECORD_NUM)
         {
             return false;
-        }
-
-        //debug
-        if (DEBUG_allClearSwitch == true)
-        {
-            return true;
         }
 
         //クリア判定
