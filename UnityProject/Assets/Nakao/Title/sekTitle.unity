@@ -97,6 +97,7 @@ GameObject:
   - 92: {fileID: 20292392}
   - 124: {fileID: 20292391}
   - 81: {fileID: 20292390}
+  - 45: {fileID: 20292395}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -171,6 +172,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!45 &20292395
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20292389}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: b2ca99e4a1cb6fd4bbe962fe7ac08ed1, type: 2}
 --- !u!1 &55547849
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Jumpflag: 0
   JumpSceneName: 
+  m_triggerTime: 10
   timer: 0
   ButtonWaitTime: .5
 --- !u!4 &55547851
@@ -224,7 +234,9 @@ GameObject:
   - 224: {fileID: 491076521}
   - 222: {fileID: 491076520}
   - 114: {fileID: 491076519}
-  m_Layer: 5
+  - 50: {fileID: 491076523}
+  - 231: {fileID: 491076522}
+  m_Layer: 9
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,9 +292,40 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 110}
+  m_AnchoredPosition: {x: 0, y: 570}
   m_SizeDelta: {x: 550, y: 150}
   m_Pivot: {x: .5, y: .5}
+--- !u!231 &491076522
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 491076518}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 330, y: 270}
+  m_Distance: 1
+  m_DampingRatio: 0
+  m_Frequency: 3
+--- !u!50 &491076523
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 491076518}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &719919276
 Prefab:
   m_ObjectHideFlags: 0
