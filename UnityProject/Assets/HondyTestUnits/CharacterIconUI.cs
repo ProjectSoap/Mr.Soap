@@ -6,6 +6,9 @@ public class CharacterIconUI : MonoBehaviour {
 	
 	PlayerCharacterController player;
 	SpriteSwitcher switcher;
+	Sprite[] m_helthSpriteArray;
+	Sprite[] m_stateSpriteArray;
+
 	Image iconOverFrame;
 	public int m_characterNum;
 	public int m_characterMax = 3;
@@ -79,7 +82,6 @@ public class CharacterIconUI : MonoBehaviour {
 		UpdateCharacterState();
 		HealthStateProcess();
 		CharacterStateProcess();
-
 	}
 
 	void UpdateCharacterState()

@@ -206,14 +206,27 @@ public class ResultRankingNameSystem : MonoBehaviour {
                 break;
 
             case ResultHiraganaData.EHiraganaType.TYPE_END:
-                InputString.text = InputString.text.Replace("＿", "");
-                SaveName();
-                //SE
-                if (BGMManager.Instance != null)
+                //テキスト入力終了(１文字以上ある場合)
+                if (textLength > 0)
                 {
-                    BGMManager.Instance.PlaySE("Cursor_Decision");
+                    InputString.text = InputString.text.Replace("＿", "");
+                    SaveName();
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Cursor_Decision");
+                    }
+                    return true;
                 }
-                return true;
+                else
+                {
+                    //SE
+                    if (BGMManager.Instance != null)
+                    {
+                        BGMManager.Instance.PlaySE("Cursor_Cancel");
+                    }
+                }
+                break;
             }
         }
 
