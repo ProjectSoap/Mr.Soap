@@ -158,6 +158,7 @@ public class Wash_Gauge : MonoBehaviour
                 
                 // shine.StartLight();
             }
+            BGMManager.Instance.PlaySE("Wash_Out", 1.0f + (now_Amount / limitAmount) * 0.2f);
             gauge_gaintime = 0.0f;
             SetLimit();
             SetAgree();
