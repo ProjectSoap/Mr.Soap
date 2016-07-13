@@ -20,6 +20,7 @@ using System.Collections;
 
 public class DirtySystem : MonoBehaviour
 {
+
 	/**
 	 * <summary>稼働してるか.</summary>
 	 */
