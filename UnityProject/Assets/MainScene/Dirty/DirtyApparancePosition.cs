@@ -10,6 +10,9 @@ public class DirtyApparancePosition : MonoBehaviour {
 		LINE
 	}
 
+
+	public AnimationCurve test;
+
 	public AppearanceType m_type;
 
 	[SerializeField]
