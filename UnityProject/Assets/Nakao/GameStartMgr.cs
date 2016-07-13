@@ -7,28 +7,28 @@ public class GameStartMgr : MonoBehaviour {
     GameObject BGMManager;
     public string nextSceneName = "sekTitle";
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-		Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60;
 
         
-	}
+    }
 
     void Awake ()
     {
         StartCoroutine(Load());
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    // Update is called once per frame
+    void Update () {
        
         DontDestroyOnLoad(BGMManager);
         if(resReq.isDone)
         {
             Application.LoadLevel(nextSceneName);
         }
-	}
+    }
 
     public IEnumerator Load()
     {
