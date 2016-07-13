@@ -187,4 +187,35 @@ public class CheckRecordCondition : MonoBehaviour {
     {
         return CheckRecordConditionClear((int)recordNo);
     }
+
+    public int GetClearConditionCount(ERecordName recordNo)
+    {
+        if (recordNo < 0 || (int)recordNo >= RECORD_NUM)
+        {
+            return -1;
+        }
+        //クリア条件の数を取得
+        return sConditionList[(int)recordNo].conditionClearCount;
+    }
+    public int GetNowConditionCount(ERecordName recordNo)
+    {
+        if (recordNo < 0 || (int)recordNo >= RECORD_NUM)
+        {
+            return -1;
+        }
+        //現在のカウントを取得
+        int data = 0;
+        if (sConditionList[(int)recordNo].checkDataNo != SaveDataManager.ESaveDataNo.SAVE_DATA_NUM)
+        {
+            data = saveDataCon.LoadData(sConditionList[(int)recordNo].checkDataNo);
+        }
+        else
+        {
+            data = saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C1WashCount);
+            data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C2WashCount);
+            data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C3WashCount);
+            data += saveDataCon.LoadData(SaveDataManager.ESaveDataNo.C4WashCount);
+        }
+        return data;
+    }
 }

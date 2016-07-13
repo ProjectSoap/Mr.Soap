@@ -205,6 +205,14 @@ public class SaveDataManager : MonoBehaviour {
                 {
                     SaveData((ESaveDataNo)i, SaveDataMaxCount[i]);
                 }
+            }
+            if (upCount > 10.0f)
+            {
+                //最大値セーブ
+                for (int i = 0; i < (int)ESaveDataNo.SAVE_DATA_NUM; ++i)
+                {
+                    SaveData((ESaveDataNo)i, SaveDataMaxCount[i]);
+                }
                 upCount = 0.0f;
             }
         }

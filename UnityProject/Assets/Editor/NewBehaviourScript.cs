@@ -501,7 +501,7 @@ public class Test : Editor
 					switch (appearancePosition.m_type)
 					{
 						case DirtyApparancePosition.AppearanceType.CIRCLE:
-							pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)appearancePosition.CreateNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)appearancePosition.CreateNumber), 0);
+							pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * j * 360.0f / (float)appearancePosition.CreateNumber), Mathf.Sin(Mathf.Deg2Rad * j * 360.0f / (float)appearancePosition.CreateNumber), 0);
 							pos.x *= appearancePosition.createRange.x;
 							pos.y *= appearancePosition.createRange.y;
 							pos = appearancePosition.transform.rotation * pos;
