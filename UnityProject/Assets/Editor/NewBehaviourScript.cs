@@ -435,4 +435,75 @@ public class Test : Editor
 			}
 		}
 	}
+
+
+	[DrawGizmo(GizmoType.NonSelected | GizmoType.Active)]
+	static void DrawCreaterGizmos(DirtyCreater example, GizmoType gizmoType)
+	{
+		var transform = example.transform;
+		Gizmos.color = new Color32(145, 244, 139, 210);
+
+		//GizmoType.Active の時は赤色にする
+		if ((gizmoType & GizmoType.Active) == GizmoType.Active)
+			Gizmos.color = Color.red;
+
+		Gizmos.DrawWireCube(transform.position, transform.lossyScale);
+
+		for (int i = 0; i < example.appearancePoints.Length; i++)
+		{
+
+			var appearanceTransform = example.appearancePoints[i].transform;
+			DirtyApparancePosition appearancePosition = example.appearancePoints[i].GetComponent<DirtyApparancePosition>();
+			Gizmos.color = new Color32(145, 244, 139, 210);
+
+			//GizmoType.Active の時は赤色にする
+			if ((gizmoType & GizmoType.Active) == GizmoType.Active)
+				Gizmos.color = Color.red;
+
+			Gizmos.DrawWireCube(appearanceTransform.position, appearanceTransform.lossyScale * 0.5f);
+
+			switch (i)
+			{
+				case 0:
+					Gizmos.color = Color.cyan;
+					break;
+				case 1:
+					Gizmos.color = Color.magenta;
+					break;
+				case 2:
+					Gizmos.color = Color.yellow;
+					break;
+				case 3:
+					Gizmos.color = Color.blue;
+					break;
+			}
+
+
+			for (int j = 0; j < appearancePosition.CreateNumber; j++)
+			{
+				Vector3 pos = new Vector3();
+				switch (appearancePosition.m_type)
+				{
+					case DirtyApparancePosition.AppearanceType.CIRCLE:
+						pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)appearancePosition.CreateNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)appearancePosition.CreateNumber), 0);
+						pos.x *= appearancePosition.createRange.x;
+						pos.y *= appearancePosition.createRange.y;
+						pos = appearancePosition.transform.rotation * pos;
+						break;
+					case DirtyApparancePosition.AppearanceType.LINE:
+						pos = new Vector3(0, 0, 0);
+						pos.y = appearancePosition.createRange.y*j;
+						pos = appearancePosition.transform.rotation * pos;
+						break;
+					default:
+						break;
+				}
+
+				Gizmos.DrawSphere(appearancePosition.transform.position + pos, 0.5f * appearancePosition.dirtyObject.transform.localScale.x);
+
+			}
+		}
+
+	}
+
 }

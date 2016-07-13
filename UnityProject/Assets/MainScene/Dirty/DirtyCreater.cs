@@ -10,10 +10,10 @@ public class DirtyCreater : MonoBehaviour {
 		set { parntDirtySystem = value; }
 	}
 	[SerializeField,Header("出現場所(DirtyAppearancePoint)の管理配列")]
-	GameObject[] appearancePoints;   // 出現位置管理
+	public GameObject[] appearancePoints;   // 出現位置管理
 	DirtyWashUI m_dirtyWashUI;
 	WashChain m_washChainUI;
-    Wash_Gauge m_washGaugeUI;
+	Wash_Gauge m_washGaugeUI;
 	bool isMyDityDestroy;  // 消されたかどうか
 
 	bool isRangeOut;   // マップ範囲外であるか
@@ -65,10 +65,10 @@ public class DirtyCreater : MonoBehaviour {
 			m_washChainUI = GameObject.Find("WashChain").GetComponent<WashChain>();
 		}
 
-        if (GameObject.Find("WashGauge"))
-        {
-            m_washGaugeUI = GameObject.Find("WashGauge").GetComponent<Wash_Gauge>();
-        }
+		if (GameObject.Find("WashGauge"))
+		{
+			m_washGaugeUI = GameObject.Find("WashGauge").GetComponent<Wash_Gauge>();
+		}
 
 		if (GameObject.Find("DirtyWashUI"))
 		{
@@ -111,25 +111,25 @@ public class DirtyCreater : MonoBehaviour {
 		m_player = player;
 		for (int i = 0; i < appearancePoints.Length; i++)
 		{
-            if (appearancePoints[i])
-            {
-                if (IsReality)
-                {
-                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
-                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
-                }
-                else
-                {
-                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
-                    appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
-                }
-                appearancePoints[i].GetComponent<DirtyApparancePosition>().affiliationArea = affiliationArea;
+			if (appearancePoints[i])
+			{
+				if (IsReality)
+				{
+					appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = true;
+					appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
+				}
+				else
+				{
+					appearancePoints[i].GetComponent<DirtyApparancePosition>().Reality = false;
+					appearancePoints[i].GetComponent<DirtyApparancePosition>().Player = m_player;
+				}
+				appearancePoints[i].GetComponent<DirtyApparancePosition>().affiliationArea = affiliationArea;
 
-            }
-            else
-            {
-                Debug.Log(appearancePoints[i] + " = null");
-            }
+			}
+			else
+			{
+				Debug.Log(appearancePoints[i] + " = null");
+			}
 		}
 	} 
 	public void NoticeDestroy(DirtyObjectScript dirty)
@@ -142,10 +142,10 @@ public class DirtyCreater : MonoBehaviour {
 		{
 			m_washChainUI.GetWash();
 		}
-        if(m_washGaugeUI)
-        {
-            m_washGaugeUI.GetWash();
-        }
+		if(m_washGaugeUI)
+		{
+			m_washGaugeUI.GetWash();
+		}
 
 		ParntDirtySystem.NoticeDestroyToSystem(this);
 		isMyDityDestroy = true;
