@@ -20,6 +20,8 @@ using System.Collections;
 
 public class DirtySystem : MonoBehaviour
 {
+	public static bool m_isDrawGizmo; 
+
 	/**
 	 * <summary>稼働してるか.</summary>
 	 */
