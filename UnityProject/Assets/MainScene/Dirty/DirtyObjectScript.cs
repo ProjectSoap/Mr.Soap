@@ -122,7 +122,7 @@ public class DirtyObjectScript : MonoBehaviour
 			{
 				myPoint.NoticeDestroy(this);
 				isDestory = true;
-				BGMManager.Instance.PlaySE("Wash_Out");
+				//BGMManager.Instance.PlaySE("Wash_Out");
 			}
 		}
 	}

@@ -39,6 +39,7 @@ public class TitleMgr : MonoBehaviour {
         {
             //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
             //fade.ChangeScene("menu");
+            BGMManager.Instance.PlaySE("Title_Start");
             Fade.ChangeScene("Menu");
         }
         // デバッグ
