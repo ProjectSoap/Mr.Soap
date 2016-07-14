@@ -33,6 +33,9 @@ public class CharSelMgr : MonoBehaviour {
     [SerializeField]
     Text name;
 
+    [SerializeField]
+    Text status;
+
 	[SerializeField]
 	SelectPlayMode m_playMode;
 	// Use this for initialization
@@ -157,7 +160,8 @@ public class CharSelMgr : MonoBehaviour {
         {
             case 0:
                 name.text = "せっけんくん";
-                name.color = new Color(0.0f,0.8f,1.0f);
+                status.text = "せっけんくんは\nのうりょくが\nへいきんてきな\nキャラクターだ";
+                name.color = status.color =  new Color(0.0f,0.8f,1.0f);
                 selifu[0].Sleep();
                 selifu[1].Sleep();
                 break;
@@ -165,22 +169,25 @@ public class CharSelMgr : MonoBehaviour {
                 if(soaps[0].active)
                 {
                     name.text = "せっけんヒーロー";
-                    name.color = new Color(1.0f,0.6f,0.0f);
+                    status.text = "せっけんヒーローはスピードが\nはやいので\nテクニックがひつようだ！";
+                    
+                    name.color = status.color = new Color(1.0f, 0.6f, 0.0f);
                 }
                 else
                 {
-                    name.text = "";
+                    name.text = status.text = "";
                 }
                 break;
             case 2:
                 if (soaps[2].active)
                 {
                     name.text = "せっけんちゃん";
-                    name.color = new Color(1.0f, 0.0f, 0.4f);
+                    status.text = "せっけんちゃんは\nかいふくりょくがたかいが\nうけるダメージがおおきいぞ";
+                    name.color = status.color = new Color(1.0f, 0.0f, 0.4f);
                 }
                 else
                 {
-                    name.text = "";
+                    name.text = status.text = "";
                 }
                 break;
             default:
