@@ -23,6 +23,12 @@ public class RecordClearCount : MonoBehaviour {
     {
         int clearCount = checkRecord.GetClearConditionCount((CheckRecordCondition.ERecordName)no);
         int nowCount = checkRecord.GetNowConditionCount((CheckRecordCondition.ERecordName)no);
+        
+        //クリア値以上の値を表示しないように丸め込む。
+        if (nowCount > clearCount)
+        {
+            nowCount = clearCount;
+        }
         thisText.text = nowCount.ToString() + "/" + clearCount.ToString();
     }
 }
