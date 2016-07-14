@@ -509,6 +509,11 @@ public class Test : Editor
 						case DirtyApparancePosition.AppearanceType.LINE:
 							pos = new Vector3(0, 0, 0);
 							pos.y = appearancePosition.createRange.y * j;
+							pos = transform.rotation * pos;
+							break;
+						case DirtyApparancePosition.AppearanceType.CURVE:
+							pos = new Vector3(appearancePosition.m_curveX.Evaluate(1.0f / (appearancePosition.createNumber - 1) * j) * appearancePosition.createRange.x, 0, 0);
+							pos.y = appearancePosition.m_curveY.Evaluate(1.0f / (appearancePosition.createNumber - 1) * j) * appearancePosition.createRange.y;
 							pos = appearancePosition.transform.rotation * pos;
 							break;
 						default:

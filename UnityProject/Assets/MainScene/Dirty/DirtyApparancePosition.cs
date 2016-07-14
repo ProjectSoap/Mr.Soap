@@ -7,11 +7,13 @@ public class DirtyApparancePosition : MonoBehaviour {
 	public enum AppearanceType 
 	{
 		CIRCLE,
-		LINE
+		LINE,
+		CURVE
 	}
 
 
-	public AnimationCurve test;
+	public AnimationCurve m_curveX;
+	public AnimationCurve m_curveY;
 
 	public AppearanceType m_type;
 
@@ -124,6 +126,11 @@ public class DirtyApparancePosition : MonoBehaviour {
 					case AppearanceType.LINE:
 						pos = new Vector3(0, 0, 0);
 						pos.y = createRange.y * i;
+						pos = transform.rotation * pos;
+						break;
+					case DirtyApparancePosition.AppearanceType.CURVE:
+						pos = new Vector3(m_curveX.Evaluate(1.0f / (createNumber - 1) * i) * createRange.x, 0, 0);
+						pos.y = m_curveY.Evaluate(1.0f / (createNumber - 1) *i) * createRange.y;
 						pos = transform.rotation * pos;
 						break;
 					default:
