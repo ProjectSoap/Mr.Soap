@@ -7,10 +7,12 @@ public class DirtyWashUI
 {
 	DirtyWashUIImage[] m_imageArray;
 	Camera m_mainCamera;
+	PlayerCharacterController m_player;
 	int m_layerMask;
 	[SerializeField]
 	GameObject m_imageSample;
 	Image m_image;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -19,6 +21,8 @@ public class DirtyWashUI
 		{
 			m_image = m_imageSample.GetComponent<Image>();
 		}
+
+		m_player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 	}
 
 	// Update is called once per frame
@@ -29,7 +33,7 @@ public class DirtyWashUI
 
 	public void NorticeDirtyWash(DirtyObjectScript dirty)
 	{
-		if (IsOutScreen(dirty.transform.position))
+		//if (IsOutScreen(dirty.transform.position))
 		{
 			Vector3 screenPosition = TransVewportPosition(dirty.transform.position);
 			float x = Random.Range(0.0f, 2.0f);
@@ -121,6 +125,74 @@ public class DirtyWashUI
 			else if (rate.x > 1)
 			{
 				rate.x = 1;
+			}
+		}
+		Vector3 tempRate = rate;
+		if (0 < rate.x && rate.x < 1)
+		{
+			if (0 < rate.y && rate.y < 1)
+			{
+				// 方向ベクトルをとる
+				Vector3 pos =  new Vector3(m_player.transform.position.x, 0, m_player.transform.position.z) - new Vector3(worldPosition.x, 0, worldPosition.z);
+				pos = Vector3.Normalize(pos);
+				// キャラ前方基準に設定
+				Vector3 tempPos = m_player.transform.rotation * pos;
+				// ビューポート用に変換
+				tempRate = new Vector3((tempPos.x + 1.0f) / 2.0f, (tempPos.z + 1.0f)/2.0f);
+				
+
+				float deffZeroX = tempRate.x;
+				float deffOneX = tempRate.x - 1.0f;
+				float deffZeroY = tempRate.y;
+				float deffOneY = tempRate.y - 1.0f;
+
+				float[] deff = new float[4] { deffZeroX, deffOneX, deffZeroY, deffOneY};
+				float minDeff = deff[0];
+
+				for (int i = 0; i < 3; i++)
+				{
+					if (minDeff < deff[i + 1]) { }
+				}
+
+				// xyどちらが01に近いか比較
+				// xが01に近い
+				if (Mathf.Abs(deffZeroX) < Mathf.Abs(deffZeroY) || Mathf.Abs(deffOneX) < Mathf.Abs(deffOneY))
+				{
+					// rate.xは0のほうが近い
+					if (tempRate.x < 0.5)
+					{
+						float ratio = 1 / tempRate.x;
+						tempRate.x *= ratio;
+						rate.x = tempRate.x - 1;
+					}
+					// rate.xは1のほうが近い
+					else
+					{
+
+						float ratio = 1 / tempRate.x;
+						tempRate.x *= ratio;
+						rate.x = tempRate.x ;
+					}
+				}
+				// yが01に近い
+				else
+				{
+					// rate.xは0のほうが近い
+					if (tempRate.y < 0.5)
+					{
+
+						float ratio = 1 / tempRate.y;
+						tempRate.y *= ratio;
+						rate.y = tempRate.y - 1;
+					}
+					// rate.xは1のほうが近い
+					else
+					{
+						float ratio = 1 / tempRate.y;
+						tempRate.y *= ratio;
+						rate.y = tempRate.y;
+					}
+				}
 			}
 		}
 

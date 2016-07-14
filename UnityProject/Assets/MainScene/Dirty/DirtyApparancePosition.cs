@@ -3,14 +3,26 @@ using System.Collections;
 
 public class DirtyApparancePosition : MonoBehaviour {
 
+
+	public enum AppearanceType 
+	{
+		CIRCLE,
+		LINE
+	}
+
+
+	public AnimationCurve test;
+
+	public AppearanceType m_type;
+
 	[SerializeField]
-	GameObject dirtyObject;   // 汚れオブジェクト
+	public GameObject dirtyObject;   // 汚れオブジェクト
 
 	[SerializeField,Header("広範囲の汚れが広がる半径")]
-	Vector2 createRange; // 生成範囲
+	public Vector2 createRange; // 生成範囲
 
 	[SerializeField, Header("生成される個数"),Tooltip("複数個に設定すると広範囲の汚れとして円形に展開されます")]
-	uint createNumber; // 生成個数
+	public uint createNumber; // 生成個数
 
 
 	DirtyCreater myCreater;   // 管理用
@@ -100,10 +112,23 @@ public class DirtyApparancePosition : MonoBehaviour {
 		{
 			for (int i = 0; i < CreateNumber; i++)
 			{
-				Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)CreateNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)CreateNumber), 0);
-				pos.x *= createRange.x;
-				pos.y *= createRange.y;
-				pos = transform.rotation * pos;
+				Vector3  pos = new Vector3();
+				switch (m_type)
+				{
+					case AppearanceType.CIRCLE:
+						pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i * 360.0f / (float)CreateNumber), Mathf.Sin(Mathf.Deg2Rad * i * 360.0f / (float)CreateNumber), 0);
+						pos.x *= createRange.x;
+						pos.y *= createRange.y;
+						pos = transform.rotation * pos;
+						break;
+					case AppearanceType.LINE:
+						pos = new Vector3(0, 0, 0);
+						pos.y = createRange.y * i;
+						pos = transform.rotation * pos;
+						break;
+					default:
+						break;
+				}
 
 				// 消されたオブジェクトは新たに作る
 				if (dirtyObjectInstance[i] == null)

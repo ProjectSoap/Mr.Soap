@@ -2396,10 +2396,10 @@ MonoBehaviour:
   m_maxVelocity: 7
   m_acceleration: 2.5
   m_rotationDecrementionRate: .899999976
-  m_rotationPowerNormal: 180
-  m_rotationPowerDrift: 360
+  m_rotationPowerNormal: 160
+  m_rotationPowerDrift: 300
   m_maxRotationNormal: 90
-  m_maxRotationDrift: 270
+  m_maxRotationDrift: 200
   m_driftStartInputTime: .600000024
   m_driftBobbleCooldownTime: .5
   m_driftCancelHorizontal: 0
@@ -6293,7 +6293,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_maxRotationDrift
-      value: 270
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_driftStartInputTime
@@ -6378,6 +6378,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_rotationPowerNormal
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_rotationPowerDrift
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

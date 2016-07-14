@@ -38,7 +38,8 @@ public class CharacterIconUI : MonoBehaviour {
 		DAMAGE,
 		HEAL,
 		WASH_CHAIN,
-		DEAD
+		DEAD,
+		STATE_MAX
 	}
 
 	// キャラの状態その2 基本こっち
@@ -46,8 +47,8 @@ public class CharacterIconUI : MonoBehaviour {
 	{
 		COMPLETE_RECOVERY,	// だいたい全快
 		MINOR_INJURY,		// 軽傷
-		SERIOUS_INJURY		// 重傷
-
+		SERIOUS_INJURY,		// 重傷
+		STATE_MAX
 	}
 
 	ECharacterState m_characterState;
