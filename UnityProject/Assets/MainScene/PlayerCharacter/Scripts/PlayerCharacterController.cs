@@ -398,7 +398,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            Reset();
+            //Reset();
         }
 
         v = m_rigidbody.velocity;
