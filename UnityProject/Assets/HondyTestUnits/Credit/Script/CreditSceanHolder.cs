@@ -24,8 +24,8 @@ public class CreditSceanHolder : MonoBehaviour
 		else
 		{
 
-			if (Input.GetKey(KeyCode.Space))
-			{
+            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Joystick1Button0))
+            {
 				Time.timeScale = 3.0f;
 			}
 			else
