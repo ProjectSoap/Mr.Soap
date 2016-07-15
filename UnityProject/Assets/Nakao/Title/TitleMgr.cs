@@ -56,22 +56,22 @@ public class TitleMgr : MonoBehaviour {
             timer += Time.deltaTime;
         }
 
-        // セーブリセット
-        if (Input.GetKey(KeyCode.F12))
-        {
-            m_triggerTime -= Time.deltaTime;
-        }
-        else 
-        {
-            m_triggerTime = 10;
-        }
-        if (m_triggerTime <= 0)
-        {
-            SaveDataManager manager = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
-            manager.Reset();
-            Debug.Log("Save data reset!");
-        }
-
+        //// セーブリセット
+        //if (Input.GetKey(KeyCode.F12))
+        //{
+        //    m_triggerTime -= Time.deltaTime;
+        //}
+        //else 
+        //{
+        //    m_triggerTime = 10;
+        //}
+        //if (m_triggerTime <= 0)
+        //{
+        //    SaveDataManager manager = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
+        //    manager.Reset();
+        //    Debug.Log("Save data reset!");
+        //}
+        //
     }
 
     void UpdateInput()
