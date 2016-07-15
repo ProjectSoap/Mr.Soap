@@ -21,6 +21,8 @@ public class PlayRecordSystem : MonoBehaviour {
     public RecordNameSprite RecordName;
     public RecordNameSprite RecordConditionName;
     public Image ClearTextImage;
+    public RecordClearSitara ClearSitara;
+    public RecordClearCount ClearCount;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,11 @@ public class PlayRecordSystem : MonoBehaviour {
         selectLecordNo = 0;
         //ChangeRecord(SelectPointer.EMoveMode.NORMAL);
         firstFlg = true;
+
+        //戻るボタンで戻るもしくは達成したときの報酬表示
+        ClearSitara.ChangeClearSitara(selectLecordNo);
+        //達成率表示
+        ClearCount.TextUpdate(selectLecordNo);
 	}
 	
 	// Update is called once per frame
@@ -100,6 +107,10 @@ public class PlayRecordSystem : MonoBehaviour {
 
         //テキスト情報修正
         RecordConditionName.SetImageSprite(selectLecordNo);
+        //開放報酬切り替え
+        ClearSitara.ChangeClearSitara(selectLecordNo);
+        //達成率表示
+        ClearCount.TextUpdate(selectLecordNo);
 
         //獲得済み表示のオンオフ
         if (recordList.GetStatusLevel(selectLecordNo) == 0)
