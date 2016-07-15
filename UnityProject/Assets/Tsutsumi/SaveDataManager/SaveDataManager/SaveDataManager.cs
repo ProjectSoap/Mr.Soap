@@ -192,7 +192,7 @@ public class SaveDataManager : MonoBehaviour {
     private float upCount = 0.0f;
 	// Update is called once per frame
 	void Update () {
-
+        /*
         if (Input.GetKey(KeyCode.UpArrow) == true)
         {
             upCount += Time.deltaTime;
@@ -220,6 +220,7 @@ public class SaveDataManager : MonoBehaviour {
         {
             upCount = 0.0f;
         }
+        */
 	}
 
     //セーブデータ読み込み。-1が帰ってきたら失敗。引数は呼び出しデータの種類
