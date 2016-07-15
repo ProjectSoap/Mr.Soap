@@ -690,7 +690,7 @@ ModelImporter:
       name: joy2
       takeName: joy2
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 42
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
