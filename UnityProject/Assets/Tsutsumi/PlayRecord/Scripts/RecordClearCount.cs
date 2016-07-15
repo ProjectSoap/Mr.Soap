@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class RecordClearCount : MonoBehaviour {
 
     [SerializeField]
     private CheckRecordCondition checkRecord;
+
+    [SerializeField]
+    private List<bool> nonDrawFlg;
 
     private Text thisText;
 
@@ -30,5 +34,13 @@ public class RecordClearCount : MonoBehaviour {
             nowCount = clearCount;
         }
         thisText.text = nowCount.ToString() + "/" + clearCount.ToString();
+
+        if (no >= 0 && no < nonDrawFlg.Count)
+        {
+            if (nonDrawFlg[no] == true)
+            {
+                thisText.text = "";
+            }
+        }
     }
 }
