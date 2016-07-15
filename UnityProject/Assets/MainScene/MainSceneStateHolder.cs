@@ -253,6 +253,7 @@ public class MainSceneStateHolder : MonoBehaviour
 
 
 	public PauseObject m_dirtys;
+	public PauseObject m_dirtySystem;
 
 
 	public PauseObject m_endUI;
@@ -303,11 +304,11 @@ public class MainSceneStateHolder : MonoBehaviour
 		m_endUI = GameObject.Find("EndUI").GetComponent<PauseObject>();
 		m_dirtys = GameObject.Find("StartVisualizeSystems").GetComponent<PauseObject>();
 		m_pauseSystems = GameObject.Find("StartStopSystems").GetComponent<PauseObject>();
+        m_dirtySystem = GameObject.Find("DirtySystem").GetComponent<PauseObject>();
+        //ActionRecordManager.sActionRecord.Reset();
 
-		//ActionRecordManager.sActionRecord.Reset();
-
-		//モード確認
-		SelectingCharactor no = GameObject.Find("CharNo").GetComponent<SelectingCharactor>();
+        //モード確認
+        SelectingCharactor no = GameObject.Find("CharNo").GetComponent<SelectingCharactor>();
 	//	if (no != null)
 		{
 			if (SceneData.modeSelect == PlayModeState.NORMAL)
@@ -324,7 +325,7 @@ public class MainSceneStateHolder : MonoBehaviour
 				m_dirtyCounterUI.pausing = true;
 				m_washChainUI.pausing = true;
 				m_pauseSystems.pausing = true;
-				m_dirtys.gameObject.SetActive(false);
+				//m_dirtys.gameObject.SetActive(false);
 
 			}
 		}
@@ -527,10 +528,13 @@ public class MainSceneStateHolder : MonoBehaviour
 				{
 					case MainState.START:
 						m_pauseSystems.pausing = true;
-						break;
+                        m_dirtySystem.pausing = true;
+
+                        break;
 					case MainState.PLAY:
 						m_pauseSystems.pausing = true;
-						break;
+                        m_dirtySystem.pausing = true;
+                        break;
 					case MainState.PAUSE:
 						// 前の状態はポーズ
 						m_sizeIconUI.pausing = false;
@@ -562,13 +566,16 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_pauseObjects.pausing = false;
 						m_pauseScreenUI.pausing = true;
 						m_pauseSystems.pausing = true;
-						break;
+                        m_dirtySystem.pausing = true;
+                        break;
 					case MainState.PLAY_RECORD:
 						m_pauseSystems.pausing = true;
-						break;
+                        m_dirtySystem.pausing = true;
+                        break;
 					case MainState.END:
 						m_pauseSystems.pausing = true;
-						break;
+                        m_dirtySystem.pausing = true;
+                        break;
 					default:
 						break;
 
@@ -594,7 +601,8 @@ public class MainSceneStateHolder : MonoBehaviour
 
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
-						if (m_dirtys)
+                        m_dirtySystem.pausing = false;
+                        if (m_dirtys)
 						{
 							m_dirtys.pausing = false;
 						}
@@ -630,8 +638,9 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_pushKeyUI.pausing = true;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
+                        m_dirtySystem.pausing = false;
 
-						m_pauseScreenUI.pausing = true;
+                        m_pauseScreenUI.pausing = true;
 						m_dirtys.pausing = false;
 						player.GetComponent<PlayerCharacterController>().isNotJump = true;
 						//フリープレイ時オフ
@@ -663,7 +672,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
-						if (m_dirtys)
+                        m_dirtySystem.pausing = false;
+                        if (m_dirtys)
 						{
 							m_dirtys.pausing = true;
 						}
@@ -698,7 +708,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						m_pushKeyUI.pausing = true;
 						m_pauseObjects.pausing = false;
 						m_pauseSystems.pausing = false;
-						if (m_dirtys)
+                        m_dirtySystem.pausing = false;
+                        if (m_dirtys)
 						{
 							m_dirtys.pausing = true;
 						}
@@ -753,7 +764,8 @@ public class MainSceneStateHolder : MonoBehaviour
 						
 						m_pauseObjects.pausing = true;
 						m_pauseSystems.pausing = true;
-						if (m_dirtys)
+                        m_dirtySystem.pausing = true;
+                        if (m_dirtys)
 						{
 							m_dirtys.pausing = true;
 						} 
@@ -775,7 +787,8 @@ public class MainSceneStateHolder : MonoBehaviour
 
 						m_pauseObjects.pausing = true;
 						m_pauseSystems.pausing = true;
-						if (m_dirtys)
+                        m_dirtySystem.pausing = true;
+                        if (m_dirtys)
 						{
 							m_dirtys.pausing = true;
 						}
