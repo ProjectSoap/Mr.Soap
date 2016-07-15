@@ -22,12 +22,15 @@ public class DirtyWashUIImage
 	float m_vanishTime = 5;
 
 	Image m_image;
+	[SerializeField]
+	float m_alpha;
 
 	// Use this for initialization
 	void Start ()
 	{
-		m_image = GetComponent<Image>();
-		m_image.material.SetColor("Tint",new Color(1,1,1,0));
+		m_image = GetComponent<Image>(); 
+
+        m_image.material.SetColor("Tint",new Color(1,1,1,0));
 	}
 	
 	void UpdateState()
@@ -44,7 +47,7 @@ public class DirtyWashUIImage
 
 				break;
 			case EState.VANISH:
-				if (m_appearanceTime < m_controlTime)
+				if (m_vanishTime < m_controlTime)
 				{
 					StateEnterProcesss();
 					m_state = EState.DESTROY;
@@ -103,10 +106,12 @@ public class DirtyWashUIImage
 		switch (m_state)
 		{
 			case EState.APPEARANCE:
-				m_image.material.SetFloat("_MaskAlpha", m_controlTime / m_appearanceTime);
+				m_alpha = m_controlTime / m_appearanceTime;
+
+				m_image.material.SetFloat("_MaskAlpha", m_alpha);
 				break;
 			case EState.VANISH:
-				m_image.color  = new Color(m_image.color.r, m_image.color.g, m_image.color.b,1 - ( m_controlTime / m_appearanceTime));
+				m_image.color  = new Color(m_image.color.r, m_image.color.g, m_image.color.b,1 - ( m_controlTime / m_vanishTime));
 
 				break;
 			case EState.DESTROY:

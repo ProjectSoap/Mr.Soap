@@ -42,8 +42,10 @@ public class DirtyWashUI
 			m_image.color = dirty.MyColor;
 			GameObject newImage = Instantiate(m_imageSample, screenPosition, new Quaternion(0,0,z,1)) as GameObject;
 			newImage.transform.parent = this.transform;
+            newImage.GetComponent<Image>().material = Resources.Load("Material/DirtyWashUI") as Material;
 
-		}
+
+        }
 	}
 
 	Vector3 TransVewportPosition(Vector3 worldPosition)
