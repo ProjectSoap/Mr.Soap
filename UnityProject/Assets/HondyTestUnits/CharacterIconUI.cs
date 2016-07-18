@@ -3,16 +3,65 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class CharacterIconUI : MonoBehaviour {
-	
+
+	// キャラの状態その1 こっち最優先に切り替え
+	public enum ECharacterState
+	{
+		NORMAL,
+		DAMAGE,
+		HEAL,
+		WASH_CHAIN,
+		STATE_MAX
+	}
+
+	// キャラの状態その2 基本こっち
+	public enum EHealthState
+	{
+		COMPLETE_RECOVERY,  // だいたい全快
+		MINOR_INJURY,       // 軽傷
+		SERIOUS_INJURY,     // 重傷
+		STATE_MAX
+	}
+
 	PlayerCharacterController player;
 	SpriteSwitcher switcher;
-	Sprite[] m_helthSpriteArray;
-	Sprite[] m_stateSpriteArray;
+
+	private bool m_isWashChain;
+	public bool IsWashChain
+	{
+		get { return m_isWashChain; }
+		set { m_isWashChain = value; }
+	}
+	private bool m_isHeal;
+	public bool IsHeal
+	{
+		get { return m_isHeal; }
+		set { m_isHeal = value; }
+	}
+
+	[SerializeField]
+	Sprite[] m_sekken_kunHelthSpriteArray = new Sprite[(int)EHealthState.STATE_MAX];
+	[SerializeField]
+	Sprite[] m_sekken_kunStateSpriteArray = new Sprite[(int)ECharacterState.STATE_MAX];
+
+	[SerializeField]
+	Sprite[] m_sekken_chanHelthSpriteArray = new Sprite[(int)EHealthState.STATE_MAX];
+	[SerializeField]
+	Sprite[] m_sekken_chanStateSpriteArray = new Sprite[(int)ECharacterState.STATE_MAX];
+
+
+	[SerializeField]
+	Sprite[] m_sekken_HeroHelthSpriteArray = new Sprite[(int)EHealthState.STATE_MAX];
+	[SerializeField]
+	Sprite[] m_sekken_HeroStateSpriteArray = new Sprite[(int)ECharacterState.STATE_MAX];
 
 	Image iconOverFrame;
+	Image m_iconImage;
 	public int m_characterNum;
 	public int m_characterMax = 3;
 
+    private float m_controlTime = 0;
+    private float m_changeIconTime = 1.0f;
 	[SerializeField]
 	float m_helthMax = 100;
 	[SerializeField,Header("軽傷と全快の境界")]
@@ -27,29 +76,6 @@ public class CharacterIconUI : MonoBehaviour {
 	[SerializeField, Header("重傷状態のフレームの色")]
 	Color m_seriousInjuryColor;
 
-	float m_controlTime;	// 制御用の時間計測変数
-
-	[SerializeField,Header("ダメージを受けた時などにアイコンを変える時間")]
-	float m_changingIconTime = 0.5f;
-	// キャラの状態その1 こっち最優先に切り替え
-	public enum ECharacterState
-	{
-		NORMAL,
-		DAMAGE,
-		HEAL,
-		WASH_CHAIN,
-		DEAD,
-		STATE_MAX
-	}
-
-	// キャラの状態その2 基本こっち
-	public enum EHealthState
-	{
-		COMPLETE_RECOVERY,	// だいたい全快
-		MINOR_INJURY,		// 軽傷
-		SERIOUS_INJURY,		// 重傷
-		STATE_MAX
-	}
 
 	ECharacterState m_characterState;
 	public CharacterIconUI.ECharacterState CharacterState
@@ -69,7 +95,7 @@ public class CharacterIconUI : MonoBehaviour {
 		player = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacterController>();
 		switcher = this.transform.FindChild("SizeIcon").gameObject.GetComponent<SpriteSwitcher>();
 		iconOverFrame = GameObject.Find("SizeIconOverFrame").GetComponent<Image>();
-
+		m_iconImage = GameObject.Find("SizeIcon").GetComponent<Image>();
 		m_characterNum =(int)SceneData.characterSelect;
 
 		HealthStateEnterProcess();
@@ -96,22 +122,104 @@ public class CharacterIconUI : MonoBehaviour {
 					CharacterStateExitProcess();
 					m_characterState = ECharacterState.DAMAGE;
 					CharacterStateEnterProcess();
-				}
-				break;
+                }
+                if (m_isHeal)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.HEAL;
+                    CharacterStateEnterProcess();
+                }
+
+                if (m_isWashChain)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.WASH_CHAIN;
+                    CharacterStateEnterProcess();
+                }
+                break;
 			case ECharacterState.DAMAGE:
-				if (m_changingIconTime < m_controlTime)
+				if (player.state != PlayerCharacterController.DriveState.Damage)
 				{
 					CharacterStateExitProcess();
 					m_characterState = ECharacterState.NORMAL;
 					CharacterStateEnterProcess();
 				}
-				break;
+		        if (m_isHeal)
+		        {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.HEAL;
+                    CharacterStateEnterProcess();
+                }
+
+                if (m_isWashChain)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.WASH_CHAIN;
+                    CharacterStateEnterProcess();
+                }
+                break;
 			case ECharacterState.HEAL:
-				break;
+		        if (m_changeIconTime < m_controlTime)
+                {
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.NORMAL;
+                    CharacterStateEnterProcess();
+                }
+		        if (player.state == PlayerCharacterController.DriveState.Damage)
+                {
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.DAMAGE;
+                    CharacterStateEnterProcess();
+                }
+                if (m_isHeal)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.HEAL;
+                    CharacterStateEnterProcess();
+                }
+
+                if (m_isWashChain)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.WASH_CHAIN;
+                    CharacterStateEnterProcess();
+                }
+                break;
 			case ECharacterState.WASH_CHAIN:
-				break;
-			case ECharacterState.DEAD:
-				break;
+                if (m_changeIconTime < m_controlTime)
+                {
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.NORMAL;
+                    CharacterStateEnterProcess();
+                }
+                if (player.state == PlayerCharacterController.DriveState.Damage)
+                {
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.DAMAGE;
+                    CharacterStateEnterProcess();
+                }
+                if (m_isHeal)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.HEAL;
+                    CharacterStateEnterProcess();
+                }
+
+                if (m_isWashChain)
+                {
+
+                    CharacterStateExitProcess();
+                    m_characterState = ECharacterState.WASH_CHAIN;
+                    CharacterStateEnterProcess();
+                }
+                break;
 			default:
 				break;
 		}
@@ -175,15 +283,17 @@ public class CharacterIconUI : MonoBehaviour {
 		switch (m_characterState)
 		{
 			case ECharacterState.NORMAL:
-				break;
+                m_controlTime = 0;
+                break;
 			case ECharacterState.DAMAGE:
+		        m_controlTime = 0;
 				break;
 			case ECharacterState.HEAL:
-				break;
+                m_controlTime = 0;
+                break;
 			case ECharacterState.WASH_CHAIN:
-				break;
-			case ECharacterState.DEAD:
-				break;
+                m_controlTime = 0;
+                break;
 			default:
 				break;
 		}
@@ -210,14 +320,64 @@ public class CharacterIconUI : MonoBehaviour {
 		switch (m_characterState)
 		{
 			case ECharacterState.NORMAL:
+
+				switch (m_characterNum)
+				{
+					case 0:
+						m_iconImage.sprite = m_sekken_kunHelthSpriteArray[(int)m_healthState];
+						break;
+					case 1:
+						m_iconImage.sprite = m_sekken_HeroHelthSpriteArray[(int)m_healthState];
+						break;
+					case 2:
+						m_iconImage.sprite = m_sekken_chanHelthSpriteArray[(int)m_healthState];
+						break;
+				}
 				break;
 			case ECharacterState.DAMAGE:
+				switch (m_characterNum)
+				{
+					case 0:
+						m_iconImage.sprite = m_sekken_kunStateSpriteArray[(int)m_characterState];
+						break;
+					case 1:
+						m_iconImage.sprite = m_sekken_HeroStateSpriteArray[(int)m_characterState];
+						break;
+					case 2:
+						m_iconImage.sprite = m_sekken_chanStateSpriteArray[(int)m_characterState];
+						break;
+				}
 				break;
 			case ECharacterState.HEAL:
+		        m_isHeal = false;
+               
+                switch (m_characterNum)
+				{
+					case 0:
+						m_iconImage.sprite = m_sekken_kunStateSpriteArray[(int)m_characterState];
+						break;
+					case 1:
+						m_iconImage.sprite = m_sekken_HeroStateSpriteArray[(int)m_characterState];
+						break;
+					case 2:
+						m_iconImage.sprite = m_sekken_chanStateSpriteArray[(int)m_characterState];
+						break;
+				}
 				break;
 			case ECharacterState.WASH_CHAIN:
-				break;
-			case ECharacterState.DEAD:
+                m_isWashChain = false;
+                switch (m_characterNum)
+				{
+					case 0:
+						m_iconImage.sprite = m_sekken_kunStateSpriteArray[(int)m_characterState];
+						break;
+					case 1:
+						m_iconImage.sprite = m_sekken_HeroStateSpriteArray[(int)m_characterState];
+						break;
+					case 2:
+						m_iconImage.sprite = m_sekken_chanStateSpriteArray[(int)m_characterState];
+						break;
+				}
 				break;
 			default:
 				break;
@@ -229,15 +389,58 @@ public class CharacterIconUI : MonoBehaviour {
 		switch (m_healthState)
 		{
 			case EHealthState.COMPLETE_RECOVERY:
-				switcher.SetNumber(0 + m_characterMax * m_characterNum);
+
+				if (m_characterState == ECharacterState.NORMAL)
+				{
+					switch (m_characterNum)
+					{
+						case 0:
+							m_iconImage.sprite = m_sekken_kunHelthSpriteArray[(int)m_healthState];
+							break;
+						case 1:
+							m_iconImage.sprite = m_sekken_HeroHelthSpriteArray[(int)m_healthState];
+							break;
+						case 2:
+							m_iconImage.sprite = m_sekken_chanHelthSpriteArray[(int)m_healthState];
+							break;
+					}
+				}
 				iconOverFrame.color = m_completeRecoveryColor;
 				break;
 			case EHealthState.MINOR_INJURY:
-				switcher.SetNumber(1 + m_characterMax * m_characterNum);
+				if (m_characterState == ECharacterState.NORMAL)
+				{
+					switch (m_characterNum)
+					{
+						case 0:
+							m_iconImage.sprite = m_sekken_kunHelthSpriteArray[(int)m_healthState];
+							break;
+						case 1:
+							m_iconImage.sprite = m_sekken_HeroHelthSpriteArray[(int)m_healthState];
+							break;
+						case 2:
+							m_iconImage.sprite = m_sekken_chanHelthSpriteArray[(int)m_healthState];
+							break;
+					}
+				}
 				iconOverFrame.color = m_minorInjuryColor;
 				break;
 			case EHealthState.SERIOUS_INJURY:
-				switcher.SetNumber(2 + m_characterMax * m_characterNum);
+				if (m_characterState == ECharacterState.NORMAL)
+				{
+					switch (m_characterNum)
+					{
+						case 0:
+							m_iconImage.sprite = m_sekken_kunHelthSpriteArray[(int)m_healthState];
+							break;
+						case 1:
+							m_iconImage.sprite = m_sekken_HeroHelthSpriteArray[(int)m_healthState];
+							break;
+						case 2:
+							m_iconImage.sprite = m_sekken_chanHelthSpriteArray[(int)m_healthState];
+							break;
+					}
+				}
 				iconOverFrame.color = m_seriousInjuryColor;
 				break;
 			default:
@@ -252,13 +455,15 @@ public class CharacterIconUI : MonoBehaviour {
 			case ECharacterState.NORMAL:
 				break;
 			case ECharacterState.DAMAGE:
+
 				break;
 			case ECharacterState.HEAL:
-				break;
+
+                m_controlTime += Time.deltaTime;
+                break;
 			case ECharacterState.WASH_CHAIN:
-				break;
-			case ECharacterState.DEAD:
-				break;
+                m_controlTime += Time.deltaTime;
+                break;
 			default:
 				break;
 		}

@@ -41,6 +41,19 @@ public class CharacterWordsUI
 		SekkenHero
 	};
 
+	private bool m_isWashChain;
+	public bool IsWashChain
+	{
+		get { return m_isWashChain; }
+		set { m_isWashChain = value; }
+	}
+	private bool m_isHeal;
+	public bool IsHeal
+	{
+		get { return m_isHeal; }
+		set { m_isHeal = value; }
+	}
+
 	[SerializeField, Tooltip("セリフを表示する時間")]
 	private float drawTime = 3.0f;
 	[SerializeField, Tooltip("セリフが最大サイズに到達するまでの時間")]
