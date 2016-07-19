@@ -141,7 +141,14 @@ public class DirtyApparancePosition : MonoBehaviour {
 				if (dirtyObjectInstance[i] == null)
 				{
 
-					dirtyObjectInstance[i] = ((GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation)).GetComponent<DirtyObjectScript>();
+                    if (m_isReality)
+                    {
+                        if (GameObject.Find("MainState").GetComponent<MainSceneStateHolder>().m_modeState == MainSceneStateHolder.ModeState.FREE_PLAY)
+                        {
+                            return;
+                        }
+                    }
+                    dirtyObjectInstance[i] = ((GameObject)Instantiate(dirtyObject, pos + transform.position, transform.rotation)).GetComponent<DirtyObjectScript>();
 
 					// 親子関係的なものを構築
 					DirtyObjectScript obj = dirtyObjectInstance[i].GetComponent<DirtyObjectScript>();
