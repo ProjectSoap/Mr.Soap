@@ -27,6 +27,8 @@ public class DirtySystem : MonoBehaviour
 
 	bool isRunning;
 
+    private MainSceneStateHolder m_mainState;
+
 	/**
 	 * <summary>Gets or sets a value indicating whether this object is running.</summary>
 	 *
@@ -320,7 +322,6 @@ public class DirtySystem : MonoBehaviour
 
 	void Start ()
 	{
-
 		wordsUI = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
 
 		isRunning = true;
@@ -538,43 +539,44 @@ public class DirtySystem : MonoBehaviour
 
 		//// レアの汚れ
 
+	    {
+            if (RealityPoint1)
+            {
+                RealityPoint1.ParntDirtySystem = this;
+                RealityPoint1.IsReality = true;
+                RealityPoint1.AffiliationArea = 0;
+                RealityPoint1.Player = player;
+                RealityPoint1.Init(player);
 
-		if (RealityPoint1)
-		{
-			RealityPoint1.ParntDirtySystem = this;
-			RealityPoint1.IsReality = true;
-			RealityPoint1.AffiliationArea = 0;
-			RealityPoint1.Player = player;
-			RealityPoint1.Init(player);
-
-		}
+            }
 
 
-		if (RealityPoint2)
-		{
-			RealityPoint2.ParntDirtySystem = this;
-			RealityPoint2.IsReality = true;
-			RealityPoint2.AffiliationArea = 1;
-			RealityPoint2.Player = player;
-			RealityPoint2.Init(player);
-		}
-		if (RealityPoint3)
-		{
-			RealityPoint3.ParntDirtySystem = this;
-			RealityPoint3.IsReality = true;
-			RealityPoint3.AffiliationArea = 2;
-			RealityPoint3.Player = player;
-			RealityPoint3.Init(player);
-		}
-		if (RealityPoint4)
-		{
-			
-			RealityPoint4.ParntDirtySystem = this;
-			RealityPoint4.IsReality = true;
-			RealityPoint4.AffiliationArea = 3;
-			RealityPoint4.Player = player;
-			RealityPoint4.Init(player);
-		}
+            if (RealityPoint2)
+            {
+                RealityPoint2.ParntDirtySystem = this;
+                RealityPoint2.IsReality = true;
+                RealityPoint2.AffiliationArea = 1;
+                RealityPoint2.Player = player;
+                RealityPoint2.Init(player);
+            }
+            if (RealityPoint3)
+            {
+                RealityPoint3.ParntDirtySystem = this;
+                RealityPoint3.IsReality = true;
+                RealityPoint3.AffiliationArea = 2;
+                RealityPoint3.Player = player;
+                RealityPoint3.Init(player);
+            }
+            if (RealityPoint4)
+            {
+
+                RealityPoint4.ParntDirtySystem = this;
+                RealityPoint4.IsReality = true;
+                RealityPoint4.AffiliationArea = 3;
+                RealityPoint4.Player = player;
+                RealityPoint4.Init(player);
+            }
+        }
 
 	}
 

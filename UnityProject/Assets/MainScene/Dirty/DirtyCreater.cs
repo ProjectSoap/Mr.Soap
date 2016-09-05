@@ -216,7 +216,14 @@ public class DirtyCreater : MonoBehaviour {
 			// フラグが立ってるなら汚れ作る
 			if (isCreate)
 			{
-				int num = appearancePoints.Length;
+			    if (isReality)
+			    {
+                    if(GameObject.Find("MainState").GetComponent<MainSceneStateHolder>().m_modeState == MainSceneStateHolder.ModeState.FREE_PLAY)
+                    {
+                        return;
+                    }
+			    }
+			    int num = appearancePoints.Length;
 				bool isCreated = false;	// 今回生成したか
 				for (int i = 0;i < num;i++)
 				{

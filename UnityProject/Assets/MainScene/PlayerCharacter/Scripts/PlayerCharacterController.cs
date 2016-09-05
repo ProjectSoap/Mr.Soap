@@ -163,6 +163,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     // SayUI
     CharacterWordsUI m_sayUI;
+    // icon ui
+    CharacterIconUI m_characterIcon;
 
     // States
     [SerializeField, Header("デバッグ用")]
@@ -208,13 +210,13 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField]
     float m_size = 100;
 
-	[SerializeField]
-	uint m_inSectionNow;   // 現在のプレイヤーのいる区画
+    [SerializeField]
+    uint m_inSectionNow;   // 現在のプレイヤーのいる区画
 
-	[SerializeField]
-	uint m_inSectionOld;   //	プレイヤーが前いた区画
-						//float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
-	Vector3 m_defaultScale = new Vector3(1, 1, 1);
+    [SerializeField]
+    uint m_inSectionOld;   //	プレイヤーが前いた区画
+                        //float       m_scaleMagnification  = 1.0f;     // 大きさ倍率
+    Vector3 m_defaultScale = new Vector3(1, 1, 1);
 
     // Input
     bool m_isPushJump = false;
@@ -271,6 +273,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     [SerializeField]
     bool m_fuck;
+
 
     // Property
     public PlayerCharacterAnimationBehaviour stateMachineBehaviour
@@ -342,19 +345,19 @@ public class PlayerCharacterController : MonoBehaviour
         set { m_isNotJump = value; }
     }
 
-	public uint inSectionNow
-	{
-		get { return m_inSectionNow; }
-		set { m_inSectionNow = value; }
-	}
+    public uint inSectionNow
+    {
+        get { return m_inSectionNow; }
+        set { m_inSectionNow = value; }
+    }
 
-	public uint inSectionOld
-	{
-		get { return m_inSectionOld; }
-		set { m_inSectionOld = value; }
-	}
+    public uint inSectionOld
+    {
+        get { return m_inSectionOld; }
+        set { m_inSectionOld = value; }
+    }
 
-	void Awake()
+    void Awake()
     {
         gameObject.name = "PlayerCharacter";
     }
@@ -374,7 +377,7 @@ public class PlayerCharacterController : MonoBehaviour
         m_pauseObjectTransform      = transform.parent;
         m_sayUI                     = GameObject.Find("SekkenSayUI").GetComponent<CharacterWordsUI>();
         m_playerCamera              = GameObject.Find("MainCamera").GetComponent<PlayerCamera>();
-
+        m_characterIcon             = GameObject.Find("SizeIconUI").GetComponent<CharacterIconUI>();
         m_driftParticleSystemRight.enableEmission   = false;
         m_driftParticleSystemLeft.enableEmission    = false;
         m_driftParticleSystemRight.Clear();
@@ -562,6 +565,7 @@ public class PlayerCharacterController : MonoBehaviour
         {
             Debug.Log("Sekkenkun Died");
             m_driveState = DriveState.End;
+            m_sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.DEAD);
             m_moveBubbleSystem.enableEmission = false;
 
             m_velocity = 0.0f;
@@ -1107,7 +1111,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         m_size += m_healSizeWashChain;
         m_size = Mathf.Clamp(m_size, .0f, m_maxSize);
-        m_sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.RECOVERY);
+        m_sayUI.DrawSayTexture(CharacterWordsUI.ESayTexName.WASH_CHAIN);
 
         var particleEmitter = Instantiate(m_healParticleEmitter, transform.position, transform.rotation) as GameObject;
         var particleSystem = particleEmitter.GetComponent<ParticleSystem>();
@@ -1115,6 +1119,8 @@ public class PlayerCharacterController : MonoBehaviour
         particleEmitter.transform.parent = transform;
 
         Destroy(particleEmitter, particleSystem.duration);
+        m_characterIcon.IsWashChain = true;
+        m_sayUI.IsWashChain = true;
 
         BGMManager.Instance.PlaySE("Wash_Chain_MAX");
     }
@@ -1133,7 +1139,8 @@ public class PlayerCharacterController : MonoBehaviour
         particleEmitter.transform.parent = transform;
 
         Destroy(particleEmitter, particleSystem.duration);
-
+        m_characterIcon.IsHeal = true;
+        m_sayUI.IsHeal = true;
         BGMManager.Instance.PlaySE("Recovery");
     }
 
