@@ -127,7 +127,6 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 		area[2] = (int)m_player.inSectionNow + 1;	// 現在から右の位置にある小区画
 		area[3] = (int)m_player.inSectionNow + 4;   // 現在から下の位置にある小区画
 
-
 		if (m_player.inSectionNow % 4 == 0)
 		{
 			//4x4の配列で左端の場合は存在しない扱いにする
@@ -184,10 +183,16 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 					}
 				}
 			}
-
 		}
 		float probabilityCurrent = 0;
 		float probabilityOther = 0;
+
+        if (m_player.inSectionNow != m_player.inSectionOld)
+        {
+            otherCount--;
+        }
+
+
 		if (otherCount > 0)
 		{
 			// 他区画の基本確立を他区画の候補地の個数分で割る
@@ -217,6 +222,10 @@ public class RecoverySoapCreatersManager : MonoBehaviour {
 				{
 					probability[i] = probabilityCurrent;
 				}
+                else if(CheckSection(area[i]) == CheckSection((int)m_player.inSectionOld))
+                {
+                    probability[i] = 0;
+                }
 				else
 				{
 					probability[i] = probabilityOther;
