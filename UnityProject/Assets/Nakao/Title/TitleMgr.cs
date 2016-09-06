@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class TitleMgr : MonoBehaviour {
 
@@ -26,6 +27,16 @@ public class TitleMgr : MonoBehaviour {
 
     public State m_state;
 
+    public bool quit_ques;
+
+    public GameObject endSystem;
+
+    public GameObject frame;
+    // ボタン
+    public List<GameObject> endbutton;
+
+    public int no;
+
     /*
     // デバッグ
     void DebugInput()
@@ -39,12 +50,13 @@ public class TitleMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Application.targetFrameRate = 60;   //60flame設定
-        Jumpflag = false;
+        Jumpflag = quit_ques = false;
         // sprite 
         m_logoBackImage = GameObject.Find("HalLogoBack").GetComponent<Image>();
         m_logoImage = GameObject.Find("HalLogo").GetComponent<Image>();
         //def = GameObject.Find("Rogo").GetComponent<Rogo>().RotateSpeed;
-
+        frame.transform.localPosition = endbutton[1].GetComponent<Transform>().transform.localPosition;
+        endSystem.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -68,7 +80,7 @@ public class TitleMgr : MonoBehaviour {
             case State.TITLE:
 
 
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && quit_ques == false )
                 {
                     //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
                     //fade.ChangeScene("menu");
@@ -114,20 +126,68 @@ public class TitleMgr : MonoBehaviour {
 
     void UpdateInput()
     {
-        if ((Input.anyKeyDown &&
-            (Input.GetKeyDown(KeyCode.Mouse0) == false) &&
-            (Input.GetKeyDown(KeyCode.Mouse1) == false) &&
-            (Input.GetKeyDown(KeyCode.Mouse2) == false)) && Jumpflag == false)
+        if (((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0))) && Jumpflag == false)
         {
             // ボタンを押した
-            if (Jumpflag == false)
+            if (Jumpflag == false && quit_ques == false)
             {
                 startTime = Time.timeSinceLevelLoad;
               //  BGMManager.Instance.PlaySE("se_select");
                 moveScale = new Vector3(2.75f, 2.75f, 2.75f);
+                Jumpflag = true;
             }
-            Jumpflag = true;
+            if(quit_ques)
+            {
+                if (no == 0)
+                {
+                    Application.Quit();
+                }
+                else
+                {
+                    quit_ques = false;
+                    endSystem.SetActive(false);
+                }
+            }
+            
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (quit_ques)
+            {
+                quit_ques = false;
+                endSystem.SetActive(false);
+            }
+            else
+            {
+                endSystem.SetActive(true);
+                quit_ques = true;
+            }
+        }
+
+        if(quit_ques)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (no > 0)
+                {
+                    no--;
+                }
+                //                BGMManager.Instance.PlaySE("se_key_move");
+  //              BGMManager.Instance.PlaySE("Cursor_Move");
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                //              BGMManager.Instance.PlaySE("se_key_move");
+                if (no < 1)
+                {
+                    no++;
+                }
+//                BGMManager.Instance.PlaySE("Cursor_Move");
+            }
+            ChangeMoveCur();
+        }
+
     }
 
     void JumpScene()
@@ -156,9 +216,23 @@ public class TitleMgr : MonoBehaviour {
         }
     }
 
-    private Transform ToPos;
-    private Transform FromPos;
-    float time;
+    private Transform ToTrans;
+    private Transform FromTrans;
+    public Vector3 ScalingCur = new Vector3(1.004f, 1.004f, 1.004f);
+    public float MoveCurTime = 1.0f;
     private float startTime;
+    void ChangeMoveCur()
+    {
+        ToTrans = endbutton[no].GetComponent<Transform>().transform;
+        FromTrans = frame.GetComponent<Transform>().transform;
+
+        var diff = Time.timeSinceLevelLoad - startTime;
+        var rate = diff / MoveCurTime;
+
+        // 移動
+        frame.GetComponent<Transform>().transform.localPosition = ToTrans.transform.localPosition;
+
+
+    }
 
 }
