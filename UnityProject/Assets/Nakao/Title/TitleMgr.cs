@@ -57,6 +57,8 @@ public class TitleMgr : MonoBehaviour {
         //def = GameObject.Find("Rogo").GetComponent<Rogo>().RotateSpeed;
         frame.transform.localPosition = endbutton[1].GetComponent<Transform>().transform.localPosition;
         endSystem.SetActive(false);
+        m_logoBackImage.color = new UnityEngine.Color(1.0f, 1.0f, 1.0f, 1.0f);
+        m_logoImage.color = new UnityEngine.Color(0, 0, 0, 0);
     }
 	
 	// Update is called once per frame
@@ -69,7 +71,15 @@ public class TitleMgr : MonoBehaviour {
         {
             case State.HAL_LOGO:
                 m_logoTime += Time.deltaTime;
-                if (3 <= m_logoTime)
+                if (m_logoTime <= 3.0f)
+                {
+                    m_logoImage.color = new UnityEngine.Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(0, 1, m_logoTime / 3.0f));
+                }
+                else if (3.5f < m_logoTime && m_logoTime <= 5.5f)
+                {
+                    m_logoImage.color = new UnityEngine.Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(1, 0, (m_logoTime-3.5f) / 2.0f));
+                }
+                else if (5.5f < m_logoTime)
                 {
                     m_logoBackImage.color = new UnityEngine.Color(0, 0, 0, 0);
                     m_logoImage.color = new UnityEngine.Color(0, 0, 0, 0);
