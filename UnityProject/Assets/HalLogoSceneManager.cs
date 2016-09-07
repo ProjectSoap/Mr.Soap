@@ -29,8 +29,8 @@ public class HalLogoSceneManager : MonoBehaviour {
         }
         else if (5.5f < m_logoTime)
         {
-            m_logoBackImage.color = new UnityEngine.Color(0, 0, 0, 0);
-            m_logoImage.color = new UnityEngine.Color(0, 0, 0, 0);
+            m_logoBackImage.color = new UnityEngine.Color(1, 1, 1, 0);
+            m_logoImage.color = new UnityEngine.Color(1, 1, 1, 0);
             Application.LoadLevel("sekTitle");
         }
 

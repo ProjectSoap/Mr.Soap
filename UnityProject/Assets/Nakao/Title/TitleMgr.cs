@@ -42,6 +42,7 @@ public class TitleMgr : MonoBehaviour {
         //def = GameObject.Find("Rogo").GetComponent<Rogo>().RotateSpeed;
         frame.transform.localPosition = endbutton[1].GetComponent<Transform>().transform.localPosition;
         endSystem.SetActive(false);
+        BGMManager.Instance.PlayBGM("Title", 1.0f);
     }
 	
 	// Update is called once per frame
