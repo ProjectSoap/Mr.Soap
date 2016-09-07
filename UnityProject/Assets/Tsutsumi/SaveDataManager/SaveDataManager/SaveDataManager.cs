@@ -177,15 +177,15 @@ public class SaveDataManager : MonoBehaviour {
             SaveData(ESaveDataNo.RankingPoint10, 10);
 
             SaveData(ESaveDataStringNo.RankingName1, "ヒーロー");
-            SaveData(ESaveDataStringNo.RankingName2, "パパ");
-            SaveData(ESaveDataStringNo.RankingName3, "ママ");
-            SaveData(ESaveDataStringNo.RankingName4, "ボク");
-            SaveData(ESaveDataStringNo.RankingName5, "ワタシ");
+            SaveData(ESaveDataStringNo.RankingName2, "せっけん");
+            SaveData(ESaveDataStringNo.RankingName3, "バブル");
+            SaveData(ESaveDataStringNo.RankingName4, "あわ");
+            SaveData(ESaveDataStringNo.RankingName5, "シャボン");
 
-            SaveData(ESaveDataStringNo.RankingName6, "シンジ");
-            SaveData(ESaveDataStringNo.RankingName7, "タケシ");
-            SaveData(ESaveDataStringNo.RankingName8, "ピース");
-            SaveData(ESaveDataStringNo.RankingName9, "シャム");
+            SaveData(ESaveDataStringNo.RankingName6, "ウォッシュ");
+            SaveData(ESaveDataStringNo.RankingName7, "ママ");
+            SaveData(ESaveDataStringNo.RankingName8, "パパ");
+            SaveData(ESaveDataStringNo.RankingName9, "ベイビー");
             SaveData(ESaveDataStringNo.RankingName10, "ホエー");
         }
 	}
