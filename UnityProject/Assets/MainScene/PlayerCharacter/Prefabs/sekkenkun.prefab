@@ -2227,20 +2227,20 @@ MonoBehaviour:
   m_rotationDecrementionRate: .899999976
   m_rotationPowerNormal: 140
   m_rotationPowerDrift: 180
-  m_maxRotationNormal: 90
-  m_maxRotationDrift: 100
-  m_driftStartInputTime: .899999976
+  m_maxRotationNormal: 100
+  m_maxRotationDrift: 115
+  m_driftStartInputTime: .800000012
   m_driftBobbleCooldownTime: 1.5
   m_driftCancelHorizontal: .0659999996
-  m_breakeStartInputTime: .800000012
+  m_breakeStartInputTime: .400000006
   m_breakePower: .899999976
   m_breakeStartVelocity: 5
-  m_breakeStopVelocity: 1
-  m_breakeAfterEndTime: .800000012
+  m_breakeStopVelocity: 2
+  m_breakeAfterEndTime: .300000012
   m_jumpPower: 740
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .5
-  m_sizeDecrementionRate: 1.70000005
+  m_sizeDecrementionRate: 2
   m_damageSize: 20
   m_healSizeWashChain: 25
   m_healSizeItem: 50
@@ -6160,15 +6160,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_maxRotationDrift
-      value: 100
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_driftStartInputTime
-      value: .899999976
+      value: .800000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeStartInputTime
-      value: .800000012
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakePower
@@ -6176,7 +6176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeAfterEndTime
-      value: .800000012
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_jumpPower
@@ -6188,7 +6188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_sizeDecrementionRate
-      value: 1.70000005
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageSize
@@ -6269,6 +6269,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_rotationPowerNormal
       value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_maxRotationNormal
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_breakeStopVelocity
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

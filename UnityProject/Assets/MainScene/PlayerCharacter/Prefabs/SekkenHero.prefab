@@ -1229,26 +1229,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32bc5c8ec8f10249a8e0b1e935fa327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxVelocity: 8.5
+  m_maxVelocity: 8.69999981
   m_acceleration: 3
   m_rotationDecrementionRate: .899999976
   m_rotationPowerNormal: 180
-  m_rotationPowerDrift: 200
+  m_rotationPowerDrift: 210
   m_maxRotationNormal: 90
-  m_maxRotationDrift: 280
-  m_driftStartInputTime: .600000024
+  m_maxRotationDrift: 125
+  m_driftStartInputTime: .649999976
   m_driftBobbleCooldownTime: .5
   m_driftCancelHorizontal: 0
-  m_breakeStartInputTime: .699999988
+  m_breakeStartInputTime: .400000006
   m_breakePower: .899999976
   m_breakeStartVelocity: 5
-  m_breakeStopVelocity: 1
-  m_breakeAfterEndTime: .800000012
-  m_jumpPower: 480
+  m_breakeStopVelocity: 3
+  m_breakeAfterEndTime: .300000012
+  m_jumpPower: 420
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .600000024
-  m_sizeDecrementionRate: 1.5
-  m_damageSize: 15
+  m_sizeDecrementionRate: 2
+  m_damageSize: 20
   m_healSizeWashChain: 25
   m_healSizeItem: 50
   m_maxSize: 100
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_driftBubble: {fileID: 138776, guid: 4c280df8dce9ead47a8292bf60654be3, type: 2}
   m_breakeBubble: {fileID: 110968, guid: d271803280e156840b9f1d52922638fa, type: 2}
   m_jumpBubble: {fileID: 111272, guid: eef51fb30e8f8484aa61237a87d85e00, type: 2}
-  m_rainAddMaxVelocity: 1.5
+  m_rainAddMaxVelocity: 1.29999995
   m_rainAddAcceleration: .200000003
   m_windAddBubbleWidth: 1.5
   m_windAddBubbleHeight: .5
@@ -5081,7 +5081,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_maxVelocity
-      value: 8.5
+      value: 8.69999981
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_acceleration
@@ -5089,15 +5089,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_maxRotationDrift
-      value: 280
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_driftStartInputTime
-      value: .600000024
+      value: .649999976
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeStartInputTime
-      value: .699999988
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakePower
@@ -5105,11 +5105,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeAfterEndTime
-      value: .800000012
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_jumpPower
-      value: 480
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_groundCheckLayLength
@@ -5117,11 +5117,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_sizeDecrementionRate
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageSize
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_healSizeWashChain
@@ -5137,7 +5137,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_rainAddMaxVelocity
-      value: 1.5
+      value: 1.29999995
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_windAddBubbleWidth
@@ -5181,7 +5181,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_rotationPowerDrift
-      value: 200
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_breakeStopVelocity
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
