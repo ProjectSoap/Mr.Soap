@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nakao/Title/start.unity
   - enabled: 1
+    path: Assets/HondyTestUnits/halLogo.unity
+  - enabled: 1
     path: Assets/Nakao/Menu/Menu.unity
   - enabled: 1
     path: Assets/MainScene/main.unity

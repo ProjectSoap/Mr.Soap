@@ -13,20 +13,7 @@ public class TitleMgr : MonoBehaviour {
     private int def;
 
     public float m_triggerTime = 10;
-
-    public UnityEngine.UI.Image m_logoImage;
-    public UnityEngine.UI.Image m_logoBackImage;
-
-    public float m_logoTime;
-
-    public enum State
-    {
-        HAL_LOGO,
-        TITLE
-    }
-
-    public State m_state;
-
+    
     public bool quit_ques;
 
     public GameObject endSystem;
@@ -52,13 +39,9 @@ public class TitleMgr : MonoBehaviour {
         Application.targetFrameRate = 60;   //60flame設定
         Jumpflag = quit_ques = false;
         // sprite 
-        m_logoBackImage = GameObject.Find("HalLogoBack").GetComponent<Image>();
-        m_logoImage = GameObject.Find("HalLogo").GetComponent<Image>();
         //def = GameObject.Find("Rogo").GetComponent<Rogo>().RotateSpeed;
         frame.transform.localPosition = endbutton[1].GetComponent<Transform>().transform.localPosition;
         endSystem.SetActive(false);
-        m_logoBackImage.color = new UnityEngine.Color(1.0f, 1.0f, 1.0f, 1.0f);
-        m_logoImage.color = new UnityEngine.Color(0, 0, 0, 0);
     }
 	
 	// Update is called once per frame
@@ -67,71 +50,46 @@ public class TitleMgr : MonoBehaviour {
     public float ButtonWaitTime = 0.5f;
 	void Update ()
     {
-        switch (m_state)
+        
+        
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && quit_ques == false )
         {
-            case State.HAL_LOGO:
-                m_logoTime += Time.deltaTime;
-                if (m_logoTime <= 3.0f)
-                {
-                    m_logoImage.color = new UnityEngine.Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(0, 1, m_logoTime / 3.0f));
-                }
-                else if (3.5f < m_logoTime && m_logoTime <= 5.5f)
-                {
-                    m_logoImage.color = new UnityEngine.Color(1.0f, 1.0f, 1.0f, Mathf.Lerp(1, 0, (m_logoTime-3.5f) / 2.0f));
-                }
-                else if (5.5f < m_logoTime)
-                {
-                    m_logoBackImage.color = new UnityEngine.Color(0, 0, 0, 0);
-                    m_logoImage.color = new UnityEngine.Color(0, 0, 0, 0);
-                    m_state = State.TITLE;
-                    BGMManager.Instance.PlayBGM("Title", 1.0f);
-                }
-                break;
-            case State.TITLE:
-
-
-                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && quit_ques == false )
-                {
-                    //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
-                    //fade.ChangeScene("menu");
-                    BGMManager.Instance.PlaySE("Title_Start");
-                    Fade.ChangeScene("Menu");
-                }
-                // デバッグ
-                // DebugInput();
-
-                if (timer > ButtonWaitTime)
-                {
-                    UpdateInput();
-
-                    JumpScene();
-                }
-                else
-                {
-                    timer += Time.deltaTime;
-                }
-
-                //// セーブリセット
-                //if (Input.GetKey(KeyCode.F12))
-                //{
-                //    m_triggerTime -= Time.deltaTime;
-                //}
-                //else 
-                //{
-                //    m_triggerTime = 10;
-                //}
-                //if (m_triggerTime <= 0)
-                //{
-                //    SaveDataManager manager = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
-                //    manager.Reset();
-                //    Debug.Log("Save data reset!");
-                //}
-                //
-
-                break;
-            default:
-                break;
+            //Fade  fade = GameObject.Find("Fade").GetComponent<Fade>();
+            //fade.ChangeScene("menu");
+            BGMManager.Instance.PlaySE("Title_Start");
+            Fade.ChangeScene("Menu");
         }
+        // デバッグ
+        // DebugInput();
+        
+        if (timer > ButtonWaitTime)
+        {
+            UpdateInput();
+        
+            JumpScene();
+        }
+        else
+        {
+            timer += Time.deltaTime;
+        }
+        
+        //// セーブリセット
+        //if (Input.GetKey(KeyCode.F12))
+        //{
+        //    m_triggerTime -= Time.deltaTime;
+        //}
+        //else 
+        //{
+        //    m_triggerTime = 10;
+        //}
+        //if (m_triggerTime <= 0)
+        //{
+        //    SaveDataManager manager = GameObject.Find("SaveDataManager").GetComponent<SaveDataManager>();
+        //    manager.Reset();
+        //    Debug.Log("Save data reset!");
+        //}
+        //
+        
     }
 
     void UpdateInput()
