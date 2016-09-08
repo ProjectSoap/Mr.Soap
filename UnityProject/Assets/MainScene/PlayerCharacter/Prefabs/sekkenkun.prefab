@@ -2224,12 +2224,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxVelocity: 7
   m_acceleration: 2.5
-  m_rotationDecrementionRate: .699999988
+  m_rotationDecrementionRate: .75
   m_rotationPowerNormal: 140
   m_rotationPowerDrift: 180
   m_maxRotationNormal: 100
-  m_maxRotationDrift: 110
-  m_driftStartInputTime: .779999971
+  m_maxRotationDrift: 108
+  m_driftStartInputTime: .769999981
   m_driftBobbleCooldownTime: 1.5
   m_driftCancelHorizontal: .0659999996
   m_breakeStartInputTime: .400000006
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_healSizeItem: 50
   m_maxSize: 100
   m_damageVelocity: 4
-  m_damageAngle: 25
+  m_damageAngle: 28
   m_stayBuildingVelocityRate: .5
   m_stayBuildingMaxVelocity: 3
   m_damageAfterStopTime: 1
@@ -2267,7 +2267,7 @@ MonoBehaviour:
   m_followRateNormal: 0
   m_followRateDrift: 0
   m_driveState: 1
-  m_velocity: 4.0999999
+  m_velocity: 4.25
   m_rotation: 0
   m_pushProgressDriftKeyTime: 0
   m_pushRotationKeyTime: 0
@@ -6160,11 +6160,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_maxRotationDrift
-      value: 110
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_driftStartInputTime
-      value: .779999971
+      value: .769999981
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_breakeStartInputTime
@@ -6228,7 +6228,7 @@ Prefab:
       objectReference: {fileID: 106644}
     - target: {fileID: 0}
       propertyPath: m_velocity
-      value: 4.0999999
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_shotIntervelTime
@@ -6256,7 +6256,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageAngle
-      value: 25
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -6280,7 +6280,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_rotationDecrementionRate
-      value: .699999988
+      value: .75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

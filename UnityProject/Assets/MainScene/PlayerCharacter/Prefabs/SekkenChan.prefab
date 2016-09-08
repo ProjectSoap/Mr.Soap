@@ -2395,7 +2395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxVelocity: 7
   m_acceleration: 2.5
-  m_rotationDecrementionRate: .75
+  m_rotationDecrementionRate: .769999981
   m_rotationPowerNormal: 140
   m_rotationPowerDrift: 180
   m_maxRotationNormal: 100
@@ -2412,12 +2412,12 @@ MonoBehaviour:
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .600000024
   m_sizeDecrementionRate: 2
-  m_damageSize: 25
+  m_damageSize: 30
   m_healSizeWashChain: 25
   m_healSizeItem: 60
   m_maxSize: 100
   m_damageVelocity: 4
-  m_damageAngle: 25
+  m_damageAngle: 30
   m_stayBuildingVelocityRate: .5
   m_stayBuildingMaxVelocity: 3
   m_damageAfterStopTime: 1
@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_followRateNormal: 0
   m_followRateDrift: 0
   m_driveState: 1
-  m_velocity: 4
+  m_velocity: 4.19999981
   m_rotation: 0
   m_pushProgressDriftKeyTime: 0
   m_pushRotationKeyTime: 0
@@ -6325,7 +6325,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageSize
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_healSizeWashChain
@@ -6361,7 +6361,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_velocity
-      value: 4
+      value: 4.19999981
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_shotIntervelTime
@@ -6373,7 +6373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageAngle
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -6397,7 +6397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_rotationDecrementionRate
-      value: .75
+      value: .769999981
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

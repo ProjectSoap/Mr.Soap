@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_followRateNormal: 0
   m_followRateDrift: 0
   m_driveState: 1
-  m_velocity: 4
+  m_velocity: 4.19999981
   m_rotation: 0
   m_pushProgressDriftKeyTime: 0
   m_pushRotationKeyTime: 0
@@ -5157,7 +5157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_velocity
-      value: 4
+      value: 4.19999981
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_shotIntervelTime
