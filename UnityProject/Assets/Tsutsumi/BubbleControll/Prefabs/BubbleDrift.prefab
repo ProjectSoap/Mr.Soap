@@ -131,7 +131,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.39999998
+  m_Radius: 1.54999995
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19808358
 ParticleSystem:
@@ -3425,7 +3425,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: 1.39999998
+      value: 1.54999995
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsActive
