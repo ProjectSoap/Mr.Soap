@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_healSizeItem: 50
   m_maxSize: 100
   m_damageVelocity: 4
-  m_damageAngle: 28
+  m_damageAngle: 25
   m_stayBuildingVelocityRate: .5
   m_stayBuildingMaxVelocity: 3
   m_damageAfterStopTime: 1
@@ -2267,7 +2267,7 @@ MonoBehaviour:
   m_followRateNormal: 0
   m_followRateDrift: 0
   m_driveState: 1
-  m_velocity: 4.25
+  m_velocity: 4.30000019
   m_rotation: 0
   m_pushProgressDriftKeyTime: 0
   m_pushRotationKeyTime: 0
@@ -6228,7 +6228,7 @@ Prefab:
       objectReference: {fileID: 106644}
     - target: {fileID: 0}
       propertyPath: m_velocity
-      value: 4.25
+      value: 4.30000019
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_shotIntervelTime
@@ -6256,7 +6256,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_damageAngle
-      value: 28
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
