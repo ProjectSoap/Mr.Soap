@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxVelocity: 8.69999981
   m_acceleration: 3
-  m_rotationDecrementionRate: .899999976
+  m_rotationDecrementionRate: .800000012
   m_rotationPowerNormal: 180
   m_rotationPowerDrift: 210
   m_maxRotationNormal: 90
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_breakeStartVelocity: 5
   m_breakeStopVelocity: 3
   m_breakeAfterEndTime: .300000012
-  m_jumpPower: 420
+  m_jumpPower: 410
   m_jumpAfterEndTime: 1
   m_groundCheckLayLength: .600000024
   m_sizeDecrementionRate: 2
@@ -5109,7 +5109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_jumpPower
-      value: 420
+      value: 410
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_groundCheckLayLength
@@ -5186,6 +5186,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_breakeStopVelocity
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_rotationDecrementionRate
+      value: .800000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
